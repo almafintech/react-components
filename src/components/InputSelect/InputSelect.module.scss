@@ -1,0 +1,318 @@
+@import "../../styles/variables";
+@import "../../styles/helpers.scss";
+
+$confirm-actions-height: 100px;
+
+.base {
+  .innerWrapper {
+    color: $secondary-light-200;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  @include data-has-value {
+    .innerWrapper {
+      color: $primary-dark-900 !important;
+    }
+  }
+
+  .valueStyle {
+    width: fit-content !important;
+  }
+
+  .trigger {
+    border-radius: 0.5rem;
+    border: 1px solid $primary-light-100;
+    background: $white;
+    box-shadow: none;
+  }
+
+  &:not(.invalidSelect):not(.validSelect) {
+    .trigger {
+      @include data-hover {
+        background: $white;
+        border-color: $primary-light-100;
+      }
+
+      @include data-open {
+        background: $white;
+        border-color: $primary-normal-300;
+      }
+    }
+  }
+}
+
+.disabledSelect {
+  .trigger {
+    background-color: $secondary-light-50;
+    color: $secondary-light-200;
+    border-color: $secondary-light-200;
+  }
+
+  .label {
+    &.formField {
+      color: $primary-dark-900 !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+.invalidSelect {
+  .trigger {
+    border: 1px solid $e300;
+  }
+}
+
+.labelFix {
+  top: 30%;
+}
+
+.label {
+  width: 100%;
+  color: $primary-dark-900 !important;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+
+  &.formField {
+    color: $secondary-normal-300 !important;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.3125rem; /* 175% */
+    text-transform: uppercase;
+  }
+}
+
+.popoverContent {
+  min-width: 20rem !important;
+  border: 1px solid $primary-light-100;
+  box-shadow: none;
+}
+
+.validSelect {
+  .trigger {
+    border: 1px solid $s300;
+  }
+}
+
+.errorMessageStyle {
+  color: $e300;
+}
+
+.descriptionStyle {
+  color: $secondary-normal-300;
+}
+
+.datePicker {
+  background-color: $white !important;
+  width: fit-content !important;
+
+  @include data-focus {
+    background-color: $white !important;
+  }
+
+  @include data-selected {
+    background-color: $white !important;
+  }
+
+  @include data-hover {
+    background-color: $white !important;
+  }
+}
+
+.datePickerOption {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.confirmActions {
+  position: fixed;
+  bottom: 1px;
+  left: 1px;
+  height: auto;
+  width: calc(100% - 2px);
+  background-color: $white !important;
+  margin: auto;
+  padding: 0.5rem 1rem;
+  border-radius: var(--nextui-radius-large);
+  z-index: 10;
+
+  div {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 100%;
+
+      &:first-child {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  @include data-focus {
+    background-color: $white !important;
+  }
+
+  @include data-selected {
+    background-color: $white !important;
+  }
+
+  @include data-hover {
+    background-color: $white !important;
+  }
+
+  span:last-child {
+    display: none;
+  }
+}
+
+.confirmActionsListbox {
+  padding-bottom: $confirm-actions-height !important;
+}
+
+.confirmActionsListboxWrapper {
+  //calc(defaultWrapperSize + confirmActions section size)
+  max-height: calc(16rem + $confirm-actions-height);
+}
+
+.datePickerListboxWrapper {
+  max-height: fit-content !important;
+}
+
+.itemDivider {
+  position: relative;
+  margin-bottom: 1rem;
+
+  &:after {
+    content: "";
+    width: 95%;
+    border-bottom: 1px solid $secondary-light-50;
+    position: absolute;
+    bottom: -0.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.listbox {
+  ul:first-child {
+    > li:not(.confirmActions):not(.datePicker) {
+      background-color: $white;
+      color: $primary-dark-900;
+      // margin-bottom: 0.15rem;
+
+      @include data-focus {
+        background-color: transparent;
+      }
+
+      &:not(.checkOrRadio) {
+        @include data-selected {
+          background-color: $primary-light-50 !important;
+          color: $primary-normal-300 !important;
+        }
+      }
+
+      @include data-selected {
+        // Remove tick at the end of label
+        svg {
+          @include data-selected {
+            display: none !important;
+          }
+        }
+      }
+
+      @include data-hover {
+        background-color: $secondary-light-50 !important;
+      }
+    }
+  }
+
+  // Remove tick at the end of label from date picker
+  ul > li.datePicker > span:last-child {
+    display: none !important;
+  }
+}
+
+.section {
+  width: 100%;
+  margin-bottom: 0;
+  cursor: pointer;
+
+  > span {
+    display: block;
+    width: 100% !important;
+    padding-left: 0.5rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    border-radius: var(--nextui-radius-small);
+
+    &:hover {
+      background-color: $secondary-light-50 !important;
+    }
+  }
+
+  > ul {
+    margin-left: 1.5rem;
+
+    li {
+      background-color: $white;
+      color: $primary-dark-900;
+      margin-bottom: 0.3rem !important;
+
+      @include data-focus {
+        background-color: transparent;
+      }
+
+      @include data-selected {
+        background-color: $white !important;
+
+        // Remove tick at the end of label
+        svg {
+          @include data-selected {
+            display: none !important;
+          }
+        }
+      }
+
+      @include data-hover {
+        background-color: $secondary-light-50 !important;
+      }
+    }
+  }
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .icon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}
+
+.helperWrapper {
+  padding: 0.5rem 0 0 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+
+  .description {
+    color: $secondary-normal-300;
+  }
+  .errorMessage {
+    color: $e300;
+  }
+}
+
+.selectorIcon.hidden {
+  display: none;
+}

@@ -1,0 +1,84 @@
+@import "../../styles/variables";
+@import "../../styles/helpers.scss";
+
+.button {
+  border-radius: 0.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  height: 2.375rem !important;
+  min-width: 7.5rem !important;
+  padding: 0 1.5rem !important;
+  opacity: 1 !important;
+  z-index: 0 !important;
+}
+
+.loadingButton {
+  pointer-events: none !important;
+}
+
+.mobileButton {
+  height: 3rem !important;
+}
+
+//Primary variant
+.primary {
+  @extend .button;
+  background-color: $primary-normal-300 !important;
+  color: $white !important;
+
+  @include data-hover {
+    background-color: $primary-normal-400 !important;
+  }
+
+  @include data-pressed {
+    background-color: $primary-normal-500 !important;
+  }
+}
+
+.primary:disabled {
+  background-color: $secondary-light-200 !important;
+}
+
+//Secondary variant
+.secondary {
+  @extend .button;
+  background-color: $white !important;
+  border: 1px solid $primary-normal-300 !important;
+  color: $primary-normal-300 !important;
+
+  @include data-hover {
+    background-color: $primary-light-50 !important;
+  }
+
+  @include data-pressed {
+    background-color: $primary-light-100 !important;
+  }
+}
+
+.secondary:disabled {
+  background-color: $white !important;
+  border: 1px solid $secondary-light-200 !important;
+  color: $secondary-light-200 !important;
+}
+
+//Tertiary variant
+.tertiary {
+  @extend .button;
+  background-color: $white !important;
+  border: 0 !important;
+  color: $primary-normal-300 !important;
+  text-decoration: underline !important;
+
+  @include data-hover {
+    background-color: $primary-light-50 !important;
+  }
+
+  @include data-pressed {
+    background-color: $primary-light-100 !important;
+  }
+}
+
+.tertiary:disabled {
+  background-color: $white !important;
+  color: $secondary-light-200 !important;
+}

@@ -1,0 +1,47 @@
+@import "../../styles/variables";
+@import "../../styles/helpers.scss";
+
+.dropdownContent {
+  border: 1px solid $primary-light-100;
+  box-shadow: 0px 16px 40px 0px rgba(112, 144, 176, 0.2);
+  padding: 0;
+  max-height: 85vh !important;
+}
+
+.dropdownMenuBase {
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.dropdownMenuList {
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+.dropdownItem {
+  color: $primary-dark-900;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  min-height: 2.375rem;
+
+  @include data-hover {
+    color: $primary-dark-900 !important;
+    background-color: $secondary-light-50 !important;
+  }
+
+  @include data-pressed {
+    color: $primary-normal-300;
+    font-weight: 500;
+  }
+
+  @include data-selected {
+    color: $primary-normal-300 !important;
+    background-color: $primary-light-50 !important;
+    font-weight: 500 !important;
+  }
+
+  &:not([data-hover="true"])[data-focus="true"] {
+    background-color: $white;
+  }
+}

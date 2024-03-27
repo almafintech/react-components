@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: $primary-dark-900;
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+.iconStyle {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.errorBackground {
+  background-color: $e50;
+}
+
+.warnBackground {
+  background-color: $w50;
+}
+
+.infoBackground {
+  background-color: $i50;
+}
+
+.summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

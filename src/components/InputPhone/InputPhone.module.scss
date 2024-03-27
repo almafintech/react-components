@@ -1,0 +1,111 @@
+@import "../../styles/variables";
+
+.inputPhoneNumber {
+  width: 100% !important;
+  height: 2.375rem !important;
+  font-size: 0.875rem !important;
+  line-height: 0 !important;
+  padding: 0.625rem 4rem !important;
+  color: $primary-dark-900 !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid $primary-light-100 !important;
+
+  &:focus,
+  &:focus + div {
+    border-color: $primary-normal-300 !important;
+  }
+
+  &.success,
+  &.success + div {
+    background-color: $white !important;
+    border-color: $s300 !important;
+  }
+
+  &.error,
+  &.error + div {
+    background-color: $white !important;
+    border-color: $e300 !important;
+  }
+}
+
+.dropdownPhoneNumber {
+  border: 1px solid $primary-light-100;
+  box-shadow: 8px 16px 30px 0px rgba(130, 159, 189, 0.2) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+
+  li {
+    color: $primary-dark-900;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    height: 2.375rem;
+
+    &:hover {
+      background-color: $secondary-light-50 !important;
+    }
+
+    &[aria-selected="true"] {
+      color: $primary-normal-300 !important;
+      background-color: $primary-light-50 !important;
+      font-weight: 500 !important;
+    }
+  }
+}
+
+.buttonPhoneNumber {
+  background-color: $white !important ;
+  border: 1px solid $primary-light-100 !important;
+  border-top-left-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+  border-right: none !important;
+  padding: 0 0.5rem !important;
+
+  > div > div > div {
+    margin-left: 0.5rem !important;
+    border-top-color: $primary-normal-300 !important;
+    border-bottom-color: $primary-normal-300 !important;
+  }
+}
+
+.label {
+  color: $primary-dark-900;
+  display: flex;
+  width: 100%;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+
+  &.formField {
+    color: $secondary-normal-300 !important;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.3125rem;
+    text-transform: uppercase;
+  }
+}
+
+.helperWrapper {
+  padding: 0.5rem 0 0 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  display: flex;
+
+  .description {
+    color: $secondary-normal-300;
+  }
+  .errorMessage {
+    color: $e300;
+  }
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .icon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}

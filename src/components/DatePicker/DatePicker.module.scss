@@ -1,0 +1,183 @@
+@import "../../styles/variables";
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+}
+
+.select {
+  flex-shrink: 1;
+  flex-basis: 6rem;
+  min-width: 6rem;
+
+  &.months {
+    flex-grow: 1;
+    min-width: 8rem;
+    max-width: 16rem;
+  }
+}
+
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+
+  width: 100%;
+  min-width: calc(7 * 1.5rem);
+
+  font-size: 0.875rem;
+
+  .month {
+    flex-basis: calc(100% / 3);
+  }
+
+  .day {
+    flex-basis: calc(100% / 7);
+  }
+}
+
+.selectTrigger {
+  border: none !important;
+
+  &:hover {
+    background-color: $secondary-light-50 !important;
+  }
+}
+
+.selectInnerWrapper {
+  color: $primary-normal-300 !important;
+}
+
+.selectValue {
+  color: $primary-normal-300 !important;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.day,
+.month {
+  padding: 0.5rem 0.25rem;
+  z-index: 10;
+
+  text-align: center;
+
+  // Text
+  &.today {
+    color: $primary-normal-300;
+  }
+
+  &.padding {
+    color: $secondary-normal-300;
+  }
+
+  &.unselectable {
+    color: $secondary-light-100;
+  }
+
+  &.selected.final:not(.start):not(.end) {
+    color: $primary-normal-300;
+    font-weight: 500;
+
+    // Make padding cells lighter even when selected
+    &.padding {
+      font-weight: 400;
+      color: $primary-light-200;
+    }
+  }
+
+  &.start,
+  &.end {
+    color: white;
+    font-weight: 500;
+
+    // Make padding cells lighter even when they're a selection start/end
+    &.padding {
+      font-weight: 400;
+      color: $primary-light-50;
+    }
+  }
+
+  // Borders
+  &.start {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  &.end {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  &.start.end {
+    border-radius: 0.5rem;
+  }
+
+  &.selected:not(.start):not(.end) {
+    border-radius: 0;
+  }
+
+  &:hover:not(.selected):not(.start):not(.end) {
+    border-radius: 0.5rem;
+  }
+
+  // Background colors
+  &.selected:not(.start):not(.end) {
+    background-color: $primary-light-100;
+  }
+
+  &.start,
+  &.end {
+    background-color: $primary-normal-400;
+  }
+
+  // NOTE If the cell hovered last is an end, we style it as if it were hovered,
+  // in case the user's mouse exited the calendar
+  &:hover:not(.unselectable),
+  &.lastHovered:not(.unselectable).end {
+    cursor: pointer;
+
+    background-color: $primary-light-100;
+
+    &.selected {
+      background-color: $primary-light-50;
+    }
+
+    &.start,
+    &.end {
+      background-color: $primary-light-200;
+
+      &.final {
+        background-color: $primary-normal-300;
+      }
+    }
+  }
+}
+
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background-color: $secondary-light-50;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}

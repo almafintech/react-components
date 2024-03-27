@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": false,
+    "maxNodeModuleJsDepth": 1,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "allowUnreachableCode": false,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationDir": "types",
+    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "**/*.stories.ts",
+    "**/*.svg"
+  ],
+  "include": ["src/**/*"],
+  "paths": {
+    "@components/*": ["./src/components/*"],
+    "@styles/*": ["./src/styles/*"],
+    "@images/*": ["./src/assets/images/*"],
+  }
+}

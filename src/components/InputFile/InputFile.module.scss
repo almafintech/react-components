@@ -1,0 +1,83 @@
+@import "../../styles/variables";
+
+.inputFile {
+  display: flex;
+  padding: 1.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  align-self: stretch;
+  border-radius: 0.5rem;
+  border: 1px dashed $primary-normal-300;
+
+  input {
+    display: none;
+  }
+
+  .fileContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+
+    .fileOptions {
+      margin-left: auto;
+      display: flex;
+      column-gap: 1rem;
+
+      svg {
+        flex-shrink: 0;
+        cursor: pointer;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+  .fileHeader {
+    display: flex;
+    column-gap: 0.75rem;
+    align-items: center;
+
+    svg {
+      flex-shrink: 0;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    label,
+    p {
+      font-size: 0.75rem !important;
+      font-weight: 400 !important;
+      margin: 0 !important;
+      flex-shrink: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
+    }
+
+    span {
+      cursor: pointer;
+      color: $primary-normal-300;
+    }
+  }
+
+  &.inputSuccess {
+    border-color: $s300;
+  }
+}
+
+.infoTextStyle {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: $secondary-normal-300;
+  width: fit-content;
+}
+
+.errorMessageStyle {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: $e300;
+}

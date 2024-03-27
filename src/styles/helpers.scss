@@ -1,0 +1,65 @@
+@mixin data-hover {
+  &[data-hover="true"] {
+    @content;
+  }
+}
+
+@mixin data-pressed {
+  &[data-pressed="true"] {
+    @content;
+  }
+}
+
+@mixin data-disabled {
+  &[data-disabled="true"] {
+    @content;
+  }
+}
+
+@mixin data-invalid {
+  &[data-invalid="true"] {
+    @content;
+  }
+}
+
+@mixin data-required {
+  &[data-required="true"] {
+    @content;
+  }
+}
+
+@mixin data-focus {
+  &[data-focus="true"] {
+    @content;
+  }
+}
+
+@mixin data-loading {
+  &[data-loading="true"] {
+    @content;
+  }
+}
+
+@mixin data-open {
+  &[data-open="true"] {
+    @content;
+  }
+}
+
+@mixin data-filled {
+  &[data-filled="true"] {
+    @content;
+  }
+}
+
+@mixin data-selected {
+  &[data-selected="true"] {
+    @content;
+  }
+}
+
+@mixin data-has-value {
+  &[data-has-value="true"] {
+    @content;
+  }
+}

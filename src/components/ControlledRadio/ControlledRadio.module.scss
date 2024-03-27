@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+
+.radioLabel {
+  display: grid;
+  grid-template-columns: 1rem auto;
+  gap: 0.6rem;
+  align-items: center;
+  cursor: pointer;
+  //   padding: 0.2rem 0;
+  font-size: 0.875rem;
+}
+
+.inputRadio {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 0.12rem solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.05rem);
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em $primary-normal-300;
+  }
+
+  &:checked {
+    border: 0.15rem solid $primary-normal-300;
+
+    &::before {
+      transform: scale(0.9);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+
+.checkboxWrapper {
+  svg polyline {
+    stroke-width: 3;
+  }
+
+  &::after {
+    background-color: $primary-normal-300;
+  }
+}
+
+.checkboxLabel {
+  font-size: 0.875rem !important;
+}
