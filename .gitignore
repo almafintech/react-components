@@ -1,5 +1,4 @@
 node_modules
 dist
 *storybook.log
-package-lock.json
 .vscode
