@@ -1,6 +1,6 @@
 {
   "name": "@almafintech/react-components",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "A component library for React projects.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -14,14 +14,15 @@
     "dev": "npx rollup -c --watch",
     "build": "npx rollup -c",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "publish": "npm publish"
   },
   "author": "naguip",
   "license": "ISC",
   "peerDependencies": {
-    "@nextui-org/react": "^2.2.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@nextui-org/react": "2.2.10",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "1.2.2",
