@@ -1,0 +1,45 @@
+@import "../../styles/variables";
+
+.Toastify__toast-body {
+  color: $primary-dark-900 !important;
+  font-size: 0.8125rem !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  max-width: 29.375rem !important;
+}
+
+.Toastify__toast--error {
+  .Toastify__progress-bar--error {
+    background-color: $e300 !important;
+  }
+
+  svg {
+    fill: $e300 !important;
+  }
+}
+
+.Toastify__toast--success {
+  .Toastify__progress-bar--success {
+    background-color: $s300 !important;
+  }
+  svg {
+    fill: $s300 !important;
+  }
+}
+
+.Toastify__toast--warning {
+  .Toastify__progress-bar--warning {
+    background-color: $w300 !important;
+  }
+  svg {
+    fill: $w300 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .Toastify__toast-container {
+    right: 0.8rem !important;
+    left: 0.8rem !important;
+    top: 0.8rem !important;
+  }
+}

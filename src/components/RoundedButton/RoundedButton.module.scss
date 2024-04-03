@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+@import "../../styles/helpers.scss";
+
+.base {
+  background-color: $primary-light-50 !important;
+
+  &.empty {
+    background-color: transparent !important;
+  }
+
+  @include data-hover {
+    background-color: $primary-light-100 !important;
+    opacity: 1 !important;
+  }
+
+  @include data-disabled {
+    background-color: $secondary-light-100 !important;
+    opacity: 1 !important;
+  }
+}
+
+.rectangular {
+  width: 5.02604rem !important;
+}

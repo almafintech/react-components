@@ -1,0 +1,89 @@
+.backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.base {
+  border-radius: 0.5rem;
+  max-height: 95vh;
+  margin: 0;
+}
+
+.closeButton {
+  margin-right: 1.7rem;
+  margin-top: 1.2rem;
+  padding: 0 !important;
+  z-index: 999;
+}
+
+.closeButton:hover {
+  background-color: transparent;
+}
+
+.header {
+  padding: 1.5rem 2rem 0 2rem !important;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem !important;
+  margin: 1.5rem 1rem 1.5rem 2rem !important;
+  padding: 0 1rem 0 0 !important;
+  position: relative !important;
+}
+
+.footer {
+  gap: 1rem !important;
+  justify-content: flex-start;
+  padding: 0 2rem 1.5rem 2rem !important; 
+}
+
+.customFooter {
+  justify-content: center !important;
+}
+
+.modalAlert {
+  left: 1.5rem !important;
+  padding: 0 !important;
+  position: absolute !important;
+  right: 1.5rem !important;
+  transform: none !important;
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 1rem 1rem 0 1rem !important;
+  }
+
+  .body {
+    margin: 1rem 0.4rem 1rem 1rem !important;
+    padding: 0 0.6rem 0 0 !important;
+  }
+
+  .base {
+    border-radius: 0;
+    height: calc(100vh - 5.5rem) !important;
+    margin: 0 !important;
+    max-height: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    top: 5.5rem !important;
+    position: fixed !important;
+  }
+
+  .footer {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    padding: 0 1rem 1rem 1rem !important;
+  }
+
+  .closeButton {
+    margin-right: 1rem !important;
+    margin-top: 0.8rem !important;
+  }
+
+  .backdrop {
+    top: 5.5rem !important;
+    position: fixed;
+  }
+}
