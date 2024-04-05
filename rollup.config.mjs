@@ -130,7 +130,7 @@ export default [
   ),
   // Build the main file that includes all components and utils
   {
-    input: "src/components/index.ts",
+    input: "src/index.ts",
     output: [
       {
         file: "dist/index.esm.js",
