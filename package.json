@@ -1,21 +1,27 @@
 {
   "name": "@almafintech/react-components",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A component library for React projects.",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
-  "repository": "https://github.com/almafintech/react-components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almafintech/react-components.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx rollup -c --watch",
-    "build": "npx rollup -c",
+    "build": "rm -rf dist && npx rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "publish": "npm publish"
+    "publish": "npm publish",
+    "new-build": "npm run rollup && npm run post:build",
+    "post:build": "node ./scripts/postBuild.js",
+    "rollup": "rm -rf dist && rollup -c"
   },
   "author": "naguip",
   "license": "ISC",
@@ -39,7 +45,10 @@
     "autoprefixer": "10.4.18",
     "file-saver": "2.0.5",
     "framer-motion": "11.0.12",
+    "fs": "^0.0.1-security",
+    "fs-extra": "11.2.0",
     "node-sass": "9.0.0",
+    "path": "0.12.7",
     "postcss": "8.4.35",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -47,6 +56,7 @@
     "react-toastify": "10.0.5",
     "rollup": "4.13.0",
     "rollup-plugin-dts": "6.1.0",
+    "rollup-plugin-generate-package-json": "^3.2.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-typescript-paths": "1.5.0",

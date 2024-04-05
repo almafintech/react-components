@@ -1,13 +1,5 @@
-import { ReactNode } from "react";
+import { SkeletonProps } from "./types";
 import styles from "./Skeleton.module.scss";
-
-interface Props {
-  children?: ReactNode;
-  width?: string;
-  height?: string;
-  borderRadius?: string;
-  className?: string;
-}
 
 const Skeleton = ({
   children,
@@ -15,7 +7,7 @@ const Skeleton = ({
   height,
   borderRadius,
   className,
-}: Props) => {
+}: SkeletonProps) => {
   const { container } = styles;
 
   return (

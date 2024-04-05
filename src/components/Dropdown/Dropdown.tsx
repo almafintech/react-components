@@ -3,28 +3,9 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  DropdownProps,
-  DropdownTriggerProps,
-  DropdownMenuProps,
 } from "@nextui-org/dropdown";
+import { DropdownProps, DropdownOption } from "./types";
 import styles from "./Dropdown.module.scss";
-
-type DropdownOption = {
-  key: string;
-  label: string;
-  action: () => void;
-};
-
-type Props = Pick<
-  DropdownMenuProps<DropdownOption>,
-  | "items"
-  | "selectionMode"
-  | "onSelectionChange"
-  | "selectedKeys"
-  | "disallowEmptySelection"
-> &
-  Omit<DropdownProps, "children"> &
-  DropdownTriggerProps;
 
 const Dropdown = ({
   items,
@@ -34,7 +15,7 @@ const Dropdown = ({
   children,
   disallowEmptySelection = false,
   ...rest
-}: Props) => {
+}: DropdownProps) => {
   const { dropdownContent, dropdownMenuBase, dropdownMenuList, dropdownItem } =
     styles;
 

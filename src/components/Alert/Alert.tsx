@@ -1,20 +1,12 @@
 "use client";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import styles from "./Alert.module.scss";
 import InfoIcon from "../../assets/images/ui/icons/ui-icon-info.svg";
 import ErrorIcon from "../../assets/images/ui/icons/ui-icon-error.svg";
 import WarnIcon from "../../assets/images/ui/icons/ui-icon-warn.svg";
 import ChevronDown from "../../assets/images/ui/icons/ui-icon-chevron-down.svg";
 import ChevronUp from "../../assets/images/ui/icons/ui-icon-chevron-up.svg";
-
-interface AlertProps {
-  children: string | ReactNode;
-  variant: "INFO" | "ERROR" | "WARN";
-  className?: string;
-  // If set, alert will become a dropdown, displaying a summary initially and
-  // the actual children passed once clicked open
-  hasSummary?: boolean;
-}
+import { AlertProps } from "./types";
 
 const Alert = ({ children, variant, className, hasSummary }: AlertProps) => {
   const {

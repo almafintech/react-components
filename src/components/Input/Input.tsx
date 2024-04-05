@@ -1,53 +1,21 @@
 "use client";
 
-import { InputProps, Input as NextUiInput } from "@nextui-org/react";
+import { useState } from "react";
+import { Input as NextUiInput } from "@nextui-org/react";
+import { InputProps } from "./types";
+
 import HideIcon from "../../assets/images/ui/icons/ui-icon-hide-gray.svg";
 import ShowIcon from "../../assets/images/ui/icons/ui-icon-show-gray.svg";
 import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
 import SearchIcon from "../../assets/images/ui/icons/ui-icon-search-gray-outline.svg";
-import styles from "./Input.module.scss";
-import { ReactNode, useState } from "react";
 
-/**
- * Extension to `InputProps`. See NextUI's `Input` documentation.
- * @prop {number} balance Number to show as remaining balance label on top-right edge.
- * @prop {string} [balanceCurrency="ARS"] Name of currency symbol which prefixes balance.
- * @prop {string} [currency="ARS"] Name of currency symbol which prefixes value when `type` is `money`.
- * @prop {ReactNode}[customInfo Element placed on top-right of input when `info` is set to `"CUSTOM"`.
- * @prop {ReactNode} errorMessage Element shown besides alert icon below input when `isInvalid` is set.
- * @prop {string} initialValue Initial value.
- * @prop {boolean} isFormField Uses form-style label if set.
- * @prop {boolean} isNumberPercentage Appends a percentage sign if set (`number` type only).
- * @prop {number} maxLength Length limit in characters.
- * @prop {"BALANCE" | "CUSTOM" } info Determines what to display on top-right section of input.
- * @prop {ReactNode} tooltip Unimplemented.
- * @prop {boolean} touched Whether input was touched or not. Set on `onChanged` calls.
- * @prop {"text" | "number" | "search" | "password" | "money"} [type="text"] Input type. `number` forces value to be a
- * 	valid float, `search` prepends a magnifying glass icon, `password` obfuscates value (user-toggelable) and `money`
- * 	prepends a currency symbol.
- */
-interface Props extends InputProps {
-  balance?: number;
-  balanceCurrency?: string;
-  currency?: string;
-  customInfo?: ReactNode;
-  errorMessage?: ReactNode;
-  initialValue?: string;
-  isFormField?: boolean;
-  isNumberPercentage?: boolean;
-  maxLength?: number;
-  info?: "BALANCE" | "CUSTOM";
-  tooltip?: ReactNode;
-  touched?: boolean;
-  type?: "text" | "number" | "search" | "password" | "money";
-  hasLabel?: boolean;
-}
+import styles from "./Input.module.scss";
 
 /**
  * Text input component based on NextUI's `Input`
  * @returns
  */
-const Input = (props: Props) => {
+const Input = (props: InputProps) => {
   const {
     initialValue,
     maxLength,

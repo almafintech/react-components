@@ -1,20 +1,8 @@
-import { CSSProperties, ReactNode } from "react";
-import {
-  ToastContainer,
-  ToastContainerProps,
-  Slide,
-  ToastOptions,
-  toast,
-} from "react-toastify";
+import { ReactNode } from "react";
+import { ToastContainer, Slide, toast } from "react-toastify";
 import "./ToastMessage.scss";
 import "react-toastify/dist/ReactToastify.css";
-
-interface ToastMessageProps extends ToastContainerProps {
-  messageId: string;
-  width?: string;
-  showOverPage?: boolean;
-  style?: CSSProperties;
-}
+import { ShowToastOptions, ToastMessageProps } from "./types";
 
 export const ToastMessage = (props: ToastMessageProps) => {
   const { messageId, width, showOverPage = true, style, ...rest } = props;
@@ -35,13 +23,9 @@ export const ToastMessage = (props: ToastMessageProps) => {
   );
 };
 
-interface ShowToasOptions extends ToastOptions {
-  showOverPage?: boolean;
-}
-
 export const showToastMessage = (
   content: ReactNode,
-  options: ShowToasOptions
+  options: ShowToastOptions
 ) => {
   const { showOverPage = true, ...rest } = options;
 

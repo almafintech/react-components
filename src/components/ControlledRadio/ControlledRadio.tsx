@@ -1,13 +1,5 @@
-import styles from "./ControlledRadio.module.scss"
-
-interface Props {
-  className?: string
-  label: string
-  value: string
-  name: string
-  checked: boolean
-  onChange?: (value: string) => void
-}
+import { ControlledRadioProps } from "./types";
+import styles from "./ControlledRadio.module.scss";
 
 const ControlledRadio = ({
   className,
@@ -16,12 +8,12 @@ const ControlledRadio = ({
   name,
   checked,
   onChange,
-}: Props) => {
-  const { inputRadio, radioLabel } = styles
+}: ControlledRadioProps) => {
+  const { inputRadio, radioLabel } = styles;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(event.target.value)
-  }
+    onChange && onChange(event.target.value);
+  };
 
   return (
     <label className={radioLabel}>
@@ -35,7 +27,7 @@ const ControlledRadio = ({
       />
       {label}
     </label>
-  )
-}
+  );
+};
 
-export default ControlledRadio
+export default ControlledRadio;

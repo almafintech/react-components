@@ -1,6 +1,7 @@
+import { LoadingDotsProps } from "./types";
 import styles from "./LoadingDots.module.scss";
 
-const LoadingDots = ({ color }: { color?: string }) => {
+const LoadingDots = ({ color }: LoadingDotsProps) => {
   const { dotsContainer, dot } = styles;
 
   const dotStyle = { backgroundColor: color };

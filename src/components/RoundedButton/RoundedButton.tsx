@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, ButtonProps } from "@nextui-org/button";
-import { ReactElement, forwardRef } from "react";
+import { Button } from "@nextui-org/button";
+import { forwardRef } from "react";
 import styles from "./RoundedButton.module.scss";
 
 //icons
@@ -16,24 +16,9 @@ import PlayIcon from "../../assets/images/ui/icons/play-icon.svg";
 import TrashIcon from "../../assets/images/ui/icons/trash-icon.svg";
 import EditIcon from "../../assets/images/ui/icons/edit-icon.svg";
 import NominalRateIcon from "../../assets/images/ui/icons/nominal-rate-icon.svg";
+import { RoundedButtonProps } from "./types";
 
-interface Props extends Pick<ButtonProps, "isDisabled" | "onClick"> {
-  icon:
-    | "share"
-    | "download"
-    | "whatsapp"
-    | "email"
-    | "edit"
-    | "trash"
-    | "pause"
-    | "play"
-    | "nominal-rate"
-    | ReactElement;
-  buttonType: "squared" | "rounded" | "rectangular" | "empty";
-  className?: string;
-}
-
-const RoundedButton = forwardRef<HTMLButtonElement, Props>(
+const RoundedButton = forwardRef<HTMLButtonElement, RoundedButtonProps>(
   ({ icon, isDisabled, buttonType, onClick, className, ...rest }, ref) => {
     const { base, rectangular, empty } = styles;
     const IconComponent = () => {

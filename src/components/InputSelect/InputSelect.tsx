@@ -10,12 +10,7 @@ import { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
 import ControlledRadio from "../ControlledRadio/ControlledRadio";
-import {
-  Item,
-  NextUISelectProps,
-  SelectItemType,
-  Values,
-} from "./interface/types";
+import { Item, SelectItemType, Values } from "./interface/types";
 import {
   selectChangeHandler,
   getRenderValue,
@@ -26,14 +21,8 @@ import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-
 import ChevronIcon from "../../assets/images/ui/icons/ui-icon-chevron-dark-down.svg";
 import CalendarIcon from "../../assets/images/ui/icons/ui-icon-calendar.svg";
 import DatePicker from "../DatePicker/DatePicker";
-import { DateRange } from "../DatePicker/helpers";
-
-interface Props extends NextUISelectProps {
-  locale?: string;
-  onDatepickerDateChanged?: (range: DateRange) => void;
-  initialDatePickerRange?: DateRange;
-  minDatePickerDate?: Date;
-}
+import { DateRange } from "../DatePicker/types";
+import { InputSelectProps } from "./types";
 
 const InputSelect = ({
   placeholder,
@@ -56,7 +45,7 @@ const InputSelect = ({
   initialDatePickerRange,
   minDatePickerDate,
   ...rest
-}: Props) => {
+}: InputSelectProps) => {
   const {
     invalidSelect,
     validSelect,

@@ -10,28 +10,11 @@ import {
   getCurrentMonth,
   getCurrentDay,
   getLongMonthNames,
-  DateRange,
   isRangeFinal,
 } from "./helpers";
+import { DatePickerProps, DateRange } from "./types";
 
-interface Props {
-  locale?: string;
-  defaultRange?: DateRange;
-  min?: Date;
-  max?: Date;
-  onApply?: (date: DateRange) => void;
-  onDelete?: () => void;
-  onBack?: () => void;
-  restoreDefaultOnDelete?: boolean;
-  defaultCalendarVariant?: "DAY" | "MONTH" | "DATE";
-  dropdownClassName?: string;
-  menuClassName?: string;
-  headerClassName?: string;
-  calendarClassName?: string;
-  footerClassName?: string;
-}
-
-const DatePicker = (props: Props) => {
+const DatePicker = (props: DatePickerProps) => {
   const {
     locale = "es-AR",
     defaultRange,

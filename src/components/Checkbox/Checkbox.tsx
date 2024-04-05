@@ -1,8 +1,9 @@
-import { CheckboxProps, Checkbox as NextUICheckbox } from "@nextui-org/checkbox"
-import styles from "./Checkbox.module.scss"
+import { Checkbox as NextUICheckbox } from "@nextui-org/checkbox";
+import { CheckboxProps } from "./types";
+import styles from "./Checkbox.module.scss";
 
 const Checkbox = ({ children, classNames, ...rest }: CheckboxProps) => {
-  const { checkboxWrapper, checkboxLabel } = styles
+  const { checkboxWrapper, checkboxLabel } = styles;
   return (
     <NextUICheckbox
       disableAnimation
@@ -15,7 +16,7 @@ const Checkbox = ({ children, classNames, ...rest }: CheckboxProps) => {
     >
       {children}
     </NextUICheckbox>
-  )
-}
+  );
+};
 
-export default Checkbox
+export default Checkbox;

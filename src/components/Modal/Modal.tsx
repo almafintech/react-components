@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
 import {
-  ModalProps,
   Modal as NextUiModal,
   ModalContent,
   ModalHeader,
@@ -10,14 +8,7 @@ import {
 import styles from "./Modal.module.scss";
 import CloseIcon from "../../assets/images/ui/icons/ui-icon-close.svg";
 import { ToastMessage } from "../ToastMessage/ToastMessage";
-
-interface Props extends ModalProps {
-  children: ReactNode;
-  header?: ReactNode;
-  footer?: ReactNode;
-  centerFooter?: boolean;
-  width?: string;
-}
+import { ModalProps } from "./types";
 
 const Modal = ({
   children,
@@ -26,7 +17,7 @@ const Modal = ({
   centerFooter,
   width,
   ...rest
-}: Props) => {
+}: ModalProps) => {
   const { modalAlert, customFooter, ...restStyles } = styles;
   return (
     <NextUiModal

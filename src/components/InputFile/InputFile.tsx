@@ -1,4 +1,4 @@
-import { ReactNode, DragEvent, useCallback, useEffect, useState } from "react";
+import { DragEvent, useCallback, useEffect, useState } from "react";
 import { saveAs } from "file-saver";
 import styles from "./InputFile.module.scss";
 import UploadIcon from "../../assets/images/ui/icons/ui-icon-file_upload.svg";
@@ -7,35 +7,7 @@ import SuccessIcon from "../../assets/images/ui/icons/ui-icon-success-bg-dark.sv
 import TrashIcon from "../../assets/images/ui/icons/ui-icon-trash.svg";
 import DownloadIcon from "../../assets/images/ui/icons/ui-icon-download.svg";
 import LoadingDots from "../LoadingDots/LoadingDots";
-
-type InputFileErrorsTypes =
-  | "format_error"
-  | "size_error"
-  | "length_error"
-  | "selfie_error";
-
-type FileData = {
-  id: number;
-  name: string;
-};
-
-interface FileInputProps {
-  className?: string;
-  error?: boolean;
-  fileData?: FileData;
-  infoText?: string;
-  initialValue?: File | null;
-  isLoading?: boolean;
-  maxSize?: number; // In megabytes
-  name: string;
-  onFileDownload?: (file: FileData) => void;
-  onFileRemove?: () => void;
-  onFileUpload?: (file: File) => void;
-  selectedFile?: File | null;
-  setError?: (error: InputFileErrorsTypes | null) => void;
-  text?: string | ReactNode;
-  validTypes?: string[];
-}
+import { InputFileProps } from "./types";
 
 const InputFile = ({
   name,
@@ -52,7 +24,7 @@ const InputFile = ({
   fileData,
   error,
   isLoading,
-}: FileInputProps) => {
+}: InputFileProps) => {
   const {
     inputFile,
     fileContent,

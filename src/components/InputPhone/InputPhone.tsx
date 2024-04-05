@@ -1,16 +1,11 @@
-import { ReactNode, useState } from "react";
-import PhoneInput, { PhoneInputProps } from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import styles from "./InputPhone.module.scss";
+import { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import { InputPhoneProps } from "./types";
+
 import ErrorIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
 
-interface InputPhoneProps extends PhoneInputProps {
-  description?: string;
-  errorMessage?: ReactNode;
-  isFormField?: boolean;
-  touched?: boolean;
-  name: string;
-}
+import "react-phone-input-2/lib/style.css";
+import styles from "./InputPhone.module.scss";
 
 const InputPhone = (props: InputPhoneProps) => {
   const {
