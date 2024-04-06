@@ -6,7 +6,8 @@ import {
   Values,
   Item,
 } from "./interface/types";
-import { DateRange, getLongMonthNames } from "../DatePicker/helpers";
+import { getLongMonthNames } from "../DatePicker/helpers";
+import { DateRange } from "../DatePicker/types";
 
 export const flattenItemOptions = (items: SelectItemType[]) => {
   return items.reduce<Item[]>((acc, item) => {
