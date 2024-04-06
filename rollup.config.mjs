@@ -1,12 +1,9 @@
 // Subpath imports made possible by the following article:
 // https://medium.com/singapore-gds/how-to-support-subpath-imports-using-react-rollup-typescript-1d3d331f821b
 
-import { defineConfig } from "rollup";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
-// import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
@@ -32,7 +29,7 @@ const commonPlugins = (declarationDir) => [
       insertAt: "top",
     },
   }), // Process CSS files
-  // terser(), // Minify output
+  terser(), // Minify output
 ];
 
 export const getComponentsFolders = (entry) => {
