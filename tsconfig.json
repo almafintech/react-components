@@ -41,5 +41,5 @@
     "**/*.stories.ts",
     "**/*.svg"
   ],
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/styles"]
 }

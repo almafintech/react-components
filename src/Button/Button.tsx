@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
 import styles from "./Button.module.scss";
 import { Button as NextUiButton } from "@nextui-org/button";
-import LoadingDots from "../LoadingDots/LoadingDots";
+import { LoadingDots } from "../LoadingDots";
 import { ButtonProps } from "./types";
-import { colors } from "../../styles/variables";
+import { colors } from "../styles/variables";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (

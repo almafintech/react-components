@@ -37,7 +37,13 @@ const commonPlugins = (declarationDir) => [
 
 export const getComponentsFolders = (entry) => {
   const dirs = fs.readdirSync(entry);
-  const dirsWithoutIndex = dirs.filter((name) => name !== "index.ts");
+  const dirsWithoutIndex = dirs.filter(
+    (name) =>
+      name !== "index.ts" && name !== "styles" && name !== "declaration.d.ts"
+  );
+
+  console.log("dirs", dirs);
+  console.log("dirsWithoutIndex", dirsWithoutIndex);
 
   return dirsWithoutIndex;
 };
@@ -45,7 +51,7 @@ export const getComponentsFolders = (entry) => {
 // Returns rollup configuration for a given component
 function component(commonPlugins, folder) {
   return {
-    input: `src/components/${folder}/index.ts`,
+    input: `src/${folder}/index.ts`,
     output: [
       {
         file: `dist/${folder}/index.esm.js`,
@@ -92,7 +98,7 @@ function component(commonPlugins, folder) {
 
 export default [
   // Build all components separately for individual imports
-  ...getComponentsFolders("./src/components").map((folder) =>
+  ...getComponentsFolders("./src").map((folder) =>
     component(commonPlugins(`dist/${folder}`), folder)
   ),
   // Build the main file that includes all components
@@ -121,6 +127,6 @@ export default [
         warn(warning);
       }
     },
-    external: [/node_modules/, /\.\.\/components/],
+    external: [/node_modules/],
   },
 ];
