@@ -10,7 +10,8 @@ To install this package, run the following command in your terminal:
 npm install @almafintech/react-components
 ```
 
-Usage
+## Usage
+
 You can import the components from this library like so:
 
 ```
@@ -22,4 +23,20 @@ Or individually for better performance:
 ```
 import { Button } from '@almafintech/react-components/Button';
 import { Alert } from '@almafintech/react-components/Alert';
+```
+
+## Bundling
+
+Bundle the package running:
+
+```
+npm run build
+```
+
+## Manual Deploy
+
+After building you can deploy the package running:
+
+```
+npm publish ./dist
 ```
