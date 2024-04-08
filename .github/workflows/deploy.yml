@@ -8,10 +8,13 @@ jobs:
     if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          node-version: 20
       - run: npm ci
       - run: npm run semantic-release
         env:
