@@ -1,23 +1,31 @@
 name: Publish Almafintech React Components
 on:
-  pull_request:
-    branches: [main]
-    types: [closed]
+  push:
+    branches:
+      - master
+      - next
+      - beta
+
+permissions:
+  contents: read # for checkout
+
 jobs:
   publish:
-    if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      issues: write
-      pull-requests: write
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20.8.1
+          node-version: "lts/*"
       - run: npm ci
-      - run: npm run semantic-release
+      - run: npx semantic-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -18,7 +18,6 @@
     "build": "npm run rollup && npm run post:build",
     "post:build": "node ./scripts/postBuild.js",
     "rollup": "rm -rf dist && rollup -c",
-    "semantic-release": "semantic-release --branches main",
     "commit": "git-cz"
   },
   "author": "naguip",
@@ -71,5 +70,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "branches": [
+      "master",
+      "next",
+      "beta"
+    ]
   }
 }
