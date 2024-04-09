@@ -73,7 +73,7 @@
   },
   "release": {
     "branches": [
-      "master",
+      "main",
       "next",
       "beta"
     ]
