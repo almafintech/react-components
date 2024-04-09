@@ -35,6 +35,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       tertiary: primary300,
     };
 
+    console.log("Button rendered");
+
     return (
       <NextUiButton
         {...rest}
