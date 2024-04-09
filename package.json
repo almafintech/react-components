@@ -1,6 +1,6 @@
 {
   "name": "@almafintech/react-components",
-  "version": "0.0.0-development",
+  "version": "0.0.11",
   "description": "A component library for React projects.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -14,7 +14,6 @@
     "dev": "npx rollup -c --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "publish": "npm publish",
     "build": "npm run rollup && npm run post:build",
     "post:build": "node ./scripts/postBuild.js",
     "rollup": "rm -rf dist && rollup -c",
@@ -33,6 +32,7 @@
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
+    "@semantic-release/git": "^10.0.1",
     "@svgr/rollup": "8.1.0",
     "@types/file-saver": "2.0.7",
     "@types/react": "18.2.65",
@@ -70,12 +70,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "release": {
-    "branches": [
-      "main",
-      "next",
-      "beta"
-    ]
   }
 }
