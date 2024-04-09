@@ -39,9 +39,6 @@ export const getComponentsFolders = (entry) => {
       name !== "index.ts" && name !== "styles" && name !== "declaration.d.ts"
   );
 
-  console.log("dirs", dirs);
-  console.log("dirsWithoutIndex", dirsWithoutIndex);
-
   return dirsWithoutIndex;
 };
 
