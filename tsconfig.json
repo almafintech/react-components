@@ -32,7 +32,8 @@
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
     "noEmit": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "exclude": [
     "node_modules",
