@@ -1,4 +1,7 @@
 /* eslint-disable no-console */
+const fs = require("fs");
+const pkg = require("./utils.js");
+const { getComponentsFolders } = pkg;
 const { resolve, join, basename } = require("path");
 const { readFile, writeFile, copy } = require("fs-extra");
 const packagePath = process.cwd();
@@ -35,10 +38,26 @@ async function includeFileInBuild(file) {
   console.log(`Copied ${sourcePath} to ${targetPath}`);
 }
 
+async function deleteIndexCssForEachComponent() {
+  const componentsFolders = getComponentsFolders("src");
+  componentsFolders.forEach(async (folder) => {
+    const targetPath = resolve(distPath, folder);
+    const files = await fs.promises.readdir(targetPath);
+    files.forEach(async (file) => {
+      if (file.endsWith(".css") || file.endsWith(".css.map")) {
+        const filePath = resolve(targetPath, file);
+        await fs.promises.unlink(filePath);
+        console.log(`Deleted ${filePath}`);
+      }
+    });
+  });
+}
+
 async function run() {
   try {
     await createPackageFile();
     await includeFileInBuild("./README.md");
+    await deleteIndexCssForEachComponent();
     // await includeFileInBuild('../../LICENSE');
   } catch (err) {
     console.error(err);

@@ -10,6 +10,12 @@ To install this package, run the following command in your terminal:
 npm install @almafintech/react-components
 ```
 
+Once installed import the component styles on the root of the project:
+
+```
+import "@almafintech/react-components/index.css"
+```
+
 ## Usage
 
 You can import the components from this library like so:
