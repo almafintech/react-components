@@ -30,13 +30,12 @@ const commonPlugins = (declarationDir) => [
     },
   }), // Process CSS files
   {
+    // https://github.com/egoist/rollup-plugin-postcss/issues/381#issuecomment-880771065
     name: "Replace style-inject Rollup Plugin`", // it has to be after `postcss()`
     generateBundle: (options, bundle) => {
       Object.entries(bundle).forEach((entry) => {
         // early return if the file we're currently looking at doesn't need to be acted upon by this plugin
-        console.log("entry[0]", entry[0]);
         if (!entry[0].match(/.*(.js)$/)) {
-          console.log("NOT MATCH");
           return;
         }
 
