@@ -1,3 +1,10 @@
+## [0.0.16](https://github.com/almafintech/react-components/compare/v0.0.15...v0.0.16) (2024-04-11)
+
+
+### Bug Fixes
+
+* **release.config.js:** remove git config ([2479f0f](https://github.com/almafintech/react-components/commit/2479f0fe90fcca0d83b3a3639b3f9f34bbd2910f))
+
 ## [0.0.15](https://github.com/almafintech/react-components/compare/v0.0.14...v0.0.15) (2024-04-11)
 
 
