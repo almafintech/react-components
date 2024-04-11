@@ -1,3 +1,10 @@
+## [0.0.20](https://github.com/almafintech/react-components/compare/v0.0.19...v0.0.20) (2024-04-11)
+
+
+### Bug Fixes
+
+* **styles:** fix package styling ([91e6146](https://github.com/almafintech/react-components/commit/91e614697555c501feddebc4c1dcaa2892a21807))
+
 ## [0.0.19](https://github.com/almafintech/react-components/compare/v0.0.18...v0.0.19) (2024-04-11)
 
 
