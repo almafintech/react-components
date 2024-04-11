@@ -1,3 +1,10 @@
+## [0.0.19](https://github.com/almafintech/react-components/compare/v0.0.18...v0.0.19) (2024-04-11)
+
+
+### Bug Fixes
+
+* **release.config.js:** add pkgRoot dist to config ([197ca71](https://github.com/almafintech/react-components/commit/197ca71b795d2780757cd87ad561f3728fd6e68f))
+
 ## [0.0.18](https://github.com/almafintech/react-components/compare/v0.0.17...v0.0.18) (2024-04-11)
 
 
