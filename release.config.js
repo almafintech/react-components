@@ -5,12 +5,7 @@ const config = {
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     "@semantic-release/github",
-    [
-      "@semantic-release/npm",
-      {
-        pkgRoot: "dist",
-      },
-    ],
+    "@semantic-release/npm",
     [
       "@semantic-release/git",
       {
