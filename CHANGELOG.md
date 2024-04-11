@@ -1,3 +1,10 @@
+## [0.0.17](https://github.com/almafintech/react-components/compare/v0.0.16...v0.0.17) (2024-04-11)
+
+
+### Bug Fixes
+
+* **package.json:** install style inject ([ea42838](https://github.com/almafintech/react-components/commit/ea428386cee059b334c79c4c1cd7857e1d438acd))
+
 ## [0.0.16](https://github.com/almafintech/react-components/compare/v0.0.15...v0.0.16) (2024-04-11)
 
 
