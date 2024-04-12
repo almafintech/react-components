@@ -1,3 +1,5 @@
+const path = require("path");
+
 const config = {
   branches: ["main", "next", "beta"],
   plugins: [
@@ -14,7 +16,7 @@ const config = {
     [
       "@semantic-release/git",
       {
-        assets: ["CHANGELOG.md", "../package.json"],
+        assets: ["CHANGELOG.md", path.resolve(__dirname, "../package.json")],
         message:
           "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
       },
