@@ -1,3 +1,11 @@
+## [0.0.29](https://github.com/almafintech/react-components/compare/v0.0.28...v0.0.29) (2024-04-12)
+
+
+### Bug Fixes
+
+* **package.json:** test postversion ([d058766](https://github.com/almafintech/react-components/commit/d0587665a46d31abfdec601b435e149bc56141c4))
+* **test:** test postversion ([c4d04cf](https://github.com/almafintech/react-components/commit/c4d04cf02aa39d42e36039f68caa0b872849d5fb))
+
 ## [0.0.28](https://github.com/almafintech/react-components/compare/v0.0.27...v0.0.28) (2024-04-12)
 
 
