@@ -1,3 +1,10 @@
+## [0.0.22](https://github.com/almafintech/react-components/compare/v0.0.21...v0.0.22) (2024-04-12)
+
+
+### Bug Fixes
+
+* **release.config.js:** change @semantic-release/git assets ([059f8d3](https://github.com/almafintech/react-components/commit/059f8d3e09634f9bb2881af534291100ca508c8f))
+
 ## [0.0.21](https://github.com/almafintech/react-components/compare/v0.0.20...v0.0.21) (2024-04-12)
 
 
