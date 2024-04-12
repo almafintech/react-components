@@ -18,7 +18,8 @@
     "build": "npm run rollup && npm run post:build",
     "post:build": "node ./scripts/postBuild.js",
     "rollup": "rm -rf dist && rollup -c",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "postversion": "cp -r package.json .. && cp -r CHANGELOG.md .."
   },
   "author": "naguip",
   "license": "ISC",

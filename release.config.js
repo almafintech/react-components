@@ -16,7 +16,7 @@ const config = {
     [
       "@semantic-release/git",
       {
-        assets: ["CHANGELOG.md", path.resolve(__dirname, "../package.json")],
+        assets: ["package.json", "CHANGELOG.md"],
         message:
           "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
       },
