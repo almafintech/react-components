@@ -14,6 +14,12 @@ const config = {
       },
     ],
     [
+      "@semantic-release/exec",
+      {
+        prepareCmd: "cp -r package.json .. && cp -r CHANGELOG.md ..",
+      },
+    ],
+    [
       "@semantic-release/git",
       {
         assets: ["package.json", "CHANGELOG.md"],
