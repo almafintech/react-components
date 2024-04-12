@@ -1,3 +1,10 @@
+## [0.0.23](https://github.com/almafintech/react-components/compare/v0.0.22...v0.0.23) (2024-04-12)
+
+
+### Bug Fixes
+
+* **release.config.js:** edit "@semantic-release/git" package.json path ([9ae4705](https://github.com/almafintech/react-components/commit/9ae4705d13b2e282e20c759922bd120480f22628))
+
 ## [0.0.22](https://github.com/almafintech/react-components/compare/v0.0.21...v0.0.22) (2024-04-12)
 
 
