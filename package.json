@@ -19,7 +19,7 @@
     "post:build": "node ./scripts/postBuild.js",
     "rollup": "rm -rf dist && rollup -c",
     "commit": "git-cz",
-    "postversion": "cp -r dist/package.json .. && cat package.json"
+    "postversion": "cp -f -r dist/package.json .. && cat package.json"
   },
   "author": "naguip",
   "license": "ISC",
