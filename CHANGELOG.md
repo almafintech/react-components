@@ -1,3 +1,10 @@
+## [0.0.28](https://github.com/almafintech/react-components/compare/v0.0.27...v0.0.28) (2024-04-12)
+
+
+### Bug Fixes
+
+* **release.config.js:** test another config ([ab48a8c](https://github.com/almafintech/react-components/commit/ab48a8c294af29395144a8fcae6e6132504419e8))
+
 ## [0.0.27](https://github.com/almafintech/react-components/compare/v0.0.26...v0.0.27) (2024-04-12)
 
 
