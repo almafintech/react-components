@@ -1,3 +1,10 @@
+## [0.0.26](https://github.com/almafintech/react-components/compare/v0.0.25...v0.0.26) (2024-04-12)
+
+
+### Bug Fixes
+
+* **release.config.js:** postversion exec ([9cfb148](https://github.com/almafintech/react-components/commit/9cfb14899e8b0eafc1bab919de56e8257bfeb7f4))
+
 ## [0.0.25](https://github.com/almafintech/react-components/compare/v0.0.24...v0.0.25) (2024-04-12)
 
 
