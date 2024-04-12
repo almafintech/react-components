@@ -1,3 +1,10 @@
+## [0.0.25](https://github.com/almafintech/react-components/compare/v0.0.24...v0.0.25) (2024-04-12)
+
+
+### Bug Fixes
+
+* **release.config.js:** exec script ([7d502a3](https://github.com/almafintech/react-components/commit/7d502a327e1d67b25896f5296d3bdeb8a8bb929a))
+
 ## [0.0.24](https://github.com/almafintech/react-components/compare/v0.0.23...v0.0.24) (2024-04-12)
 
 
