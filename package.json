@@ -19,7 +19,7 @@
     "post:build": "node ./scripts/postBuild.js",
     "rollup": "rm -rf dist && rollup -c",
     "commit": "git-cz",
-    "postversion": "cp -r /home/runner/work/react-components/react-components/dist/package.json ../new-package.json && cp -r package.json ../new-package2.json && cp -r CHANGELOG.md .. && ls"
+    "postversion": "cp -r /home/runner/work/react-components/react-components/dist/package.json ../new-package.json && cp -r package.json ../new-package2.json && cp -r /dist/package.json ../new-package3.json && cp -r CHANGELOG.md .. && ls && ls dist"
   },
   "author": "naguip",
   "license": "ISC",
