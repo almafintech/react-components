@@ -1,3 +1,10 @@
+## [0.0.36](https://github.com/almafintech/react-components/compare/v0.0.35...v0.0.36) (2024-04-13)
+
+
+### Bug Fixes
+
+* **loadingdots.tsx:** add test id to loading dots to fix tests ([aec8da3](https://github.com/almafintech/react-components/commit/aec8da30248b25155bcb78d5db671f42934719d6))
+
 ## [0.0.35](https://github.com/almafintech/react-components/compare/v0.0.34...v0.0.35) (2024-04-13)
 
 
