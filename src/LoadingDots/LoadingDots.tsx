@@ -7,7 +7,7 @@ const LoadingDots = ({ color }: LoadingDotsProps) => {
   const dotStyle = { backgroundColor: color };
 
   return (
-    <div className={dotsContainer}>
+    <div data-testid="loading-dots" className={dotsContainer}>
       {Array.from({ length: 3 }).map((_, i) => (
         <div key={i} className={dot} style={dotStyle} />
       ))}
