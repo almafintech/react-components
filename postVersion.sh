@@ -4,4 +4,4 @@
 version=$1
 
 # Use sed to replace the version in the root package.json
-sed -i '' "s/\"version\": \"[^\"]*\"/\"version\": \"$version\"/" $GITHUB_WORKSPACE/package.json
+sed -i "s/\"version\": \"[^\"]*\"/\"version\": \"$version\"/" $GITHUB_WORKSPACE/package.json
