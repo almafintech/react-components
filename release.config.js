@@ -16,7 +16,7 @@ const config = {
     [
       "@semantic-release/exec",
       {
-        prepareCmd: "npm run postversion",
+        prepareCmd: "./postVersion.sh ${nextRelease.version}",
       },
     ],
     "@semantic-release/git",
