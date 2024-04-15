@@ -2,6 +2,18 @@
 
 This is a component library for React projects, developed by Almafintech.
 
+## Permissions
+
+To use or manage a package hosted by a package registry, you must use a **personal access token** (classic) with the appropriate scope, and your personal account must have appropriate permissions.
+
+For example:
+
+To download and install packages from a repository, your personal access token (classic) must have the **read:packages** scope, and your user account must have read permission.
+
+### How to create a personal access token (classic):
+
+[Create a token with read:packages permission and no exipration](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)
+
 ## Installation
 
 To install this package, run the following command in your terminal:
