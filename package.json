@@ -12,6 +12,7 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
+    "test-file": "jest --testPathPattern",
     "dev": "npx rollup -c --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -29,6 +30,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.4",
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
