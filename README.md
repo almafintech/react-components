@@ -4,15 +4,34 @@ This is a component library for React projects, developed by Almafintech.
 
 ## Permissions
 
+To use this package in projects of the same organization, follow this steps:
+
+#### 1. Create Personal Access Token (classic)
+
 To use or manage a package hosted by a package registry, you must use a **personal access token** (classic) with the appropriate scope, and your personal account must have appropriate permissions.
 
 For example:
 
 To download and install packages from a repository, your personal access token (classic) must have the **read:packages** scope, and your user account must have read permission.
 
-### How to create a personal access token (classic):
-
 [Create a token with read:packages permission and no exipration](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)
+
+#### 2. Create global environment variable called `GITHUB_TOKEN`
+
+Use this command to create the variable on zsh terminal:
+
+```
+echo "export GITHUB_TOKEN=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" >> ~/.zshenv
+```
+
+#### 3. Create `.npmrc` file in the root
+
+With this content:
+
+```
+@almafintech:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
 
 ## Installation
 
