@@ -1,3 +1,10 @@
+## [0.0.37](https://github.com/almafintech/react-components/compare/v0.0.36...v0.0.37) (2024-04-22)
+
+
+### Bug Fixes
+
+* **package.json:** add uuid to dependencies ([f7af6b6](https://github.com/almafintech/react-components/commit/f7af6b63077812ed98fce9896888b222db2f95b2))
+
 ## [0.0.36](https://github.com/almafintech/react-components/compare/v0.0.35...v0.0.36) (2024-04-13)
 
 
