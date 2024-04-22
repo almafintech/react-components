@@ -1,3 +1,10 @@
+## [0.0.38](https://github.com/almafintech/react-components/compare/v0.0.37...v0.0.38) (2024-04-22)
+
+
+### Bug Fixes
+
+* **rollup.config.mjs:** add external libraries ([f07d410](https://github.com/almafintech/react-components/commit/f07d41039e73d45c775d9b8329450c6426c4c4e9))
+
 ## [0.0.37](https://github.com/almafintech/react-components/compare/v0.0.36...v0.0.37) (2024-04-22)
 
 
