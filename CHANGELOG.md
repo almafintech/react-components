@@ -1,3 +1,10 @@
+## [0.0.39](https://github.com/almafintech/react-components/compare/v0.0.38...v0.0.39) (2024-04-23)
+
+
+### Bug Fixes
+
+* **rollup config:** fix external deps ([b841eaf](https://github.com/almafintech/react-components/commit/b841eafd992a64075b3247bd4f2809bd6b3baf79))
+
 ## [0.0.38](https://github.com/almafintech/react-components/compare/v0.0.37...v0.0.38) (2024-04-22)
 
 
