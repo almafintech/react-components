@@ -1,3 +1,10 @@
+## [0.0.40](https://github.com/almafintech/react-components/compare/v0.0.39...v0.0.40) (2024-04-24)
+
+
+### Bug Fixes
+
+* **styles:** small styles fixes ([4039a4c](https://github.com/almafintech/react-components/commit/4039a4cd6700a8e3f3cd831cae9c78e8aae09a80))
+
 ## [0.0.39](https://github.com/almafintech/react-components/compare/v0.0.38...v0.0.39) (2024-04-23)
 
 
