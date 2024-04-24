@@ -1,4 +1,4 @@
-import { NextUISelectProps } from "./interface/types";
+import { NextUISelectProps, Values } from "./interface/types";
 import { DateRange } from "../DatePicker/types";
 
 export interface InputSelectProps extends NextUISelectProps {
@@ -6,4 +6,5 @@ export interface InputSelectProps extends NextUISelectProps {
   onDatepickerDateChanged?: (range: DateRange) => void;
   initialDatePickerRange?: DateRange;
   minDatePickerDate?: Date;
+  inputValue?: Values;
 }

@@ -27,6 +27,7 @@ $confirm-actions-height: 100px;
     border: 1px solid $primary-light-100;
     background: $white;
     box-shadow: none;
+    outline: transparent;
   }
 
   &:not(.invalidSelect):not(.validSelect) {
@@ -37,6 +38,11 @@ $confirm-actions-height: 100px;
       }
 
       @include data-open {
+        background: $white;
+        border-color: $primary-normal-300;
+      }
+
+      @include data-focus {
         background: $white;
         border-color: $primary-normal-300;
       }
@@ -75,6 +81,8 @@ $confirm-actions-height: 100px;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 500;
+  text-align: left;
+  padding-bottom: 0.3rem;
 
   &.formField {
     color: $secondary-normal-300 !important;
