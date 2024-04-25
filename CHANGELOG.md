@@ -1,3 +1,10 @@
+## [0.0.42](https://github.com/almafintech/react-components/compare/v0.0.41...v0.0.42) (2024-04-25)
+
+
+### Bug Fixes
+
+* **inputs:** fix styles and add onBlur ([0df9a4d](https://github.com/almafintech/react-components/commit/0df9a4d9be3ce19da9885f208f07de5a48209726))
+
 ## [0.0.41](https://github.com/almafintech/react-components/compare/v0.0.40...v0.0.41) (2024-04-25)
 
 
