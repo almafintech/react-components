@@ -22,7 +22,7 @@
       color: $primary-dark-900 !important;
     }
     .inputWrapper:not(.touched) {
-      border-color: $primary-light-100 !important;
+      // border-color: $primary-light-100 !important;
     }
     .inputWrapper.touched {
       border-color: $e300 !important;
