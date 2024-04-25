@@ -1,3 +1,10 @@
+## [0.0.41](https://github.com/almafintech/react-components/compare/v0.0.40...v0.0.41) (2024-04-25)
+
+
+### Bug Fixes
+
+* **input style:** override input autofill ([2bd45df](https://github.com/almafintech/react-components/commit/2bd45df438c716e084bde8bc5b05b1a0f16c6576))
+
 ## [0.0.40](https://github.com/almafintech/react-components/compare/v0.0.39...v0.0.40) (2024-04-24)
 
 
