@@ -1,2 +1,2 @@
 export { default as InputAddress } from "./InputAddress";
-export type { InputAddressProps } from "./types";
+export type { InputAddressProps, FormattedAddress } from "./types";

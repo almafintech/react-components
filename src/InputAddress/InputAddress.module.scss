@@ -20,6 +20,29 @@
       line-height: 1.5rem;
       cursor: pointer;
       margin: 0.5rem;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+
+      // Pin icon
+      span:nth-child(1) > svg {
+        margin-right: 0.5rem;
+      }
+
+      // Main text
+      span:nth-child(2) {
+        white-space: nowrap;
+      }
+  
+      //secondary text
+      span:nth-child(3) {
+        color: $greyscale-500;
+        margin-left: 0.25rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+      }
     }
   
     .active {

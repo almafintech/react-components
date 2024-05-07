@@ -164,6 +164,7 @@ const Input = (props: InputProps) => {
       radius="sm"
       {...props}
       onKeyDown={(e) => {
+        props.onKeyDown && props.onKeyDown(e);
         if (type === "number" && ["ArrowUp", "ArrowDown"].includes(e.key))
           e.preventDefault();
       }}

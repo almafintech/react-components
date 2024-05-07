@@ -7,11 +7,21 @@ import {
 } from "react";
 import Input from "../Input/Input";
 import { InputProps } from "../Input/types";
-import { InputAddressProps } from "./types";
+import { FormattedAddress, InputAddressProps } from "./types";
 import styles from "./InputAddress.module.scss";
-import "google.maps";
+import { Loader } from "@googlemaps/js-api-loader";
+import LoactionPin from "../../assets/images/ui/icons/ui-icon-location-pin.svg";
 
 const { autoCompleteOptions, active, autoComplete } = styles;
+
+const replaceAccents = (text: string) => {
+  return text
+    .replaceAll(/[àáâãä]/gi, "a")
+    .replaceAll(/[¨èéê]/gi, "e")
+    .replaceAll(/[ìíîï]/gi, "i")
+    .replaceAll(/[òóôõö]/gi, "o")
+    .replaceAll(/[ùúûü]/gi, "u");
+};
 
 const InputAddress = (props: InputAddressProps) => {
   const {
@@ -26,6 +36,8 @@ const InputAddress = (props: InputAddressProps) => {
     placeholder,
     touched,
     value,
+    className,
+    exactAddress,
     onValueChange,
     onBlur,
   } = props;
@@ -43,7 +55,13 @@ const InputAddress = (props: InputAddressProps) => {
   };
   const autoCompleteRef = useRef<google.maps.places.AutocompleteService>();
   const geocoderRef = useRef<google.maps.Geocoder>();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const placesServicesRef = useRef<google.maps.places.PlacesService>();
+  const loader = new Loader({
+    apiKey: "AIzaSyCWeD4ttHZAElowHPLclnY9ZWzr2VxJWI4", //TODO use env variable
+    language: "es",
+    libraries: ["places", "geocoding"],
+  });
+  const placesServicesContainerRef = useRef<HTMLDivElement>(null);
   const [autoCompleteValue, setAutoCompleteValue] = useState("");
   const [predictions, setPredictions] = useState<
     google.maps.places.AutocompletePrediction[]
@@ -58,7 +76,7 @@ const InputAddress = (props: InputAddressProps) => {
       nativeEvent: { inputType: string };
     }
   ) => {
-    const currentValue = e.target.value.replace(/[./\\-]/g, "");
+    const currentValue = e.target.value.replace(/[^a-zA-Z0-9\s\-\.\,]/g, "");
     if (selectedValue) {
       const newValue = currentValue.replace(selectedValue, "").trim();
       setAutoCompleteValue(newValue);
@@ -74,9 +92,21 @@ const InputAddress = (props: InputAddressProps) => {
     prediction: google.maps.places.AutocompletePrediction
   ) => {
     const text = prediction.structured_formatting.main_text;
+    const request = {
+      placeId: prediction.place_id,
+      fields: ["formatted_address", "address_components"],
+    };
+    placesServicesRef.current?.getDetails(request, (place, status) => {
+      if (status === "OK" && place?.address_components) {
+        onValueChange &&
+          onValueChange({
+            fullData: { prediction, place },
+            formattedAddress: getFormattedAddress(place.address_components),
+          });
+      }
+    });
     setAutoCompleteValue(text);
     setSelectedValue(text);
-    onValueChange && onValueChange(prediction);
     setPredictions([]);
   };
 
@@ -106,19 +136,91 @@ const InputAddress = (props: InputAddressProps) => {
     }
   };
 
+  const getFormattedAddress = (
+    addressComponents: google.maps.GeocoderAddressComponent[]
+  ) => {
+    const formattedAddress: FormattedAddress = {
+      street: "",
+      streetNumber: "",
+      city: "",
+      state: "",
+      country: "",
+      postalCode: "",
+    };
+    addressComponents?.forEach((component) => {
+      if (component.types.includes("route")) {
+        formattedAddress.street = component.long_name;
+      }
+      if (component.types.includes("street_number")) {
+        formattedAddress.streetNumber = component.long_name;
+      }
+      if (component.types.includes("locality")) {
+        const isCABA = component.short_name === "CABA";
+        formattedAddress.city = isCABA
+          ? component.short_name
+          : component.long_name;
+      }
+      if (component.types.includes("administrative_area_level_1")) {
+        const isCABA = formattedAddress.city === "CABA";
+        formattedAddress.state = isCABA ? "CABA" : component.long_name;
+      }
+      if (component.types.includes("country")) {
+        formattedAddress.country = component.long_name;
+      }
+      if (component.types.includes("postal_code")) {
+        formattedAddress.postalCode = component.long_name;
+      }
+    });
+    if (!formattedAddress.city) {
+      // set the next component after "route" in the array  as the city, if "locality" is not present
+      const cityIndex =
+        addressComponents.findIndex((component) =>
+          component.types.includes("route")
+        ) + 1;
+      formattedAddress.city = addressComponents[cityIndex].long_name;
+    }
+    if (!formattedAddress.state) {
+      // set the prev component before "country" in the array  as the state if "administrative_area_level_1" is not present
+      const stateIndex =
+        addressComponents.findIndex((component) =>
+          component.types.includes("country")
+        ) - 1;
+      formattedAddress.state = addressComponents[stateIndex].long_name;
+    }
+    return formattedAddress;
+  };
+
   const getPredictions = () => {
-    if (autoCompleteValue && autoCompleteValue !== selectedValue) {
+    if (
+      autoCompleteValue &&
+      autoCompleteValue !== selectedValue &&
+      autoCompleteRef.current &&
+      geocoderRef.current
+    ) {
       autoCompleteRef.current?.getPlacePredictions(
         {
           input: autoCompleteValue,
           language: "es",
-          componentRestrictions: { country: countryCode },
-          types: ["address"],
+          componentRestrictions: countryCode
+            ? { country: countryCode }
+            : undefined,
+          types: [
+            ...(exactAddress ? ["street_address", "premise"] : ["address"]),
+          ],
           offset: 3,
+          locationBias: "IP_BIAS",
         },
         (predictions, status) => {
           if (status === "OK" && predictions) {
-            setPredictions(predictions);
+            setPredictions(
+              predictions.filter((p) => {
+                const mainText = p.structured_formatting.main_text;
+                const includesInput = replaceAccents(mainText)
+                  .toLowerCase()
+                  .includes(replaceAccents(autoCompleteValue.toLowerCase()));
+                return includesInput;
+              })
+            );
           } else {
             setPredictions([]);
           }
@@ -142,12 +244,37 @@ const InputAddress = (props: InputAddressProps) => {
       }
     );
   };
+  const getCountryData = async () => {
+    let countryData: google.maps.GeocoderAddressComponent | null = null;
+
+    if (country) {
+      const res = await getCodeAddress(country);
+      if (res) {
+        countryData =
+          res.results[0].address_components.find((component) =>
+            component.types.includes("country")
+          ) || null;
+      }
+    }
+    if (countryData) {
+      setCountryCode(countryData.short_name);
+    }
+  };
 
   useEffect(() => {
-    if (inputRef.current)
-      autoCompleteRef.current = new google.maps.places.AutocompleteService();
-    geocoderRef.current = new google.maps.Geocoder();
-  }, [inputRef.current]);
+    const init = async () => {
+      const places = await loader.importLibrary("places");
+      const geocoding = await loader.importLibrary("geocoding");
+      autoCompleteRef.current = new places.AutocompleteService();
+      geocoderRef.current = new geocoding.Geocoder();
+      if (placesServicesContainerRef.current instanceof HTMLDivElement) {
+        placesServicesRef.current = new places.PlacesService(
+          placesServicesContainerRef.current
+        );
+      }
+    };
+    init();
+  }, []);
 
   useEffect(() => {
     isTyping && getPredictions();
@@ -158,33 +285,24 @@ const InputAddress = (props: InputAddressProps) => {
   }, [value]);
 
   useEffect(() => {
-    const getData = async () => {
-      let countryData: google.maps.GeocoderAddressComponent | null = null;
-
-      if (country) {
-        const res = await getCodeAddress(country);
-        if (res) {
-          countryData =
-            res.results[0].address_components.find((component) =>
-              component.types.includes("country")
-            ) || null;
-        }
-      }
-      if (countryData) {
-        setCountryCode(countryData.short_name);
-      }
-    };
-    getData();
+    // When the country changes, we need to get the country code and reset the selected value
+    getCountryData();
+    setSelectedValue(null);
+    onValueChange && onValueChange(null);
   }, [country]);
 
+  useEffect(() => {
+    getCountryData();
+  }, [geocoderRef.current]);
+
   return (
-    <div className={autoComplete}>
+    <div className={`${autoComplete} ${className ? className : ""}`}>
+      <div ref={placesServicesContainerRef}></div>
       <Input
         type="text"
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={autoCompleteValue}
-        ref={inputRef}
         onBlur={(e) => {
           setIsTyping(false);
           onBlur && onBlur(e);
@@ -204,7 +322,10 @@ const InputAddress = (props: InputAddressProps) => {
         <div className={autoCompleteOptions} data-cy="autoCompleteOptions">
           {predictions.map((prediction, index) => {
             const className = index === currentFocus ? active : "";
-            const text = prediction.structured_formatting.main_text;
+            const mainText = prediction.structured_formatting.main_text;
+            const secondaryText =
+              prediction.structured_formatting.secondary_text;
+
             return (
               <p
                 className={className}
@@ -212,18 +333,25 @@ const InputAddress = (props: InputAddressProps) => {
                 onClick={() => handleAutocompleteSelect(prediction)}
                 onMouseOver={() => setCurrentFocus(index)}
               >
-                {
-                  // highlight text that matches the input
-                  text
-                    .split(new RegExp(`(${autoCompleteValue})`, "gi"))
-                    .map((part, i) =>
-                      part.toLowerCase() === autoCompleteValue.toLowerCase() ? (
-                        <b key={i}>{part}</b>
-                      ) : (
-                        part
+                <span>
+                  <LoactionPin />
+                </span>
+                <span>
+                  {
+                    // highlight text that matches the input
+                    mainText
+                      .split(new RegExp(`(${autoCompleteValue})`, "gi"))
+                      .map((part, i) =>
+                        part.toLowerCase() ===
+                        autoCompleteValue.toLowerCase() ? (
+                          <b key={i}>{part}</b>
+                        ) : (
+                          part
+                        )
                       )
-                    )
-                }
+                  }
+                </span>
+                <span>{secondaryText}</span>
               </p>
             );
           })}
