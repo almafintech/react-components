@@ -76,7 +76,10 @@ const InputAddress = (props: InputAddressProps) => {
       nativeEvent: { inputType: string };
     }
   ) => {
-    const currentValue = e.target.value.replace(/[^a-zA-Z0-9\s\-\.\,]/g, "");
+    const currentValue = e.target.value.replace(
+      /[^a-zA-Z0-9áéíóúÁÉÍÓÚüÜñÑ\s\.\-]/g,
+      ""
+    );
     if (selectedValue) {
       const newValue = currentValue.replace(selectedValue, "").trim();
       setAutoCompleteValue(newValue);
