@@ -10,10 +10,14 @@ import autoprefixer from "autoprefixer";
 import terser from "@rollup/plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import generatePackageJson from "rollup-plugin-generate-package-json";
+import replace from "@rollup/plugin-replace";
 import svgr from "@svgr/rollup";
+import dotenv from "dotenv";
 import tailwindConfig from "./tailwind.config.js";
 import pkg from "./package.json" assert { type: "json" };
 import { getComponentsFolders } from "./scripts/utils.js";
+
+dotenv.config();
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 const globals = {
@@ -22,6 +26,13 @@ const globals = {
 };
 
 const commonPlugins = [
+  replace({
+    "process.env.GOOGLE_MAPS_API_KEY": JSON.stringify(
+      process.env.GOOGLE_MAPS_API_KEY
+    ),
+    // add other environment variables here
+  }),
+  // dotenv(), // Load environment variables
   external(), // Keep from including peerDependencies since they are expected to be provided by the consumer of the library
   svgr(), // Convert SVGs to React components
   resolve({ extensions, browser: true }), // Locate and bundle third-party dependencies in node_modules

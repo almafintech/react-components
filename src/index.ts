@@ -16,3 +16,4 @@ export * from "./RoundedButton";
 export * from "./Skeleton";
 export * from "./Table";
 export * from "./ToastMessage";
+export * from "./InputAddress";
