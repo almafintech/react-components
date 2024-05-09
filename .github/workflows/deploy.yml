@@ -6,6 +6,9 @@ on:
       - next
       - beta
 
+env:
+  GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+
 jobs:
   tests:
     runs-on: ubuntu-latest

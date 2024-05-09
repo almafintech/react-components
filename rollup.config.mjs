@@ -10,6 +10,7 @@ import autoprefixer from "autoprefixer";
 import terser from "@rollup/plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import generatePackageJson from "rollup-plugin-generate-package-json";
+import dotenv from "rollup-plugin-dotenv";
 import svgr from "@svgr/rollup";
 import tailwindConfig from "./tailwind.config.js";
 import pkg from "./package.json" assert { type: "json" };
@@ -22,6 +23,7 @@ const globals = {
 };
 
 const commonPlugins = [
+  dotenv(), // Load environment variables
   external(), // Keep from including peerDependencies since they are expected to be provided by the consumer of the library
   svgr(), // Convert SVGs to React components
   resolve({ extensions, browser: true }), // Locate and bundle third-party dependencies in node_modules

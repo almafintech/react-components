@@ -57,7 +57,7 @@ const InputAddress = (props: InputAddressProps) => {
   const geocoderRef = useRef<google.maps.Geocoder>();
   const placesServicesRef = useRef<google.maps.places.PlacesService>();
   const loader = new Loader({
-    apiKey: "AIzaSyCWeD4ttHZAElowHPLclnY9ZWzr2VxJWI4", //TODO use env variable
+    apiKey: process.env.GOOGLE_MAPS_API_KEY || "",
     language: "es",
     libraries: ["places", "geocoding"],
   });
