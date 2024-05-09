@@ -1,5 +1,4 @@
 import "./styles/global.scss";
-import "dotenv/config";
 
 export * from "./Alert";
 export * from "./Button";
