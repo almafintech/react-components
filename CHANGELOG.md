@@ -1,3 +1,18 @@
+# [0.1.0](https://github.com/almafintech/react-components/compare/v0.0.42...v0.1.0) (2024-05-09)
+
+
+### Bug Fixes
+
+* **.env:** fix .env variables ([ca0c35d](https://github.com/almafintech/react-components/commit/ca0c35d96bdd3ecaadd482ee1891351ed78bdc79))
+* **inputaddress:** fix regex on input change ([2a38c8c](https://github.com/almafintech/react-components/commit/2a38c8c31cbfc2e42b5641f4937fe8a4ecabc3f9))
+* **inputaddress:** import maps libraries, format address on selection ([29ff9f4](https://github.com/almafintech/react-components/commit/29ff9f41d63a1366dbe3e5a5218c796deb9893e1))
+* **package-lock.json:** sync package lock with package ([0f689f7](https://github.com/almafintech/react-components/commit/0f689f71fc54b9fbeb2664d120cd5723eaefb3c8))
+
+
+### Features
+
+* **inputaddress:** add input address autocomplete ([2e9f1d6](https://github.com/almafintech/react-components/commit/2e9f1d68c787f68456aec6aef01eb09ca8451e67))
+
 ## [0.0.42](https://github.com/almafintech/react-components/compare/v0.0.41...v0.0.42) (2024-04-25)
 
 
