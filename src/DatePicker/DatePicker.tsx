@@ -14,6 +14,9 @@ import {
 } from "./helpers";
 import { DatePickerProps, DateRange } from "./types";
 
+/**
+ *  Allow users to select a date or a range of dates
+ */
 const DatePicker = (props: DatePickerProps) => {
   const {
     locale = "es-AR",

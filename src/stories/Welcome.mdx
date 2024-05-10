@@ -1,0 +1,50 @@
+import { Meta } from "@storybook/blocks";
+
+import "../styles/variables";
+
+<Meta title="Welcome" />
+
+<div className="container">
+  <h3 className="subtitle"> ¡Welcome! 😄</h3>
+  <h1 className="title">Almafintech Components</h1>
+  <span className="description">Discover our library components for your React projects here</span>
+  <p className="lastUpdate">Last updated on May 10, 2024</p>
+</div>
+
+<style>
+  {`
+    .container{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(312deg, rgba(176,201,233,1) 0%, rgba(230,238,248,1) 100%);
+    }
+
+    .title{
+      margin-left: 6rem;
+      font-size: 3.5rem;
+      color: #002452;
+    }
+
+    .subtitle{
+      margin-top: 10rem !important;
+      margin-left: 6rem;
+      font-size: 1.5rem;
+      color: #002452;
+    }
+
+    .description{
+      margin-left: 6rem;
+      font-weight: 400;
+      color: #002452;
+      font-size: 1rem;
+    }
+
+    .lastUpdate{
+      margin-top: 4rem;
+      margin-left: 6rem;
+    }
+  `}
+</style>

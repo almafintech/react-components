@@ -11,11 +11,13 @@ export interface Row {
   [key: string]: string | number | ReactNode;
 }
 
+export type ColumnAlignment = "start" | "center" | "end"
+
 export interface Column {
   key: number | string;
   label: string | ReactNode;
   sorteable?: boolean;
-  align?: "start" | "center" | "end";
+  align?: ColumnAlignment;
 }
 
 type Props = Omit<NextUiTableProps, "children"> &

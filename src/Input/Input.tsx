@@ -128,7 +128,7 @@ const Input = (props: InputProps) => {
 
   const getErrorMessage = () => (
     <div className={error}>
-      <InvalidIcon className={icon} />
+      <img src={InvalidIcon} className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );
@@ -210,7 +210,7 @@ const Input = (props: InputProps) => {
       startContent={
         <span className={startContentStyle}>
           {startContent}
-          {type === "search" && <SearchIcon className={icon} />}
+          {type === "search" && <img src={SearchIcon} className={icon} />}
           {type === "money" &&
             (props.value || value) &&
             getCurrencySymbol("es-AR", currency)}

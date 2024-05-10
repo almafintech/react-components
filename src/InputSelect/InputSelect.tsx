@@ -223,7 +223,7 @@ const InputSelect = ({
 
   const getErrorMessage = () => (
     <div className={error}>
-      <InvalidIcon className={icon} />
+      <img src={InvalidIcon} className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );

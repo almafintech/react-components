@@ -147,7 +147,7 @@ const InputFile = ({
       >
         {(!file && !fileData) || (file && fileError) ? (
           <div className={fileHeader}>
-            <UploadIcon />
+            <img src={UploadIcon} />
             <label
               id={`label-file-upload-${name}`}
               htmlFor={`input-file-upload-${name}`}
@@ -180,8 +180,8 @@ const InputFile = ({
                 <LoadingDots color="#acb3bf" />
               ) : (
                 <>
-                  <DownloadIcon onClick={handleFileDownload} />
-                  <TrashIcon onClick={handleFileRemove} />
+                  <img src={DownloadIcon} onClick={handleFileDownload} />
+                  <img src={TrashIcon} onClick={handleFileRemove} />
                 </>
               )}
             </div>
