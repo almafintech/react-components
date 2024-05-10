@@ -33,13 +33,3 @@ export const WithCustomClassName: Story = {
     className: ""
   },
 };
-
-export const WithChildren: Story = {
-  args: {
-   ...Default.args,
-    children: <Skeleton width="6rem" height="2rem"/>
-  },
-};
-
-
-
