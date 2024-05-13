@@ -79,8 +79,14 @@ function component(folder) {
         warn(warning);
       }
     },
-    // Don't bundle node_modules
-    external: [/node_modules/],
+    // Don't bundle this
+    external: [
+      /node_modules/,
+      "uuid",
+      "file-saver",
+      "react-phone-input-2",
+      "react-toastify",
+    ],
   };
 }
 
@@ -114,6 +120,12 @@ export default [
       }
     },
     // Don't bundle node_modules
-    external: [/node_modules/],
+    external: [
+      /node_modules/,
+      "uuid",
+      "file-saver",
+      "react-phone-input-2",
+      "react-toastify",
+    ],
   },
 ];

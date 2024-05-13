@@ -1,3 +1,45 @@
+## [0.0.42](https://github.com/almafintech/react-components/compare/v0.0.41...v0.0.42) (2024-04-25)
+
+
+### Bug Fixes
+
+* **inputs:** fix styles and add onBlur ([0df9a4d](https://github.com/almafintech/react-components/commit/0df9a4d9be3ce19da9885f208f07de5a48209726))
+
+## [0.0.41](https://github.com/almafintech/react-components/compare/v0.0.40...v0.0.41) (2024-04-25)
+
+
+### Bug Fixes
+
+* **input style:** override input autofill ([2bd45df](https://github.com/almafintech/react-components/commit/2bd45df438c716e084bde8bc5b05b1a0f16c6576))
+
+## [0.0.40](https://github.com/almafintech/react-components/compare/v0.0.39...v0.0.40) (2024-04-24)
+
+
+### Bug Fixes
+
+* **styles:** small styles fixes ([4039a4c](https://github.com/almafintech/react-components/commit/4039a4cd6700a8e3f3cd831cae9c78e8aae09a80))
+
+## [0.0.39](https://github.com/almafintech/react-components/compare/v0.0.38...v0.0.39) (2024-04-23)
+
+
+### Bug Fixes
+
+* **rollup config:** fix external deps ([b841eaf](https://github.com/almafintech/react-components/commit/b841eafd992a64075b3247bd4f2809bd6b3baf79))
+
+## [0.0.38](https://github.com/almafintech/react-components/compare/v0.0.37...v0.0.38) (2024-04-22)
+
+
+### Bug Fixes
+
+* **rollup.config.mjs:** add external libraries ([f07d410](https://github.com/almafintech/react-components/commit/f07d41039e73d45c775d9b8329450c6426c4c4e9))
+
+## [0.0.37](https://github.com/almafintech/react-components/compare/v0.0.36...v0.0.37) (2024-04-22)
+
+
+### Bug Fixes
+
+* **package.json:** add uuid to dependencies ([f7af6b6](https://github.com/almafintech/react-components/commit/f7af6b63077812ed98fce9896888b222db2f95b2))
+
 ## [0.0.36](https://github.com/almafintech/react-components/compare/v0.0.35...v0.0.36) (2024-04-13)
 
 

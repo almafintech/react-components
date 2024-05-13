@@ -44,6 +44,7 @@ const InputSelect = ({
   isDisabled,
   initialDatePickerRange,
   minDatePickerDate,
+  inputValue,
   ...rest
 }: InputSelectProps) => {
   const {
@@ -266,6 +267,12 @@ const InputSelect = ({
     }
   };
 
+  useEffect(() => {
+    if (inputValue) {
+      setValues(inputValue);
+    }
+  }, [inputValue]);
+
   return (
     <NextUiSelect
       {...rest}
@@ -285,7 +292,7 @@ const InputSelect = ({
       data-id={componentId}
       items={isDatePickerOpen ? [] : items}
       labelPlacement="outside"
-      placeholder={placeholder ?? " "}
+      placeholder={!inputValue ? placeholder ?? " " : " "}
       className={`${className} ${
         isInvalid && selectTouched ? invalidSelect : ""
       } ${isInvalid === false && selectTouched && validSelect} ${

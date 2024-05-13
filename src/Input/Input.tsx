@@ -177,6 +177,10 @@ const Input = (props: InputProps) => {
         setTouched(true);
         props.onChange && props.onChange(e);
       }}
+      onBlur={(e) => {
+        setTouched(true);
+        props.onBlur && props.onBlur(e);
+      }}
       classNames={{
         base: `${base} ${!hasLabel && noLabel}`,
         input: input,
