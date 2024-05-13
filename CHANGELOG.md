@@ -1,3 +1,10 @@
+## [0.0.43](https://github.com/almafintech/react-components/compare/v0.0.42...v0.0.43) (2024-05-13)
+
+
+### Bug Fixes
+
+* **react version:** loosen react version requirement ([2090d8d](https://github.com/almafintech/react-components/commit/2090d8dd4eb83ecdadedbd1585f5f2b4760b4670))
+
 ## [0.0.42](https://github.com/almafintech/react-components/compare/v0.0.41...v0.0.42) (2024-04-25)
 
 

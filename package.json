@@ -1,6 +1,6 @@
 {
   "name": "@almafintech/react-components",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "description": "A component library for React projects.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
