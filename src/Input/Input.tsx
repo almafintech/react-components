@@ -201,7 +201,7 @@ const Input = (props: InputProps) => {
           : props.type
       }
       errorMessage={
-        <>{isInvalid && (props.touched || touched) && getErrorMessage()}</>
+        isInvalid && (props.touched || touched) && <>{getErrorMessage()}</>
       }
       description={!isInvalid && description}
       value={type === "money" ? asMoney(value) : props.value ?? value}

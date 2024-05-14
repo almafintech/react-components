@@ -70,7 +70,7 @@ const DatePicker = (props: DatePickerProps) => {
     <Select
       aria-label="Year"
       items={Array.from(
-        Array(max.getFullYear() - min.getFullYear()).keys()
+        Array(max.getFullYear() + 1 - min.getFullYear()).keys()
       ).map((_, i) => {
         return {
           label: (min.getFullYear() + i).toString(),

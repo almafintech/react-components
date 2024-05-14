@@ -58,7 +58,10 @@ const InputFile = ({
     const allowedTypes = validTypes ? new Set(validTypes) : new Set([]);
     const maxFileSize = maxSize ? maxSize * 1024 * 1024 : 0;
 
-    if (allowedTypes.has(inputFile.type) && inputFile.size <= maxFileSize) {
+    if (
+      (!validTypes || allowedTypes.has(inputFile.type)) &&
+      (!maxSize || inputFile.size <= maxFileSize)
+    ) {
       setFileError(false);
       setFile(inputFile);
       onFileUpload && !isLoading && onFileUpload(inputFile);

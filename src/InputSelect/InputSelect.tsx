@@ -284,7 +284,7 @@ const InputSelect = ({
       }}
       disallowEmptySelection={isSingle && true}
       description={!isInvalid && description}
-      errorMessage={<>{isInvalid && selectTouched && getErrorMessage()}</>}
+      errorMessage={isInvalid && selectTouched && <>{getErrorMessage()}</>}
       selectionMode={isSingle || hasDatePicker ? "single" : "multiple"}
       scrollShadowProps={{
         isEnabled: confirmSelection ? false : true,
