@@ -6,11 +6,11 @@ import {
   SelectSection,
 } from "@nextui-org/select";
 import styles from "./InputSelect.module.scss";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Key } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
 import ControlledRadio from "../ControlledRadio/ControlledRadio";
-import { Item, SelectItemType, Values } from "./interface/types";
+import { Item, SelectItemType, Values } from "./types";
 import {
   selectChangeHandler,
   getRenderValue,
@@ -278,7 +278,7 @@ const InputSelect = ({
       {...rest}
       isDisabled={isDisabled}
       onClick={handleInsideClick}
-      onBlur={(e) => {
+      onBlur={(e: React.FocusEvent) => {
         setSelectTouched(true);
         onBlur && onBlur(e);
       }}
@@ -325,7 +325,7 @@ const InputSelect = ({
       }}
       isOpen={isOpen}
       selectedKeys={typeof values === "string" && isSingle ? [values] : values}
-      onChange={(e) =>
+      onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
         selectChangeHandler(
           e,
           items,
@@ -337,9 +337,9 @@ const InputSelect = ({
           setDatePickerRange
         )
       }
-      onSelectionChange={(keys) => {
+      onSelectionChange={(keys: any) => {
         if (!confirmSelection) {
-          const keysArray = Array.from(keys).filter(Boolean);
+          const keysArray = Array.from(keys).filter(Boolean) as Key[];
           if (!keysArray || !keysArray[0]) return;
           onChange(isSingle ? keysArray[0] : keysArray);
         }
