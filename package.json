@@ -98,8 +98,6 @@
     "react-phone-input-2": "2.15.1",
     "react-toastify": "10.0.5",
     "uuid": "9.0.1"
-    "react-toastify": "10.0.5",
-    "uuid": "9.0.1"
   },
   "publishConfig": {
     "access": "restricted"
