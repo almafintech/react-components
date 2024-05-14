@@ -40,7 +40,7 @@ const meta = {
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div className="selectContainer">
+      <div className="inputContainer">
         <Story />
       </div>
     ),
@@ -67,8 +67,8 @@ export const Default: Story = {
     touched: false,
     type: "single",
     items: [
-      { label: "Concertación", value: "Conc" },
-      { label: "Liquidación", value: "Liq" },
+      { label: "Opción 1", value: "1" },
+      { label: "Opción 2", value: "2" },
     ],
     onChange: () => console.log("click"),
   },
@@ -95,13 +95,21 @@ export const WithCheckboxMultipleSelection: Story = {
   },
 };
 
+export const WithDescription: Story = {
+  args: {
+    ...Default.args,
+    description: "Descripción"
+  },
+};
+
 export const WithDatePicker: Story = {
   args: {
     ...Default.args,
     label: "Seleccioná un período",
-    items: periodSelectOptions,
-    onDatepickerDateChanged: (keys) => null,
     type: "single-radio-date-picker",
+    items: periodSelectOptions,
+    confirmSelection: false,
+    onDatepickerDateChanged: (keys) => null,
   },
 };
 
@@ -134,7 +142,7 @@ export const isValid: Story = {
     ...Default.args,
     isInvalid: false,
     touched: true,
-    defaultSelectedKeys: ["Conc"],
+    defaultSelectedKeys: ["1"],
   },
 };
 
@@ -143,7 +151,7 @@ export const isInvalid: Story = {
     ...Default.args,
     isInvalid: true,
     touched: true,
-    defaultSelectedKeys: ["Conc"],
+    defaultSelectedKeys: ["1"],
     errorMessage: "La opción seleccionada no es válida.",
   },
 };
@@ -159,13 +167,13 @@ export const isDisabled: Story = {
 export const withDefaultSelected: Story = {
   args: {
     ...Default.args,
-    defaultSelectedKeys: ["Conc"],
+    defaultSelectedKeys: ["1"],
   },
 };
 
 export const withDisabledOptions: Story = {
   args: {
     ...Default.args,
-    disabledKeys: ["Conc"],
+    disabledKeys: ["1"],
   },
 };

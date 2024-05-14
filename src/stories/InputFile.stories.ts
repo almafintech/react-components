@@ -22,16 +22,27 @@ export const Default: Story = {
   },
 };
 
+export const WithInfoMessage: Story = {
+  args: {
+    ...Default.args,
+    infoText: "Adjuntá la información necesaria"
+  },
+};
+
 export const WithValidTypesFiles: Story = {
   args: {
     ...Default.args,
+    error: true,
     validTypes: ["image/jpg", "image/png"],
+    infoText: "Formato .jpg .png"
   },
 };
 
 export const WithMaxSize: Story = {
   args: {
     ...Default.args,
-    maxSize: 10,
+    maxSize: 3145728,
+    infoText: "Peso máximo 3MB"
+
   },
 };

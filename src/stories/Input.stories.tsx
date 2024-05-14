@@ -8,6 +8,13 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="inputContainer">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -38,7 +45,6 @@ export const withPlaceholder: Story = {
 export const withDescription: Story = {
   args: {
     ...Default.args,
-    balance: 1212,
     description: "Tu nombre completo",
   },
 };
@@ -55,6 +61,16 @@ export const withInitialValue: Story = {
   args: {
     ...Default.args,
     initialValue: "Alejandro",
+  },
+};
+
+export const withoutLabel: Story = {
+  args: {
+    ...Default.args,
+    placeholder: "Ingresá la cantidad personalizada de días",
+    label: "",
+    type: "number",
+    hasLabel: false,
   },
 };
 
@@ -121,6 +137,29 @@ export const Password: Story = {
     ...Default.args,
     label: "Contraseña",
     type: "password",
+  },
+};
+
+
+export const isRequired: Story = {
+  args: {
+    ...Default.args,
+    isRequired: true
+  },
+};
+
+export const isReadOnly: Story = {
+  args: {
+    ...Default.args,
+    initialValue: "Alex",
+    isReadOnly: true
+  },
+};
+
+export const isDisabled: Story = {
+  args: {
+    ...Default.args,
+    isDisabled: true
   },
 };
 

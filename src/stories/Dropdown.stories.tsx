@@ -43,6 +43,14 @@ export const Default: Story = {
   },
 };
 
+
+export const isDisabled: Story = {
+  args: {
+    ...Default.args,
+    isDisabled: true
+  },
+};
+
 export const MultipleSelection: Story = {
   args: {
     ...Default.args,
