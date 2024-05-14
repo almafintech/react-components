@@ -109,7 +109,6 @@ export const WithDatePicker: Story = {
     type: "single-radio-date-picker",
     items: periodSelectOptions,
     confirmSelection: false,
-    onDatepickerDateChanged: (keys) => null,
   },
 };
 
