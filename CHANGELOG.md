@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/almafintech/react-components/compare/v0.1.1...v0.1.2) (2024-05-14)
+
+
+### Bug Fixes
+
+* **select:** export Select types. Fix Select type errors ([19fdc97](https://github.com/almafintech/react-components/commit/19fdc97cf0facd53d426aeb6be7b31d6107e8a07))
+
 ## [0.1.1](https://github.com/almafintech/react-components/compare/v0.1.0...v0.1.1) (2024-05-13)
 
 
