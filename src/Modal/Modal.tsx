@@ -22,7 +22,7 @@ const Modal = ({
   return (
     <NextUiModal
       classNames={{ ...restStyles }}
-      closeButton={<CloseIcon />}
+      closeButton={<img src={CloseIcon} />}
       scrollBehavior="inside"
       placement="center"
       {...rest}

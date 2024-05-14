@@ -15,8 +15,23 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    name: "label",
+    name: "Archivo",
     text: "Seleccionar archivo",
-    infoText: "Máximo 25MB",
+    onFileRemove: () => console.log("removido"),
+    onFileUpload: () => console.log("subido"),
+  },
+};
+
+export const WithValidTypesFiles: Story = {
+  args: {
+    ...Default.args,
+    validTypes: ["image/jpg", "image/png"],
+  },
+};
+
+export const WithMaxSize: Story = {
+  args: {
+    ...Default.args,
+    maxSize: 10,
   },
 };

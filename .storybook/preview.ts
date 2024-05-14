@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
 
-// import "./index.scss";
+import "./index.scss";
 import "../src/styles/global.scss";
 
 const preview: Preview = {
@@ -10,7 +10,7 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
-    },
+    }
   },
 };
 

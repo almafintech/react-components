@@ -47,7 +47,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     variant: "primary",
-    text: "Button",
+    text: "Click",
     size: "desktop",
     isDisabled: false,
     isLoading: false,
@@ -97,7 +97,7 @@ export const IsDisabled: Story = {
   },
 };
 
-export const CustomWithClassName: Story = {
+export const WithCustomStyles: Story = {
   args: {
     ...Primary.args,
     className:

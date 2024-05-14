@@ -115,14 +115,7 @@ export const WithRectangularBackground: Story = {
   },
 };
 
-export const WithSquaredBackground: Story = {
-  args: {
-    icon: "download",
-    buttonType: "squared",
-  },
-};
-
-export const WithRoundedBordersBackground: Story = {
+export const WithCircularBackground: Story = {
   args: {
     icon: "download",
     buttonType: "rounded",

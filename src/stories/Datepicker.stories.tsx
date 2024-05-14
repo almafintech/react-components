@@ -4,8 +4,6 @@ import {
   getCurrentYear,
   getCurrentMonth,
   getCurrentDay,
-  getLongMonthNames,
-  isRangeFinal,
 } from "../DatePicker/helpers";
 
 const meta = {
@@ -15,6 +13,13 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="w-auto m-auto max-w-lg">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof DatePicker>;
 
 export default meta;
@@ -25,21 +30,21 @@ export const Default: Story = {
   args: {},
 };
 
-export const Month: Story = {
+export const SelectMonth: Story = {
   args: {
     ...Default.args,
     defaultCalendarVariant: "MONTH",
   },
 };
 
-// export const Date: Story = {
-//   args: {
-//     ...Default.args,
-//     defaultCalendarVariant: "DATE",
-//   },
-// };
+export const SelectDate: Story = {
+  args: {
+    ...Default.args,
+    defaultCalendarVariant: "DATE",
+  },
+};
 
-export const Day: Story = {
+export const SelectDays: Story = {
   args: {
     ...Default.args,
     defaultCalendarVariant: "DAY",
@@ -60,3 +65,20 @@ export const MaxDateValue: Story = {
   },
 };
 
+export const WithDefaultValue: Story = {
+  args: {
+    ...Default.args,
+    defaultRange: [
+      new Date(getCurrentYear(), getCurrentMonth(), getCurrentDay() - 5),
+      new Date(getCurrentYear(), getCurrentMonth(), getCurrentDay() - 5),
+    ],
+    restoreDefaultOnDelete: true,
+  },
+};
+
+export const WithCustomStyles: Story = {
+  args: {
+    ...Default.args,
+    calendarClassName: "bg-blue-50 rounded-2xl p-2"
+  },
+};

@@ -120,7 +120,7 @@ const DatePicker = (props: DatePickerProps) => {
         <div className="flex gap-1 flex-grow">
           {onBack && calendarVariant !== "DATE" && (
             <div className={iconButton} onClick={() => onBack && onBack()}>
-              <BackIcon />
+              <img src={BackIcon} />
             </div>
           )}
           {["DAY", "DATE"].includes(calendarVariant) && monthPicker}

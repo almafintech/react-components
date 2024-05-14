@@ -23,13 +23,6 @@ export const Default: Story = {
 export const WithCustomBorderRadius: Story = {
   args: {
    ...Default.args,
-   borderRadius: "0.5rem"
-  },
-};
-
-export const WithCustomClassName: Story = {
-  args: {
-   ...Default.args,
-    className: ""
+   borderRadius: "0rem"
   },
 };

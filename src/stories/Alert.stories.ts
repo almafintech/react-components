@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Info: Story = {
   args: {
-    children: "This is an info message",
+    children: "Este es un mensaje de información",
     variant: "INFO",
     hasSummary: false,
   },
@@ -24,7 +24,7 @@ export const Info: Story = {
 
 export const Warn: Story = {
   args: {
-    children: "This is a warning message",
+    children: "Este es un mensaje de advertencia",
     variant: "WARN",
     hasSummary: false,
   },
@@ -32,7 +32,7 @@ export const Warn: Story = {
 
 export const Error: Story = {
   args: {
-    children: "This is an error message",
+    children: "Este es un mensaje de error",
     variant: "ERROR",
     hasSummary: false,
   },
@@ -41,16 +41,16 @@ export const Error: Story = {
 export const WithSummary: Story = {
   args: {
     children:
-      "As part of our commitment to transparency and security, we want to inform you about some important updates and changes to our platform. we're excited to announce that we've launched several new features based on your feedback. These enhancements are designed to improve usability and streamline your experience. We encourage you to explore these additions and let us know your thoughts.",
+      "Como parte de nuestro compromiso con la transparencia y la seguridad, queremos informarte sobre algunas actualizaciones importantes y cambios en nuestra plataforma. Estamos emocionados de anunciar que hemos lanzado varias nuevas características basadas en tus comentarios. Estas mejoras están diseñadas para mejorar la usabilidad y optimizar tu experiencia. Te animamos a explorar estas adiciones y hacernos saber tus pensamientos.",
     variant: "INFO",
     hasSummary: true,
   },
 };
 
-export const CustomWithClassName: Story = {
+export const WithCustomStyles: Story = {
   args: {
-    children: "This is a message",
+    children: "Este es un mensaje especial",
     variant: "INFO",
-    className: "w-3/6",
+    className: "customAlert",
   },
 };

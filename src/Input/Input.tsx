@@ -13,7 +13,6 @@ import styles from "./Input.module.scss";
 
 /**
  * Text input component based on NextUI's `Input`
- * @returns
  */
 const Input = (props: InputProps) => {
   const {
@@ -141,7 +140,7 @@ const Input = (props: InputProps) => {
         setIsVisible(!isVisible);
       }}
     >
-      {isVisible ? <ShowIcon /> : <HideIcon />}
+      {isVisible ? <img src={ShowIcon} /> : <img src={HideIcon} />}
     </button>
   );
 

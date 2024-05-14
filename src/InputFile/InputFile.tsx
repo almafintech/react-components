@@ -160,7 +160,7 @@ const InputFile = ({
             <div className={fileHeader}>
               {isLoading ? (
                 <>
-                  <UploadIcon />
+                  <img src={UploadIcon} />
                   <label
                     id={`label-file-upload-${name}`}
                     htmlFor={`input-file-upload-${name}`}
@@ -170,7 +170,7 @@ const InputFile = ({
                 </>
               ) : (
                 <>
-                  <SuccessIcon />
+                  <img src={SuccessIcon} />
                   <p>{fileData ? fileData.name : file?.name}</p>
                 </>
               )}
@@ -198,7 +198,7 @@ const InputFile = ({
       {infoText && <p className={infoTextStyle}>{infoText}</p>}
       {file && fileError && (
         <div className={errorMessageStyle}>
-          <ErrorIcon />
+          <img src={ErrorIcon} />
           <span>{errorMessage}</span>
         </div>
       )}

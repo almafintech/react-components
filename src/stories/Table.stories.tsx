@@ -1,50 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Table from "../Table/Table";
-import {ColumnAlignment} from "../Table/types";
 
 const columns = [
-    {
-      key: "name",
-      label: "NAME",
-    },
-    {
-      key: "role",
-      label: "ROLE",
-      sorteable: false,
-    },
-    {
-      key: "status",
-      label: "STATUS",
-      sorteable: false,
-    },
-]
-
-const centeredColumns = [
   {
     key: "name",
-    label: "NAME",
-    align: "center" as ColumnAlignment
+    label: "Nombre",
   },
   {
     key: "role",
-    label: "ROLE",
-    sorteable: false,
-    align: "center" as ColumnAlignment
+    label: "Rol",
   },
   {
     key: "status",
     label: "STATUS",
-    sorteable: false,
-    align: "center" as ColumnAlignment
   },
-]
+];
 
 const meta = {
   title: "Components/Table",
   component: Table,
   parameters: {
     layout: "centered",
-  }
+  },
 } satisfies Meta<typeof Table>;
 
 export default meta;
@@ -61,7 +38,7 @@ export const Default: Story = {
         status: (
           <div className="flexContainer">
             <div className="dot green"></div>
-            <p className="greenText">Active</p>
+            <p className="greenText">Activo</p>
           </div>
         ),
       },
@@ -72,7 +49,7 @@ export const Default: Story = {
         status: (
           <div className="flexContainer">
             <div className="dot green"></div>
-            <p className="greenText">Active</p>
+            <p className="greenText">Activo</p>
           </div>
         ),
       },
@@ -83,40 +60,74 @@ export const Default: Story = {
         status: (
           <div className="flexContainer">
             <div className="dot red"></div>
-            <p className="redText">Inactive</p>
+            <p className="redText">Inactivo</p>
           </div>
         ),
       },
     ],
     columns: columns,
-    selectionMode: "single"
+    selectionMode: "single",
+  },
+};
+
+export const Empty: Story = {
+  args: {
+    ...Default.args,
+    rows: [],
+    emptyContent: <span className="text-sm">Aún no hay contenido</span>,
+  },
+};
+
+export const MultipleSelection: Story = {
+  args: {
+    ...Default.args,
+    selectionMode: "multiple",
+  },
+};
+
+export const MultipleSelectionWithoutCheckbox: Story = {
+  args: {
+    ...Default.args,
+    selectionMode: "multiple",
+    showSelectionCheckboxes: false,
+  },
+};
+
+export const WithHiddenHeader: Story = {
+  args: {
+    ...Default.args,
+    hideHeader: true,
   },
 };
 
 export const WithSelectedRow: Story = {
   args: {
     ...Default.args,
-    selectedRowKey:  "1"
-  },
-};
-
-export const WithMultipleSelection: Story = {
-  args: {
-    ...Default.args,
-    selectionMode: "multiple"
+    selectedRowKey: "1",
   },
 };
 
 export const WithNoSelection: Story = {
   args: {
     ...Default.args,
-    selectionMode: "none"
+    selectionMode: "none",
   },
 };
 
-export const WithCenterAlign: Story = {
+export const WithTopContent: Story = {
   args: {
     ...Default.args,
-    columns: centeredColumns
+    topContent: <h1>Tabla de empleados</h1>,
+    topContentPlacement: "outside",
+  },
+};
+
+export const WithBottomContent: Story = {
+  args: {
+    ...Default.args,
+    bottomContent: (
+      <span className="text-xs">Última actualización: Hace 20 minutos</span>
+    ),
+    bottomContentPlacement: "outside",
   },
 };

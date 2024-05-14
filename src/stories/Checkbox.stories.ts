@@ -12,7 +12,6 @@ const meta = {
       control: "boolean",
     },
   },
-  tags: ["autodocs"],
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
@@ -23,6 +22,7 @@ export const Default: Story = {
   args: {
     children: "Option",
     isDisabled: false,
+    size: "md"
   },
 };
 

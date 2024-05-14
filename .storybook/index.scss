@@ -2,25 +2,7 @@
 @import "../src/styles/variables";
 
 * {
-  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-}
-
-div {
-  color: $primary-dark-900;
-}
-
-ul {
-  list-style: none;
-}
-
-input {
-  border: none;
-  outline: none;
-}
-
-button {
-  border: none !important;
 }
 
 .flexContainer{
@@ -51,4 +33,13 @@ button {
 .redText{
   color: $e300;
   margin: 0;
+}
+
+.customAlert{
+  background-color: $primary-dark-900 !important;
+  color: $primary-light-50 !important;
+}
+
+.selectContainer{
+  width: 24rem;
 }

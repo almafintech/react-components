@@ -344,7 +344,7 @@ const InputSelect = ({
           onChange(isSingle ? keysArray[0] : keysArray);
         }
       }}
-      startContent={hasDatePicker && <CalendarIcon />}
+      startContent={hasDatePicker && <img src={CalendarIcon} />}
       renderValue={() =>
         getRenderValue(values, items, hasDatePicker, datePickerRange)
       }
@@ -430,7 +430,7 @@ const InputSelect = ({
               onClick={() => openDatePicker("MONTH")}
               className={datePickerOption}
             >
-              Mensual <ChevronIcon />
+              Mensual <img src={ChevronIcon} />
             </span>
           </SelectItem>
         ) as any)}
@@ -443,7 +443,7 @@ const InputSelect = ({
               onClick={() => openDatePicker("DAY")}
               className={datePickerOption}
             >
-              Otro período <ChevronIcon />
+              Otro período <img src={ChevronIcon} />
             </span>
           </SelectItem>
         ) as any)}

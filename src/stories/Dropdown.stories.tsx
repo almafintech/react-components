@@ -8,7 +8,6 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;
@@ -48,27 +47,6 @@ export const MultipleSelection: Story = {
   args: {
     ...Default.args,
     selectionMode: "multiple",
-  },
-};
-
-export const SingleSelection: Story = {
-  args: {
-    ...Default.args,
-    selectionMode: "single",
-  },
-};
-
-export const WithoutEmptySelection: Story = {
-  args: {
-    ...Default.args,
-    disallowEmptySelection: false
-  },
-};
-
-export const WithDefaultValueOnDelete: Story = {
-  args: {
-    ...Default.args,
-    disallowEmptySelection: false
   },
 };
 
