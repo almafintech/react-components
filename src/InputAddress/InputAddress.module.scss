@@ -1,0 +1,56 @@
+@import "../styles/variables";
+
+.autoCompleteOptions {
+    background: $white;
+    border: 0.063rem solid $primary-light-100;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+    position: absolute;
+    margin-top: 0.3rem;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0px 16px 40px 0px rgba(112, 144, 176, 0.2);
+    z-index: 1000;
+  
+    p {
+      padding: 0.53rem 1rem;
+      color: $primary-dark-900;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+      cursor: pointer;
+      margin: 0.5rem;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+
+      // Pin icon
+      span:nth-child(1) > svg {
+        margin-right: 0.5rem;
+      }
+
+      // Main text
+      span:nth-child(2) {
+        white-space: nowrap;
+      }
+  
+      //secondary text
+      span:nth-child(3) {
+        color: $greyscale-500;
+        margin-left: 0.25rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+      }
+    }
+  
+    .active {
+      background: $primary-light-50;
+      color: $primary-normal-300;
+    }
+  }
+  
+  .autoComplete {
+    position: relative;
+}

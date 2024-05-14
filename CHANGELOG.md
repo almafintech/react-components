@@ -1,224 +1,207 @@
-## [0.0.43](https://github.com/almafintech/react-components/compare/v0.0.42...v0.0.43) (2024-05-13)
+## [0.1.1](https://github.com/almafintech/react-components/compare/v0.1.0...v0.1.1) (2024-05-13)
 
 
 ### Bug Fixes
 
 * **react version:** loosen react version requirement ([2090d8d](https://github.com/almafintech/react-components/commit/2090d8dd4eb83ecdadedbd1585f5f2b4760b4670))
 
-## [0.0.42](https://github.com/almafintech/react-components/compare/v0.0.41...v0.0.42) (2024-04-25)
-
+# [0.1.0](https://github.com/almafintech/react-components/compare/v0.0.42...v0.1.0) (2024-05-09)
 
 ### Bug Fixes
 
-* **inputs:** fix styles and add onBlur ([0df9a4d](https://github.com/almafintech/react-components/commit/0df9a4d9be3ce19da9885f208f07de5a48209726))
+- **.env:** fix .env variables ([ca0c35d](https://github.com/almafintech/react-components/commit/ca0c35d96bdd3ecaadd482ee1891351ed78bdc79))
+- **inputaddress:** fix regex on input change ([2a38c8c](https://github.com/almafintech/react-components/commit/2a38c8c31cbfc2e42b5641f4937fe8a4ecabc3f9))
+- **inputaddress:** import maps libraries, format address on selection ([29ff9f4](https://github.com/almafintech/react-components/commit/29ff9f41d63a1366dbe3e5a5218c796deb9893e1))
+- **package-lock.json:** sync package lock with package ([0f689f7](https://github.com/almafintech/react-components/commit/0f689f71fc54b9fbeb2664d120cd5723eaefb3c8))
+
+### Features
+
+- **inputaddress:** add input address autocomplete ([2e9f1d6](https://github.com/almafintech/react-components/commit/2e9f1d68c787f68456aec6aef01eb09ca8451e67))
+
+## [0.0.42](https://github.com/almafintech/react-components/compare/v0.0.41...v0.0.42) (2024-04-25)
+
+### Bug Fixes
+
+- **inputs:** fix styles and add onBlur ([0df9a4d](https://github.com/almafintech/react-components/commit/0df9a4d9be3ce19da9885f208f07de5a48209726))
 
 ## [0.0.41](https://github.com/almafintech/react-components/compare/v0.0.40...v0.0.41) (2024-04-25)
 
-
 ### Bug Fixes
 
-* **input style:** override input autofill ([2bd45df](https://github.com/almafintech/react-components/commit/2bd45df438c716e084bde8bc5b05b1a0f16c6576))
+- **input style:** override input autofill ([2bd45df](https://github.com/almafintech/react-components/commit/2bd45df438c716e084bde8bc5b05b1a0f16c6576))
 
 ## [0.0.40](https://github.com/almafintech/react-components/compare/v0.0.39...v0.0.40) (2024-04-24)
 
-
 ### Bug Fixes
 
-* **styles:** small styles fixes ([4039a4c](https://github.com/almafintech/react-components/commit/4039a4cd6700a8e3f3cd831cae9c78e8aae09a80))
+- **styles:** small styles fixes ([4039a4c](https://github.com/almafintech/react-components/commit/4039a4cd6700a8e3f3cd831cae9c78e8aae09a80))
 
 ## [0.0.39](https://github.com/almafintech/react-components/compare/v0.0.38...v0.0.39) (2024-04-23)
 
-
 ### Bug Fixes
 
-* **rollup config:** fix external deps ([b841eaf](https://github.com/almafintech/react-components/commit/b841eafd992a64075b3247bd4f2809bd6b3baf79))
+- **rollup config:** fix external deps ([b841eaf](https://github.com/almafintech/react-components/commit/b841eafd992a64075b3247bd4f2809bd6b3baf79))
 
 ## [0.0.38](https://github.com/almafintech/react-components/compare/v0.0.37...v0.0.38) (2024-04-22)
 
-
 ### Bug Fixes
 
-* **rollup.config.mjs:** add external libraries ([f07d410](https://github.com/almafintech/react-components/commit/f07d41039e73d45c775d9b8329450c6426c4c4e9))
+- **rollup.config.mjs:** add external libraries ([f07d410](https://github.com/almafintech/react-components/commit/f07d41039e73d45c775d9b8329450c6426c4c4e9))
 
 ## [0.0.37](https://github.com/almafintech/react-components/compare/v0.0.36...v0.0.37) (2024-04-22)
 
-
 ### Bug Fixes
 
-* **package.json:** add uuid to dependencies ([f7af6b6](https://github.com/almafintech/react-components/commit/f7af6b63077812ed98fce9896888b222db2f95b2))
+- **package.json:** add uuid to dependencies ([f7af6b6](https://github.com/almafintech/react-components/commit/f7af6b63077812ed98fce9896888b222db2f95b2))
 
 ## [0.0.36](https://github.com/almafintech/react-components/compare/v0.0.35...v0.0.36) (2024-04-13)
 
-
 ### Bug Fixes
 
-* **loadingdots.tsx:** add test id to loading dots to fix tests ([aec8da3](https://github.com/almafintech/react-components/commit/aec8da30248b25155bcb78d5db671f42934719d6))
+- **loadingdots.tsx:** add test id to loading dots to fix tests ([aec8da3](https://github.com/almafintech/react-components/commit/aec8da30248b25155bcb78d5db671f42934719d6))
 
 ## [0.0.35](https://github.com/almafintech/react-components/compare/v0.0.34...v0.0.35) (2024-04-13)
 
-
 ### Bug Fixes
 
-* **test:** fix postversion ([73990cc](https://github.com/almafintech/react-components/commit/73990cc5564c225fdea622f4281b09acd27053e1))
-* **test:** fix postversion script ([b0a92d3](https://github.com/almafintech/react-components/commit/b0a92d311200af04b26761849adbb433c0415ed7))
-* **test:** new postversion bash ([63894e5](https://github.com/almafintech/react-components/commit/63894e59803d8b2574c3cbed287017eb0b4e3776))
+- **test:** fix postversion ([73990cc](https://github.com/almafintech/react-components/commit/73990cc5564c225fdea622f4281b09acd27053e1))
+- **test:** fix postversion script ([b0a92d3](https://github.com/almafintech/react-components/commit/b0a92d311200af04b26761849adbb433c0415ed7))
+- **test:** new postversion bash ([63894e5](https://github.com/almafintech/react-components/commit/63894e59803d8b2574c3cbed287017eb0b4e3776))
 
 ## [0.0.34](https://github.com/almafintech/react-components/compare/v0.0.33...v0.0.34) (2024-04-13)
 
-
 ### Bug Fixes
 
-* **test:** new postversion script ([7ab32cd](https://github.com/almafintech/react-components/commit/7ab32cd92249e45e6e880926de3991b0e3abb6d7))
+- **test:** new postversion script ([7ab32cd](https://github.com/almafintech/react-components/commit/7ab32cd92249e45e6e880926de3991b0e3abb6d7))
 
 ## [0.0.33](https://github.com/almafintech/react-components/compare/v0.0.32...v0.0.33) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **test:** postversion ([bf0d9d5](https://github.com/almafintech/react-components/commit/bf0d9d553aa9b19818f760d42df8878a5ca4f422))
+- **test:** postversion ([bf0d9d5](https://github.com/almafintech/react-components/commit/bf0d9d553aa9b19818f760d42df8878a5ca4f422))
 
 ## [0.0.32](https://github.com/almafintech/react-components/compare/v0.0.31...v0.0.32) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **test:** test postversion ([6453f96](https://github.com/almafintech/react-components/commit/6453f96eca8d97126b36b77112c303074c1b8b31))
+- **test:** test postversion ([6453f96](https://github.com/almafintech/react-components/commit/6453f96eca8d97126b36b77112c303074c1b8b31))
 
 ## [0.0.31](https://github.com/almafintech/react-components/compare/v0.0.30...v0.0.31) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **test:** fix postversion ([fa1783a](https://github.com/almafintech/react-components/commit/fa1783a824f914d6ff450a474f09970f73ca3b0f))
+- **test:** fix postversion ([fa1783a](https://github.com/almafintech/react-components/commit/fa1783a824f914d6ff450a474f09970f73ca3b0f))
 
 ## [0.0.30](https://github.com/almafintech/react-components/compare/v0.0.29...v0.0.30) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **test:** fix postversion ([ad02826](https://github.com/almafintech/react-components/commit/ad02826ab554cf72d0418d9f58231f29ec4066c3))
-* **test:** postversion ([31b08a7](https://github.com/almafintech/react-components/commit/31b08a72deb6c765d7a946d18cbe0cdbed294f1f))
-* **test:** test postversion ([1a7033d](https://github.com/almafintech/react-components/commit/1a7033d0873dfd8610d0a7071cc9bf43c5b3228c))
+- **test:** fix postversion ([ad02826](https://github.com/almafintech/react-components/commit/ad02826ab554cf72d0418d9f58231f29ec4066c3))
+- **test:** postversion ([31b08a7](https://github.com/almafintech/react-components/commit/31b08a72deb6c765d7a946d18cbe0cdbed294f1f))
+- **test:** test postversion ([1a7033d](https://github.com/almafintech/react-components/commit/1a7033d0873dfd8610d0a7071cc9bf43c5b3228c))
 
 ## [0.0.29](https://github.com/almafintech/react-components/compare/v0.0.28...v0.0.29) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **package.json:** test postversion ([d058766](https://github.com/almafintech/react-components/commit/d0587665a46d31abfdec601b435e149bc56141c4))
-* **test:** test postversion ([c4d04cf](https://github.com/almafintech/react-components/commit/c4d04cf02aa39d42e36039f68caa0b872849d5fb))
+- **package.json:** test postversion ([d058766](https://github.com/almafintech/react-components/commit/d0587665a46d31abfdec601b435e149bc56141c4))
+- **test:** test postversion ([c4d04cf](https://github.com/almafintech/react-components/commit/c4d04cf02aa39d42e36039f68caa0b872849d5fb))
 
 ## [0.0.28](https://github.com/almafintech/react-components/compare/v0.0.27...v0.0.28) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **release.config.js:** test another config ([ab48a8c](https://github.com/almafintech/react-components/commit/ab48a8c294af29395144a8fcae6e6132504419e8))
+- **release.config.js:** test another config ([ab48a8c](https://github.com/almafintech/react-components/commit/ab48a8c294af29395144a8fcae6e6132504419e8))
 
 ## [0.0.27](https://github.com/almafintech/react-components/compare/v0.0.26...v0.0.27) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **version:** postversion script test ([87b3b59](https://github.com/almafintech/react-components/commit/87b3b5988f6f9ee53d34f36ee98dc351d0fb6346))
+- **version:** postversion script test ([87b3b59](https://github.com/almafintech/react-components/commit/87b3b5988f6f9ee53d34f36ee98dc351d0fb6346))
 
 ## [0.0.26](https://github.com/almafintech/react-components/compare/v0.0.25...v0.0.26) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **release.config.js:** postversion exec ([9cfb148](https://github.com/almafintech/react-components/commit/9cfb14899e8b0eafc1bab919de56e8257bfeb7f4))
+- **release.config.js:** postversion exec ([9cfb148](https://github.com/almafintech/react-components/commit/9cfb14899e8b0eafc1bab919de56e8257bfeb7f4))
 
 ## [0.0.25](https://github.com/almafintech/react-components/compare/v0.0.24...v0.0.25) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **release.config.js:** exec script ([7d502a3](https://github.com/almafintech/react-components/commit/7d502a327e1d67b25896f5296d3bdeb8a8bb929a))
+- **release.config.js:** exec script ([7d502a3](https://github.com/almafintech/react-components/commit/7d502a327e1d67b25896f5296d3bdeb8a8bb929a))
 
 ## [0.0.24](https://github.com/almafintech/react-components/compare/v0.0.23...v0.0.24) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **versioning:** add postversion script ([f2ae4f2](https://github.com/almafintech/react-components/commit/f2ae4f203efb3b5c2b8b9c13ea6a56a14414123f))
+- **versioning:** add postversion script ([f2ae4f2](https://github.com/almafintech/react-components/commit/f2ae4f203efb3b5c2b8b9c13ea6a56a14414123f))
 
 ## [0.0.23](https://github.com/almafintech/react-components/compare/v0.0.22...v0.0.23) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **release.config.js:** edit "@semantic-release/git" package.json path ([9ae4705](https://github.com/almafintech/react-components/commit/9ae4705d13b2e282e20c759922bd120480f22628))
+- **release.config.js:** edit "@semantic-release/git" package.json path ([9ae4705](https://github.com/almafintech/react-components/commit/9ae4705d13b2e282e20c759922bd120480f22628))
 
 ## [0.0.22](https://github.com/almafintech/react-components/compare/v0.0.21...v0.0.22) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **release.config.js:** change @semantic-release/git assets ([059f8d3](https://github.com/almafintech/react-components/commit/059f8d3e09634f9bb2881af534291100ca508c8f))
+- **release.config.js:** change @semantic-release/git assets ([059f8d3](https://github.com/almafintech/react-components/commit/059f8d3e09634f9bb2881af534291100ca508c8f))
 
 ## [0.0.21](https://github.com/almafintech/react-components/compare/v0.0.20...v0.0.21) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **release.config.js:** fix @semantic-release/git ([c81ca92](https://github.com/almafintech/react-components/commit/c81ca9211bd34f45f14dd4dbf268177764929171))
+- **release.config.js:** fix @semantic-release/git ([c81ca92](https://github.com/almafintech/react-components/commit/c81ca9211bd34f45f14dd4dbf268177764929171))
 
 ## [0.0.20](https://github.com/almafintech/react-components/compare/v0.0.19...v0.0.20) (2024-04-11)
 
-
 ### Bug Fixes
 
-* **styles:** fix package styling ([91e6146](https://github.com/almafintech/react-components/commit/91e614697555c501feddebc4c1dcaa2892a21807))
+- **styles:** fix package styling ([91e6146](https://github.com/almafintech/react-components/commit/91e614697555c501feddebc4c1dcaa2892a21807))
 
 ## [0.0.19](https://github.com/almafintech/react-components/compare/v0.0.18...v0.0.19) (2024-04-11)
 
-
 ### Bug Fixes
 
-* **release.config.js:** add pkgRoot dist to config ([197ca71](https://github.com/almafintech/react-components/commit/197ca71b795d2780757cd87ad561f3728fd6e68f))
+- **release.config.js:** add pkgRoot dist to config ([197ca71](https://github.com/almafintech/react-components/commit/197ca71b795d2780757cd87ad561f3728fd6e68f))
 
 ## [0.0.18](https://github.com/almafintech/react-components/compare/v0.0.17...v0.0.18) (2024-04-11)
 
-
 ### Bug Fixes
 
-* **rollup.config.mjs:** fix style inject bug ([331a667](https://github.com/almafintech/react-components/commit/331a667edf8b8345194984d9e376759eb476c3a6))
+- **rollup.config.mjs:** fix style inject bug ([331a667](https://github.com/almafintech/react-components/commit/331a667edf8b8345194984d9e376759eb476c3a6))
 
 ## [0.0.17](https://github.com/almafintech/react-components/compare/v0.0.16...v0.0.17) (2024-04-11)
 
-
 ### Bug Fixes
 
-* **package.json:** install style inject ([ea42838](https://github.com/almafintech/react-components/commit/ea428386cee059b334c79c4c1cd7857e1d438acd))
+- **package.json:** install style inject ([ea42838](https://github.com/almafintech/react-components/commit/ea428386cee059b334c79c4c1cd7857e1d438acd))
 
 ## [0.0.16](https://github.com/almafintech/react-components/compare/v0.0.15...v0.0.16) (2024-04-11)
 
-
 ### Bug Fixes
 
-* **release.config.js:** remove git config ([2479f0f](https://github.com/almafintech/react-components/commit/2479f0fe90fcca0d83b3a3639b3f9f34bbd2910f))
+- **release.config.js:** remove git config ([2479f0f](https://github.com/almafintech/react-components/commit/2479f0fe90fcca0d83b3a3639b3f9f34bbd2910f))
 
 ## [0.0.15](https://github.com/almafintech/react-components/compare/v0.0.14...v0.0.15) (2024-04-11)
 
-
 ### Bug Fixes
 
-* **release.config.js:** remove package root from release config ([010bd50](https://github.com/almafintech/react-components/commit/010bd509bc954f49a824b7a05a3e552227eeb891))
+- **release.config.js:** remove package root from release config ([010bd50](https://github.com/almafintech/react-components/commit/010bd509bc954f49a824b7a05a3e552227eeb891))
 
 ## [0.0.14](https://github.com/almafintech/react-components/compare/v0.0.13...v0.0.14) (2024-04-11)
 
-
 ### Bug Fixes
 
-* **deploy.yml:** add build to deploy.yml ([315c7d7](https://github.com/almafintech/react-components/commit/315c7d7a3fb3cd9ae65e2f86035a6e6c308e50e5))
-* **deploy.yml:** remove build from deploy script ([161f798](https://github.com/almafintech/react-components/commit/161f798116b5f9005d56416cfb5b3dfc34c19d63))
-* **package-lock.json:** package lock fix ([22d70fb](https://github.com/almafintech/react-components/commit/22d70fbdd51f695a4c13bb419afb579ea751b983))
+- **deploy.yml:** add build to deploy.yml ([315c7d7](https://github.com/almafintech/react-components/commit/315c7d7a3fb3cd9ae65e2f86035a6e6c308e50e5))
+- **deploy.yml:** remove build from deploy script ([161f798](https://github.com/almafintech/react-components/commit/161f798116b5f9005d56416cfb5b3dfc34c19d63))
+- **package-lock.json:** package lock fix ([22d70fb](https://github.com/almafintech/react-components/commit/22d70fbdd51f695a4c13bb419afb579ea751b983))
 
 ## [0.0.13](https://github.com/almafintech/react-components/compare/v0.0.12...v0.0.13) (2024-04-11)
 
-
 ### Bug Fixes
 
-* **package.json:** add semantic release changelog package ([6d6acff](https://github.com/almafintech/react-components/commit/6d6acff6ae41173cd67d544453e3a115678702c3))
-* **release.config.js:** fix semantic release config ([00c0caa](https://github.com/almafintech/react-components/commit/00c0caa107ae4da9eee157b9806e14feb803cb99))
+- **package.json:** add semantic release changelog package ([6d6acff](https://github.com/almafintech/react-components/commit/6d6acff6ae41173cd67d544453e3a115678702c3))
+- **release.config.js:** fix semantic release config ([00c0caa](https://github.com/almafintech/react-components/commit/00c0caa107ae4da9eee157b9806e14feb803cb99))
