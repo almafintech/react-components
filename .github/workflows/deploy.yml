@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - next
+      - abigailrivas/DP-6565
       - beta
 
 env:
@@ -51,3 +52,23 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:     
+    permissions:
+      contents: read
+      pages: write
+      id-token: write    
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        persist-credentials: false
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: "lts/*"
+    - id: build-publish
+      uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+      with:
+        path: dist/stories
