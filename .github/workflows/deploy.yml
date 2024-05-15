@@ -4,7 +4,6 @@ on:
     branches:
       - main
       - next
-      - abigailrivas/DP-6565
       - beta
 
 env:
