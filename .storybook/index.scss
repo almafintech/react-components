@@ -42,4 +42,8 @@
 
 .inputContainer{
   width: 22rem;
+
+  &.top{
+    margin-bottom: 12rem;
+  }
 }

@@ -1,11 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import InputAddress from "../InputAddress/InputAddress";
+import { fn } from "@storybook/test";
+
 
 const meta = {
   title: "Components/InputAddress",
   component: InputAddress,
   parameters: {
     layout: "centered",
+  },
+  args: {
+    onValueChange: fn(),
   },
   decorators: [
     (Story) => (

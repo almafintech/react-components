@@ -5,6 +5,7 @@ import {
   getCurrentMonth,
   getCurrentDay,
 } from "../DatePicker/helpers";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "Components/InputSelect",
@@ -37,10 +38,14 @@ const meta = {
       control: "boolean",
     },
   },
+  args: {
+    onChange: fn(),
+    onDatepickerDateChanged: fn(),
+  },
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div className="inputContainer">
+      <div className="inputContainer top">
         <Story />
       </div>
     ),
@@ -62,15 +67,17 @@ export const Default: Story = {
   args: {
     label: "Selecciona una opción",
     placeholder: "Selecciona una opción",
-    confirmSelection: true,
     isFormField: false,
     touched: false,
     type: "single",
     items: [
       { label: "Opción 1", value: "1" },
       { label: "Opción 2", value: "2" },
+      { label: "Opción 3", value: "3" },
+      { label: "Opción 4", value: "4" },
+      { label: "Opción 5", value: "5" },
+      { label: "Opción 6", value: "6" },
     ],
-    onChange: () => console.log("click"),
   },
 };
 
@@ -98,34 +105,7 @@ export const WithCheckboxMultipleSelection: Story = {
 export const WithDescription: Story = {
   args: {
     ...Default.args,
-    description: "Descripción"
-  },
-};
-
-export const WithDatePicker: Story = {
-  args: {
-    ...Default.args,
-    label: "Seleccioná un período",
-    type: "single-radio-date-picker",
-    items: periodSelectOptions,
-    confirmSelection: false,
-  },
-};
-
-export const WithDatePickerAndInitialRange: Story = {
-  args: {
-    ...WithDatePicker.args,
-    initialDatePickerRange: [
-      new Date(getCurrentYear(), getCurrentMonth(), getCurrentDay() - 5),
-      new Date(getCurrentYear(), getCurrentMonth(), getCurrentDay()),
-    ],
-  },
-};
-
-export const WithDatePickerDaySelection: Story = {
-  args: {
-    ...Default.args,
-    type: "single-radio-date-picker-day",
+    description: "Descripción",
   },
 };
 
@@ -174,5 +154,70 @@ export const withDisabledOptions: Story = {
   args: {
     ...Default.args,
     disabledKeys: ["1"],
+  },
+};
+
+export const WithDatePicker: Story = {
+  args: {
+    ...Default.args,
+    label: "Seleccioná un período",
+    type: "single-radio-date-picker",
+    items: periodSelectOptions,
+  },
+};
+
+export const WithDatePickerAndInitialRange: Story = {
+  args: {
+    ...WithDatePicker.args,
+    initialDatePickerRange: [
+      new Date(getCurrentYear(), getCurrentMonth(), getCurrentDay() - 5),
+      new Date(getCurrentYear(), getCurrentMonth(), getCurrentDay()),
+    ],
+  },
+};
+
+export const WithDatePickerDaySelection: Story = {
+  args: {
+    ...Default.args,
+    type: "single-radio-date-picker-day",
+  },
+};
+
+export const withConfirmSelection: Story = {
+  args: {
+    ...Default.args,
+    confirmSelection: true,
+  },
+};
+
+export const withConfirmSelectionAndRadioSingleSelection: Story = {
+  args: {
+    ...Default.args,
+    type: "single-radio",
+    confirmSelection: true,
+  },
+};
+
+export const withConfirmSelectionAndMultipleSelection: Story = {
+  args: {
+    ...Default.args,
+    type: "multiple",
+    confirmSelection: true,
+  },
+};
+
+export const withConfirmSelectionAndCheckboxMultipleSelection: Story = {
+  args: {
+    ...Default.args,
+    type: "multiple-checkbox",
+    confirmSelection: true,
+  },
+};
+
+export const withConfirmSelectionAndDefaultSelected: Story = {
+  args: {
+    ...Default.args,
+    defaultSelectedKeys: ["1"],
+    confirmSelection: true,
   },
 };

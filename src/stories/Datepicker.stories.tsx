@@ -5,12 +5,18 @@ import {
   getCurrentMonth,
   getCurrentDay,
 } from "../DatePicker/helpers";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "Components/DatePicker",
   component: DatePicker,
   parameters: {
     layout: "centered",
+  },
+  args: {
+    onApply: fn(),
+    onBack: fn(),
+    onDelete: fn()
   },
   tags: ["autodocs"],
   decorators: [

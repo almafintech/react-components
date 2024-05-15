@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import RoundedButton from "../RoundedButton/RoundedButton";
 import FileUpload from "../../assets/images/ui/icons/ui-icon-file-plus.svg";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "Components/RoundedButton",
@@ -31,6 +32,9 @@ const meta = {
         type: "select",
       },
     },
+  },
+  args: {
+    onClick: fn(),
   },
 } satisfies Meta<typeof RoundedButton>;
 

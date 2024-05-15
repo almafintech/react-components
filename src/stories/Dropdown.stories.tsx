@@ -1,12 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Dropdown from "../Dropdown/Dropdown";
 import { Button } from "../Button";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "Components/Dropdown",
   component: Dropdown,
   parameters: {
     layout: "centered",
+  },
+  args: {
+    onSelectionChange: fn(),
   },
 } satisfies Meta<typeof Dropdown>;
 

@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ControlledRadio from "../ControlledRadio/ControlledRadio";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "Components/ControlledRadio",
   component: ControlledRadio,
   parameters: {
     layout: "centered",
+  },
+  args: {
+    onChange: fn(),
   },
 } satisfies Meta<typeof ControlledRadio>;
 
@@ -18,7 +22,7 @@ export const Default: Story = {
     label: "Option",
     value: "option",
     name: "name",
-    checked: false
+    checked: false,
   },
 };
 

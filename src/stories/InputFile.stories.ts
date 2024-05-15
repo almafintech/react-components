@@ -1,11 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import InputFile from "../InputFile/InputFile";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "Components/InputFile",
   component: InputFile,
   parameters: {
     layout: "centered",
+  },
+  args: {
+    onFileUpload: fn(),
+    onFileDownload: fn(),
+    onFileRemove: fn(),
   },
 } satisfies Meta<typeof InputFile>;
 
@@ -17,8 +23,6 @@ export const Default: Story = {
   args: {
     name: "Archivo",
     text: "Seleccionar archivo",
-    onFileRemove: () => console.log("removido"),
-    onFileUpload: () => console.log("subido"),
   },
 };
 
