@@ -43,7 +43,7 @@ describe("Button", () => {
   });
 
   it("applies the correct variant style when variant prop is passed", () => {
-    const component = render(<Button text="Test Button" variant="secondary" />);
+    render(<Button text="Test Button" variant="secondary" />);
     const buttonElement = screen.getByRole("button", { name: /Test Button/i });
     expect(buttonElement).toHaveClass("secondary");
   });
