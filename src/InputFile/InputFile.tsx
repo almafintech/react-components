@@ -132,76 +132,82 @@ const InputFile = ({
 
   return (
     <div className={`${container} ${className ?? ""}`}>
-      <div
-        onDragEnter={handleDrag}
-        onDragOver={handleDrag}
-        onDragLeave={handleDrag}
-        onDrop={handleDropOrInputChange}
-        className={`
+      <input
+        type="file"
+        accept=".jpg, .jpeg, .png, .pdf"
+        onChange={handleDropOrInputChange}
+        id={`input-file-upload-${name}`}
+        multiple={false}
+        style={{ display: "none" }}
+      />
+      <label
+        htmlFor={`input-file-upload-${name}`}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <div
+          onDragEnter={handleDrag}
+          onDragOver={handleDrag}
+          onDragLeave={handleDrag}
+          onDrop={handleDropOrInputChange}
+          className={`
       ${inputFile}
       ${
         (file || fileData) && !fileError && !isLoading
           ? inputSuccess
           : inputError
       }`}
-      >
-        {(!file && !fileData) || (file && fileError) ? (
-          <div className={fileHeader}>
-            <UploadIcon />
-            <label
-              id={`label-file-upload-${name}`}
-              htmlFor={`input-file-upload-${name}`}
-            >
-              {text}
-            </label>
-          </div>
-        ) : (
-          <div className={fileContent}>
+        >
+          {(!file && !fileData) || (file && fileError) ? (
             <div className={fileHeader}>
-              {isLoading ? (
-                <>
-                  <UploadIcon />
-                  <label
-                    id={`label-file-upload-${name}`}
-                    htmlFor={`input-file-upload-${name}`}
-                  >
-                    Cargando {file?.name}
-                  </label>
-                </>
-              ) : (
-                <>
-                  <SuccessIcon />
-                  <p>{fileData ? fileData.name : file?.name}</p>
-                </>
-              )}
+              <UploadIcon />
+              <label
+                id={`label-file-upload-${name}`}
+                htmlFor={`input-file-upload-${name}`}
+              >
+                {text}
+              </label>
             </div>
-            <div className={fileOptions}>
-              {isLoading ? (
-                <LoadingDots color="#acb3bf" />
-              ) : (
-                <>
-                  <DownloadIcon onClick={handleFileDownload} />
-                  <TrashIcon onClick={handleFileRemove} />
-                </>
-              )}
+          ) : (
+            <div className={fileContent}>
+              <div className={fileHeader}>
+                {isLoading ? (
+                  <>
+                    <UploadIcon />
+                    <label
+                      id={`label-file-upload-${name}`}
+                      htmlFor={`input-file-upload-${name}`}
+                    >
+                      Cargando {file?.name}
+                    </label>
+                  </>
+                ) : (
+                  <>
+                    <SuccessIcon />
+                    <p>{fileData ? fileData.name : file?.name}</p>
+                  </>
+                )}
+              </div>
+              <div className={fileOptions}>
+                {isLoading ? (
+                  <LoadingDots color="#acb3bf" />
+                ) : (
+                  <>
+                    <DownloadIcon onClick={handleFileDownload} />
+                    <TrashIcon onClick={handleFileRemove} />
+                  </>
+                )}
+              </div>
             </div>
+          )}
+        </div>
+        {infoText && <p className={infoTextStyle}>{infoText}</p>}
+        {file && fileError && (
+          <div className={errorMessageStyle}>
+            <ErrorIcon />
+            <span>{errorMessage}</span>
           </div>
         )}
-        <input
-          type="file"
-          accept=".jpg, .jpeg, .png, .pdf"
-          onChange={handleDropOrInputChange}
-          id={`input-file-upload-${name}`}
-          multiple={false}
-        />
-      </div>
-      {infoText && <p className={infoTextStyle}>{infoText}</p>}
-      {file && fileError && (
-        <div className={errorMessageStyle}>
-          <ErrorIcon />
-          <span>{errorMessage}</span>
-        </div>
-      )}
+      </label>
     </div>
   );
 };

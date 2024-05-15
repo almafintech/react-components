@@ -18,7 +18,7 @@ export interface InputFileProps {
   infoText?: string;
   initialValue?: File | null;
   isLoading?: boolean;
-  maxSize?: number; // In megabytes
+  maxSize: number; // In megabytes
   name: string;
   onFileDownload?: (file: FileData) => void;
   onFileRemove?: () => void;
@@ -26,5 +26,5 @@ export interface InputFileProps {
   selectedFile?: File | null;
   setError?: (error: InputFileErrorsTypes | null) => void;
   text?: string | ReactNode;
-  validTypes?: string[];
+  validTypes: string[];
 }
