@@ -41,6 +41,7 @@ const DatePicker = (props: DatePickerProps) => {
     selectBase,
     selectTrigger,
     selectInnerWrapper,
+    selectPopoverContent,
     selectValue,
     years,
     months,
@@ -87,6 +88,7 @@ const DatePicker = (props: DatePickerProps) => {
         base: selectBase,
         trigger: selectTrigger,
         innerWrapper: selectInnerWrapper,
+        popoverContent: selectPopoverContent,
         value: selectValue,
       }}
       className={`${select} ${years}`}
@@ -108,6 +110,7 @@ const DatePicker = (props: DatePickerProps) => {
       classNames={{
         trigger: selectTrigger,
         innerWrapper: selectInnerWrapper,
+        popoverContent: selectPopoverContent,
         value: selectValue,
       }}
       className={`${select} ${months}`}

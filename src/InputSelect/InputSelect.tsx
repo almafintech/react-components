@@ -318,7 +318,7 @@ const InputSelect = ({
         listbox: `${listbox} ${confirmSelection ? confirmActionsListbox : ""} ${
           classNames?.listbox
         }`,
-        popoverContent: `${popoverContent} ${classNames?.popoverContent} ${classNames?.popoverContent}`,
+        popoverContent: `${popoverContent} ${classNames?.popoverContent}`,
         helperWrapper: `${helperWrapper} ${classNames?.helperWrapper}`,
         description: `${descriptionStyle} ${classNames?.description}`,
         errorMessage: `${errorMessageStyle} ${classNames?.errorMessage}`,
