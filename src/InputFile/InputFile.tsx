@@ -58,7 +58,10 @@ const InputFile = ({
     const allowedTypes = validTypes ? new Set(validTypes) : new Set([]);
     const maxFileSize = maxSize ? maxSize * 1024 * 1024 : 0;
 
-    if (allowedTypes.has(inputFile.type) && inputFile.size <= maxFileSize) {
+    if (
+      (!validTypes || allowedTypes.has(inputFile.type)) &&
+      (!maxSize || inputFile.size <= maxFileSize)
+    ) {
       setFileError(false);
       setFile(inputFile);
       onFileUpload && !isLoading && onFileUpload(inputFile);
@@ -159,7 +162,7 @@ const InputFile = ({
         >
           {(!file && !fileData) || (file && fileError) ? (
             <div className={fileHeader}>
-              <UploadIcon />
+              <img src={UploadIcon} />
               <label
                 id={`label-file-upload-${name}`}
                 htmlFor={`input-file-upload-${name}`}
@@ -172,7 +175,7 @@ const InputFile = ({
               <div className={fileHeader}>
                 {isLoading ? (
                   <>
-                    <UploadIcon />
+                    <img src={UploadIcon} />
                     <label
                       id={`label-file-upload-${name}`}
                       htmlFor={`input-file-upload-${name}`}
@@ -182,7 +185,7 @@ const InputFile = ({
                   </>
                 ) : (
                   <>
-                    <SuccessIcon />
+                    <img src={SuccessIcon} />
                     <p>{fileData ? fileData.name : file?.name}</p>
                   </>
                 )}
@@ -192,8 +195,8 @@ const InputFile = ({
                   <LoadingDots color="#acb3bf" />
                 ) : (
                   <>
-                    <DownloadIcon onClick={handleFileDownload} />
-                    <TrashIcon onClick={handleFileRemove} />
+                    <img src={DownloadIcon} onClick={handleFileDownload} />
+                    <img src={TrashIcon} onClick={handleFileRemove} />
                   </>
                 )}
               </div>
@@ -203,7 +206,7 @@ const InputFile = ({
         {infoText && <p className={infoTextStyle}>{infoText}</p>}
         {file && fileError && (
           <div className={errorMessageStyle}>
-            <ErrorIcon />
+            <img src={ErrorIcon} />
             <span>{errorMessage}</span>
           </div>
         )}

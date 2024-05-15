@@ -14,6 +14,9 @@ import {
 } from "./helpers";
 import { DatePickerProps, DateRange } from "./types";
 
+/**
+ *  Allow users to select a date or a range of dates
+ */
 const DatePicker = (props: DatePickerProps) => {
   const {
     locale = "es-AR",
@@ -38,6 +41,7 @@ const DatePicker = (props: DatePickerProps) => {
     selectBase,
     selectTrigger,
     selectInnerWrapper,
+    selectPopoverContent,
     selectValue,
     years,
     months,
@@ -67,7 +71,7 @@ const DatePicker = (props: DatePickerProps) => {
     <Select
       aria-label="Year"
       items={Array.from(
-        Array(max.getFullYear() - min.getFullYear()).keys()
+        Array(max.getFullYear() + 1 - min.getFullYear()).keys()
       ).map((_, i) => {
         return {
           label: (min.getFullYear() + i).toString(),
@@ -84,6 +88,7 @@ const DatePicker = (props: DatePickerProps) => {
         base: selectBase,
         trigger: selectTrigger,
         innerWrapper: selectInnerWrapper,
+        popoverContent: selectPopoverContent,
         value: selectValue,
       }}
       className={`${select} ${years}`}
@@ -105,6 +110,7 @@ const DatePicker = (props: DatePickerProps) => {
       classNames={{
         trigger: selectTrigger,
         innerWrapper: selectInnerWrapper,
+        popoverContent: selectPopoverContent,
         value: selectValue,
       }}
       className={`${select} ${months}`}
@@ -117,7 +123,7 @@ const DatePicker = (props: DatePickerProps) => {
         <div className="flex gap-1 flex-grow">
           {onBack && calendarVariant !== "DATE" && (
             <div className={iconButton} onClick={() => onBack && onBack()}>
-              <BackIcon />
+              <img src={BackIcon} />
             </div>
           )}
           {["DAY", "DATE"].includes(calendarVariant) && monthPicker}

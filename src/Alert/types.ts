@@ -1,10 +1,20 @@
 import { ReactNode } from "react";
 
 export interface AlertProps {
+  /**
+   * The content to display in the button
+   */
   children: string | ReactNode;
+  /**
+   * The alert appearance style
+   */
   variant: "INFO" | "ERROR" | "WARN";
+  /**
+   * Custom styles
+   */
   className?: string;
-  // If set, alert will become a dropdown, displaying a summary initially and
-  // the actual children passed once clicked open
+  /**
+   * A summary of the children is shown initially and all of it once clicked.
+   */
   hasSummary?: boolean;
 }

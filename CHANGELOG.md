@@ -1,3 +1,18 @@
+# [0.2.0](https://github.com/almafintech/react-components/compare/v0.1.2...v0.2.0) (2024-05-15)
+
+
+### Bug Fixes
+
+* **components:** solve minor bugs ([f3907d3](https://github.com/almafintech/react-components/commit/f3907d38bc99ad23b31eafdc59c75fb56bbbef63))
+* **deploy:** fix yml syntax ([4158c78](https://github.com/almafintech/react-components/commit/4158c780141c358a361c753b2e40f0c9f9fb4f54))
+* **package:** remove duplicated ([1d0a8ac](https://github.com/almafintech/react-components/commit/1d0a8acee319af0143bf0241049e186f0334dfd0))
+* **storybook styles:** implement webpack for storybook and add scss processors ([3e33613](https://github.com/almafintech/react-components/commit/3e336138301c320e4be68ce95698371955c2bbec))
+
+
+### Features
+
+* **inputadress:** merge new changes in main ([93b35c2](https://github.com/almafintech/react-components/commit/93b35c2a0aa24ebbf22ccccb895cf248eb4c420d))
+
 ## [0.1.2](https://github.com/almafintech/react-components/compare/v0.1.1...v0.1.2) (2024-05-14)
 
 

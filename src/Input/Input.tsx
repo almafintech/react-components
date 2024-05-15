@@ -13,7 +13,6 @@ import styles from "./Input.module.scss";
 
 /**
  * Text input component based on NextUI's `Input`
- * @returns
  */
 const Input = (props: InputProps) => {
   const {
@@ -128,7 +127,7 @@ const Input = (props: InputProps) => {
 
   const getErrorMessage = () => (
     <div className={error}>
-      <InvalidIcon className={icon} />
+      <img src={InvalidIcon} className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );
@@ -141,7 +140,7 @@ const Input = (props: InputProps) => {
         setIsVisible(!isVisible);
       }}
     >
-      {isVisible ? <ShowIcon /> : <HideIcon />}
+      {isVisible ? <img src={ShowIcon} /> : <img src={HideIcon} />}
     </button>
   );
 
@@ -203,7 +202,7 @@ const Input = (props: InputProps) => {
           : props.type
       }
       errorMessage={
-        <>{isInvalid && (props.touched || touched) && getErrorMessage()}</>
+        isInvalid && (props.touched || touched) && <>{getErrorMessage()}</>
       }
       description={!isInvalid && description}
       value={type === "money" ? asMoney(value) : props.value ?? value}
@@ -211,7 +210,7 @@ const Input = (props: InputProps) => {
       startContent={
         <span className={startContentStyle}>
           {startContent}
-          {type === "search" && <SearchIcon className={icon} />}
+          {type === "search" && <img src={SearchIcon} className={icon} />}
           {type === "money" &&
             (props.value || value) &&
             getCurrencySymbol("es-AR", currency)}

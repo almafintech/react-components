@@ -223,7 +223,7 @@ const InputSelect = ({
 
   const getErrorMessage = () => (
     <div className={error}>
-      <InvalidIcon className={icon} />
+      <img src={InvalidIcon} className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );
@@ -284,7 +284,7 @@ const InputSelect = ({
       }}
       disallowEmptySelection={isSingle && true}
       description={!isInvalid && description}
-      errorMessage={<>{isInvalid && selectTouched && getErrorMessage()}</>}
+      errorMessage={isInvalid && selectTouched && <>{getErrorMessage()}</>}
       selectionMode={isSingle || hasDatePicker ? "single" : "multiple"}
       scrollShadowProps={{
         isEnabled: confirmSelection ? false : true,
@@ -318,7 +318,7 @@ const InputSelect = ({
         listbox: `${listbox} ${confirmSelection ? confirmActionsListbox : ""} ${
           classNames?.listbox
         }`,
-        popoverContent: `${popoverContent} ${classNames?.popoverContent} ${classNames?.popoverContent}`,
+        popoverContent: `${popoverContent} ${classNames?.popoverContent}`,
         helperWrapper: `${helperWrapper} ${classNames?.helperWrapper}`,
         description: `${descriptionStyle} ${classNames?.description}`,
         errorMessage: `${errorMessageStyle} ${classNames?.errorMessage}`,
@@ -344,7 +344,7 @@ const InputSelect = ({
           onChange(isSingle ? keysArray[0] : keysArray);
         }
       }}
-      startContent={hasDatePicker && <CalendarIcon />}
+      startContent={hasDatePicker && <img src={CalendarIcon} />}
       renderValue={() =>
         getRenderValue(values, items, hasDatePicker, datePickerRange)
       }
@@ -430,7 +430,7 @@ const InputSelect = ({
               onClick={() => openDatePicker("MONTH")}
               className={datePickerOption}
             >
-              Mensual <ChevronIcon />
+              Mensual <img src={ChevronIcon} />
             </span>
           </SelectItem>
         ) as any)}
@@ -443,7 +443,7 @@ const InputSelect = ({
               onClick={() => openDatePicker("DAY")}
               className={datePickerOption}
             >
-              Otro período <ChevronIcon />
+              Otro período <img src={ChevronIcon} />
             </span>
           </SelectItem>
         ) as any)}
