@@ -40,7 +40,8 @@
     "**/*.test.tsx",
     "**/*.test.ts",
     "**/*.stories.ts",
-    "**/*.svg"
+    "**/*.svg",
+    "src/stories"
   ],
   "include": ["src/**/*", "src/styles", "src/stories"]
 }
