@@ -5,6 +5,9 @@ import { LoadingDots } from "../LoadingDots";
 import { ButtonProps } from "./types";
 import { colors } from "../styles/variables";
 
+/**
+ * Allow users to perform an action with a single click
+ */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {

@@ -10,7 +10,7 @@ import { InputProps } from "../Input/types";
 import { FormattedAddress, InputAddressProps } from "./types";
 import styles from "./InputAddress.module.scss";
 import { Loader } from "@googlemaps/js-api-loader";
-import LoactionPin from "../../assets/images/ui/icons/ui-icon-location-pin.svg";
+import LocationPin from "../../assets/images/ui/icons/ui-icon-location-pin.svg";
 
 const { autoCompleteOptions, active, autoComplete } = styles;
 
@@ -337,7 +337,7 @@ const InputAddress = (props: InputAddressProps) => {
                 onMouseOver={() => setCurrentFocus(index)}
               >
                 <span>
-                  <LoactionPin />
+                  <img src={LocationPin} />
                 </span>
                 <span>
                   {

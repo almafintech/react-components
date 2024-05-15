@@ -8,6 +8,9 @@ import ChevronDown from "../../assets/images/ui/icons/ui-icon-chevron-down.svg";
 import ChevronUp from "../../assets/images/ui/icons/ui-icon-chevron-up.svg";
 import { AlertProps } from "./types";
 
+/**
+ * Display brief messages for the user without interruptions
+ */
 const Alert = ({ children, variant, className, hasSummary }: AlertProps) => {
   const {
     container,
@@ -21,15 +24,15 @@ const Alert = ({ children, variant, className, hasSummary }: AlertProps) => {
 
   const alertVariants = {
     INFO: {
-      icon: <InfoIcon className={iconStyle} />,
+      icon: <img src={InfoIcon} className={iconStyle} />,
       background: infoBackground,
     },
     WARN: {
-      icon: <WarnIcon className={iconStyle} />,
+      icon: <img src={WarnIcon} className={iconStyle} />,
       background: warnBackground,
     },
     ERROR: {
-      icon: <ErrorIcon className={iconStyle} />,
+      icon: <img src={ErrorIcon} className={iconStyle} />,
       background: errorBackground,
     },
   };
@@ -49,7 +52,13 @@ const Alert = ({ children, variant, className, hasSummary }: AlertProps) => {
       {hasSummary ? (
         <div className="flex w-full justify-between items-center gap-4">
           <p className={`${!isDetailsOpen && summary}`}>{children}</p>
-          <div>{isDetailsOpen ? <ChevronUp /> : <ChevronDown />}</div>
+          <div>
+            {isDetailsOpen ? (
+              <img src={ChevronUp} alt="" />
+            ) : (
+              <img src={ChevronDown} alt="" />
+            )}
+          </div>
         </div>
       ) : (
         <p>{children}</p>
