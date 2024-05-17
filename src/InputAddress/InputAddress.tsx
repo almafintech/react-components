@@ -96,7 +96,6 @@ const InputAddress = (props: InputAddressProps) => {
   ) => {
     const text = prediction.structured_formatting.main_text;
     const request = {
-      key: process.env.GOOGLE_MAPS_API_KEY || "",
       placeId: prediction.place_id,
       fields: ["formatted_address", "address_components"],
     };
