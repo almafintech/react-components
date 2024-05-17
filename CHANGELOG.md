@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/almafintech/react-components/compare/v0.2.2...v0.2.3) (2024-05-17)
+
+
+### Bug Fixes
+
+* **images:** fix image bundling ([72cbf7c](https://github.com/almafintech/react-components/commit/72cbf7c49749d3c6fa2249b8529ffaaa17d926b7))
+
 ## [0.2.2](https://github.com/almafintech/react-components/compare/v0.2.1...v0.2.2) (2024-05-17)
 
 
