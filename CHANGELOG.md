@@ -1,3 +1,10 @@
+## [0.2.2](https://github.com/almafintech/react-components/compare/v0.2.1...v0.2.2) (2024-05-17)
+
+
+### Bug Fixes
+
+* **component:** inputFile has obligatory props ([aa75714](https://github.com/almafintech/react-components/commit/aa75714c30585ff297c0479ff712faab2b5d3c4e))
+* **component:** update branch ([be118fd](https://github.com/almafintech/react-components/commit/be118fd25b3e0ae0f97b0a04eb385bc406a3bd6e))
 
 ## [0.2.1](https://github.com/almafintech/react-components/compare/v0.2.0...v0.2.1) (2024-05-17)
 
