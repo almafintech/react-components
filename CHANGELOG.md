@@ -1,3 +1,11 @@
+
+## [0.2.1](https://github.com/almafintech/react-components/compare/v0.2.0...v0.2.1) (2024-05-17)
+
+
+### Bug Fixes
+
+* **inputaddress:** add key in request ([b82e51d](https://github.com/almafintech/react-components/commit/b82e51d871b114de75fefc163d3774529d34c6a4))
+
 # [0.2.0](https://github.com/almafintech/react-components/compare/v0.1.2...v0.2.0) (2024-05-15)
 
 
