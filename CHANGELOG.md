@@ -1,3 +1,10 @@
+## [0.2.4](https://github.com/almafintech/react-components/compare/v0.2.3...v0.2.4) (2024-05-23)
+
+
+### Bug Fixes
+
+* **inputfile stories:** fix InputFile Stories ([82358ed](https://github.com/almafintech/react-components/commit/82358ed637691af5adf9dc2577433d152d3a668f))
+
 ## [0.2.3](https://github.com/almafintech/react-components/compare/v0.2.2...v0.2.3) (2024-05-17)
 
 
