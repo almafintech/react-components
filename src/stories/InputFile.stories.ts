@@ -29,7 +29,9 @@ export const Default: Story = {
 export const WithInfoMessage: Story = {
   args: {
     ...Default.args,
-    infoText: "Adjuntá la información necesaria"
+    infoText: "Adjuntá la información necesaria",
+    label: "Frente",
+    infoTextPosition: "top",
   },
 };
 
@@ -38,7 +40,8 @@ export const WithValidTypesFiles: Story = {
     ...Default.args,
     error: true,
     validTypes: ["image/jpg", "image/png"],
-    infoText: "Formato .jpg .png"
+    infoText: "Formato .jpg .png",
+    label: "Frente",
   },
 };
 
@@ -46,7 +49,7 @@ export const WithMaxSize: Story = {
   args: {
     ...Default.args,
     maxSize: 3145728,
-    infoText: "Peso máximo 3MB"
-
+    infoText: "Peso máximo 3MB",
+    label: "Frente",
   },
 };
