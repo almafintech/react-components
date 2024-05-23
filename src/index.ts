@@ -17,3 +17,4 @@ export * from "./Skeleton";
 export * from "./Table";
 export * from "./ToastMessage";
 export * from "./InputAddress";
+export * from "./InputTextArea";
