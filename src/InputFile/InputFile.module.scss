@@ -73,6 +73,35 @@
   width: fit-content;
 }
 
+.topPosition{
+  display: flex;
+  flex-direction: column;
+
+  > :first-child{
+    order: 2;
+  }
+
+  > :nth-child(2){
+    order: 1;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.bottomPosition{
+  display: flex;
+  flex-direction: column;
+
+  > :first-child{
+    order: 1;
+    margin-top: 0.5rem;
+  }
+
+  > :nth-child(2){
+    order: 2;
+  }
+}
+
 .errorMessageStyle {
   display: flex;
   align-items: center;

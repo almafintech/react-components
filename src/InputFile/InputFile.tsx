@@ -24,6 +24,8 @@ const InputFile = ({
   fileData,
   error,
   isLoading,
+  infoTextPosition = "bottom",
+  label
 }: InputFileProps) => {
   const {
     inputFile,
@@ -35,6 +37,8 @@ const InputFile = ({
     inputSuccess,
     container,
     infoTextStyle,
+    topPosition,
+    bottomPosition,
   } = styles;
 
   // const [dragging, setDragging] = useState(false);
@@ -146,7 +150,9 @@ const InputFile = ({
       <label
         htmlFor={`input-file-upload-${name}`}
         style={{ width: "100%", height: "100%" }}
+        className={`${infoTextPosition === "top" ? topPosition : bottomPosition}`}
       >
+        {label}
         <div
           onDragEnter={handleDrag}
           onDragOver={handleDrag}
@@ -203,7 +209,7 @@ const InputFile = ({
             </div>
           )}
         </div>
-        {infoText && <p className={infoTextStyle}>{infoText}</p>}
+        {infoText && <p className={`${infoTextStyle}`}>{infoText}</p>}
         {file && fileError && (
           <div className={errorMessageStyle}>
             <img src={ErrorIcon} />
