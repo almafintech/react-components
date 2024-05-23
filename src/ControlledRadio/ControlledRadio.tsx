@@ -1,6 +1,9 @@
 import { ControlledRadioProps } from "./types";
 import styles from "./ControlledRadio.module.scss";
 
+/**
+ *  Allow users to select a single item
+ */
 const ControlledRadio = ({
   className,
   label,

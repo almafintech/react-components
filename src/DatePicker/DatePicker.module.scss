@@ -57,6 +57,10 @@
   }
 }
 
+.selectPopoverContent {
+  min-width: fit-content !important;
+}
+
 .selectInnerWrapper {
   color: $primary-normal-300 !important;
 }

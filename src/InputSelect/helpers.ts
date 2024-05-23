@@ -5,7 +5,7 @@ import {
   SelectWithOption,
   Values,
   Item,
-} from "./interface/types";
+} from "./types";
 import { getLongMonthNames } from "../DatePicker/helpers";
 import { DateRange } from "../DatePicker/types";
 
