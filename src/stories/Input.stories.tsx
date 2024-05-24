@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import Input from "../Input/Input";
 import { fn } from "@storybook/test";
@@ -145,11 +146,10 @@ export const Password: Story = {
   },
 };
 
-
 export const isRequired: Story = {
   args: {
     ...Default.args,
-    isRequired: true
+    isRequired: true,
   },
 };
 
@@ -157,14 +157,14 @@ export const isReadOnly: Story = {
   args: {
     ...Default.args,
     initialValue: "Alex",
-    isReadOnly: true
+    isReadOnly: true,
   },
 };
 
 export const isDisabled: Story = {
   args: {
     ...Default.args,
-    isDisabled: true
+    isDisabled: true,
   },
 };
 
