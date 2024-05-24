@@ -57,5 +57,4 @@ export interface InputSelectProps extends NextUISelectProps {
   initialDatePickerRange?: DateRange;
   minDatePickerDate?: Date;
   inputValue?: Values;
-  showExternalBox?: boolean;
 }

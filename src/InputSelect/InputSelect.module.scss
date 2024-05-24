@@ -324,35 +324,3 @@ $confirm-actions-height: 100px;
 .selectorIcon.hidden {
   display: none;
 }
-
-.externalBox {
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
-  color: $primary-normal-300;
-  font-size: 14.22px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  margin-top: 16px;
-  flex-flow: wrap;
-
-  .externalItem {
-    border-radius: 8px;
-    background-color: $primary-light-50;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6px 12px;
-
-    span {
-      margin-right: 16px;
-    }
-    img {
-      cursor: pointer;
-    }
-  }
-}
-.containerSelect {
-  max-width: 408px;
-}
