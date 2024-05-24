@@ -72,7 +72,7 @@ const InputPhone = (props: InputPhoneProps) => {
       )}
       {shouldValidate && isValid === false && (
         <div className={`${errorWrapper} ${helperWrapper}`}>
-          <ErrorIcon className={icon} />
+          <img src={ErrorIcon} className={icon} />
           <span className={errorMessageStyle}>
             {errorMessage ?? "Valor inválido"}
           </span>

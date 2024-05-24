@@ -1,0 +1,45 @@
+import { Meta } from "@storybook/blocks";
+
+import "../styles/variables";
+
+<Meta title="Welcome" />
+
+<div className="container">
+  <h3 className="subtitle">¡Bienvenidos! 🚀</h3>
+  <h1 className="title">Allaria+ React Components</h1>
+  <p className="description">Esta librería de componentes de React fue desarrollada específicamente para ser utilizada en los proyectos de frontend de Allaria+.</p>
+  <p className="description">Este nuevo desarrollo promueve la reutilización de código y la consistencia de diseño en todas nuestras aplicaciones, así como también contribuye a mantener estándares de calidad y comportamiento de nuestros componentes.</p>
+  <p className="description">Este Storybook sirve como una guía y documentación interactiva donde pueden explorar, probar y entender cómo utilizar cada componente en sus proyectos.</p>
+</div>
+
+<style>
+  {`
+    .container{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .title{
+      margin-left: 6rem;
+      font-size: 3.5rem;
+      color: #002452;
+    }
+
+    .subtitle{
+      margin-top: 10rem !important;
+      margin-left: 6rem;
+      font-size: 1.5rem;
+      color: #002452;
+    }
+
+    .description{
+      margin-left: 6rem !important;
+      font-weight: 400;
+      color: #002452;
+      font-size: 1rem;
+    }
+  `}
+</style>

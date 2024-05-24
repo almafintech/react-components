@@ -6,11 +6,11 @@ import {
   SelectSection,
 } from "@nextui-org/select";
 import styles from "./InputSelect.module.scss";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Key } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
 import ControlledRadio from "../ControlledRadio/ControlledRadio";
-import { Item, SelectItemType, Values } from "./interface/types";
+import { Item, SelectItemType, Values } from "./types";
 import {
   selectChangeHandler,
   getRenderValue,
@@ -223,7 +223,7 @@ const InputSelect = ({
 
   const getErrorMessage = () => (
     <div className={error}>
-      <InvalidIcon className={icon} />
+      <img src={InvalidIcon} className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );
@@ -278,13 +278,13 @@ const InputSelect = ({
       {...rest}
       isDisabled={isDisabled}
       onClick={handleInsideClick}
-      onBlur={(e) => {
+      onBlur={(e: React.FocusEvent) => {
         setSelectTouched(true);
         onBlur && onBlur(e);
       }}
       disallowEmptySelection={isSingle && true}
       description={!isInvalid && description}
-      errorMessage={<>{isInvalid && selectTouched && getErrorMessage()}</>}
+      errorMessage={isInvalid && selectTouched && <>{getErrorMessage()}</>}
       selectionMode={isSingle || hasDatePicker ? "single" : "multiple"}
       scrollShadowProps={{
         isEnabled: confirmSelection ? false : true,
@@ -318,14 +318,14 @@ const InputSelect = ({
         listbox: `${listbox} ${confirmSelection ? confirmActionsListbox : ""} ${
           classNames?.listbox
         }`,
-        popoverContent: `${popoverContent} ${classNames?.popoverContent} ${classNames?.popoverContent}`,
+        popoverContent: `${popoverContent} ${classNames?.popoverContent}`,
         helperWrapper: `${helperWrapper} ${classNames?.helperWrapper}`,
         description: `${descriptionStyle} ${classNames?.description}`,
         errorMessage: `${errorMessageStyle} ${classNames?.errorMessage}`,
       }}
       isOpen={isOpen}
       selectedKeys={typeof values === "string" && isSingle ? [values] : values}
-      onChange={(e) =>
+      onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
         selectChangeHandler(
           e,
           items,
@@ -337,14 +337,14 @@ const InputSelect = ({
           setDatePickerRange
         )
       }
-      onSelectionChange={(keys) => {
+      onSelectionChange={(keys: any) => {
         if (!confirmSelection) {
-          const keysArray = Array.from(keys).filter(Boolean);
+          const keysArray = Array.from(keys).filter(Boolean) as Key[];
           if (!keysArray || !keysArray[0]) return;
           onChange(isSingle ? keysArray[0] : keysArray);
         }
       }}
-      startContent={hasDatePicker && <CalendarIcon />}
+      startContent={hasDatePicker && <img src={CalendarIcon} />}
       renderValue={() =>
         getRenderValue(values, items, hasDatePicker, datePickerRange)
       }
@@ -430,7 +430,7 @@ const InputSelect = ({
               onClick={() => openDatePicker("MONTH")}
               className={datePickerOption}
             >
-              Mensual <ChevronIcon />
+              Mensual <img src={ChevronIcon} />
             </span>
           </SelectItem>
         ) as any)}
@@ -443,7 +443,7 @@ const InputSelect = ({
               onClick={() => openDatePicker("DAY")}
               className={datePickerOption}
             >
-              Otro período <ChevronIcon />
+              Otro período <img src={ChevronIcon} />
             </span>
           </SelectItem>
         ) as any)}

@@ -24,6 +24,8 @@ const InputFile = ({
   fileData,
   error,
   isLoading,
+  infoTextPosition = "bottom",
+  label
 }: InputFileProps) => {
   const {
     inputFile,
@@ -35,6 +37,8 @@ const InputFile = ({
     inputSuccess,
     container,
     infoTextStyle,
+    topPosition,
+    bottomPosition,
   } = styles;
 
   // const [dragging, setDragging] = useState(false);
@@ -58,7 +62,10 @@ const InputFile = ({
     const allowedTypes = validTypes ? new Set(validTypes) : new Set([]);
     const maxFileSize = maxSize ? maxSize * 1024 * 1024 : 0;
 
-    if (allowedTypes.has(inputFile.type) && inputFile.size <= maxFileSize) {
+    if (
+      (!validTypes || allowedTypes.has(inputFile.type)) &&
+      (!maxSize || inputFile.size <= maxFileSize)
+    ) {
       setFileError(false);
       setFile(inputFile);
       onFileUpload && !isLoading && onFileUpload(inputFile);
@@ -132,76 +139,84 @@ const InputFile = ({
 
   return (
     <div className={`${container} ${className ?? ""}`}>
-      <div
-        onDragEnter={handleDrag}
-        onDragOver={handleDrag}
-        onDragLeave={handleDrag}
-        onDrop={handleDropOrInputChange}
-        className={`
+      <input
+        type="file"
+        accept=".jpg, .jpeg, .png, .pdf"
+        onChange={handleDropOrInputChange}
+        id={`input-file-upload-${name}`}
+        multiple={false}
+        style={{ display: "none" }}
+      />
+      <label
+        htmlFor={`input-file-upload-${name}`}
+        style={{ width: "100%", height: "100%" }}
+        className={`${infoTextPosition === "top" ? topPosition : bottomPosition}`}
+      >
+        {label}
+        <div
+          onDragEnter={handleDrag}
+          onDragOver={handleDrag}
+          onDragLeave={handleDrag}
+          onDrop={handleDropOrInputChange}
+          className={`
       ${inputFile}
       ${
         (file || fileData) && !fileError && !isLoading
           ? inputSuccess
           : inputError
       }`}
-      >
-        {(!file && !fileData) || (file && fileError) ? (
-          <div className={fileHeader}>
-            <UploadIcon />
-            <label
-              id={`label-file-upload-${name}`}
-              htmlFor={`input-file-upload-${name}`}
-            >
-              {text}
-            </label>
-          </div>
-        ) : (
-          <div className={fileContent}>
+        >
+          {(!file && !fileData) || (file && fileError) ? (
             <div className={fileHeader}>
-              {isLoading ? (
-                <>
-                  <UploadIcon />
-                  <label
-                    id={`label-file-upload-${name}`}
-                    htmlFor={`input-file-upload-${name}`}
-                  >
-                    Cargando {file?.name}
-                  </label>
-                </>
-              ) : (
-                <>
-                  <SuccessIcon />
-                  <p>{fileData ? fileData.name : file?.name}</p>
-                </>
-              )}
+              <img src={UploadIcon} />
+              <label
+                id={`label-file-upload-${name}`}
+                htmlFor={`input-file-upload-${name}`}
+              >
+                {text}
+              </label>
             </div>
-            <div className={fileOptions}>
-              {isLoading ? (
-                <LoadingDots color="#acb3bf" />
-              ) : (
-                <>
-                  <DownloadIcon onClick={handleFileDownload} />
-                  <TrashIcon onClick={handleFileRemove} />
-                </>
-              )}
+          ) : (
+            <div className={fileContent}>
+              <div className={fileHeader}>
+                {isLoading ? (
+                  <>
+                    <img src={UploadIcon} />
+                    <label
+                      id={`label-file-upload-${name}`}
+                      htmlFor={`input-file-upload-${name}`}
+                    >
+                      Cargando {file?.name}
+                    </label>
+                  </>
+                ) : (
+                  <>
+                    <img src={SuccessIcon} />
+                    <p>{fileData ? fileData.name : file?.name}</p>
+                  </>
+                )}
+              </div>
+              <div className={fileOptions}>
+                {isLoading ? (
+                  <LoadingDots color="#acb3bf" />
+                ) : (
+                  <>
+                    <img src={DownloadIcon} onClick={handleFileDownload} />
+                    <img src={TrashIcon} onClick={handleFileRemove} />
+                  </>
+                )}
+              </div>
             </div>
+          )}
+        </div>
+        {infoText && <p className={`${infoTextStyle}`}>{infoText}</p>}
+        {file && fileError && (
+          <div className={errorMessageStyle}>
+            <img src={ErrorIcon} />
+            <span>{errorMessage}</span>
           </div>
         )}
-        <input
-          type="file"
-          accept=".jpg, .jpeg, .png, .pdf"
-          onChange={handleDropOrInputChange}
-          id={`input-file-upload-${name}`}
-          multiple={false}
-        />
-      </div>
-      {infoText && <p className={infoTextStyle}>{infoText}</p>}
-      {file && fileError && (
-        <div className={errorMessageStyle}>
-          <ErrorIcon />
-          <span>{errorMessage}</span>
-        </div>
-      )}
+      </label>
     </div>
   );
 };

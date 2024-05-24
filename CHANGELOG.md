@@ -1,3 +1,54 @@
+## [0.2.4](https://github.com/almafintech/react-components/compare/v0.2.3...v0.2.4) (2024-05-23)
+
+
+### Bug Fixes
+
+* **inputfile stories:** fix InputFile Stories ([82358ed](https://github.com/almafintech/react-components/commit/82358ed637691af5adf9dc2577433d152d3a668f))
+
+## [0.2.3](https://github.com/almafintech/react-components/compare/v0.2.2...v0.2.3) (2024-05-17)
+
+
+### Bug Fixes
+
+* **images:** fix image bundling ([72cbf7c](https://github.com/almafintech/react-components/commit/72cbf7c49749d3c6fa2249b8529ffaaa17d926b7))
+
+## [0.2.2](https://github.com/almafintech/react-components/compare/v0.2.1...v0.2.2) (2024-05-17)
+
+
+### Bug Fixes
+
+* **component:** inputFile has obligatory props ([aa75714](https://github.com/almafintech/react-components/commit/aa75714c30585ff297c0479ff712faab2b5d3c4e))
+* **component:** update branch ([be118fd](https://github.com/almafintech/react-components/commit/be118fd25b3e0ae0f97b0a04eb385bc406a3bd6e))
+
+## [0.2.1](https://github.com/almafintech/react-components/compare/v0.2.0...v0.2.1) (2024-05-17)
+
+
+### Bug Fixes
+
+* **inputaddress:** add key in request ([b82e51d](https://github.com/almafintech/react-components/commit/b82e51d871b114de75fefc163d3774529d34c6a4))
+
+# [0.2.0](https://github.com/almafintech/react-components/compare/v0.1.2...v0.2.0) (2024-05-15)
+
+
+### Bug Fixes
+
+* **components:** solve minor bugs ([f3907d3](https://github.com/almafintech/react-components/commit/f3907d38bc99ad23b31eafdc59c75fb56bbbef63))
+* **deploy:** fix yml syntax ([4158c78](https://github.com/almafintech/react-components/commit/4158c780141c358a361c753b2e40f0c9f9fb4f54))
+* **package:** remove duplicated ([1d0a8ac](https://github.com/almafintech/react-components/commit/1d0a8acee319af0143bf0241049e186f0334dfd0))
+* **storybook styles:** implement webpack for storybook and add scss processors ([3e33613](https://github.com/almafintech/react-components/commit/3e336138301c320e4be68ce95698371955c2bbec))
+
+
+### Features
+
+* **inputadress:** merge new changes in main ([93b35c2](https://github.com/almafintech/react-components/commit/93b35c2a0aa24ebbf22ccccb895cf248eb4c420d))
+
+## [0.1.2](https://github.com/almafintech/react-components/compare/v0.1.1...v0.1.2) (2024-05-14)
+
+
+### Bug Fixes
+
+* **select:** export Select types. Fix Select type errors ([19fdc97](https://github.com/almafintech/react-components/commit/19fdc97cf0facd53d426aeb6be7b31d6107e8a07))
+
 ## [0.1.1](https://github.com/almafintech/react-components/compare/v0.1.0...v0.1.1) (2024-05-13)
 
 

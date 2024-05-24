@@ -18,13 +18,15 @@ export interface InputFileProps {
   infoText?: string;
   initialValue?: File | null;
   isLoading?: boolean;
-  maxSize?: number; // In megabytes
+  maxSize: number; // In megabytes
   name: string;
+  label?: string
   onFileDownload?: (file: FileData) => void;
   onFileRemove?: () => void;
   onFileUpload?: (file: File) => void;
   selectedFile?: File | null;
   setError?: (error: InputFileErrorsTypes | null) => void;
   text?: string | ReactNode;
-  validTypes?: string[];
+  validTypes: string[];
+  infoTextPosition?: "bottom" | "top";
 }

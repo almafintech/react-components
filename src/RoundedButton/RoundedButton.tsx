@@ -18,29 +18,40 @@ import EditIcon from "../../assets/images/ui/icons/edit-icon.svg";
 import NominalRateIcon from "../../assets/images/ui/icons/nominal-rate-icon.svg";
 import { RoundedButtonProps } from "./types";
 
+/**
+ * An icon button that allows users to perform an action with a single click
+ */
 const RoundedButton = forwardRef<HTMLButtonElement, RoundedButtonProps>(
   ({ icon, isDisabled, buttonType, onClick, className, ...rest }, ref) => {
     const { base, rectangular, empty } = styles;
     const IconComponent = () => {
       switch (icon) {
         case "download":
-          return <DownloadIcon />;
+          return <img src={DownloadIcon} />;
         case "share":
-          return <ShareIcon />;
+          return <img src={ShareIcon} />;
         case "email":
-          return isDisabled ? <EmailDisabledIcon /> : <EmailIcon />;
+          return isDisabled ? (
+            <img src={EmailDisabledIcon} />
+          ) : (
+            <img src={EmailIcon} />
+          );
         case "whatsapp":
-          return isDisabled ? <WhatsappDisabledIcon /> : <WhatsappIcon />;
+          return isDisabled ? (
+            <img src={WhatsappDisabledIcon} />
+          ) : (
+            <img src={WhatsappIcon} />
+          );
         case "edit":
-          return <EditIcon />;
+          return <img src={EditIcon} />;
         case "trash":
-          return <TrashIcon />;
+          return <img src={TrashIcon} />;
         case "pause":
-          return <PauseIcon />;
+          return <img src={PauseIcon} />;
         case "play":
-          return <PlayIcon />;
+          return <img src={PlayIcon} />;
         case "nominal-rate":
-          return <NominalRateIcon />;
+          return <img src={NominalRateIcon} />;
         default:
           return icon;
       }
