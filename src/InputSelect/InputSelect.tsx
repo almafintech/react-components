@@ -16,10 +16,12 @@ import {
   getRenderValue,
   valueIsSelected,
 } from "./helpers";
+//Icons
 import Checkbox from "../Checkbox/Checkbox";
 import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
 import ChevronIcon from "../../assets/images/ui/icons/ui-icon-chevron-dark-down.svg";
 import CalendarIcon from "../../assets/images/ui/icons/ui-icon-calendar.svg";
+import CloseIcon from "../../assets/images/ui/icons/ui-icon-close-blue.svg";
 import DatePicker from "../DatePicker/DatePicker";
 import { DateRange } from "../DatePicker/types";
 import { InputSelectProps } from "./types";
@@ -45,6 +47,7 @@ const InputSelect = ({
   initialDatePickerRange,
   minDatePickerDate,
   inputValue,
+  showExternalBox,
   ...rest
 }: InputSelectProps) => {
   const {
@@ -78,6 +81,9 @@ const InputSelect = ({
     datePicker,
     datePickerOption,
     disabledSelect,
+    externalBox,
+    externalItem,
+    containerSelect,
     ...restStyles
   } = styles;
 
@@ -274,202 +280,225 @@ const InputSelect = ({
   }, [inputValue]);
 
   return (
-    <NextUiSelect
-      {...rest}
-      isDisabled={isDisabled}
-      onClick={handleInsideClick}
-      onBlur={(e: React.FocusEvent) => {
-        setSelectTouched(true);
-        onBlur && onBlur(e);
-      }}
-      disallowEmptySelection={isSingle && true}
-      description={!isInvalid && description}
-      errorMessage={isInvalid && selectTouched && <>{getErrorMessage()}</>}
-      selectionMode={isSingle || hasDatePicker ? "single" : "multiple"}
-      scrollShadowProps={{
-        isEnabled: confirmSelection ? false : true,
-      }}
-      data-id={componentId}
-      items={isDatePickerOpen ? [] : items}
-      labelPlacement="outside"
-      placeholder={!inputValue ? placeholder ?? " " : " "}
-      className={`${className} ${
-        isInvalid && selectTouched ? invalidSelect : ""
-      } ${isInvalid === false && selectTouched && validSelect} ${
-        isDisabled ? disabledSelect : ""
-      }`}
-      classNames={{
-        base: `${base} ${classNames?.base}`,
-        label: `${label} ${isInvalid || description ? labelFix : ""} ${
-          isFormField && formField
-        }`,
-        mainWrapper: `${mainWrapper} ${classNames?.mainWrapper}`,
-        trigger: `${trigger} ${classNames?.trigger}`,
-        innerWrapper: `${innerWrapper} ${classNames?.innerWrapper}`,
-        selectorIcon: `${selectorIcon} ${classNames?.selectorIcon}`,
-        value: `${valueStyle} ${classNames?.value}`,
-        listboxWrapper: `${
-          confirmSelection
-            ? confirmActionsListboxWrapper
-            : restStyles.listboxWrapper
-        } ${isDatePickerOpen && datePickerListboxWrapper} ${
-          classNames?.listboxWrapper
-        }`,
-        listbox: `${listbox} ${confirmSelection ? confirmActionsListbox : ""} ${
-          classNames?.listbox
-        }`,
-        popoverContent: `${popoverContent} ${classNames?.popoverContent}`,
-        helperWrapper: `${helperWrapper} ${classNames?.helperWrapper}`,
-        description: `${descriptionStyle} ${classNames?.description}`,
-        errorMessage: `${errorMessageStyle} ${classNames?.errorMessage}`,
-      }}
-      isOpen={isOpen}
-      selectedKeys={typeof values === "string" && isSingle ? [values] : values}
-      onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-        selectChangeHandler(
-          e,
-          items,
-          type,
-          values,
-          setValues,
-          setIsOpen,
-          confirmSelection,
-          setDatePickerRange
-        )
-      }
-      onSelectionChange={(keys: any) => {
-        if (!confirmSelection) {
-          const keysArray = Array.from(keys).filter(Boolean) as Key[];
-          if (!keysArray || !keysArray[0]) return;
-          onChange(isSingle ? keysArray[0] : keysArray);
+    <div className={containerSelect}>
+      <NextUiSelect
+        {...rest}
+        isDisabled={isDisabled}
+        onClick={handleInsideClick}
+        onBlur={(e: React.FocusEvent) => {
+          setSelectTouched(true);
+          onBlur && onBlur(e);
+        }}
+        disallowEmptySelection={isSingle && true}
+        description={!isInvalid && description}
+        errorMessage={isInvalid && selectTouched && <>{getErrorMessage()}</>}
+        selectionMode={isSingle || hasDatePicker ? "single" : "multiple"}
+        scrollShadowProps={{
+          isEnabled: confirmSelection ? false : true,
+        }}
+        data-id={componentId}
+        items={isDatePickerOpen ? [] : items}
+        labelPlacement="outside"
+        placeholder={!inputValue ? placeholder ?? " " : " "}
+        className={`${className} ${
+          isInvalid && selectTouched ? invalidSelect : ""
+        } ${isInvalid === false && selectTouched && validSelect} ${
+          isDisabled ? disabledSelect : ""
+        }`}
+        classNames={{
+          base: `${base} ${classNames?.base}`,
+          label: `${label} ${isInvalid || description ? labelFix : ""} ${
+            isFormField && formField
+          }`,
+          mainWrapper: `${mainWrapper} ${classNames?.mainWrapper}`,
+          trigger: `${trigger} ${classNames?.trigger}`,
+          innerWrapper: `${innerWrapper} ${classNames?.innerWrapper}`,
+          selectorIcon: `${selectorIcon} ${classNames?.selectorIcon}`,
+          value: `${valueStyle} ${classNames?.value}`,
+          listboxWrapper: `${
+            confirmSelection
+              ? confirmActionsListboxWrapper
+              : restStyles.listboxWrapper
+          } ${isDatePickerOpen && datePickerListboxWrapper} ${
+            classNames?.listboxWrapper
+          }`,
+          listbox: `${listbox} ${confirmSelection ? confirmActionsListbox : ""} ${
+            classNames?.listbox
+          }`,
+          popoverContent: `${popoverContent} ${classNames?.popoverContent}`,
+          helperWrapper: `${helperWrapper} ${classNames?.helperWrapper}`,
+          description: `${descriptionStyle} ${classNames?.description}`,
+          errorMessage: `${errorMessageStyle} ${classNames?.errorMessage}`,
+        }}
+        isOpen={isOpen}
+        selectedKeys={
+          typeof values === "string" && isSingle ? [values] : values
         }
-      }}
-      startContent={hasDatePicker && <img src={CalendarIcon} />}
-      renderValue={() =>
-        getRenderValue(values, items, hasDatePicker, datePickerRange)
-      }
-    >
-      {!isDatePickerOpen &&
-        items.map((item: SelectItemType) => {
-          const { value, label, options, downDivider } = item;
-
-          if (!(options && hasCheckbox && isMultiple)) {
-            return (
-              <SelectItem
-                textValue={value}
-                className={`${downDivider ? itemDivider : ""} ${
-                  hasCheckbox || hasRadio ? checkOrRadio : ""
-                }`}
-                key={value}
-                value={value}
-                aria-label={label}
-              >
-                <ItemContent value={value} label={label} />
-              </SelectItem>
-            );
-          } else {
-            return (
-              <SelectSection
-                key={value}
-                onClick={() => handleSectionClick(options, value)}
-                className={hasCheckbox ? section : ""}
-                title={
-                  hasCheckbox
-                    ? ((
-                        <Checkbox
-                          onClick={() => handleSectionClick(options, value)}
-                          value={value}
-                          isSelected={Array.from(values).includes(value)}
-                        >
-                          {label}
-                        </Checkbox>
-                      ) as any)
-                    : label
-                }
-              >
-                {options.map(({ value: optionValue, label: optionLabel }) => (
-                  <SelectItem
-                    textValue={optionValue}
-                    key={optionValue}
-                    value={optionValue}
-                    aria-label={optionLabel}
-                  >
-                    <ItemContent value={optionValue} label={optionLabel} />
-                  </SelectItem>
-                ))}
-              </SelectSection>
-            );
+        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+          selectChangeHandler(
+            e,
+            items,
+            type,
+            values,
+            setValues,
+            setIsOpen,
+            confirmSelection,
+            setDatePickerRange
+          )
+        }
+        onSelectionChange={(keys: any) => {
+          if (!confirmSelection) {
+            const keysArray = Array.from(keys).filter(Boolean) as Key[];
+            if (!keysArray || !keysArray[0]) return;
+            onChange(isSingle ? keysArray[0] : keysArray);
           }
-        })}
+        }}
+        startContent={hasDatePicker && <img src={CalendarIcon} />}
+        renderValue={() =>
+          getRenderValue(values, items, hasDatePicker, datePickerRange)
+        }
+      >
+        {!isDatePickerOpen &&
+          items.map((item: SelectItemType) => {
+            const { value, label, options, downDivider } = item;
 
-      {confirmSelection &&
-        ((
-          <SelectItem
-            textValue="actions"
-            key="actions"
-            value="actions"
-            className={confirmActions}
-          >
-            <div>
-              <Button onClick={handleConfirmChanges} text="Aplicar" />
-              <Button
-                onClick={handleResetChanges}
-                variant="secondary"
-                text="Restablecer"
+            if (!(options && hasCheckbox && isMultiple)) {
+              return (
+                <SelectItem
+                  textValue={value}
+                  className={`${downDivider ? itemDivider : ""} ${
+                    hasCheckbox || hasRadio ? checkOrRadio : ""
+                  }`}
+                  key={value}
+                  value={value}
+                  aria-label={label}
+                >
+                  <ItemContent value={value} label={label} />
+                </SelectItem>
+              );
+            } else {
+              return (
+                <SelectSection
+                  key={value}
+                  onClick={() => handleSectionClick(options, value)}
+                  className={hasCheckbox ? section : ""}
+                  title={
+                    hasCheckbox
+                      ? ((
+                          <Checkbox
+                            onClick={() => handleSectionClick(options, value)}
+                            value={value}
+                            isSelected={Array.from(values).includes(value)}
+                          >
+                            {label}
+                          </Checkbox>
+                        ) as any)
+                      : label
+                  }
+                >
+                  {options.map(({ value: optionValue, label: optionLabel }) => (
+                    <SelectItem
+                      textValue={optionValue}
+                      key={optionValue}
+                      value={optionValue}
+                      aria-label={optionLabel}
+                    >
+                      <ItemContent value={optionValue} label={optionLabel} />
+                    </SelectItem>
+                  ))}
+                </SelectSection>
+              );
+            }
+          })}
+
+        {confirmSelection &&
+          ((
+            <SelectItem
+              textValue="actions"
+              key="actions"
+              value="actions"
+              className={confirmActions}
+            >
+              <div>
+                <Button onClick={handleConfirmChanges} text="Aplicar" />
+                <Button
+                  onClick={handleResetChanges}
+                  variant="secondary"
+                  text="Restablecer"
+                />
+              </div>
+            </SelectItem>
+          ) as any)}
+
+        {/* Append options which open date picker in different states if select has date picker */}
+        {hasDatePicker &&
+          !isDatePickerOpen &&
+          ((
+            <SelectItem textValue="actions" key="pick-month" value="pick-month">
+              <span
+                onClick={() => openDatePicker("MONTH")}
+                className={datePickerOption}
+              >
+                Mensual <img src={ChevronIcon} />
+              </span>
+            </SelectItem>
+          ) as any)}
+
+        {hasDatePicker &&
+          !isDatePickerOpen &&
+          ((
+            <SelectItem textValue="actions" key="pick-day" value="pick-day">
+              <span
+                onClick={() => openDatePicker("DAY")}
+                className={datePickerOption}
+              >
+                Otro período <img src={ChevronIcon} />
+              </span>
+            </SelectItem>
+          ) as any)}
+
+        {/* Show actual date picker if open, no other options will be shown when open */}
+        {isDatePickerOpen &&
+          ((
+            <SelectItem
+              textValue="actions"
+              key="date-picker"
+              value="date-picker"
+              className={datePicker}
+            >
+              <DatePicker
+                onApply={onDatePickerApply}
+                onDelete={onDatePickerDelete}
+                onBack={() => {
+                  setIsDatePickerOpen(false);
+                }}
+                min={minDatePickerDate}
+                defaultRange={datePickerRange}
+                defaultCalendarVariant={datePickerInitialVariant}
               />
-            </div>
-          </SelectItem>
-        ) as any)}
-
-      {/* Append options which open date picker in different states if select has date picker */}
-      {hasDatePicker &&
-        !isDatePickerOpen &&
-        ((
-          <SelectItem textValue="actions" key="pick-month" value="pick-month">
-            <span
-              onClick={() => openDatePicker("MONTH")}
-              className={datePickerOption}
-            >
-              Mensual <img src={ChevronIcon} />
-            </span>
-          </SelectItem>
-        ) as any)}
-
-      {hasDatePicker &&
-        !isDatePickerOpen &&
-        ((
-          <SelectItem textValue="actions" key="pick-day" value="pick-day">
-            <span
-              onClick={() => openDatePicker("DAY")}
-              className={datePickerOption}
-            >
-              Otro período <img src={ChevronIcon} />
-            </span>
-          </SelectItem>
-        ) as any)}
-
-      {/* Show actual date picker if open, no other options will be shown when open */}
-      {isDatePickerOpen &&
-        ((
-          <SelectItem
-            textValue="actions"
-            key="date-picker"
-            value="date-picker"
-            className={datePicker}
-          >
-            <DatePicker
-              onApply={onDatePickerApply}
-              onDelete={onDatePickerDelete}
-              onBack={() => {
-                setIsDatePickerOpen(false);
-              }}
-              min={minDatePickerDate}
-              defaultRange={datePickerRange}
-              defaultCalendarVariant={datePickerInitialVariant}
-            />
-          </SelectItem>
-        ) as any)}
-    </NextUiSelect>
+            </SelectItem>
+          ) as any)}
+      </NextUiSelect>
+      {isMultiple && showExternalBox && values && (
+        <div className={externalBox}>
+          {Array.isArray(values) &&
+            values.map(
+              (value) =>
+                value !== "" && (
+                  <div className={externalItem}>
+                    <span>{value}</span>
+                    <img
+                      src={CloseIcon}
+                      onClick={() =>
+                        setValues(values.filter((val) => val !== value))
+                      }
+                    />
+                  </div>
+                )
+            )}
+        </div>
+      )}
+    </div>
   );
 };
 
