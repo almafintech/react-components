@@ -1,3 +1,15 @@
+# [0.3.0](https://github.com/almafintech/react-components/compare/v0.2.5...v0.3.0) (2024-05-27)
+
+
+### Bug Fixes
+
+* **inputtextarea.stories.tsx:** fix text area stories ([8ec080f](https://github.com/almafintech/react-components/commit/8ec080f76513b5565300948d303432a1b0d64e73))
+
+
+### Features
+
+* **inputtextarea:** inputtextarea added ([dd86e8c](https://github.com/almafintech/react-components/commit/dd86e8c262825d14a613c8dd961d90cce2a7b59b))
+
 ## [0.2.5](https://github.com/almafintech/react-components/compare/v0.2.4...v0.2.5) (2024-05-27)
 
 
