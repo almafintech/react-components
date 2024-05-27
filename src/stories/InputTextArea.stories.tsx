@@ -11,7 +11,8 @@ const meta = {
   },
   tags: ["autodocs"],
   args: {
-    maxLength: 1,
+    onChange: fn(),
+    onKeyDown: fn(),
   },
   decorators: [
     (Story) => (
@@ -32,5 +33,70 @@ export const Default: Story = {
     maxLength: 250,
     disableAutosize: true,
     label: "Mensaje",
+  },
+};
+
+export const isFormField: Story = {
+  args: {
+    ...Default.args,
+    isFormField: true,
+  },
+};
+
+export const withPlaceholder: Story = {
+  args: {
+    ...Default.args,
+    placeholder: "Nombre",
+  },
+};
+
+export const withInitialValue: Story = {
+  args: {
+    ...Default.args,
+    initialValue: "Tu mensaje",
+  },
+};
+
+export const withoutLabel: Story = {
+  args: {
+    ...Default.args,
+    placeholder: "Ingresá el mensaje",
+  },
+};
+
+export const isValid: Story = {
+  args: {
+    ...Default.args,
+    label: "Mensaje",
+    initialValue: "Tu mensaje",
+    isInvalid: false,
+    touched: true,
+  },
+};
+
+export const isInvalid: Story = {
+  args: {
+    ...Default.args,
+    label: "Mensaje",
+    initialValue: "",
+    isInvalid: true,
+    touched: true,
+  },
+};
+
+export const isInvalidWithCustomErrorMessage: Story = {
+  args: {
+    ...Default.args,
+    label: "Mensaje",
+    isInvalid: true,
+    touched: true,
+    errorMessage: "Mensaje de error personalizado",
+  },
+};
+
+export const withMaxLength: Story = {
+  args: {
+    ...Default.args,
+    maxLength: 3,
   },
 };

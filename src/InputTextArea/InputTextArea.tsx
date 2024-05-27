@@ -1,4 +1,4 @@
-import styles from "../Input/Input.module.scss";
+import styles from "./InputTextArea.module.scss";
 import { Textarea } from "@nextui-org/input";
 import { useState } from "react";
 import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
@@ -16,6 +16,7 @@ const InputTextArea = (props: InputTextAreaProps) => {
     touched: touchedStyle,
     validated,
     formField,
+    helperWrapper,
   } = styles;
 
   const {
@@ -32,7 +33,9 @@ const InputTextArea = (props: InputTextAreaProps) => {
   const [value, setValue] = useState(initialValue ?? "");
 
   const onValueChange = (newValue: string) => {
-    if (newValue.length <= (maxLength ?? Infinity)) setValue(newValue);
+    if (newValue.length <= (maxLength ?? Infinity)) {
+      setValue(newValue);
+    }
 
     props.onValueChange && props.onValueChange(newValue);
   };
@@ -60,6 +63,7 @@ const InputTextArea = (props: InputTextAreaProps) => {
           (props.touched || touched) && touchedStyle
         }`,
         errorMessage: errorMessageStyle,
+        helperWrapper: helperWrapper,
         ...props.classNames,
       }}
       value={props.value ?? value}
@@ -72,8 +76,7 @@ const InputTextArea = (props: InputTextAreaProps) => {
       }}
       onChange={(e) => {
         setTouched(true);
-        if (props.value && props.value?.length < Number(e.target.value))
-          onChange && onChange(e);
+        onChange && onChange(e);
       }}
       onBlur={(e) => {
         setTouched(true);
