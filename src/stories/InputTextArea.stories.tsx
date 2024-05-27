@@ -46,7 +46,7 @@ export const isFormField: Story = {
 export const withPlaceholder: Story = {
   args: {
     ...Default.args,
-    placeholder: "Nombre",
+    placeholder: "Ingresá el mensaje",
   },
 };
 
@@ -54,13 +54,6 @@ export const withInitialValue: Story = {
   args: {
     ...Default.args,
     initialValue: "Tu mensaje",
-  },
-};
-
-export const withoutLabel: Story = {
-  args: {
-    ...Default.args,
-    placeholder: "Ingresá el mensaje",
   },
 };
 
