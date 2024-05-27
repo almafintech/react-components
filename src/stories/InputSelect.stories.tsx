@@ -95,6 +95,14 @@ export const WithMultipleSelection: Story = {
   },
 };
 
+export const WithMultipleSelectionExternalBox: Story = {
+  args: {
+    ...Default.args,
+    type: "multiple",
+    showExternalBox: true,
+  },
+};
+
 export const WithCheckboxMultipleSelection: Story = {
   args: {
     ...Default.args,

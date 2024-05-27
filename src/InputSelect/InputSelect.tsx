@@ -482,11 +482,12 @@ const InputSelect = ({
       {isMultiple && showExternalBox && values && (
         <div className={externalBox}>
           {Array.isArray(values) &&
-            values.map(
-              (value) =>
+            values.map((value) => {
+              const item = items.find((item) => item.value === value);
+              return (
                 value !== "" && (
                   <div className={externalItem}>
-                    <span>{value}</span>
+                    <span>{item?.label}</span>
                     <img
                       src={CloseIcon}
                       onClick={() =>
@@ -495,7 +496,8 @@ const InputSelect = ({
                     />
                   </div>
                 )
-            )}
+              );
+            })}
         </div>
       )}
     </div>
