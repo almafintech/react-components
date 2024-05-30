@@ -1,0 +1,27 @@
+@import "../styles/variables";
+@import "../styles/helpers.scss";
+
+.radioGroupContainer {
+  .radioGroupLabel {
+    color: $primary-dark-900;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.375rem;
+    margin-bottom: 16.5008px !important;
+    display: inline-block;
+  }
+  .optionsContainer {
+    display: flex;
+    gap: 2rem;
+  }
+  .allOptionsDisabled {
+    .radioLabel {
+      color: $secondary-light-200 !important;
+      cursor: default !important;
+      input {
+        cursor: default !important;
+      }
+    }
+  }
+}

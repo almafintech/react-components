@@ -8,6 +8,13 @@
   cursor: pointer;
   //   padding: 0.2rem 0;
   font-size: 0.875rem;
+  &.labelDisabled {
+    color: $secondary-light-200;
+    cursor: default;
+    input {
+      cursor: default;
+    }
+  }
 }
 
 .inputRadio {
@@ -41,6 +48,19 @@
 
     &::before {
       transform: scale(0.9);
+    }
+  }
+}
+
+.labelDisabled {
+  .inputRadio {
+    &:checked {
+      border: 0.15rem solid $secondary-light-200 !important;
+
+      &::before {
+        transform: scale(0.9);
+        box-shadow: inset 1em 1em $secondary-light-200 !important;
+      }
     }
   }
 }
