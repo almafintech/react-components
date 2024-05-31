@@ -27,4 +27,8 @@ export interface ControlledRadioProps {
    *  Disabled option.
    */
   disabled?: boolean;
+  /**
+   *  Handler called when the ControlledRadio's item loses focus.
+   */
+  onBlur?: (value: string) => void;
 }

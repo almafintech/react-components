@@ -12,6 +12,7 @@ const ControlledRadio = ({
   checked,
   onChange,
   disabled,
+  onBlur,
 }: ControlledRadioProps) => {
   const { inputRadio, radioLabel, labelDisabled } = styles;
 
@@ -29,6 +30,7 @@ const ControlledRadio = ({
         onChange={handleChange}
         className={`${inputRadio} ${className ?? ""}`}
         disabled={disabled}
+        onBlur={(e) => onBlur && onBlur(e.target.value)}
       />
       {label}
     </label>

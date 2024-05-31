@@ -9,6 +9,7 @@ const RadioGroup = ({
   disabled,
   error,
   onChange,
+  onBlur,
 }: RadioGroupProps) => {
   const { radioGroupContainer, radioGroupLabel, optionsContainer } = styles;
   const [optionSelected, setOptionSelected] = useState<string>("");
@@ -44,6 +45,7 @@ const RadioGroup = ({
               onChange={handleChange}
               value={value}
               disabled={disabled || individualDisabled}
+              onBlur={onBlur}
             />
           )
         )}

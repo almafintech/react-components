@@ -15,4 +15,5 @@ export type RadioGroupProps = {
   disabled?: boolean;
   error?: string;
   onChange: (value: string) => void;
+  onBlur?: (value: string) => void;
 };
