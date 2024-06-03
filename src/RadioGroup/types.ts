@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode, FocusEvent } from "react";
 
 export type SizeType = "small" | "medium" | "large";
 
@@ -14,6 +14,7 @@ export type RadioGroupProps = {
   label?: ReactNode;
   disabled?: boolean;
   error?: string;
-  onChange: (value: string) => void;
-  onBlur?: (value: string) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement, Element>) => void;
+  name?: string;
 };

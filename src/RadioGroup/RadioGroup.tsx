@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, FocusEvent, useEffect, useState } from "react";
 import { ControlledRadio } from "../ControlledRadio";
 import { RadioGroupProps } from "./types";
 import styles from "./RadioGroup.module.scss";
@@ -10,6 +10,7 @@ const RadioGroup = ({
   error,
   onChange,
   onBlur,
+  name,
 }: RadioGroupProps) => {
   const { radioGroupContainer, radioGroupLabel, optionsContainer } = styles;
   const [optionSelected, setOptionSelected] = useState<string>("");
@@ -23,9 +24,13 @@ const RadioGroup = ({
     }
   }, [options]);
 
-  const handleChange = (value: string) => {
-    setOptionSelected(value);
-    onChange && onChange(value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setOptionSelected(event.target.value);
+    onChange && onChange(event);
+  };
+
+  const handleBlur = (event: FocusEvent<HTMLInputElement, Element>) => {
+    onBlur && onBlur(event);
   };
 
   return (
@@ -41,11 +46,11 @@ const RadioGroup = ({
               key={index}
               checked={optionSelected === value}
               label={label}
-              name={`controlledRadio${value}`}
-              onChange={handleChange}
+              name={name ?? `controlledRadio${value}`}
               value={value}
               disabled={disabled || individualDisabled}
-              onBlur={onBlur}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
           )
         )}
