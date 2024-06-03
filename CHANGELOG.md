@@ -1,3 +1,10 @@
+## [0.3.2](https://github.com/almafintech/react-components/compare/v0.3.1...v0.3.2) (2024-06-03)
+
+
+### Bug Fixes
+
+* **input radio:** fix name and pass event to onChange y onBlur ([9ade894](https://github.com/almafintech/react-components/commit/9ade89425aab41025b5904a779346fdd3fba8778))
+
 ## [0.3.1](https://github.com/almafintech/react-components/compare/v0.3.0...v0.3.1) (2024-06-03)
 
 
