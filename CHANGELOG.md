@@ -1,3 +1,11 @@
+## [0.3.1](https://github.com/almafintech/react-components/compare/v0.3.0...v0.3.1) (2024-06-03)
+
+
+### Bug Fixes
+
+* add onBlur in RadioGroup ([30df261](https://github.com/almafintech/react-components/commit/30df261378322af3d58659da801cc2e18e82e4a1))
+* **component:** add radiogroup and Message ([1d8d2b2](https://github.com/almafintech/react-components/commit/1d8d2b29e5af5b61f1030062375413e83b03478e))
+
 # [0.3.0](https://github.com/almafintech/react-components/compare/v0.2.5...v0.3.0) (2024-05-27)
 
 
