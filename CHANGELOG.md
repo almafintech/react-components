@@ -1,3 +1,10 @@
+## [0.3.3](https://github.com/almafintech/react-components/compare/v0.3.2...v0.3.3) (2024-06-03)
+
+
+### Bug Fixes
+
+* **radiogroup:** add value prop to RadioGroup to set initial option easily ([c369520](https://github.com/almafintech/react-components/commit/c369520d5c61eece61748b207fcc4c24ceb92e61))
+
 ## [0.3.2](https://github.com/almafintech/react-components/compare/v0.3.1...v0.3.2) (2024-06-03)
 
 
