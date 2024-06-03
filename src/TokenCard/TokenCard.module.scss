@@ -1,0 +1,196 @@
+@import "../styles/variables";
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  margin-top: 0.625rem;
+
+  span {
+    font-size: 0.75rem;
+    color: $e300;
+  }
+
+  img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+}
+
+.inputTokenGroup {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.inputToken {
+  min-height: 4rem;
+  width: 100%;
+}
+
+.toastMessage {
+  position: absolute !important;
+  top: 30px !important;
+  left: 44px !important;
+  right: 44px !important;
+  width: auto !important;
+  padding: 0 !important;
+}
+
+.fadeOutDiv {
+  transition: opacity 0.6s;
+
+  h1 {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+  }
+}
+
+.hide {
+  opacity: 0;
+}
+
+.bodyWrapper {
+  width: auto;
+}
+
+.fadeOutWrapper {
+  z-index: 2;
+  background-color: $white;
+  transition: all 0.6s;
+}
+
+.loading {
+  min-height: 258px;
+  max-width: 638px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: $black;
+    margin-bottom: 1.75rem;
+  }
+  p {
+    font-size: 0.8125rem;
+  }
+  span {
+    color: $primary-dark-900;
+  }
+}
+
+.animatedNumber {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+  gap: 0.25rem;
+  justify-items: end;
+  width: fit-content;
+  align-items: center;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3.75rem;
+  font-size: 0.8125rem;
+}
+
+.loadingCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonsContainer {
+  column-gap: 1rem;
+
+  button {
+    padding: 0 1.5rem !important;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .inputToken {
+    width: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .loading {
+    padding: 0;
+  }
+
+  .inputTokenGroup {
+    margin-bottom: 2.5rem;
+  }
+
+  .buttonsContainer {
+    column-gap: 1rem;
+
+    button {
+      width: 100%;
+      padding: 0 !important;
+    }
+  }
+}
+
+.headerModal {
+  display: flex;
+  align-items: center;
+  h2 {
+    color: $s300;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: normal;
+  }
+  h3 {
+    color: $primary-dark-900;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: normal;
+  }
+}
+
+.childrenAlert {
+  margin-bottom: 1.5rem;
+}
+
+.subtitleStyle {
+  font-size: 0.875rem !important;
+  color: $secondary-normal-300 !important;
+}
+
+.countdownContainer {
+  display: flex;
+  justify-content: center;
+
+  > button {
+    color: $secondary-light-200 !important;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem; /* 125% */
+    text-decoration-line: underline;
+  }
+}
