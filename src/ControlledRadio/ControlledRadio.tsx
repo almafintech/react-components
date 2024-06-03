@@ -11,22 +11,30 @@ const ControlledRadio = ({
   name,
   checked,
   onChange,
+  disabled,
+  onBlur,
 }: ControlledRadioProps) => {
-  const { inputRadio, radioLabel } = styles;
+  const { inputRadio, radioLabel, labelDisabled } = styles;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(event.target.value);
+    onChange && onChange(event);
+  };
+
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    onBlur && onBlur(event);
   };
 
   return (
-    <label className={radioLabel}>
+    <label className={`${radioLabel} ${disabled ? labelDisabled : ""}`}>
       <input
         type="radio"
         value={value}
         name={name}
         checked={checked}
-        onChange={handleChange}
         className={`${inputRadio} ${className ?? ""}`}
+        disabled={disabled}
+        onChange={handleChange}
+        onBlur={handleBlur}
       />
       {label}
     </label>

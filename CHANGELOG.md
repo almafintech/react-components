@@ -1,3 +1,39 @@
+## [0.3.2](https://github.com/almafintech/react-components/compare/v0.3.1...v0.3.2) (2024-06-03)
+
+
+### Bug Fixes
+
+* **input radio:** fix name and pass event to onChange y onBlur ([9ade894](https://github.com/almafintech/react-components/commit/9ade89425aab41025b5904a779346fdd3fba8778))
+
+## [0.3.1](https://github.com/almafintech/react-components/compare/v0.3.0...v0.3.1) (2024-06-03)
+
+
+### Bug Fixes
+
+* add onBlur in RadioGroup ([30df261](https://github.com/almafintech/react-components/commit/30df261378322af3d58659da801cc2e18e82e4a1))
+* **component:** add radiogroup and Message ([1d8d2b2](https://github.com/almafintech/react-components/commit/1d8d2b29e5af5b61f1030062375413e83b03478e))
+
+# [0.3.0](https://github.com/almafintech/react-components/compare/v0.2.5...v0.3.0) (2024-05-27)
+
+
+### Bug Fixes
+
+* **inputtextarea.stories.tsx:** fix text area stories ([8ec080f](https://github.com/almafintech/react-components/commit/8ec080f76513b5565300948d303432a1b0d64e73))
+
+
+### Features
+
+* **inputtextarea:** inputtextarea added ([dd86e8c](https://github.com/almafintech/react-components/commit/dd86e8c262825d14a613c8dd961d90cce2a7b59b))
+
+## [0.2.5](https://github.com/almafintech/react-components/compare/v0.2.4...v0.2.5) (2024-05-27)
+
+
+### Bug Fixes
+
+* add a box with multiple selected items in InputSelect ([1c23fa0](https://github.com/almafintech/react-components/commit/1c23fa0b2baa278a5f74ff8bca170d26678447a2))
+* **component:** add box for selected items at multiple type ([2d515e0](https://github.com/almafintech/react-components/commit/2d515e0769c35e3e0cb873e212f5030e91bb511e))
+* update storybook ([65f9bbd](https://github.com/almafintech/react-components/commit/65f9bbd19f8ae94b0be1122750ea3842eb5c9a60))
+
 ## [0.2.4](https://github.com/almafintech/react-components/compare/v0.2.3...v0.2.4) (2024-05-23)
 
 

@@ -1,3 +1,5 @@
+import { ChangeEvent, FocusEvent } from "react";
+
 export interface ControlledRadioProps {
   /**
    *  To style ControlledRadio
@@ -22,5 +24,13 @@ export interface ControlledRadioProps {
   /**
    *  Handler called when the ControlledRadio's item selected changes.
    */
-  onChange?: (value: string) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  /**
+   *  Disabled option.
+   */
+  disabled?: boolean;
+  /**
+   *  Handler called when the ControlledRadio's item loses focus.
+   */
+  onBlur?: (event: FocusEvent<HTMLInputElement, Element>) => void;
 }

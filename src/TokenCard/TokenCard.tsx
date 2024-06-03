@@ -9,9 +9,9 @@ import Countdown from "react-countdown-now";
 import { Button } from "../Button";
 import { Alert } from "../Alert";
 import HeaderModal from "./HeaderModal";
-import ErrorIcon from "../../assets/images/ui/icons/ui-icon-error-exclamation-filled.svg";
 import { InputToken } from "../InputToken";
 import { useElementDimensions } from "../hooks";
+import { Message } from "../Message";
 
 const TokenCard = ({
   title,
@@ -30,7 +30,6 @@ const TokenCard = ({
 }: TokenCardProps) => {
   const {
     countdownContainer,
-    errorMessage,
     loading,
     hide,
     fadeOutDiv,
@@ -188,15 +187,6 @@ const TokenCard = ({
       ? text
       : `${text} ${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   };
-  //TODO: Cambiar por <Message/> cuando se pushee
-  const ErrorMessage = ({ message }: { message: string }) => {
-    return (
-      <div className={errorMessage}>
-        <img src={ErrorIcon} />
-        <span>{message}</span>
-      </div>
-    );
-  };
   return (
     <div className={`${tokenContainer} ${className ? className : ""}`}>
       <div className={`${loading} ${fadeOutDiv} ${hide}`}>
@@ -292,7 +282,7 @@ const TokenCard = ({
               handleOnBlur={() => handleBlur()}
             />
             {status.error && status.message && (
-              <ErrorMessage message={status.message} />
+              <Message message={status.message} variant="error" />
             )}
           </div>
         </div>

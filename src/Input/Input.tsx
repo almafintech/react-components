@@ -82,7 +82,7 @@ const Input = (props: InputProps) => {
   };
 
   const onValueChange = (newValue: string) => {
-    if (newValue.length < (maxLength ?? Infinity)) {
+    if (newValue.length <= (maxLength ?? Infinity)) {
       switch (type) {
         case "number":
         case "money":
@@ -161,6 +161,7 @@ const Input = (props: InputProps) => {
       labelPlacement="outside"
       variant="bordered"
       radius="sm"
+      disableAutosize
       {...props}
       onKeyDown={(e) => {
         props.onKeyDown && props.onKeyDown(e);

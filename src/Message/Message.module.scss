@@ -1,0 +1,26 @@
+@import "../styles/variables.scss";
+
+.messageContainer {
+  display: flex;
+  align-items: center;
+  font-size: 0.79rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+  margin-top: 0.5rem;
+
+  &.errorStyle {
+    color: $e300;
+  }
+  &.successStyle {
+    color: $s300;
+  }
+  &.infoStyle {
+    color: $i300;
+  }
+  img {
+    margin-right: 8px;
+    width: 14px;
+    width: 14px;
+  }
+}
