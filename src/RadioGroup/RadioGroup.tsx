@@ -3,6 +3,7 @@ import { ControlledRadio } from "../ControlledRadio";
 import { RadioGroupProps } from "./types";
 import styles from "./RadioGroup.module.scss";
 import Message from "../Message/Message";
+
 const RadioGroup = ({
   options,
   label,
@@ -11,6 +12,7 @@ const RadioGroup = ({
   onChange,
   onBlur,
   name,
+  value,
 }: RadioGroupProps) => {
   const { radioGroupContainer, radioGroupLabel, optionsContainer } = styles;
   const [optionSelected, setOptionSelected] = useState<string>("");
@@ -23,6 +25,10 @@ const RadioGroup = ({
       setOptionSelected(optionWithInitialChecked.value);
     }
   }, [options]);
+
+  useEffect(() => {
+    setOptionSelected(value ?? "");
+  }, [value]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setOptionSelected(event.target.value);

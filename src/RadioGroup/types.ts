@@ -17,4 +17,5 @@ export type RadioGroupProps = {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: FocusEvent<HTMLInputElement, Element>) => void;
   name?: string;
+  value?: string;
 };
