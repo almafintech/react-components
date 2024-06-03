@@ -23,4 +23,12 @@ export interface ControlledRadioProps {
    *  Handler called when the ControlledRadio's item selected changes.
    */
   onChange?: (value: string) => void;
+  /**
+   *  Disabled option.
+   */
+  disabled?: boolean;
+  /**
+   *  Handler called when the ControlledRadio's item loses focus.
+   */
+  onBlur?: (value: string) => void;
 }
