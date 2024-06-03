@@ -41,9 +41,9 @@ const config: StorybookConfig = {
 
     return config;
   },
-  env: (config) => ({
+  env: (config: Record<string, string> | undefined, options: any) => ({
     ...config,
-    GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
+    GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY || "",
   }),
 };
 export default config;

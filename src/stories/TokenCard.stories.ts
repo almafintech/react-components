@@ -19,6 +19,8 @@ export const Default: Story = {
     title: "Validá tu dirección de mail",
     subtitle: "El código es válido durante 24 horas",
     children: `Ingresá el token que enviamos a pepito@gmail.com`,
+    primaryButtonText: "Autorizar",
+    secondaryButtonText: "Volver",
     autoSendToken: true,
     lastSendToken: 120,
     onAuthorize: () =>
@@ -35,11 +37,8 @@ export const Default: Story = {
 
 export const withoutAutosend: Story = {
   args: {
-    title: "Validá tu dirección de mail",
-    subtitle: "El código es válido durante 24 horas",
-    children: `Ingresá el token que enviamos a pepito@gmail.com`,
+    ...Default.args,
     autoSendToken: false,
-    lastSendToken: 120,
     onAuthorize: () =>
       new Promise((resolve) => {
         resolve({ success: true });
@@ -54,11 +53,7 @@ export const withoutAutosend: Story = {
 
 export const authorizeError: Story = {
   args: {
-    title: "Validá tu dirección de mail",
-    subtitle: "El código es válido durante 24 horas",
-    children: `Ingresá el token que enviamos a pepito@gmail.com`,
-    autoSendToken: true,
-    lastSendToken: 120,
+    ...Default.args,
     onAuthorize: () =>
       new Promise((resolve) => {
         resolve({ success: false, error: true });
@@ -73,11 +68,8 @@ export const authorizeError: Story = {
 
 export const customErrorMessage: Story = {
   args: {
-    title: "Validá tu dirección de mail",
-    subtitle: "El código es válido durante 24 horas",
-    children: `Ingresá el token que enviamos a pepito@gmail.com`,
-    autoSendToken: true,
-    lastSendToken: 120,
+    ...Default.args,
+
     onAuthorize: () =>
       new Promise((resolve) => {
         resolve({ success: false, message: "custom error" });
@@ -87,5 +79,13 @@ export const customErrorMessage: Story = {
       new Promise((resolve) => {
         resolve({ success: true });
       }),
+  },
+};
+
+export const withoutButtons: Story = {
+  args: {
+    ...Default.args,
+    primaryButtonText: undefined,
+    secondaryButtonText: undefined,
   },
 };

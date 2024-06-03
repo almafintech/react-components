@@ -19,8 +19,12 @@ export interface TokenCardProps {
       }>;
 
   onSuccess: () => void;
+  onCancel?: () => void;
   autoSendToken?: boolean;
   hideResendButton?: boolean;
+  className?: string;
+  primaryButtonText?: string;
+  secondaryButtonText?: string;
 }
 
 export interface HeaderModalProps {

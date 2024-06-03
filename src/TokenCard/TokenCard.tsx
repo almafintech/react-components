@@ -23,6 +23,10 @@ const TokenCard = ({
   onAuthorize,
   onResend,
   onSuccess,
+  onCancel,
+  className,
+  primaryButtonText,
+  secondaryButtonText,
 }: TokenCardProps) => {
   const {
     countdownContainer,
@@ -34,6 +38,9 @@ const TokenCard = ({
     toastMessage,
     inputTokenGroup,
     inputToken,
+    buttonGroup,
+    tokenContainer,
+    centerButton,
   } = styles;
 
   const [status, setStatus] = useState({
@@ -48,7 +55,6 @@ const TokenCard = ({
   const playerErrorRef: LegacyRef<Player> | undefined = useRef(null);
 
   const { elementRef, dimensions } = useElementDimensions();
-  console.log(dimensions);
 
   useEffect(() => {
     if (token) {
@@ -167,10 +173,9 @@ const TokenCard = ({
   }, [showError]);
 
   const styleForError =
-    // windowWidth < 576
-    //   ? { left: "0rem", top: dimensions.height }
-    // :
-    { left: "20rem", top: "0rem" };
+    dimensions.width < 576
+      ? { left: "0rem", top: dimensions.height }
+      : { left: "20rem", top: "0rem" };
 
   const getTertiaryButtonText = (
     minutes: number,
@@ -183,7 +188,7 @@ const TokenCard = ({
       ? text
       : `${text} ${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   };
-
+  //TODO: Cambiar por <Message/> cuando se pushee
   const ErrorMessage = ({ message }: { message: string }) => {
     return (
       <div className={errorMessage}>
@@ -192,9 +197,8 @@ const TokenCard = ({
       </div>
     );
   };
-
   return (
-    <>
+    <div className={`${tokenContainer} ${className ? className : ""}`}>
       <div className={`${loading} ${fadeOutDiv} ${hide}`}>
         {showSuccess && (
           <Player
@@ -226,6 +230,7 @@ const TokenCard = ({
         draggable={false}
         className={toastMessage}
       />
+
       {showSuccess && (
         <Player
           onEvent={(event) => {
@@ -266,6 +271,7 @@ const TokenCard = ({
           }}
         />
       )}
+
       <div
         className={`position-relative ${fadeOutDiv} ${
           showSuccess || showError ? hide : ""
@@ -290,33 +296,56 @@ const TokenCard = ({
             )}
           </div>
         </div>
-
-        {!hideResendButton && (
-          <Countdown
-            date={lastSendToken}
-            key={lastSendToken}
-            renderer={({ minutes, seconds, completed }) => {
-              return (
-                <div style={styleForError} className={countdownContainer}>
-                  <Button
-                    variant="tertiary"
-                    type="button"
-                    text={getTertiaryButtonText(minutes, seconds, completed)}
-                    disabled={!completed || status.loading}
-                    onClick={handleResend}
-                    className={`px-0 ${
-                      !completed || status.loading
-                        ? ""
-                        : "text-decoration-underline"
-                    }`}
-                  />
-                </div>
-              );
-            }}
-          />
-        )}
+        <div
+          className={`${buttonGroup} ${primaryButtonText || secondaryButtonText ? "" : centerButton}`}
+        >
+          {primaryButtonText && (
+            <Button
+              variant="primary"
+              type="button"
+              text={primaryButtonText}
+              disabled={status.error || status.loading}
+              onClick={authorizeToken}
+              className="w-100"
+            />
+          )}
+          {secondaryButtonText && (
+            <Button
+              variant="secondary"
+              type="button"
+              text={secondaryButtonText}
+              disabled={status.loading}
+              onClick={onCancel}
+              className="w-100"
+            />
+          )}
+          {!hideResendButton && (
+            <Countdown
+              date={lastSendToken}
+              key={lastSendToken}
+              renderer={({ minutes, seconds, completed }) => {
+                return (
+                  <div style={styleForError} className={countdownContainer}>
+                    <Button
+                      variant="tertiary"
+                      type="button"
+                      text={getTertiaryButtonText(minutes, seconds, completed)}
+                      disabled={!completed || status.loading}
+                      onClick={handleResend}
+                      className={`px-0 ${
+                        !completed || status.loading
+                          ? ""
+                          : "text-decoration-underline"
+                      }`}
+                    />
+                  </div>
+                );
+              }}
+            />
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

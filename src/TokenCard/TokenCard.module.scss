@@ -16,13 +16,18 @@
     margin-right: 0.5rem;
   }
 }
-
+.tokenContainer {
+  position: relative;
+}
 .buttonGroup {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1.75rem;
   column-gap: 1.5rem;
   row-gap: 1rem;
+  &.centerButton {
+    justify-content: center !important;
+  }
 }
 
 .inputTokenGroup {
@@ -178,11 +183,14 @@
   font-size: 0.875rem !important;
   color: $secondary-normal-300 !important;
 }
-
-.countdownContainer {
+.buttonsGroup {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 
+.countdownContainer {
   > button {
     color: $secondary-light-200 !important;
     text-align: center;
