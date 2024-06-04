@@ -146,6 +146,24 @@ export const Password: Story = {
   },
 };
 
+export const Cuit: Story = {
+  args: {
+    ...Default.args,
+    label: "CUIT",
+    type: "cuit",
+    initialValue: "203434343402"
+  },
+};
+
+export const Dni: Story = {
+  args: {
+    ...Default.args,
+    label: "DNI",
+    type: "dni",
+    initialValue: "12345678"
+  },
+};
+
 export const isRequired: Story = {
   args: {
     ...Default.args,

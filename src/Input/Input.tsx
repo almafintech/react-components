@@ -10,6 +10,12 @@ import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-
 import SearchIcon from "../../assets/images/ui/icons/ui-icon-search-gray-outline.svg";
 
 import styles from "./Input.module.scss";
+import {
+  asMoney,
+  decimalSeparator,
+  getInitialValue,
+  thousandsSeparator,
+} from "./utils";
 
 /**
  * Text input component based on NextUI's `Input`
@@ -57,17 +63,8 @@ const Input = (props: InputProps) => {
     noLabel,
   } = styles;
 
-  const thousandsSeparator = Number(1000).toLocaleString("es-AR").charAt(1);
-  const decimalSeparator = Number(1.1).toLocaleString("es-AR").charAt(1);
-
   const [isVisible, setIsVisible] = useState(false);
-  const [value, setValue] = useState(
-    initialValue
-      ? type === "money"
-        ? initialValue?.replaceAll(".", ",")
-        : initialValue
-      : ""
-  );
+  const [value, setValue] = useState(getInitialValue(type, initialValue));
   const [touched, setTouched] = useState(false);
 
   const removeInputMoneyMask = (newValue: string) => {
@@ -81,12 +78,66 @@ const Input = (props: InputProps) => {
     return newValue;
   };
 
+  const removeInputCuitMask = (newValue: string) => {
+    const isValid =
+      newValue === "" || newValue.replaceAll("-", "").match("^[0-9]+$");
+
+    if (!!isValid) {
+      switch (newValue.length) {
+        case 3:
+          newValue.charAt(2) === "-"
+            ? setValue(newValue.slice(0, -1))
+            : setValue(newValue.slice(0, 2) + "-" + newValue.slice(2));
+          break;
+        case 12:
+          newValue.charAt(newValue.length - 1) === "-"
+            ? setValue(newValue.slice(0, -1))
+            : setValue(newValue.slice(0, 11) + "-" + newValue.slice(11));
+          break;
+        default:
+          setValue(newValue);
+          break;
+      }
+    }
+    return newValue;
+  };
+
+  const removeInputDniMask = (newValue: string) => {
+    const isValid =
+      newValue === "" || newValue.replaceAll(".", "").match("^[0-9]+$");
+
+    if (!!isValid) {
+      switch (newValue.length) {
+        case 3:
+          newValue.charAt(2) === "."
+            ? setValue(newValue.slice(0, -1))
+            : setValue(newValue.slice(0, 2) + "." + newValue.slice(2));
+          break;
+        case 7:
+          newValue.charAt(6) === "."
+            ? setValue(newValue.slice(0, -1))
+            : setValue(newValue.slice(0, 6) + "." + newValue.slice(6));
+          break;
+        default:
+          setValue(newValue);
+          break;
+      }
+    }
+    return newValue;
+  };
+
   const onValueChange = (newValue: string) => {
     if (newValue.length <= (maxLength ?? Infinity)) {
       switch (type) {
         case "number":
         case "money":
           removeInputMoneyMask(newValue);
+          break;
+        case "cuit":
+          removeInputCuitMask(newValue);
+          break;
+        case "dni":
+          removeInputDniMask(newValue);
           break;
 
         default:
@@ -110,20 +161,6 @@ const Input = (props: InputProps) => {
         .trim()}
     </div>
   );
-
-  const asMoney = (value: string) => {
-    const [whole, decimal] = value
-      .replaceAll(thousandsSeparator, "")
-      .split(decimalSeparator, 2);
-
-    if (!whole) return value;
-    const wholeNumber = Number.parseInt(whole);
-    return isNaN(wholeNumber)
-      ? value
-      : wholeNumber.toLocaleString("es-AR") +
-          (decimal !== undefined ? decimalSeparator : "") +
-          (decimal ? decimal : "");
-  };
 
   const getErrorMessage = () => (
     <div className={error}>
@@ -173,8 +210,17 @@ const Input = (props: InputProps) => {
         target.blur();
       }}
       onChange={(e) => {
-        if (type === "money")
-          e.target.value = removeInputMoneyMask(e.target.value);
+        switch (type) {
+          case "money":
+            e.target.value = removeInputMoneyMask(e.target.value);
+            break;
+          case "cuit":
+            e.target.value = removeInputCuitMask(e.target.value);
+            break;
+          case "dni":
+            e.target.value = removeInputDniMask(e.target.value);
+            break;
+        }
         setTouched(true);
         props.onChange && props.onChange(e);
       }}
