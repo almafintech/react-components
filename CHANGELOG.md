@@ -1,3 +1,11 @@
+## [0.3.4](https://github.com/almafintech/react-components/compare/v0.3.3...v0.3.4) (2024-06-05)
+
+
+### Bug Fixes
+
+* add tokencard ([1fb1a51](https://github.com/almafintech/react-components/commit/1fb1a51c96160781842d4a3a0607521a729e5d70))
+* fix conflicts and change ErrorMessage ([828897b](https://github.com/almafintech/react-components/commit/828897b31a13048b3f1b5ad1dbe77ee8cf152008))
+
 ## [0.3.3](https://github.com/almafintech/react-components/compare/v0.3.2...v0.3.3) (2024-06-03)
 
 
