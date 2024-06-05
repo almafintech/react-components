@@ -12,6 +12,8 @@ import external from "rollup-plugin-peer-deps-external";
 import generatePackageJson from "rollup-plugin-generate-package-json";
 import replace from "@rollup/plugin-replace";
 import image from "@rollup/plugin-image";
+import json from "@rollup/plugin-json";
+import svgr from "@svgr/rollup";
 import dotenv from "dotenv";
 import tailwindConfig from "./tailwind.config.js";
 import pkg from "./package.json" assert { type: "json" };
@@ -48,6 +50,8 @@ const commonPlugins = [
     sourceMap: true,
   }), // Compile CSS files
   terser(), // Minify output
+  json(), // Compile JSON files
+  svgr(), // Compile SVG files
 ];
 
 // Returns rollup configuration for a given component
