@@ -37,6 +37,7 @@ const InputPhone = (props: InputPhoneProps) => {
     error: errorWrapper,
     icon,
     errorMessage: errorMessageStyle,
+    containerInputClassName,
   } = styles;
 
   const [inputTouched, setInputTouched] = useState(touched || false);
@@ -51,6 +52,7 @@ const InputPhone = (props: InputPhoneProps) => {
       <PhoneInput
         {...rest}
         autoFormat={autoFormat}
+        containerClass={containerInputClassName}
         country={country || "ar"}
         onBlur={(event, data) => {
           setInputTouched(true);
