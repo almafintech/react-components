@@ -151,7 +151,7 @@ export const Cuit: Story = {
     ...Default.args,
     label: "CUIT",
     type: "cuit",
-    initialValue: "203434343402"
+    initialValue: "20343434302"
   },
 };
 

@@ -1,6 +1,8 @@
 import { InputType } from "./types";
 
-export const thousandsSeparator = Number(1000).toLocaleString("es-AR").charAt(1);
+export const thousandsSeparator = Number(1000)
+  .toLocaleString("es-AR")
+  .charAt(1);
 export const decimalSeparator = Number(1.1).toLocaleString("es-AR").charAt(1);
 
 export const asMoney = (value: string) => {
@@ -17,29 +19,46 @@ export const asMoney = (value: string) => {
         (decimal ? decimal : "");
 };
 
-const asCuit = (value: string) =>
-  value.slice(0, 2) + "-" + value.slice(2, 10) + "-" + value.slice(10);
+const asCuit = (value: string) => {
+  const valueWithMask =
+    value.length >= 11
+      ? value.slice(0, 2) + "-" + value.slice(2, 10) + "-" + value.slice(10, 11)
+      : value.slice(0, 2) + "-" + value.slice(2, 10);
 
-const asDni = (value: string) =>
-  value.slice(0, 2) + "." + value.slice(2, 5) + "." + value.slice(5);
-
-export const getInitialValue = (type: InputType, initialValue?: string) => {
-  let value = "";
-  if (initialValue) {
-    switch (type) {
-      case "money":
-        value = initialValue?.replaceAll(".", ",");
-        break;
-      case "dni":
-        value = asDni(initialValue);
-        break;
-      case "cuit":
-        value = asCuit(initialValue);
-        break;
-      default:
-        value = initialValue;
-        break;
-    }
+  if (valueWithMask.endsWith("-")) {
+    return valueWithMask.slice(0, -1);
+  } else {
+    return valueWithMask;
   }
-  return value;
+};
+
+const asDni = (value: string) => {
+  const valueWithMask =
+    value.length >= 3
+      ? value.slice(0, 2) + "." + value.slice(2, 5) + "." + value.slice(5)
+      : value.slice(0, 2);
+
+  if (valueWithMask.endsWith(".")) {
+    return valueWithMask.slice(0, -1);
+  } else {
+    return valueWithMask;
+  }
+};
+
+export const getValue = (type: InputType, value: string) => {
+  let renderValue = "";
+  switch (type) {
+    case "money":
+      renderValue = asMoney(value);
+      break;
+    case "dni":
+      renderValue = asDni(value);
+      break;
+    case "cuit":
+      renderValue = asCuit(value);
+      break;
+    default:
+      break;
+  }
+  return renderValue;
 };
