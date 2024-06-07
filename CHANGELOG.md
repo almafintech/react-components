@@ -1,3 +1,10 @@
+## [0.3.5](https://github.com/almafintech/react-components/compare/v0.3.4...v0.3.5) (2024-06-07)
+
+
+### Bug Fixes
+
+* **token card:** add forwardRef and useImperativeHandle to return authorizeToken on ref ([5b1198e](https://github.com/almafintech/react-components/commit/5b1198e5819b484fc6fd769002b61e7af35b18b1))
+
 ## [0.3.4](https://github.com/almafintech/react-components/compare/v0.3.3...v0.3.4) (2024-06-05)
 
 
