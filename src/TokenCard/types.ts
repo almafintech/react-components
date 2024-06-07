@@ -32,3 +32,7 @@ export interface HeaderModalProps {
   subtitle?: ReactNode | undefined;
   className?: string;
 }
+
+export interface TokenCardRef {
+  authorizeToken: () => Promise<void>;
+}
