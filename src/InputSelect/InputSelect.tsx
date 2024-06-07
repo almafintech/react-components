@@ -279,7 +279,7 @@ const InputSelect = ({
   }, [inputValue]);
 
   return (
-    <div id="containerSelect">
+    <div id={`containerSelect-${componentId}`}>
       <NextUiSelect
         {...rest}
         isDisabled={isDisabled}
@@ -290,7 +290,8 @@ const InputSelect = ({
         }}
         popoverProps={{
           portalContainer:
-            document.getElementById("containerSelect") || undefined,
+            document.getElementById(`containerSelect-${componentId}`) ||
+            undefined,
         }} // This is to avoid the popover to be rendered in the root and not like a sibling
         disallowEmptySelection={isSingle && true}
         description={!isInvalid && description}
