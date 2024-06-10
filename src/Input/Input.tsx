@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input as NextUiInput } from "@nextui-org/react";
 import { InputProps } from "./types";
 
