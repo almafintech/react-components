@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input as NextUiInput } from "@nextui-org/react";
 import { InputProps } from "./types";
 
@@ -10,11 +10,8 @@ import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-
 import SearchIcon from "../../assets/images/ui/icons/ui-icon-search-gray-outline.svg";
 
 import styles from "./Input.module.scss";
-import { decimalSeparator, getValue, thousandsSeparator } from "./utils";
+import { getValue, removeMask } from "./utils";
 
-/**
- * Text input component based on NextUI's `Input`
- */
 const Input = (props: InputProps) => {
   const {
     initialValue,
@@ -59,68 +56,22 @@ const Input = (props: InputProps) => {
   } = styles;
 
   const [isVisible, setIsVisible] = useState(false);
-  const [value, setValue] = useState(
-    initialValue
-      ? type === "money"
-        ? initialValue?.replaceAll(".", ",")
-        : initialValue
-      : ""
-  );
+  const [value, setValue] = useState(initialValue || "");
   const [touched, setTouched] = useState(false);
 
-  const removeInputMoneyMask = (newValue: string) => {
-    const floatRegex = new RegExp(`^$|^\\d+\\${decimalSeparator}?\\d?\\d?$`);
-    const number = newValue.replaceAll(thousandsSeparator, "");
-    if (floatRegex.exec(number)) {
-      setValue(number);
-      return number.replace(",", ".");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let maskedValue = e.target.value;
+
+    const unmaskedValue = removeMask(maskedValue, type);
+
+    if (unmaskedValue.length <= (maxLength ?? Infinity)) {
+      // Save unmasked value to state
+      setValue(unmaskedValue);
+      // Send unmasked value to event in onChange
+      const event = { ...e, target: { ...e.target, value: unmaskedValue } };
+
+      props.onChange && props.onChange(event);
     }
-
-    return newValue;
-  };
-
-  const removeInputCuitMask = (newValue: string) => {
-    const value = newValue.replaceAll("-", "");
-    const regex = new RegExp(`^[0-9]{0,11}$`);
-    const isValid = number === "" || regex.exec(value);
-
-    if (!!isValid) {
-      setValue(value);
-    }
-    return newValue;
-  };
-
-  const removeInputDniMask = (newValue: string) => {
-    const value = newValue.replaceAll(".", "");
-    const regex = new RegExp(`^[0-9]{0,8}$`);
-    const isValid = number === "" || regex.exec(value);
-
-    if (!!isValid) {
-      setValue(value);
-    }
-    return newValue;
-  };
-
-  const onValueChange = (newValue: string) => {
-    if (newValue.length <= (maxLength ?? Infinity)) {
-      switch (type) {
-        case "number":
-        case "money":
-          removeInputMoneyMask(newValue);
-          break;
-        case "cuit":
-          removeInputCuitMask(newValue);
-          break;
-        case "dni":
-          removeInputDniMask(newValue);
-          break;
-
-        default:
-          setValue(newValue);
-      }
-    }
-
-    props.onValueChange && props.onValueChange(newValue);
   };
 
   const getCurrencySymbol = (locale: string, currency: string) => (
@@ -184,21 +135,7 @@ const Input = (props: InputProps) => {
         const target = e.target as HTMLInputElement;
         target.blur();
       }}
-      onChange={(e) => {
-        switch (type) {
-          case "money":
-            e.target.value = removeInputMoneyMask(e.target.value);
-            break;
-          case "cuit":
-            e.target.value = removeInputCuitMask(e.target.value);
-            break;
-          case "dni":
-            e.target.value = removeInputDniMask(e.target.value);
-            break;
-        }
-        setTouched(true);
-        props.onChange && props.onChange(e);
-      }}
+      onChange={handleChange}
       onBlur={(e) => {
         setTouched(true);
         props.onBlur && props.onBlur(e);
@@ -227,12 +164,10 @@ const Input = (props: InputProps) => {
         isInvalid && (props.touched || touched) && <>{getErrorMessage()}</>
       }
       description={!isInvalid && description}
+      // Mask the value to show in input
       value={
-        ["money", "cuit", "dni"].includes(type)
-          ? getValue(type, value)
-          : props.value ?? value
+        ["money", "cuit", "dni"].includes(type) ? getValue(type, value) : value
       }
-      onValueChange={onValueChange}
       startContent={
         <span className={startContentStyle}>
           {startContent}
