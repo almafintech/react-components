@@ -1,3 +1,11 @@
+## [0.3.6](https://github.com/almafintech/react-components/compare/v0.3.5...v0.3.6) (2024-06-10)
+
+
+### Bug Fixes
+
+* elipsis ([e8bea59](https://github.com/almafintech/react-components/commit/e8bea59c88781214d95f7ed3fabea770ea54a88f))
+* fix some inputs ([4b709f5](https://github.com/almafintech/react-components/commit/4b709f54bb20dd971c4d0f711308df55bba2e906))
+
 ## [0.3.5](https://github.com/almafintech/react-components/compare/v0.3.4...v0.3.5) (2024-06-07)
 
 
