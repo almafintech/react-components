@@ -1,3 +1,18 @@
+# [0.4.0](https://github.com/almafintech/react-components/compare/v0.3.6...v0.4.0) (2024-06-10)
+
+
+### Bug Fixes
+
+* **input masks:** fix masking and onChange ([a61d5ba](https://github.com/almafintech/react-components/commit/a61d5ba181d56c00d82975df6a34dc51a8af8ef8))
+* **input:** remove mask from value in input dni and cuit ([2518486](https://github.com/almafintech/react-components/commit/251848678c6b00d01f249ac524a56c1e772b9024))
+* **input:** remove useEffect ([0469d00](https://github.com/almafintech/react-components/commit/0469d00e5594d6559ae9b590cf94831cec7c8753))
+* **utils:** add input utils ([0eb0a5e](https://github.com/almafintech/react-components/commit/0eb0a5e296e851b2f4f8a0fe66ffe09c9212f5e9))
+
+
+### Features
+
+* **input:** add cuit and dni masks ([2e55682](https://github.com/almafintech/react-components/commit/2e55682b2302171d29022478a0331031641bd0b3))
+
 ## [0.3.6](https://github.com/almafintech/react-components/compare/v0.3.5...v0.3.6) (2024-06-10)
 
 
