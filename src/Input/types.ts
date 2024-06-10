@@ -19,6 +19,9 @@ import { ReactNode } from "react";
  * 	valid float, `search` prepends a magnifying glass icon, `password` obfuscates value (user-toggelable) and `money`
  * 	prepends a currency symbol.
  */
+
+export type InputType = "text" | "number" | "search" | "password" | "money" | "cuit" | "dni"
+
 export interface InputProps extends NextUiInputProps {
   balance?: number;
   balanceCurrency?: string;
@@ -32,6 +35,6 @@ export interface InputProps extends NextUiInputProps {
   info?: "BALANCE" | "CUSTOM";
   tooltip?: ReactNode;
   touched?: boolean;
-  type?: "text" | "number" | "search" | "password" | "money";
+  type?: InputType;
   hasLabel?: boolean;
 }
