@@ -25,7 +25,7 @@ const InputFile = ({
   error,
   isLoading,
   infoTextPosition = "bottom",
-  label
+  label,
 }: InputFileProps) => {
   const {
     inputFile,

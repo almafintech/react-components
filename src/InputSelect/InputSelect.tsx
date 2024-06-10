@@ -83,7 +83,6 @@ const InputSelect = ({
     disabledSelect,
     externalBox,
     externalItem,
-    containerSelect,
     ...restStyles
   } = styles;
 
@@ -280,15 +279,20 @@ const InputSelect = ({
   }, [inputValue]);
 
   return (
-    <div className={containerSelect}>
+    <div id={`containerSelect-${componentId}`}>
       <NextUiSelect
         {...rest}
         isDisabled={isDisabled}
         onClick={handleInsideClick}
         onBlur={(e: React.FocusEvent) => {
-          setSelectTouched(true);
+          !isOpen && setSelectTouched(true);
           onBlur && onBlur(e);
         }}
+        popoverProps={{
+          portalContainer:
+            document.getElementById(`containerSelect-${componentId}`) ||
+            undefined,
+        }} // This is to avoid the popover to be rendered in the root and not like a sibling
         disallowEmptySelection={isSingle && true}
         description={!isInvalid && description}
         errorMessage={isInvalid && selectTouched && <>{getErrorMessage()}</>}

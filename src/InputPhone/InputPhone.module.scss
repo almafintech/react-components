@@ -29,6 +29,7 @@
 }
 
 .dropdownPhoneNumber {
+  margin-left: -9px !important;
   border: 1px solid $primary-light-100;
   box-shadow: 8px 16px 30px 0px rgba(130, 159, 189, 0.2) !important;
   border-radius: 0.5rem !important;
@@ -108,4 +109,8 @@
     width: 0.875rem;
     height: 0.875rem;
   }
+}
+
+.containerInputClassName {
+  z-index: 30;
 }
