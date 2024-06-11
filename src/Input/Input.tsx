@@ -67,8 +67,10 @@ const Input = (props: InputProps) => {
     if (unmaskedValue.length <= (maxLength ?? Infinity)) {
       // Save unmasked value to state
       setValue(unmaskedValue);
+
+      const event = { ...e };
       // Send unmasked value to event in onChange
-      const event = { ...e, target: { ...e.target, value: unmaskedValue } };
+      event.target.value = unmaskedValue;
 
       props.onChange && props.onChange(event);
     }
@@ -156,7 +158,11 @@ const Input = (props: InputProps) => {
         ...props.classNames,
       }}
       type={
-        (props.type === "password" && isVisible) || props.type === "search"
+        (props.type === "password" && isVisible) ||
+        props.type === "search" ||
+        props.type === "money" ||
+        props.type === "cuit" ||
+        props.type === "dni"
           ? "text"
           : props.type
       }
