@@ -1,0 +1,50 @@
+
+@import "../styles/variables";
+
+.content {
+    font-size: 0.75rem !important;
+    font-weight: 400 !important;
+    border-radius: 5px !important;
+}
+
+//BLUE VARIANT
+.contentBlueVariant {
+    @extend .content;
+    background-color: #1d82c0 !important;
+    color: $white;
+}
+
+.baseBlueVariant::before {
+    background-color: #1d82c0 !important; 
+}
+
+
+// BLACK VARIANT
+.contentBlackVariant {
+    @extend .content;
+    background-color: $secondary-normal-500 !important;
+    color: $white;
+}
+
+.baseBlackVariant::before {
+    background-color: $secondary-normal-500 !important;
+}
+
+// WHITE VARIANT
+.contentWhiteVariant {
+    @extend .content;
+    background-color: $white !important;
+    color: $primary-dark-900;
+    border: 1px solid $primary-dark-900;
+    box-shadow: none;
+}
+
+.baseWhiteVariant::before {
+    border-right: 1px solid $primary-dark-900 !important;
+    border-bottom: 1px solid $primary-dark-900 !important;
+    box-shadow: none !important;
+    width: 12px !important;
+    height: 12px !important;
+    bottom: -6px !important;
+    z-index: 1 !important;
+}
