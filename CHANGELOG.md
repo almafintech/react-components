@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/almafintech/react-components/compare/v0.4.0...v0.4.1) (2024-06-11)
+
+
+### Bug Fixes
+
+* **input.tsx:** fix onChange ([3d3d052](https://github.com/almafintech/react-components/commit/3d3d052791a3dae09a8e6bb0f85bddd7b8c2f3ae))
+
 # [0.4.0](https://github.com/almafintech/react-components/compare/v0.3.6...v0.4.0) (2024-06-10)
 
 
