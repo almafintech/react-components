@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/almafintech/react-components/compare/v0.4.1...v0.5.0) (2024-06-11)
+
+
+### Features
+
+* **add tooltip:** new tooltip ([07faf34](https://github.com/almafintech/react-components/commit/07faf347c628650ce7cc2ed4313808fd15bb8fa5))
+
 ## [0.4.1](https://github.com/almafintech/react-components/compare/v0.4.0...v0.4.1) (2024-06-11)
 
 
