@@ -21,12 +21,14 @@ export interface InputFileProps {
   maxSize: number; // In megabytes
   name: string;
   label?: string
+  isMobile?: boolean
   onFileDownload?: (file: FileData) => void;
   onFileRemove?: () => void;
   onFileUpload?: (file: File) => void;
   selectedFile?: File | null;
   setError?: (error: InputFileErrorsTypes | null) => void;
   text?: string | ReactNode;
+  successMessage?: string;
   validTypes: string[];
   infoTextPosition?: "bottom" | "top";
 }

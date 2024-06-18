@@ -1,13 +1,16 @@
 import { DragEvent, useCallback, useEffect, useState } from "react";
 import { saveAs } from "file-saver";
-import styles from "./InputFile.module.scss";
+import { InputFileProps } from "./types";
+
 import UploadIcon from "../../assets/images/ui/icons/ui-icon-file_upload.svg";
 import ErrorIcon from "../../assets/images/ui/icons/ui-icon-error-exclamation-filled.svg";
 import SuccessIcon from "../../assets/images/ui/icons/ui-icon-success-bg-dark.svg";
 import TrashIcon from "../../assets/images/ui/icons/ui-icon-trash.svg";
 import DownloadIcon from "../../assets/images/ui/icons/ui-icon-download.svg";
 import LoadingDots from "../LoadingDots/LoadingDots";
-import { InputFileProps } from "./types";
+import plusIcon from "../../assets/images/ui/icons/ui-icon-plus-circle.svg";
+
+import styles from "./InputFile.module.scss";
 
 const InputFile = ({
   name,
@@ -26,6 +29,8 @@ const InputFile = ({
   isLoading,
   infoTextPosition = "bottom",
   label,
+  isMobile,
+  successMessage
 }: InputFileProps) => {
   const {
     inputFile,
@@ -33,12 +38,14 @@ const InputFile = ({
     errorMessageStyle,
     fileHeader,
     fileOptions,
-    inputError,
     inputSuccess,
     container,
     infoTextStyle,
     topPosition,
     bottomPosition,
+    // onDrag,
+    mobile,
+    successMessageStyle
   } = styles;
 
   // const [dragging, setDragging] = useState(false);
@@ -153,63 +160,75 @@ const InputFile = ({
         className={`${infoTextPosition === "top" ? topPosition : bottomPosition}`}
       >
         {label}
-        <div
-          onDragEnter={handleDrag}
-          onDragOver={handleDrag}
-          onDragLeave={handleDrag}
-          onDrop={handleDropOrInputChange}
-          className={`
-      ${inputFile}
-      ${
-        (file || fileData) && !fileError && !isLoading
-          ? inputSuccess
-          : inputError
-      }`}
-        >
-          {(!file && !fileData) || (file && fileError) ? (
-            <div className={fileHeader}>
-              <img src={UploadIcon} />
-              <label
-                id={`label-file-upload-${name}`}
-                htmlFor={`input-file-upload-${name}`}
-              >
-                {text}
-              </label>
-            </div>
-          ) : (
-            <div className={fileContent}>
+
+        {isMobile ? (
+          <div className={mobile}>
+            <span>{file ? "Reemplazar imagen" : "Adjuntar imagen"}</span>
+            {!file && <img src={plusIcon} alt="adjuntar" />}
+          </div>
+        ) : (
+          <div
+            onDragEnter={handleDrag}
+            onDragOver={handleDrag}
+            onDragLeave={handleDrag}
+            onDrop={handleDropOrInputChange}
+            className={` 
+            ${inputFile}
+            ${(file || fileData) && !fileError && !isLoading && inputSuccess}
+            `}
+          >
+            {(!file && !fileData) || (file && fileError) ? (
               <div className={fileHeader}>
-                {isLoading ? (
-                  <>
-                    <img src={UploadIcon} />
-                    <label
-                      id={`label-file-upload-${name}`}
-                      htmlFor={`input-file-upload-${name}`}
-                    >
-                      Cargando {file?.name}
-                    </label>
-                  </>
-                ) : (
-                  <>
-                    <img src={SuccessIcon} />
-                    <p>{fileData ? fileData.name : file?.name}</p>
-                  </>
-                )}
+                <img src={UploadIcon} />
+                <label
+                  id={`label-file-upload-${name}`}
+                  htmlFor={`input-file-upload-${name}`}
+                >
+                  {text}
+                </label>
               </div>
-              <div className={fileOptions}>
-                {isLoading ? (
-                  <LoadingDots color="#acb3bf" />
-                ) : (
-                  <>
-                    <img src={DownloadIcon} onClick={handleFileDownload} />
-                    <img src={TrashIcon} onClick={handleFileRemove} />
-                  </>
-                )}
+            ) : (
+              <div className={fileContent}>
+                <div className={`${fileHeader} ${file && "w-4/5"}`}>
+                  {isLoading ? (
+                    <>
+                      <img src={UploadIcon} />
+                      <label
+                        id={`label-file-upload-${name}`}
+                        htmlFor={`input-file-upload-${name}`}
+                      >
+                        Cargando {file?.name}
+                      </label>
+                    </>
+                  ) : (
+                    <>
+                      <img src={SuccessIcon} />
+                      <p>{fileData ? fileData.name : file?.name}</p>
+                    </>
+                  )}
+                </div>
+                <div className={fileOptions}>
+                  {isLoading ? (
+                    <LoadingDots color="#acb3bf" />
+                  ) : (
+                    <>
+                      <img src={DownloadIcon} onClick={handleFileDownload} />
+                      <img src={TrashIcon} onClick={handleFileRemove} />
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
+
         {infoText && <p className={`${infoTextStyle}`}>{infoText}</p>}
+        {isMobile && file && !fileError && (
+          <div className={successMessageStyle}>
+            <img src={SuccessIcon} />
+            <p>{successMessage ?? "Archivo cargado con éxito"}</p>
+          </div>
+        )}
         {file && fileError && (
           <div className={errorMessageStyle}>
             <img src={ErrorIcon} />
