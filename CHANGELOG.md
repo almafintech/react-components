@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/almafintech/react-components/compare/v0.5.0...v0.6.0) (2024-06-18)
+
+
+### Features
+
+* **inputfile:** add mobile version and fix text length ([e3efd69](https://github.com/almafintech/react-components/commit/e3efd6958a1e119c9546b76a9d64fd3e7ffb9b2b))
+
 # [0.5.0](https://github.com/almafintech/react-components/compare/v0.4.1...v0.5.0) (2024-06-11)
 
 
