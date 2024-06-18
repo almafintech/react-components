@@ -336,9 +336,7 @@ const InputAddress = (props: InputAddressProps) => {
                 onClick={() => handleAutocompleteSelect(prediction)}
                 onMouseOver={() => setCurrentFocus(index)}
               >
-                <span>
-                  <img src={LocationPin} />
-                </span>
+                <img src={LocationPin} />
                 <span>
                   {
                     // highlight text that matches the input
