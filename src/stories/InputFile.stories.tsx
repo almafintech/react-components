@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import InputFile from "../InputFile/InputFile";
 import { fn } from "@storybook/test";
@@ -13,6 +14,13 @@ const meta = {
     onFileDownload: fn(),
     onFileRemove: fn(),
   },
+  decorators: [
+    (Story) => (
+      <div className="w-96">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof InputFile>;
 
 export default meta;
@@ -22,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     name: "Archivo",
-    text: "Seleccionar archivo",
+    text: "Arrastrá o seleccioná un archivo de tu dispositivo",
   },
 };
 
@@ -53,3 +61,24 @@ export const WithMaxSize: Story = {
     label: "Frente",
   },
 };
+
+export const isMobile: Story = {
+  args: {
+    ...Default.args,
+    label: "Frente",
+    validTypes: ["image/jpg", "image/png"],
+    isMobile: true,
+  },
+};
+
+
+export const isMobileWithCustomSuccessMessage: Story = {
+  args: {
+    ...Default.args,
+    label: "Frente",
+    validTypes: ["image/jpg", "image/png"],
+    successMessage: "Imagen subida con éxito",
+    isMobile: true,
+  },
+};
+
