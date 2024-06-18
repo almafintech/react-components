@@ -57,7 +57,15 @@ label {
       flex-shrink: 1;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    label {
+      white-space: wrap;
+    }
+
+    p {
       white-space: nowrap;
+      word-wrap: break-word;
     }
 
     span {
