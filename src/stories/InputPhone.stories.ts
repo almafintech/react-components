@@ -30,6 +30,13 @@ export const WithDescription: Story = {
   },
 };
 
+export const WithInfoMessage: Story = {
+  args: {
+    ...Default.args,
+    infoMessage: "Con código de área sin 0 ni 15.",
+  },
+};
+
 export const isFormField: Story = {
   args: {
     ...Default.args,
@@ -72,6 +79,6 @@ export const withCustomStyles: Story = {
     ...Default.args,
     inputClass: "border-none",
     dropdownClass: "border-none",
-    buttonClass: "border-none"
+    buttonClass: "border-none",
   },
 };

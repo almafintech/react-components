@@ -91,23 +91,24 @@
   font-size: 0.75rem;
   font-weight: 400;
   display: flex;
-
-  .description {
-    color: $secondary-normal-300;
-  }
-  .errorMessage {
-    color: $e300;
-  }
-}
-
-.error {
-  display: flex;
   align-items: center;
   gap: 0.5rem;
 
   .icon {
     width: 0.875rem;
     height: 0.875rem;
+  }
+
+  .description {
+    color: $secondary-normal-300;
+  }
+
+  .infoMessage {
+    color: $i300;
+  }
+
+  .errorMessage {
+    color: $e300;
   }
 }
 
