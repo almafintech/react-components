@@ -1,3 +1,15 @@
+# [0.7.0](https://github.com/almafintech/react-components/compare/v0.6.0...v0.7.0) (2024-06-19)
+
+
+### Bug Fixes
+
+* **inputaddress:** pin icon has a fixed size now to prevent it from getting smaller ([37f176b](https://github.com/almafintech/react-components/commit/37f176b168b794f6db76a9cf6f26683101eff6bb))
+
+
+### Features
+
+* **inputphone:** add infoMessage ([0994b7d](https://github.com/almafintech/react-components/commit/0994b7de2d70e8ad221a8ec434b42e5f53defd27))
+
 # [0.6.0](https://github.com/almafintech/react-components/compare/v0.5.0...v0.6.0) (2024-06-18)
 
 
