@@ -1,3 +1,15 @@
+# [0.8.0](https://github.com/almafintech/react-components/compare/v0.7.0...v0.8.0) (2024-06-24)
+
+
+### Bug Fixes
+
+* **inputfile:** change font weight ([06a02e3](https://github.com/almafintech/react-components/commit/06a02e326ab12e20d40062d16d5255c070a558f2))
+
+
+### Features
+
+* **inputfile:** add reactNode type to label ([e45eccc](https://github.com/almafintech/react-components/commit/e45eccc0c9df0dfc5b73f73c63e5b55dd39eb9de))
+
 # [0.7.0](https://github.com/almafintech/react-components/compare/v0.6.0...v0.7.0) (2024-06-19)
 
 
