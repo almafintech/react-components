@@ -1,3 +1,10 @@
+## [0.8.2](https://github.com/almafintech/react-components/compare/v0.8.1...v0.8.2) (2024-06-25)
+
+
+### Bug Fixes
+
+* remove nextui label and add our label ([1a14b53](https://github.com/almafintech/react-components/commit/1a14b53f05242f7685c08852377e85d9b7349846))
+
 ## [0.8.1](https://github.com/almafintech/react-components/compare/v0.8.0...v0.8.1) (2024-06-25)
 
 
