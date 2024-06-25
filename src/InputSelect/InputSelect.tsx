@@ -48,6 +48,7 @@ const InputSelect = ({
   minDatePickerDate,
   inputValue,
   showExternalBox,
+  label: labelComponent,
   ...rest
 }: InputSelectProps) => {
   const {
@@ -280,6 +281,13 @@ const InputSelect = ({
 
   return (
     <div id={`containerSelect-${componentId}`}>
+      <label
+        className={`${label} ${isInvalid || description ? labelFix : ""} ${
+          isFormField && formField
+        }`}
+      >
+        {labelComponent}
+      </label>
       <NextUiSelect
         {...rest}
         isDisabled={isDisabled}
@@ -302,7 +310,6 @@ const InputSelect = ({
         }}
         data-id={componentId}
         items={isDatePickerOpen ? [] : items}
-        labelPlacement="outside"
         placeholder={!inputValue ? placeholder ?? " " : " "}
         className={`${className} ${
           isInvalid && selectTouched ? invalidSelect : ""

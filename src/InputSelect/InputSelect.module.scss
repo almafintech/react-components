@@ -76,13 +76,13 @@ $confirm-actions-height: 100px;
 }
 
 .label {
-  width: 100%;
   color: $primary-dark-900 !important;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 500;
-  text-align: left;
   padding-bottom: 0.3rem;
+  display: flex !important;
+  width: 100% !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  text-align: left;
 
   &.formField {
     color: $secondary-normal-300 !important;
