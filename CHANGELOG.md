@@ -1,3 +1,10 @@
+## [0.8.1](https://github.com/almafintech/react-components/compare/v0.8.0...v0.8.1) (2024-06-25)
+
+
+### Bug Fixes
+
+* create circle loader ([91cf45d](https://github.com/almafintech/react-components/commit/91cf45df491442dacf63e42e0c124d567b3ff922))
+
 # [0.8.0](https://github.com/almafintech/react-components/compare/v0.7.0...v0.8.0) (2024-06-24)
 
 
