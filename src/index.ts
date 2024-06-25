@@ -11,6 +11,7 @@ export * from "./InputFile";
 export * from "./InputPhone";
 export * from "./InputSelect";
 export * from "./LoadingDots";
+export * from "./LoadingCircle";
 export * from "./Modal";
 export * from "./RoundedButton";
 export * from "./Skeleton";
