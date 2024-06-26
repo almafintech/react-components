@@ -39,7 +39,24 @@ export const WithInfoMessage: Story = {
     ...Default.args,
     infoText: "Adjuntá la información necesaria",
     label: "Frente",
+  },
+};
+
+export const WithInfoMessageCustomPosition: Story = {
+  args: {
+    ...Default.args,
+    infoText: "Adjuntá la información necesaria",
+    label: "Frente",
     infoTextPosition: "top",
+  },
+};
+
+export const WithInfoMessageClassName: Story = {
+  args: {
+    ...Default.args,
+    infoText: "Adjuntá la información necesaria",
+    label: "Frente",
+    infoTextClassName: "!text-blue-500",
   },
 };
 
@@ -62,6 +79,13 @@ export const WithMaxSize: Story = {
   },
 };
 
+export const withoutDownloadIcon: Story = {
+  args: {
+    ...Default.args,
+    hideDownloadIcon: true,
+  },
+};
+
 export const isMobile: Story = {
   args: {
     ...Default.args,
@@ -70,7 +94,6 @@ export const isMobile: Story = {
     isMobile: true,
   },
 };
-
 
 export const isMobileWithCustomSuccessMessage: Story = {
   args: {
@@ -81,4 +104,3 @@ export const isMobileWithCustomSuccessMessage: Story = {
     isMobile: true,
   },
 };
-
