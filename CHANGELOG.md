@@ -1,3 +1,10 @@
+## [0.8.4](https://github.com/almafintech/react-components/compare/v0.8.3...v0.8.4) (2024-06-28)
+
+
+### Bug Fixes
+
+* **fix:** fix inputs ([92fd4d8](https://github.com/almafintech/react-components/commit/92fd4d8e9784b61a8c3faaef5d393066ee8d54b0))
+
 ## [0.8.3](https://github.com/almafintech/react-components/compare/v0.8.2...v0.8.3) (2024-06-28)
 
 
