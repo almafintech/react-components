@@ -1,3 +1,10 @@
+## [0.8.3](https://github.com/almafintech/react-components/compare/v0.8.2...v0.8.3) (2024-06-28)
+
+
+### Bug Fixes
+
+* **inputfile:** add new props and fix bug while clicking download and remove buttons ([26be31b](https://github.com/almafintech/react-components/commit/26be31b0d60e5bbc4878be3fee324e769cfd8629))
+
 ## [0.8.2](https://github.com/almafintech/react-components/compare/v0.8.1...v0.8.2) (2024-06-25)
 
 
