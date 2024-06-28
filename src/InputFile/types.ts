@@ -16,8 +16,11 @@ export interface InputFileProps {
   error?: boolean;
   fileData?: FileData;
   infoText?: string;
+  infoTextPosition?: "bottom" | "top";
+  infoTextClassName?: string;
   initialValue?: File | null;
   isLoading?: boolean;
+  hideDownloadIcon?: boolean;
   maxSize: number; // In megabytes
   name: string;
   label?: string | ReactNode
@@ -30,5 +33,4 @@ export interface InputFileProps {
   text?: string | ReactNode;
   successMessage?: string;
   validTypes: string[];
-  infoTextPosition?: "bottom" | "top";
 }
