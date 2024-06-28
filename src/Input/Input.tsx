@@ -176,7 +176,7 @@ const Input = (props: InputProps) => {
         isInvalid && (props.touched || touched) && <>{getErrorMessage()}</>
       }
       description={!isInvalid && description}
-      // Mask the value to show in input
+      // Mask the value to show
       value={
         ["money", "cuit", "dni"].includes(type) ? getValue(type, value) : value
       }
