@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input as NextUiInput } from "@nextui-org/react";
 import { InputProps } from "./types";
 
@@ -56,8 +56,14 @@ const Input = (props: InputProps) => {
   } = styles;
 
   const [isVisible, setIsVisible] = useState(false);
-  const [value, setValue] = useState(initialValue || "");
+  const [value, setValue] = useState(initialValue || props.value || "");
   const [touched, setTouched] = useState(false);
+
+  useEffect(() => {
+    if (props.value) {
+      setValue(props.value);
+    }
+  }, [props.value]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let maskedValue = e.target.value;

@@ -49,6 +49,7 @@ const InputFile = ({
     // onDrag,
     mobile,
     successMessageStyle,
+    hiddenInputFile,
   } = styles;
 
   // const [dragging, setDragging] = useState(false);
@@ -150,6 +151,7 @@ const InputFile = ({
   return (
     <div className={`${container} ${className ?? ""}`}>
       <input
+        className={hiddenInputFile}
         type="file"
         accept=".jpg, .jpeg, .png, .pdf"
         onChange={handleDropOrInputChange}
