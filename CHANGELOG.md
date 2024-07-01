@@ -1,3 +1,10 @@
+## [0.8.5](https://github.com/almafintech/react-components/compare/v0.8.4...v0.8.5) (2024-07-01)
+
+
+### Bug Fixes
+
+* **inputfile:** fix inputFile functionality when there's a fileData and its overflow ([f4d2382](https://github.com/almafintech/react-components/commit/f4d23829c308a537b9d87b48d0f70fbb560bf484))
+
 ## [0.8.4](https://github.com/almafintech/react-components/compare/v0.8.3...v0.8.4) (2024-06-28)
 
 
