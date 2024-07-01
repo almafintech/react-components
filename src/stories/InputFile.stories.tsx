@@ -63,10 +63,21 @@ export const WithInfoMessageClassName: Story = {
 export const WithValidTypesFiles: Story = {
   args: {
     ...Default.args,
-    error: true,
     validTypes: ["image/jpg", "image/png"],
     infoText: "Formato .jpg .png",
     label: "Frente",
+  },
+};
+
+export const WithFileData: Story = {
+  args: {
+    ...Default.args,
+    label: "Frente",
+    fileData: {
+      id: 1,
+      name: "293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155 (2) (1) (1).png",
+    },
+    hideDownloadIcon: true,
   },
 };
 
@@ -90,7 +101,6 @@ export const isMobile: Story = {
   args: {
     ...Default.args,
     label: "Frente",
-    validTypes: ["image/jpg", "image/png"],
     isMobile: true,
   },
 };
@@ -99,7 +109,6 @@ export const isMobileWithCustomSuccessMessage: Story = {
   args: {
     ...Default.args,
     label: "Frente",
-    validTypes: ["image/jpg", "image/png"],
     successMessage: "Imagen subida con éxito",
     isMobile: true,
   },

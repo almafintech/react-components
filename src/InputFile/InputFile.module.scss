@@ -77,6 +77,10 @@
 
   &.inputSuccess {
     border-color: $s300;
+
+    .fileHeader {
+      max-width: 80%;
+    }
   }
 
   // &.onDrag {

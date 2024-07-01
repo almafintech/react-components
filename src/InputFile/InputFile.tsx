@@ -1,6 +1,6 @@
 import { DragEvent, useCallback, useEffect, useState } from "react";
 import { saveAs } from "file-saver";
-import { InputFileProps } from "./types";
+import { FileData, InputFileProps } from "./types";
 
 import UploadIcon from "../../assets/images/ui/icons/ui-icon-file_upload.svg";
 import ErrorIcon from "../../assets/images/ui/icons/ui-icon-error-exclamation-filled.svg";
@@ -53,7 +53,7 @@ const InputFile = ({
   } = styles;
 
   // const [dragging, setDragging] = useState(false);
-  const [file, setFile] = useState<File | null>();
+  const [file, setFile] = useState<File | FileData | null>(fileData ?? null);
   const [fileError, setFileError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>();
 
@@ -112,12 +112,13 @@ const InputFile = ({
     if (fileData) {
       onFileDownload && onFileDownload(fileData);
     } else {
-      file?.arrayBuffer().then((arrayBuffer) => {
-        const blob = new Blob([new Uint8Array(arrayBuffer)], {
-          type: file.type,
+      file instanceof File &&
+        file?.arrayBuffer().then((arrayBuffer) => {
+          const blob = new Blob([new Uint8Array(arrayBuffer)], {
+            type: file.type,
+          });
+          saveAs(blob, `${file.name}`);
         });
-        saveAs(blob, `${file.name}`);
-      });
     }
   };
 
@@ -177,7 +178,7 @@ const InputFile = ({
         </label>
       ) : (
         <>
-          {(!file && !fileData) || (file && fileError) ? (
+          {!file || fileError ? (
             <>
               <label
                 htmlFor={`input-file-upload-${name}`}
@@ -190,7 +191,7 @@ const InputFile = ({
                   onDragOver={handleDrag}
                   onDragLeave={handleDrag}
                   onDrop={handleDropOrInputChange}
-                  className={`${inputFile} ${(file || fileData) && !fileError && !isLoading && inputSuccess}`}
+                  className={inputFile}
                 >
                   <div className={fileHeader}>
                     <img src={UploadIcon} />
@@ -230,7 +231,7 @@ const InputFile = ({
                     ) : (
                       <>
                         <img src={SuccessIcon} />
-                        <p>{fileData ? fileData.name : file?.name}</p>
+                        <p>{file?.name}</p>
                       </>
                     )}
                   </div>
@@ -266,7 +267,7 @@ const InputFile = ({
           <p>{successMessage ?? "Archivo cargado con éxito"}</p>
         </div>
       )}
-      {file && fileError && (
+      {fileError && (
         <div className={errorMessageStyle}>
           <img src={ErrorIcon} />
           <span>{errorMessage}</span>
