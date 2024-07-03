@@ -12,16 +12,16 @@ import styles from "./InputAddress.module.scss";
 import { Loader } from "@googlemaps/js-api-loader";
 import LocationPin from "../../assets/images/ui/icons/ui-icon-location-pin.svg";
 
-const { autoCompleteOptions, active, autoComplete } = styles;
+const { autoCompleteOptions, active, autoComplete: autoCompleteStyle } = styles;
 
-const replaceAccents = (text: string) => {
-  return text
-    .replaceAll(/[àáâãä]/gi, "a")
-    .replaceAll(/[¨èéê]/gi, "e")
-    .replaceAll(/[ìíîï]/gi, "i")
-    .replaceAll(/[òóôõö]/gi, "o")
-    .replaceAll(/[ùúûü]/gi, "u");
-};
+// const replaceAccents = (text: string) => {
+//   return text
+//     .replaceAll(/[àáâãä]/gi, "a")
+//     .replaceAll(/[¨èéê]/gi, "e")
+//     .replaceAll(/[ìíîï]/gi, "i")
+//     .replaceAll(/[òóôõö]/gi, "o")
+//     .replaceAll(/[ùúûü]/gi, "u");
+// };
 
 const InputAddress = (props: InputAddressProps) => {
   const {
@@ -40,6 +40,8 @@ const InputAddress = (props: InputAddressProps) => {
     exactAddress,
     onValueChange,
     onBlur,
+    autoComplete,
+    offset,
   } = props;
 
   const inputProps: InputProps = {
@@ -210,19 +212,20 @@ const InputAddress = (props: InputAddressProps) => {
           types: [
             ...(exactAddress ? ["street_address", "premise"] : ["address"]),
           ],
-          offset: 3,
+          offset,
           locationBias: "IP_BIAS",
         },
         (predictions, status) => {
           if (status === "OK" && predictions) {
             setPredictions(
-              predictions.filter((p) => {
-                const mainText = p.structured_formatting.main_text;
-                const includesInput = replaceAccents(mainText)
-                  .toLowerCase()
-                  .includes(replaceAccents(autoCompleteValue.toLowerCase()));
-                return includesInput;
-              })
+              // predictions.filter((p) => {
+              //   const mainText = p.structured_formatting.main_text;
+              //   const includesInput = replaceAccents(mainText)
+              //     .toLowerCase()
+              //     .includes(replaceAccents(autoCompleteValue.toLowerCase()));
+              //   return includesInput;
+              // })
+              predictions
             );
           } else {
             setPredictions([]);
@@ -299,10 +302,11 @@ const InputAddress = (props: InputAddressProps) => {
   }, [geocoderRef.current]);
 
   return (
-    <div className={`${autoComplete} ${className ? className : ""}`}>
+    <div className={`${autoCompleteStyle} ${className ? className : ""}`}>
       <div ref={placesServicesContainerRef}></div>
       <Input
         type="text"
+        autoComplete={autoComplete}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={autoCompleteValue}
