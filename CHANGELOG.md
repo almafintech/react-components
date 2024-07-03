@@ -1,3 +1,15 @@
+# [0.9.0](https://github.com/almafintech/react-components/compare/v0.8.5...v0.9.0) (2024-07-03)
+
+
+### Bug Fixes
+
+* **inputaddress:** fix style ([b10c271](https://github.com/almafintech/react-components/commit/b10c271ac46c150358f7672e26f8a4156a199d46))
+
+
+### Features
+
+* **inputaddress:** fix inputAddress ([1eff4a3](https://github.com/almafintech/react-components/commit/1eff4a33b2dd81f8cfa07a00de43007cf07545d4))
+
 ## [0.8.5](https://github.com/almafintech/react-components/compare/v0.8.4...v0.8.5) (2024-07-01)
 
 
