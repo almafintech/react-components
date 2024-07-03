@@ -12,16 +12,16 @@ import styles from "./InputAddress.module.scss";
 import { Loader } from "@googlemaps/js-api-loader";
 import LocationPin from "../../assets/images/ui/icons/ui-icon-location-pin.svg";
 
-const { autoCompleteOptions, active, autoComplete } = styles;
+const { autoCompleteOptions, active, autoComplete: autoCompleteStyle } = styles;
 
-const replaceAccents = (text: string) => {
-  return text
-    .replaceAll(/[àáâãä]/gi, "a")
-    .replaceAll(/[¨èéê]/gi, "e")
-    .replaceAll(/[ìíîï]/gi, "i")
-    .replaceAll(/[òóôõö]/gi, "o")
-    .replaceAll(/[ùúûü]/gi, "u");
-};
+// const replaceAccents = (text: string) => {
+//   return text
+//     .replaceAll(/[àáâãä]/gi, "a")
+//     .replaceAll(/[¨èéê]/gi, "e")
+//     .replaceAll(/[ìíîï]/gi, "i")
+//     .replaceAll(/[òóôõö]/gi, "o")
+//     .replaceAll(/[ùúûü]/gi, "u");
+// };
 
 const InputAddress = (props: InputAddressProps) => {
   const {
@@ -302,7 +302,7 @@ const InputAddress = (props: InputAddressProps) => {
   }, [geocoderRef.current]);
 
   return (
-    <div className={`${autoComplete} ${className ? className : ""}`}>
+    <div className={`${autoCompleteStyle} ${className ? className : ""}`}>
       <div ref={placesServicesContainerRef}></div>
       <Input
         type="text"
