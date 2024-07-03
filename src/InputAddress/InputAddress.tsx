@@ -40,6 +40,8 @@ const InputAddress = (props: InputAddressProps) => {
     exactAddress,
     onValueChange,
     onBlur,
+    autoComplete,
+    offset,
   } = props;
 
   const inputProps: InputProps = {
@@ -210,19 +212,20 @@ const InputAddress = (props: InputAddressProps) => {
           types: [
             ...(exactAddress ? ["street_address", "premise"] : ["address"]),
           ],
-          offset: 3,
+          offset,
           locationBias: "IP_BIAS",
         },
         (predictions, status) => {
           if (status === "OK" && predictions) {
             setPredictions(
-              predictions.filter((p) => {
-                const mainText = p.structured_formatting.main_text;
-                const includesInput = replaceAccents(mainText)
-                  .toLowerCase()
-                  .includes(replaceAccents(autoCompleteValue.toLowerCase()));
-                return includesInput;
-              })
+              // predictions.filter((p) => {
+              //   const mainText = p.structured_formatting.main_text;
+              //   const includesInput = replaceAccents(mainText)
+              //     .toLowerCase()
+              //     .includes(replaceAccents(autoCompleteValue.toLowerCase()));
+              //   return includesInput;
+              // })
+              predictions
             );
           } else {
             setPredictions([]);
@@ -303,6 +306,7 @@ const InputAddress = (props: InputAddressProps) => {
       <div ref={placesServicesContainerRef}></div>
       <Input
         type="text"
+        autoComplete={autoComplete}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={autoCompleteValue}

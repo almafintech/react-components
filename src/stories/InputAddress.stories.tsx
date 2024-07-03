@@ -29,18 +29,18 @@ export const Default: Story = {
   args: {
     label: "Dirección",
     name: "address",
-    country: "A",
     isFormField: false,
     disabled: false,
     touched: false,
-    exactAddress: false
+    exactAddress: false,
+    autoComplete: "off"
   },
 };
 
 export const withCustomCountry: Story = {
   args: {
     ...Default.args,
-    country: "ar",
+    country: "Argentina",
   },
 };
 
@@ -62,6 +62,14 @@ export const withPlaceholder: Story = {
   args: {
     ...Default.args,
     placeholder: "Dirección",
+  },
+};
+
+
+export const withoutAutocomplete: Story = {
+  args: {
+    ...Default.args,
+    autoComplete: "off",
   },
 };
 
