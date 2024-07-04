@@ -143,6 +143,10 @@ const InputFile = ({
   }, [initialValue]);
 
   useEffect(() => {
+    if (fileData) setFile(fileData);
+  }, [fileData]);
+
+  useEffect(() => {
     if (error) {
       setFileError(true);
       onFileRemove && onFileRemove();
