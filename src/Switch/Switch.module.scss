@@ -1,0 +1,49 @@
+@import "../styles/variables";
+@import "../styles/helpers.scss";
+
+$switch-width: 3.125rem;
+$thumb-size: 1.125rem;
+
+.base {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  
+
+}
+
+.label {
+  margin-right: 0.5rem;
+}
+
+.wrapper {
+  width: $switch-width;
+  height: 1.5rem;
+  padding-left: 0.2rem !important;
+  padding-right: 0.2rem !important;
+
+  .base[data-selected="true"] & {
+    background-color: $primary-normal-300 !important;
+    border: 1px solid $primary-normal-300;
+  }
+
+  border: 1px solid $primary-light-200;
+  background-color: $white !important;
+}
+
+.thumb {
+  width: $thumb-size;
+  height: $thumb-size;
+  box-shadow: none;
+
+  .base[data-selected="true"] & {
+    margin-left: 1.5rem;
+  }
+
+  .base[data-selected="true"].base[data-pressed="true"] & {
+    margin-left: 1.2rem !important;
+  }
+
+  .base:not([data-selected="true"]) & {
+    background-color: $secondary-light-200 !important;
+  }
+}
