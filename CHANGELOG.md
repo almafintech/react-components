@@ -1,3 +1,15 @@
+# [1.0.0](https://github.com/almafintech/react-components/compare/v0.9.0...v1.0.0) (2024-07-04)
+
+
+### Features
+
+* **component:** added Switch component ([7eba36e](https://github.com/almafintech/react-components/commit/7eba36e3ee07bad1a6fab1265c52933a3e5f91a3))
+
+
+### BREAKING CHANGES
+
+* **component:** added Switch component
+
 # [0.9.0](https://github.com/almafintech/react-components/compare/v0.8.5...v0.9.0) (2024-07-03)
 
 
