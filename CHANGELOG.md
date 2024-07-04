@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/almafintech/react-components/compare/v1.0.0...v1.0.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* **inputfile:** update file if fileData change ([b0b6e1b](https://github.com/almafintech/react-components/commit/b0b6e1be7c91a2720e84a1cb3a950bb67915d7af))
+
 # [1.0.0](https://github.com/almafintech/react-components/compare/v0.9.0...v1.0.0) (2024-07-04)
 
 
