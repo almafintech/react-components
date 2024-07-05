@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/almafintech/react-components/compare/v1.0.1...v1.1.0) (2024-07-05)
+
+
+### Features
+
+* **component:** added Tabs component ([28f930c](https://github.com/almafintech/react-components/commit/28f930c4e07ef220a2b3a73fcae8e8c57ca594c7))
+
 ## [1.0.1](https://github.com/almafintech/react-components/compare/v1.0.0...v1.0.1) (2024-07-04)
 
 
