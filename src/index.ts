@@ -24,3 +24,4 @@ export * from "./InputTextArea";
 export * from "./RadioGroup";
 export * from "./Message";
 export * from "./Switch";
+export * from "./Tabs";
