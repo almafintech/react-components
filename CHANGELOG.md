@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/almafintech/react-components/compare/v1.1.0...v1.2.0) (2024-07-10)
+
+
+### Features
+
+* **inputaddress:** auto select first prediction ([bb01cac](https://github.com/almafintech/react-components/commit/bb01cac4cb9b8c3a8b6e270a3220d50973dc5e78))
+
 # [1.1.0](https://github.com/almafintech/react-components/compare/v1.0.1...v1.1.0) (2024-07-05)
 
 
