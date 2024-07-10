@@ -60,8 +60,8 @@ const Input = (props: InputProps) => {
   const [touched, setTouched] = useState(false);
 
   useEffect(() => {
-    if (props.value) {
-      setValue(props.value);
+    if (typeof props.value === "string") {
+      setValue(props.value as string);
     }
   }, [props.value]);
 

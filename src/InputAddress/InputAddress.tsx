@@ -42,6 +42,7 @@ const InputAddress = (props: InputAddressProps) => {
     onBlur,
     autoComplete,
     offset,
+    autoSelectFirstPrediction,
   } = props;
 
   const inputProps: InputProps = {
@@ -72,6 +73,7 @@ const InputAddress = (props: InputAddressProps) => {
   const [currentFocus, setCurrentFocus] = useState(-1);
   const [isTyping, setIsTyping] = useState(false);
   const [countryCode, setCountryCode] = useState<string | null>(null);
+  const [refLoaded, setRefLoaded] = useState(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> & {
@@ -278,6 +280,7 @@ const InputAddress = (props: InputAddressProps) => {
           placesServicesContainerRef.current
         );
       }
+      setRefLoaded(true);
     };
     init();
   }, []);
@@ -300,6 +303,19 @@ const InputAddress = (props: InputAddressProps) => {
   useEffect(() => {
     getCountryData();
   }, [geocoderRef.current]);
+
+  //Auto select first prediction
+  useEffect(() => {
+    if (autoCompleteValue && autoSelectFirstPrediction && refLoaded) {
+      getPredictions();
+    }
+  }, [autoCompleteValue, refLoaded]);
+
+  useEffect(() => {
+    if (autoSelectFirstPrediction && predictions.length > 0) {
+      handleAutocompleteSelect(predictions[0]);
+    }
+  }, [predictions]);
 
   return (
     <div className={`${autoCompleteStyle} ${className ? className : ""}`}>
