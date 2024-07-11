@@ -28,8 +28,6 @@ export interface InputAddressProps {
   offset?: number;
   /* If true, predictions will show only result with street number*/
   exactAddress?: boolean;
-  /* If true, the input is completed with the first prediction found*/
-  autoSelectFirstPrediction?: boolean;
   onBlur?: (e: React.FocusEvent<any, Element>) => void;
   onValueChange?: (
     data: {
@@ -40,4 +38,6 @@ export interface InputAddressProps {
       };
     } | null
   ) => any;
+  /* If string is passed, the input is completed with the first prediction found */
+  autoSelect?: string;
 }
