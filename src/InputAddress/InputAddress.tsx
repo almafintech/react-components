@@ -319,7 +319,7 @@ const InputAddress = (props: InputAddressProps) => {
     }
   }, [autoSelect]);
 
-  // When autoSelectValue is set, we need get the predictions with the autoSelect value passed to the function
+  // When autoSelectValue is set, get the predictions with the autoSelect value passed to the function
   useEffect(() => {
     if (autoSelectValue && geocoderRef.current && autoCompleteRef.current) {
       getPredictions(autoSelectValue);
