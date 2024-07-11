@@ -42,7 +42,7 @@ const InputAddress = (props: InputAddressProps) => {
     onBlur,
     autoComplete,
     offset,
-    autoSelectFirstPrediction,
+    autoSelect,
   } = props;
 
   const inputProps: InputProps = {
@@ -73,7 +73,10 @@ const InputAddress = (props: InputAddressProps) => {
   const [currentFocus, setCurrentFocus] = useState(-1);
   const [isTyping, setIsTyping] = useState(false);
   const [countryCode, setCountryCode] = useState<string | null>(null);
-  const [refLoaded, setRefLoaded] = useState(false);
+
+  const [autoSelectValue, setAutoSelectValue] = useState<string | undefined>(
+    autoSelect
+  );
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> & {
@@ -197,16 +200,16 @@ const InputAddress = (props: InputAddressProps) => {
     return formattedAddress;
   };
 
-  const getPredictions = () => {
+  const getPredictions = (autoSelectValue?: string) => {
     if (
-      autoCompleteValue &&
-      autoCompleteValue !== selectedValue &&
+      ((autoCompleteValue && autoCompleteValue !== selectedValue) ||
+        autoSelectValue) &&
       autoCompleteRef.current &&
       geocoderRef.current
     ) {
       autoCompleteRef.current?.getPlacePredictions(
         {
-          input: autoCompleteValue,
+          input: autoSelectValue || autoCompleteValue || "",
           language: "es",
           componentRestrictions: countryCode
             ? { country: countryCode }
@@ -229,6 +232,11 @@ const InputAddress = (props: InputAddressProps) => {
               // })
               predictions
             );
+
+            if (autoSelectValue && predictions.length > 0) {
+              console.log("AUTO SELECT", predictions[0]);
+              handleAutocompleteSelect(predictions[0]);
+            }
           } else {
             setPredictions([]);
           }
@@ -280,7 +288,6 @@ const InputAddress = (props: InputAddressProps) => {
           placesServicesContainerRef.current
         );
       }
-      setRefLoaded(true);
     };
     init();
   }, []);
@@ -304,18 +311,19 @@ const InputAddress = (props: InputAddressProps) => {
     getCountryData();
   }, [geocoderRef.current]);
 
-  //Auto select first prediction
+  // When autoSelect prop is passed or changed, we need to set the value to the input
   useEffect(() => {
-    if (autoCompleteValue && autoSelectFirstPrediction && refLoaded) {
-      getPredictions();
+    if (autoSelect) {
+      setAutoSelectValue(autoSelect);
     }
-  }, [autoCompleteValue, refLoaded]);
+  }, [autoSelect]);
 
   useEffect(() => {
-    if (autoSelectFirstPrediction && predictions.length > 0) {
-      handleAutocompleteSelect(predictions[0]);
+    if (autoSelectValue && geocoderRef.current && autoCompleteRef.current) {
+      getPredictions(autoSelectValue);
+      setAutoSelectValue(undefined);
     }
-  }, [predictions]);
+  }, [autoSelectValue, geocoderRef.current, autoCompleteRef.current]);
 
   return (
     <div className={`${autoCompleteStyle} ${className ? className : ""}`}>
