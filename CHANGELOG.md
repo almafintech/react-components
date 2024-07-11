@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/almafintech/react-components/compare/v1.2.0...v1.2.1) (2024-07-11)
+
+
+### Bug Fixes
+
+* **inputaddress:** improve autoSelect ([24c89d2](https://github.com/almafintech/react-components/commit/24c89d210f4104f6560eabdecffacffcfa6cf9bf))
+
 # [1.2.0](https://github.com/almafintech/react-components/compare/v1.1.0...v1.2.0) (2024-07-10)
 
 
