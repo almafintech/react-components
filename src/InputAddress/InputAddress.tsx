@@ -1,6 +1,7 @@
 import {
   ChangeEvent,
   KeyboardEventHandler,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -74,6 +75,8 @@ const InputAddress = (props: InputAddressProps) => {
   const [isTyping, setIsTyping] = useState(false);
   const [countryCode, setCountryCode] = useState<string | null>(null);
 
+  // Auto select value
+  const [refLoaded, setRefLoaded] = useState(false);
   const [autoSelectValue, setAutoSelectValue] = useState<string | undefined>(
     autoSelect
   );
@@ -289,6 +292,7 @@ const InputAddress = (props: InputAddressProps) => {
           placesServicesContainerRef.current
         );
       }
+      setRefLoaded(true);
     };
     init();
   }, []);
@@ -327,7 +331,7 @@ const InputAddress = (props: InputAddressProps) => {
       // Reset the autoSelectValue after the predictions are set
       setAutoSelectValue(undefined);
     }
-  }, [autoSelectValue, geocoderRef.current, autoCompleteRef.current]);
+  }, [autoSelectValue, refLoaded]);
 
   return (
     <div className={`${autoCompleteStyle} ${className ? className : ""}`}>

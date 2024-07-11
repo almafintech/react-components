@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import InputAddress from "../InputAddress/InputAddress";
 import { fn } from "@storybook/test";
 
-
 const meta = {
   title: "Components/InputAddress",
   component: InputAddress,
@@ -33,7 +32,7 @@ export const Default: Story = {
     disabled: false,
     touched: false,
     exactAddress: false,
-    autoComplete: "off"
+    autoComplete: "off",
   },
 };
 
@@ -45,11 +44,11 @@ export const withCustomCountry: Story = {
 };
 
 export const withExactAddress: Story = {
-    args: {
-      ...Default.args,
-      exactAddress: true
-    },
-  };
+  args: {
+    ...Default.args,
+    exactAddress: true,
+  },
+};
 
 export const withDescription: Story = {
   args: {
@@ -65,11 +64,17 @@ export const withPlaceholder: Story = {
   },
 };
 
-
 export const withoutAutocomplete: Story = {
   args: {
     ...Default.args,
     autoComplete: "off",
+  },
+};
+
+export const withAutoSelect: Story = {
+  args: {
+    ...Default.args,
+    autoSelect: "Figueroa Alcorta 7597",
   },
 };
 
