@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/almafintech/react-components/compare/v1.2.1...v1.3.0) (2024-07-12)
+
+
+### Features
+
+* **inputaddress:** change input address format ([742060f](https://github.com/almafintech/react-components/commit/742060f39b4b5851478241a7ca56512d3ad6270e))
+
 ## [1.2.1](https://github.com/almafintech/react-components/compare/v1.2.0...v1.2.1) (2024-07-11)
 
 
