@@ -7,6 +7,7 @@ export interface FormattedAddress {
   state: string;
   country: string;
   postalCode: string;
+  municipality: string;
 }
 
 export interface InputAddressProps {
