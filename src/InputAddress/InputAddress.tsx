@@ -158,6 +158,7 @@ const InputAddress = (props: InputAddressProps) => {
       state: "",
       country: "",
       postalCode: "",
+      municipality: "",
     };
     addressComponents?.forEach((component) => {
       if (component.types.includes("route")) {
@@ -168,13 +169,17 @@ const InputAddress = (props: InputAddressProps) => {
       }
       if (component.types.includes("locality")) {
         const isCABA = component.short_name === "CABA";
-        formattedAddress.city = isCABA
+        formattedAddress.municipality = isCABA
           ? component.short_name
           : component.long_name;
       }
       if (component.types.includes("administrative_area_level_1")) {
-        const isCABA = formattedAddress.city === "CABA";
+        const isCABA = formattedAddress.municipality === "CABA";
         formattedAddress.state = isCABA ? "CABA" : component.long_name;
+      }
+      if (component.types.includes("administrative_area_level_2")) {
+        const isCABA = formattedAddress.municipality === "CABA";
+        formattedAddress.city = isCABA ? "CABA" : component.long_name;
       }
       if (component.types.includes("country")) {
         formattedAddress.country = component.long_name;
@@ -199,6 +204,7 @@ const InputAddress = (props: InputAddressProps) => {
         ) - 1;
       formattedAddress.state = addressComponents[stateIndex].long_name;
     }
+
     return formattedAddress;
   };
 
