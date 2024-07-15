@@ -307,7 +307,7 @@ const InputAddress = (props: InputAddressProps) => {
   }, [autoCompleteValue]);
 
   useEffect(() => {
-    if (value) setAutoCompleteValue(value);
+    if (typeof value === "string") setAutoCompleteValue(value);
   }, [value]);
 
   useEffect(() => {
