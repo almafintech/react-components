@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/almafintech/react-components/compare/v1.3.0...v1.3.1) (2024-07-15)
+
+
+### Bug Fixes
+
+* validate when the value of the InputAddress changes, accept string ([1e89d76](https://github.com/almafintech/react-components/commit/1e89d768a2be4ab1644c360c8d37550f06440a31))
+
 # [1.3.0](https://github.com/almafintech/react-components/compare/v1.2.1...v1.3.0) (2024-07-12)
 
 
