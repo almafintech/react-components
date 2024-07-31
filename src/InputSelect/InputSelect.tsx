@@ -234,11 +234,33 @@ const InputSelect = ({
     </div>
   );
 
+  //Listen to the "select-open" event and close input when the componentId is different
+  useEffect(() => {
+    const handleOtherSelectOpen = (event: any) => {
+      if (event.detail !== componentId) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("select-open", handleOtherSelectOpen);
+    return () => {
+      window.removeEventListener("select-open", handleOtherSelectOpen);
+    };
+  }, [componentId]);
+
   // Handler for inside clicks
   const handleInsideClick = (event: React.MouseEvent) => {
     event.stopPropagation();
     setIsOpen((prev) => !prev);
     hasDatePicker && setIsDatePickerOpen(isDateVariant);
+
+    //Dispatch a event to store the "componentId"
+    if (!isOpen) {
+      const selectOpenEvent = new CustomEvent("select-open", {
+        detail: componentId,
+      });
+      window.dispatchEvent(selectOpenEvent);
+    }
   };
 
   // Handler for outside clicks
