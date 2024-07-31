@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/almafintech/react-components/compare/v1.3.1...v1.3.2) (2024-07-31)
+
+
+### Bug Fixes
+
+* **inputselect:** fix input select for multiple options ([bdd284f](https://github.com/almafintech/react-components/commit/bdd284f56da04ac4fb9ad4787d0b7a78d585b354))
+
 ## [1.3.1](https://github.com/almafintech/react-components/compare/v1.3.0...v1.3.1) (2024-07-15)
 
 
