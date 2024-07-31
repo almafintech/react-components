@@ -62,7 +62,9 @@ export const selectChangeHandler = (
     // MULTIPLE
 
     // Split the selected values and filter out the actions item
-    let valuesArray = targetValue.split(",").filter((val) => val !== "actions");
+    let valuesArray = targetValue
+      .split(",")
+      .filter((val) => val !== "actions" && val !== "");
     const itemsArray = items || [];
 
     // Check if selectAll value is found
