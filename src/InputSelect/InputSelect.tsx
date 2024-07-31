@@ -360,7 +360,7 @@ const InputSelect = ({
         onSelectionChange={(keys: any) => {
           if (!confirmSelection) {
             const keysArray = Array.from(keys).filter(Boolean) as Key[];
-            if (!keysArray || !keysArray[0]) return;
+            if ((!keysArray || !keysArray[0]) && !isMultiple) return;
             onChange(isSingle ? keysArray[0] : keysArray);
           }
         }}
@@ -497,13 +497,14 @@ const InputSelect = ({
               const item = items.find((item) => item.value === value);
               return (
                 value !== "" && (
-                  <div className={externalItem}>
+                  <div className={externalItem} key={value}>
                     <span>{item?.label}</span>
                     <img
                       src={CloseIcon}
-                      onClick={() =>
-                        setValues(values.filter((val) => val !== value))
-                      }
+                      onClick={() => {
+                        setValues(values.filter((val) => val !== value));
+                        onChange(values.filter((val) => val !== value));
+                      }}
                     />
                   </div>
                 )
