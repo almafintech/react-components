@@ -44,7 +44,8 @@ const InputPhone = (props: InputPhoneProps) => {
 
   const [inputTouched, setInputTouched] = useState(touched || false);
 
-  const shouldValidate = inputTouched && isValid !== undefined;
+  const shouldValidate =
+    inputTouched && ((isValid === false && errorMessage) || isValid === true);
 
   return (
     <div>
@@ -74,7 +75,7 @@ const InputPhone = (props: InputPhoneProps) => {
           <span className={descriptionStyle}>{description}</span>
         </div>
       )}
-      {infoMessage && (
+      {infoMessage && !(shouldValidate && isValid === false) && (
         <div className={helperWrapper}>
           <img src={InfoIcon} className={icon} />
           <span className={infoMessageStyle}>{infoMessage}</span>
