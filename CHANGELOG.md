@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/almafintech/react-components/compare/v1.3.2...v1.3.3) (2024-08-01)
+
+
+### Bug Fixes
+
+* **inputselect:** fix open/close input select ([3a91e1f](https://github.com/almafintech/react-components/commit/3a91e1fd594aec2c2ff83c19a366be5942e5f067))
+
 ## [1.3.2](https://github.com/almafintech/react-components/compare/v1.3.1...v1.3.2) (2024-07-31)
 
 
