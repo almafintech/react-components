@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/almafintech/react-components/compare/v1.3.4...v1.3.5) (2024-08-02)
+
+
+### Bug Fixes
+
+* fix overflow of tokenCard alert ([73e4297](https://github.com/almafintech/react-components/commit/73e4297e38e9ef06c01030be9fd2df692a7484de))
+
 ## [1.3.4](https://github.com/almafintech/react-components/compare/v1.3.3...v1.3.4) (2024-08-02)
 
 
