@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/almafintech/react-components/compare/v1.3.5...v1.3.6) (2024-08-02)
+
+
+### Bug Fixes
+
+* **inputphone:** fix inputPhone validations ([78f386e](https://github.com/almafintech/react-components/commit/78f386e6f2fa242936d81867d3c96688c107285d))
+
 ## [1.3.5](https://github.com/almafintech/react-components/compare/v1.3.4...v1.3.5) (2024-08-02)
 
 
