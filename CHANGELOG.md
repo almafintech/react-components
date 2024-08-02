@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/almafintech/react-components/compare/v1.3.3...v1.3.4) (2024-08-02)
+
+
+### Bug Fixes
+
+* fix padding input ([9d79889](https://github.com/almafintech/react-components/commit/9d798894f04cb85d99c1b951055aab3867d2a505))
+
 ## [1.3.3](https://github.com/almafintech/react-components/compare/v1.3.2...v1.3.3) (2024-08-01)
 
 
