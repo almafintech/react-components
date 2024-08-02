@@ -177,6 +177,10 @@
 
 .childrenAlert {
   margin-bottom: 1.5rem;
+  & p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .subtitleStyle {
