@@ -70,6 +70,8 @@
     appearance: auto;
     -moz-appearance: textfield;
   }
+  padding-inline-start: 0 !important;
+  padding-inline-end: 0 !important;
 }
 
 .inputWrapper {
