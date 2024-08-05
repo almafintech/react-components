@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/almafintech/react-components/compare/v1.3.6...v1.3.7) (2024-08-05)
+
+
+### Bug Fixes
+
+* **inputfile.tsx:** fix onFileRemove triggering at first load, fix storybook, fix maxSize message ([5cbdfd8](https://github.com/almafintech/react-components/commit/5cbdfd86fc2092bc801a1da6cee476489be89ae8))
+
 ## [1.3.6](https://github.com/almafintech/react-components/compare/v1.3.5...v1.3.6) (2024-08-02)
 
 
