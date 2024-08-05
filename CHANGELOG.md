@@ -1,3 +1,10 @@
+## [1.3.8](https://github.com/almafintech/react-components/compare/v1.3.7...v1.3.8) (2024-08-05)
+
+
+### Bug Fixes
+
+* **inputfile.tsx:** when removing file, delete it also in the hidden input file ([cd4ee1d](https://github.com/almafintech/react-components/commit/cd4ee1d78ecbb7d8dc730e097c072339160faf0f))
+
 ## [1.3.7](https://github.com/almafintech/react-components/compare/v1.3.6...v1.3.7) (2024-08-05)
 
 
