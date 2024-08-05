@@ -84,8 +84,8 @@ export const WithFileData: Story = {
 export const WithMaxSize: Story = {
   args: {
     ...Default.args,
-    maxSize: 3145728,
-    infoText: "Peso máximo 3MB",
+    maxSize: 1,
+    infoText: "Peso máximo 1MB",
     label: "Frente",
   },
 };
