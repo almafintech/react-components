@@ -19,7 +19,7 @@ const InputFile = ({
   onFileUpload,
   onFileRemove,
   onFileDownload,
-  maxSize,
+  maxSize, // in MB
   validTypes,
   initialValue,
   className,
@@ -84,10 +84,10 @@ const InputFile = ({
       setFile(inputFile);
       setFileError(true);
       onFileRemove && onFileRemove();
-      !allowedTypes.has(inputFile.type)
+      allowedTypes.size !== 0 && !allowedTypes.has(inputFile.type)
         ? setErrorMessage("Formato de archivo inválido.")
         : setErrorMessage(
-            `El archivo adjunto excede el peso máximo permitido de ${maxSize}mb.`
+            `El archivo adjunto excede el peso máximo permitido de ${maxSize}MB.`
           );
     }
   };
@@ -131,8 +131,6 @@ const InputFile = ({
   useEffect(() => {
     if (selectedFile) {
       handleFileChange(selectedFile);
-    } else if (!fileError && !fileData) {
-      handleFileRemove();
     }
   }, [selectedFile]);
 

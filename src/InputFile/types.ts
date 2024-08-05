@@ -21,10 +21,11 @@ export interface InputFileProps {
   initialValue?: File | null;
   isLoading?: boolean;
   hideDownloadIcon?: boolean;
+  /** maxSize in MB */
   maxSize: number; // In megabytes
   name: string;
-  label?: string | ReactNode
-  isMobile?: boolean
+  label?: string | ReactNode;
+  isMobile?: boolean;
   onFileDownload?: (file: FileData) => void;
   onFileRemove?: () => void;
   onFileUpload?: (file: File) => void;
