@@ -1,4 +1,4 @@
-import { DragEvent, useCallback, useEffect, useState } from "react";
+import { DragEvent, useCallback, useEffect, useRef, useState } from "react";
 import { saveAs } from "file-saver";
 import { FileData, InputFileProps } from "./types";
 
@@ -56,6 +56,7 @@ const InputFile = ({
   const [file, setFile] = useState<File | FileData | null>(fileData ?? null);
   const [fileError, setFileError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>();
+  const hiddenInputRef = useRef<HTMLInputElement>(null);
 
   const handleDrag = (
     e: DragEvent<HTMLDivElement> | DragEvent<HTMLFormElement>
@@ -125,6 +126,7 @@ const InputFile = ({
   const handleFileRemove = useCallback(() => {
     setFile(null);
     setFileError(false);
+    hiddenInputRef.current && (hiddenInputRef.current.value = "");
     onFileRemove && onFileRemove();
   }, []);
 
@@ -154,6 +156,7 @@ const InputFile = ({
   return (
     <div className={`${container} ${className ?? ""}`}>
       <input
+        ref={hiddenInputRef}
         className={hiddenInputFile}
         type="file"
         accept=".jpg, .jpeg, .png, .pdf"
