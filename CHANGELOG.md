@@ -1,3 +1,10 @@
+## [1.3.9](https://github.com/almafintech/react-components/compare/v1.3.8...v1.3.9) (2024-08-06)
+
+
+### Bug Fixes
+
+* **inputfile.tsx:** initialValue could be nullish too, remove the file in this case ([228d229](https://github.com/almafintech/react-components/commit/228d2296b3e3abe934b888c556e19982f2dbbb1a))
+
 ## [1.3.8](https://github.com/almafintech/react-components/compare/v1.3.7...v1.3.8) (2024-08-05)
 
 
