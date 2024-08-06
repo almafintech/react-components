@@ -139,6 +139,8 @@ const InputFile = ({
   useEffect(() => {
     if (initialValue) {
       handleFileChange(initialValue);
+    } else {
+      setFile(null);
     }
   }, [initialValue]);
 
