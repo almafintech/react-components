@@ -1,3 +1,10 @@
+## [1.3.10](https://github.com/almafintech/react-components/compare/v1.3.9...v1.3.10) (2024-08-07)
+
+
+### Bug Fixes
+
+* add id to inputFile container. I need it to scroll to element ([fd3fa13](https://github.com/almafintech/react-components/commit/fd3fa13d737441ecf29afd52a3ad4437b1972101))
+
 ## [1.3.9](https://github.com/almafintech/react-components/compare/v1.3.8...v1.3.9) (2024-08-06)
 
 
