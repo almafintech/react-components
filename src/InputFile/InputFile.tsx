@@ -156,7 +156,10 @@ const InputFile = ({
   }, [error]);
 
   return (
-    <div className={`${container} ${className ?? ""}`}>
+    <div
+      className={`${container} ${className ?? ""}`}
+      id={`inputFile-container-${name}`}
+    >
       <input
         ref={hiddenInputRef}
         className={hiddenInputFile}
