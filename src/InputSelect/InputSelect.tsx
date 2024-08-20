@@ -46,6 +46,7 @@ const InputSelect = ({
   isDisabled,
   initialDatePickerRange,
   minDatePickerDate,
+  maxDatePickerDate,
   inputValue,
   showExternalBox,
   label: labelComponent,
@@ -484,6 +485,7 @@ const InputSelect = ({
                   setIsDatePickerOpen(false);
                 }}
                 min={minDatePickerDate}
+                max={maxDatePickerDate}
                 defaultRange={datePickerRange}
                 defaultCalendarVariant={datePickerInitialVariant}
               />
