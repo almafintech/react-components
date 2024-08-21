@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/almafintech/react-components/compare/v1.3.10...v1.4.0) (2024-08-21)
+
+
+### Features
+
+* **inputcopy:** new component inputCopy ([b353dc5](https://github.com/almafintech/react-components/commit/b353dc55c5f425af5f79d1ddc2a373d5f04bc171))
+* **inputselect:** add max date optional prop to datepicker ([038bab4](https://github.com/almafintech/react-components/commit/038bab4bac0c239e161d55c36440e92e4e89e72c))
+
 ## [1.3.10](https://github.com/almafintech/react-components/compare/v1.3.9...v1.3.10) (2024-08-07)
 
 
