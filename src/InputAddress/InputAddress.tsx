@@ -43,6 +43,8 @@ const InputAddress = (props: InputAddressProps) => {
     autoComplete,
     offset,
     autoSelect,
+    getStatus,
+    onChangeWithoutLibrary,
   } = props;
 
   const inputProps: InputProps = {
@@ -98,6 +100,9 @@ const InputAddress = (props: InputAddressProps) => {
     }
     setAutoCompleteValue(currentValue);
     if (currentValue !== value) onValueChange && onValueChange(null);
+    // If the library fails, you can change the value with "onChangeWithoutLibrary"
+    if (statusOfLibrary === "FAIL" && onChangeWithoutLibrary)
+      onChangeWithoutLibrary(e);
   };
 
   const handleAutocompleteSelect = (
@@ -285,19 +290,36 @@ const InputAddress = (props: InputAddressProps) => {
       setCountryCode(countryData.short_name);
     }
   };
+  const [statusOfLibrary, setStatusOfLibrary] = useState<
+    "SUCCESS" | "FAIL" | "LOADING"
+  >("LOADING");
 
   useEffect(() => {
     const init = async () => {
-      const places = await loader.importLibrary("places");
-      const geocoding = await loader.importLibrary("geocoding");
-      autoCompleteRef.current = new places.AutocompleteService();
-      geocoderRef.current = new geocoding.Geocoder();
-      if (placesServicesContainerRef.current instanceof HTMLDivElement) {
-        placesServicesRef.current = new places.PlacesService(
-          placesServicesContainerRef.current
-        );
+      try {
+        const places = await loader.importLibrary("places");
+        const geocoding = await loader.importLibrary("geocoding");
+
+        autoCompleteRef.current = new places.AutocompleteService();
+        geocoderRef.current = new geocoding.Geocoder();
+        if (placesServicesContainerRef.current instanceof HTMLDivElement) {
+          placesServicesRef.current = new places.PlacesService(
+            placesServicesContainerRef.current
+          );
+        }
+        setRefLoaded(true);
+
+        const address = "1600 Amphitheatre Parkway, Mountain View, CA";
+        geocoderRef.current.geocode({ address }, (_, status) => {
+          if (status === "OK") {
+            setStatusOfLibrary("SUCCESS");
+          } else {
+            setStatusOfLibrary("FAIL");
+          }
+        });
+      } catch (error) {
+        console.log(error, "Error library");
       }
-      setRefLoaded(true);
     };
     init();
   }, []);
@@ -338,6 +360,39 @@ const InputAddress = (props: InputAddressProps) => {
     }
   }, [autoSelectValue, refLoaded]);
 
+  const [inputBlurred, setInputBlurred] = useState(false);
+  const [divBlurred, setDivBlurred] = useState(false);
+
+  const handleInputBlur = (
+    e:
+      | React.FocusEvent<HTMLInputElement, Element>
+      | React.FocusEvent<Element, Element>
+  ) => {
+    setInputBlurred(true);
+    if (divBlurred && onBlur) {
+      onBlur(e);
+    }
+  };
+
+  const handleDivBlur = (e: React.FocusEvent<HTMLDivElement>) => {
+    setDivBlurred(true);
+    if (inputBlurred && onBlur) {
+      onBlur(e);
+    }
+  };
+
+  const handleInputFocus = () => {
+    setInputBlurred(false);
+  };
+
+  const handleDivFocus = () => {
+    setDivBlurred(false);
+  };
+
+  useEffect(() => {
+    getStatus && getStatus(statusOfLibrary);
+  }, [statusOfLibrary]);
+
   return (
     <div className={`${autoCompleteStyle} ${className ? className : ""}`}>
       <div ref={placesServicesContainerRef}></div>
@@ -349,7 +404,7 @@ const InputAddress = (props: InputAddressProps) => {
         value={autoCompleteValue}
         onBlur={(e) => {
           setIsTyping(false);
-          onBlur && onBlur(e);
+          handleInputBlur(e);
           setTimeout(() => {
             setPredictions([]);
           }, 500);
@@ -359,6 +414,7 @@ const InputAddress = (props: InputAddressProps) => {
           if ((e.target as HTMLInputElement).value) {
             getPredictions();
           }
+          handleInputFocus();
         }}
         {...inputProps}
       />
@@ -401,8 +457,13 @@ const InputAddress = (props: InputAddressProps) => {
       ) : (
         isTyping &&
         autoCompleteValue.length > 2 &&
-        !selectedValue && (
-          <div className={autoCompleteOptions}>
+        !selectedValue &&
+        statusOfLibrary === "SUCCESS" && (
+          <div
+            className={autoCompleteOptions}
+            onBlur={handleDivBlur}
+            onFocus={handleDivFocus}
+          >
             <p>No encontramos resultados.</p>
           </div>
         )
