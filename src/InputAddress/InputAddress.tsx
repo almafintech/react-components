@@ -44,7 +44,7 @@ const InputAddress = (props: InputAddressProps) => {
     offset,
     autoSelect,
     getStatus,
-    onChangeWithoutLibrary,
+    onChange,
   } = props;
 
   const inputProps: InputProps = {
@@ -100,9 +100,8 @@ const InputAddress = (props: InputAddressProps) => {
     }
     setAutoCompleteValue(currentValue);
     if (currentValue !== value) onValueChange && onValueChange(null);
-    // If the library fails, you can change the value with "onChangeWithoutLibrary"
-    if (statusOfLibrary === "FAIL" && onChangeWithoutLibrary)
-      onChangeWithoutLibrary(e);
+    // If the library fails, you can change the value with "onChange"
+    if (statusOfLibrary === "FAIL" && onChange) onChange(e);
   };
 
   const handleAutocompleteSelect = (
@@ -310,6 +309,7 @@ const InputAddress = (props: InputAddressProps) => {
         setRefLoaded(true);
 
         const address = "1600 Amphitheatre Parkway, Mountain View, CA";
+
         geocoderRef.current.geocode({ address }, (_, status) => {
           if (status === "OK") {
             setStatusOfLibrary("SUCCESS");
@@ -402,6 +402,8 @@ const InputAddress = (props: InputAddressProps) => {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={autoCompleteValue}
+        isLoading={statusOfLibrary === "LOADING"}
+        isReadOnly={statusOfLibrary === "LOADING"}
         onBlur={(e) => {
           setIsTyping(false);
           handleInputBlur(e);

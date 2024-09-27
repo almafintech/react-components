@@ -42,5 +42,5 @@ export interface InputAddressProps {
   /* If string is passed, the input is completed with the first prediction found */
   autoSelect?: string;
   getStatus?: (status: "SUCCESS" | "FAIL" | "LOADING") => void;
-  onChangeWithoutLibrary?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

@@ -20,7 +20,14 @@ import { ReactNode } from "react";
  * 	prepends a currency symbol.
  */
 
-export type InputType = "text" | "number" | "search" | "password" | "money" | "cuit" | "dni"
+export type InputType =
+  | "text"
+  | "number"
+  | "search"
+  | "password"
+  | "money"
+  | "cuit"
+  | "dni";
 
 export interface InputProps extends NextUiInputProps {
   balance?: number;
@@ -37,4 +44,5 @@ export interface InputProps extends NextUiInputProps {
   touched?: boolean;
   type?: InputType;
   hasLabel?: boolean;
+  isLoading?: boolean;
 }

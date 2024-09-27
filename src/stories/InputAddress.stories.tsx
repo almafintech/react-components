@@ -121,7 +121,7 @@ export const isInvalidWithCustomErrorMessage: Story = {
   },
 };
 //This is to see it from the ACTIONS tab in Storybook
-const eventsFromNames = actions("getStatus", "onChangeWithoutLibrary");
+const eventsFromNames = actions("getStatus", "onChange");
 
 export const gettingStatus: Story = {
   args: {
@@ -130,9 +130,9 @@ export const gettingStatus: Story = {
   },
 };
 
-export const onChangeWithoutLibrary: Story = {
+export const onChange: Story = {
   args: {
     ...Default.args,
-    onChangeWithoutLibrary: eventsFromNames.onChangeWithoutLibrary,
+    onChange: eventsFromNames.onChange,
   },
 };
