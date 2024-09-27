@@ -11,6 +11,7 @@ import SearchIcon from "../../assets/images/ui/icons/ui-icon-search-gray-outline
 
 import styles from "./Input.module.scss";
 import { getValue, removeMask } from "./utils";
+import { LoadingCircle } from "../LoadingCircle";
 
 const Input = (props: InputProps) => {
   const {
@@ -31,6 +32,7 @@ const Input = (props: InputProps) => {
     info,
     customInfo,
     hasLabel = true,
+    isLoading = false,
   } = props;
 
   const {
@@ -191,9 +193,15 @@ const Input = (props: InputProps) => {
       }
       endContent={
         <span className={endContentStyle}>
-          {endContent}
-          {type === "number" && isNumberPercentage && "%"}
-          {type === "password" && getEyeButton()}
+          {isLoading ? (
+            <LoadingCircle width="20px" />
+          ) : (
+            <>
+              {endContent}
+              {type === "number" && isNumberPercentage && "%"}
+              {type === "password" && getEyeButton()}
+            </>
+          )}
         </span>
       }
       label={

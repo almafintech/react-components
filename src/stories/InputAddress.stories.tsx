@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import InputAddress from "../InputAddress/InputAddress";
 import { fn } from "@storybook/test";
+import { actions } from "@storybook/addon-actions";
 
 const meta = {
   title: "Components/InputAddress",
@@ -117,5 +118,21 @@ export const isInvalidWithCustomErrorMessage: Story = {
     isInvalid: true,
     touched: true,
     errorMessage: "La dirección ingresada no es válida",
+  },
+};
+//This is to see it from the ACTIONS tab in Storybook
+const eventsFromNames = actions("getStatus", "onChange");
+
+export const gettingStatus: Story = {
+  args: {
+    ...Default.args,
+    getStatus: eventsFromNames.getStatus,
+  },
+};
+
+export const onChange: Story = {
+  args: {
+    ...Default.args,
+    onChange: eventsFromNames.onChange,
   },
 };

@@ -13,3 +13,9 @@
     transform: rotate(1turn);
   }
 }
+
+.loader.small {
+  width: 20px;
+  height: 20px;
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 4px), #000 0);
+}
