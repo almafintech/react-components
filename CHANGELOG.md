@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/almafintech/react-components/compare/v1.4.0...v1.4.1) (2024-09-27)
+
+
+### Bug Fixes
+
+* if the library fails, you can change the value with "onChangeWithoutLibrary" ([3037858](https://github.com/almafintech/react-components/commit/303785813642f7b937468e6118b3c7c7e478adfe))
+* loading at inputAddress when its connecting with google ([6ea7885](https://github.com/almafintech/react-components/commit/6ea78854998bdc04d208d6db247bcb0ed2537c14))
+
 # [1.4.0](https://github.com/almafintech/react-components/compare/v1.3.10...v1.4.0) (2024-08-21)
 
 
