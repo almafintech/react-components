@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/almafintech/react-components/compare/v1.4.1...v1.4.2) (2024-10-21)
+
+
+### Bug Fixes
+
+* **inputfile.tsx:** infer input accept attribute from validTypes ([7bab209](https://github.com/almafintech/react-components/commit/7bab209f9c6309d0aeb232ab1881a1800239b301))
+
 ## [1.4.1](https://github.com/almafintech/react-components/compare/v1.4.0...v1.4.1) (2024-09-27)
 
 
