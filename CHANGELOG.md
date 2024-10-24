@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/almafintech/react-components/compare/v1.4.2...v1.4.3) (2024-10-24)
+
+
+### Bug Fixes
+
+* when street number isNaN, rm it ([79e7618](https://github.com/almafintech/react-components/commit/79e761892a311039c79c2b1a82f5ff5749672472))
+
 ## [1.4.2](https://github.com/almafintech/react-components/compare/v1.4.1...v1.4.2) (2024-10-21)
 
 
