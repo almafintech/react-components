@@ -169,7 +169,11 @@ const InputAddress = (props: InputAddressProps) => {
         formattedAddress.street = component.long_name;
       }
       if (component.types.includes("street_number")) {
-        formattedAddress.streetNumber = component.long_name;
+        //In some cases, the street number is a string (e.g. 'Sur'), so check if the conversion is a number
+        const streetNumber = component.long_name;
+
+        if (isNaN(Number(streetNumber))) formattedAddress.streetNumber = "0";
+        else formattedAddress.streetNumber = component.long_name;
       }
       if (component.types.includes("locality")) {
         const isCABA = component.short_name === "CABA";
