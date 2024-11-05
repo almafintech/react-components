@@ -1,4 +1,5 @@
 import { ChangeEvent, ReactNode, FocusEvent } from "react";
+import { WithTheme } from "..";
 
 export type SizeType = "small" | "medium" | "large";
 
@@ -9,7 +10,7 @@ export type RadioOption = {
   initialChecked?: boolean;
 };
 
-export type RadioGroupProps = {
+export interface RadioGroupProps extends WithTheme {
   options: RadioOption[];
   label?: ReactNode;
   disabled?: boolean;
@@ -18,4 +19,4 @@ export type RadioGroupProps = {
   onBlur?: (event: FocusEvent<HTMLInputElement, Element>) => void;
   name?: string;
   value?: string;
-};
+}

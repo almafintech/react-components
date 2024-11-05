@@ -3,6 +3,7 @@ import {
   DropdownTriggerProps,
   DropdownMenuProps,
 } from "@nextui-org/dropdown";
+import { WithTheme } from "..";
 
 export type DropdownOption = {
   key: string;
@@ -19,4 +20,5 @@ export type DropdownProps = Pick<
   | "disallowEmptySelection"
 > &
   Omit<NextUIDropdownProps, "children"> &
-  DropdownTriggerProps;
+  DropdownTriggerProps &
+  WithTheme;

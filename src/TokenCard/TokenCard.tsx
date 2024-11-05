@@ -19,6 +19,7 @@ import HeaderModal from "./HeaderModal";
 import { InputToken } from "../InputToken";
 import { useElementDimensions } from "../hooks";
 import { Message } from "../Message";
+import { isByma } from "../utils";
 
 const TokenCard = forwardRef(
   (
@@ -36,6 +37,7 @@ const TokenCard = forwardRef(
       className,
       primaryButtonText,
       secondaryButtonText,
+      theme,
     }: TokenCardProps,
     ref
   ) => {
@@ -52,6 +54,8 @@ const TokenCard = forwardRef(
       tokenContainer,
       centerButton,
     } = styles;
+
+    const isBymaTheme = isByma(theme);
 
     const [status, setStatus] = useState({
       error: true,
@@ -204,7 +208,9 @@ const TokenCard = forwardRef(
     }));
 
     return (
-      <div className={`${tokenContainer} ${className ? className : ""}`}>
+      <div
+        className={`${isBymaTheme ? "byma" : ""} ${tokenContainer} ${className ?? ""}`}
+      >
         <div className={`${loading} ${fadeOutDiv} ${hide}`}>
           {showSuccess && (
             <Player
@@ -229,6 +235,7 @@ const TokenCard = forwardRef(
           )}
         </div>
         <ToastMessage
+          theme={theme}
           messageId="tokenModal"
           limit={1}
           closeButton={false}
@@ -284,10 +291,16 @@ const TokenCard = forwardRef(
           }`}
         >
           {title && (
-            <HeaderModal className="mb-4" title={title} subtitle={subtitle} />
+            <HeaderModal
+              theme={theme}
+              className="mb-4"
+              title={title}
+              subtitle={subtitle}
+            />
           )}
           {children && (
             <Alert
+              theme={theme}
               className={childrenAlert}
               children={children}
               variant="INFO"
@@ -296,13 +309,18 @@ const TokenCard = forwardRef(
           <div className={inputTokenGroup}>
             <div className={inputToken} ref={elementRef}>
               <InputToken
+                theme={theme}
                 charactersAmount={7}
                 token={token}
                 setToken={setToken}
                 handleOnBlur={() => handleBlur()}
               />
               {status.error && status.message && (
-                <Message message={status.message} variant="error" />
+                <Message
+                  theme={theme}
+                  message={status.message}
+                  variant="error"
+                />
               )}
             </div>
           </div>
@@ -311,6 +329,7 @@ const TokenCard = forwardRef(
           >
             {primaryButtonText && (
               <Button
+                theme={theme}
                 variant="primary"
                 type="button"
                 text={primaryButtonText}
@@ -321,6 +340,7 @@ const TokenCard = forwardRef(
             )}
             {secondaryButtonText && (
               <Button
+                theme={theme}
                 variant="secondary"
                 type="button"
                 text={secondaryButtonText}
@@ -337,6 +357,7 @@ const TokenCard = forwardRef(
                   return (
                     <div style={styleForError} className={countdownContainer}>
                       <Button
+                        theme={theme}
                         variant="tertiary"
                         type="button"
                         text={getTertiaryButtonText(

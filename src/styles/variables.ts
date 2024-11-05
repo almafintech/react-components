@@ -89,4 +89,38 @@ export const colors = {
   i300: "#1e82c0",
   i400: "#155b86",
   i500: "#124f75",
+
+  // BYMA + COLOR SYSTEM
+
+  //PRIMARY COLORS
+  bymaPrimaryDefault: "#009ea1",
+  bymaPrimaryActive: "#068a8c",
+  bymaPrimaryHover: "#56ccce",
+  bymaPrimaryAlternative: "#e2e2e2",
+
+  //BACKGROUND COLORS
+  bymaBackgroundPrimary: "#fdfdfd",
+  bymaBackgroundSecondary: "#f8f8f8",
+  bymaBackgroundTertiary: "#f1f1f1",
+  bymaBackgroundHover: "#e1e0e0",
+
+  //TEXT COLORS
+  bymaTextPrimary: "#061533",
+  bymaTextHover: "#152d5c",
+  bymaTextDisabled: "#7b808c",
+
+  //STATE COLORS
+  bymaErrorDark: "#ff4d4f",
+  bymaErrorLight: "#f49d9b",
+
+  bymaSuccessDark: "#00c000",
+  bymaSuccessLight: "#a4eba4",
+
+  bymaWarningDark: "#faad14",
+  bymaWarningLight: "#f6eea3",
+
+  bymaInfoDark: "#0183d9",
+  bymaInfoLight: "#9cdcf7",
+
+  bymaWhite: "#ffffff",
 };

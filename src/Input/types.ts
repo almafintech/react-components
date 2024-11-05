@@ -1,5 +1,6 @@
 import { InputProps as NextUiInputProps } from "@nextui-org/react";
 import { ReactNode } from "react";
+import { WithTheme } from "..";
 
 /**
  * Extension to `InputProps`. See NextUI's `Input` documentation.
@@ -29,7 +30,7 @@ export type InputType =
   | "cuit"
   | "dni";
 
-export interface InputProps extends NextUiInputProps {
+export interface InputProps extends NextUiInputProps, WithTheme {
   balance?: number;
   balanceCurrency?: string;
   currency?: string;

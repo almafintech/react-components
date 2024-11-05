@@ -1,4 +1,5 @@
 import { ControlledRadioProps } from "./types";
+import { isByma } from "../utils";
 import styles from "./ControlledRadio.module.scss";
 
 /**
@@ -13,7 +14,10 @@ const ControlledRadio = ({
   onChange,
   disabled,
   onBlur,
+  theme,
 }: ControlledRadioProps) => {
+  const isBymaTheme = isByma(theme);
+
   const { inputRadio, radioLabel, labelDisabled } = styles;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +29,9 @@ const ControlledRadio = ({
   };
 
   return (
-    <label className={`${radioLabel} ${disabled ? labelDisabled : ""}`}>
+    <label
+      className={`${isBymaTheme ? "byma" : ""} ${radioLabel} ${disabled ? labelDisabled : ""}`}
+    >
       <input
         type="radio"
         value={value}

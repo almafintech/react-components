@@ -89,3 +89,12 @@ export const withoutButtons: Story = {
     secondaryButtonText: undefined,
   },
 };
+
+export const defaultWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    primaryButtonText: undefined,
+    secondaryButtonText: undefined,
+    theme: "byma",
+  },
+};

@@ -353,3 +353,186 @@ $confirm-actions-height: 100px;
     }
   }
 }
+
+:global(.byma) {
+  .base {
+    .innerWrapper {
+      color: $byma-primary-alternative;
+    }
+
+    @include data-has-value {
+      .innerWrapper {
+        color: $byma-primary-default !important;
+      }
+    }
+
+    .trigger {
+      border-color: $byma-text-disabled;
+      background: $byma-white;
+    }
+
+    &:not(.invalidSelect):not(.validSelect) {
+      .trigger {
+        @include data-hover {
+          background: $byma-white;
+          border-color: $byma-text-disabled;
+        }
+
+        @include data-open {
+          background: $byma-white;
+          border-color: $byma-primary-default;
+        }
+
+        @include data-focus {
+          background: $byma-white;
+          border-color: $byma-primary-default;
+        }
+      }
+    }
+  }
+
+  .disabledSelect {
+    .trigger {
+      background-color: $byma-text-disabled;
+      color: $byma-text-primary;
+      border-color: $byma-text-disabled;
+    }
+
+    .label {
+      &.formField {
+        color: $byma-text-primary !important;
+      }
+    }
+  }
+
+  .invalidSelect {
+    .trigger {
+      border-color: $byma-error-dark;
+    }
+  }
+
+  .label {
+    color: $byma-text-primary !important;
+
+    &.formField {
+      color: $byma-text-primary !important;
+    }
+  }
+
+  .popoverContent {
+    border-color: $byma-primary-alternative;
+  }
+
+  .validSelect {
+    .trigger {
+      border-color: $byma-success-dark;
+    }
+  }
+
+  .errorMessageStyle {
+    color: $byma-error-dark;
+  }
+
+  .descriptionStyle {
+    color: $byma-text-primary;
+  }
+
+  .datePicker {
+    background-color: $byma-white !important;
+
+    @include data-focus {
+      background-color: $byma-white !important;
+    }
+
+    @include data-selected {
+      background-color: $byma-white !important;
+    }
+
+    @include data-hover {
+      background-color: $byma-white !important;
+    }
+  }
+
+  .confirmActions {
+    background-color: $byma-white !important;
+
+    @include data-focus {
+      background-color: $byma-white !important;
+    }
+
+    @include data-selected {
+      background-color: $byma-white !important;
+    }
+
+    @include data-hover {
+      background-color: $byma-white !important;
+    }
+  }
+
+  .itemDivider {
+    &:after {
+      border-bottom: 1px solid $byma-background-primary;
+    }
+  }
+
+  .listbox {
+    ul:first-child {
+      > li:not(.confirmActions):not(.datePicker) {
+        background-color: $byma-white;
+        color: $byma-text-primary;
+
+        &:not(.checkOrRadio) {
+          @include data-selected {
+            background-color: $byma-primary-default !important;
+            color: $byma-background-primary !important;
+          }
+        }
+
+        @include data-hover {
+          background-color: $byma-primary-hover !important;
+        }
+      }
+    }
+  }
+
+  .section {
+    > span {
+      &:hover {
+        background-color: $byma-background-primary !important;
+      }
+    }
+
+    > ul {
+      li {
+        background-color: $byma-white;
+        color: $byma-text-primary;
+
+        @include data-selected {
+          background-color: $byma-white !important;
+        }
+
+        @include data-hover {
+          background-color: $byma-background-primary !important;
+        }
+      }
+    }
+  }
+
+  .helperWrapper {
+    .description {
+      color: $byma-primary-alternative;
+    }
+    .errorMessage {
+      color: $byma-error-dark;
+    }
+  }
+
+  .externalBox {
+    color: $byma-text-primary;
+
+    .externalItem {
+      background-color: $byma-primary-default;
+      color: $byma-white;
+    }
+  }
+}

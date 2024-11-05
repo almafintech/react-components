@@ -5,6 +5,7 @@ import {
   TableProps as NextUiTableProps,
   TableBodyProps,
 } from "@nextui-org/table";
+import { WithTheme } from "..";
 
 export interface Row {
   key: number | string;
@@ -21,7 +22,7 @@ export interface Column {
 type Props = Omit<NextUiTableProps, "children"> &
   Omit<TableBodyProps<Row>, "children" | "classNames">;
 
-export interface TableProps extends Props {
+export interface TableProps extends Props, WithTheme {
   rows: Row[];
   columns: Column[];
   selectionMode?: "single" | "multiple" | "none";

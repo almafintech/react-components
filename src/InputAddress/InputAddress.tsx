@@ -11,6 +11,8 @@ import { FormattedAddress, InputAddressProps } from "./types";
 import styles from "./InputAddress.module.scss";
 import { Loader } from "@googlemaps/js-api-loader";
 import LocationPin from "../../assets/images/ui/icons/ui-icon-location-pin.svg";
+import LocationPinByma from "../../assets/images/ui/icons/ui-icon-location-pin-byma.svg";
+import { isByma } from "../utils";
 
 const { autoCompleteOptions, active, autoComplete: autoCompleteStyle } = styles;
 
@@ -45,7 +47,10 @@ const InputAddress = (props: InputAddressProps) => {
     autoSelect,
     getStatus,
     onChange,
+    theme,
   } = props;
+
+  const isBymaTheme = isByma(theme);
 
   const inputProps: InputProps = {
     name,
@@ -398,9 +403,12 @@ const InputAddress = (props: InputAddressProps) => {
   }, [statusOfLibrary]);
 
   return (
-    <div className={`${autoCompleteStyle} ${className ? className : ""}`}>
+    <div
+      className={`${isBymaTheme ? "byma" : ""} ${autoCompleteStyle} ${className ? className : ""}`}
+    >
       <div ref={placesServicesContainerRef}></div>
       <Input
+        theme={theme}
         type="text"
         autoComplete={autoComplete}
         onChange={handleChange}
@@ -439,7 +447,7 @@ const InputAddress = (props: InputAddressProps) => {
                 onClick={() => handleAutocompleteSelect(prediction)}
                 onMouseOver={() => setCurrentFocus(index)}
               >
-                <img src={LocationPin} />
+                <img src={isBymaTheme ? LocationPinByma : LocationPin} />
                 <span>
                   {
                     // highlight text that matches the input

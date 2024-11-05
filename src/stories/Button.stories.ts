@@ -27,7 +27,7 @@ const meta = {
     isDisabled: {
       control: "boolean",
     },
-    isLoading:{
+    isLoading: {
       control: "boolean",
     },
     disableAnimation: {
@@ -35,7 +35,7 @@ const meta = {
     },
     disableRipple: {
       control: "boolean",
-    }
+    },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
@@ -52,7 +52,7 @@ export const Primary: Story = {
     isDisabled: false,
     isLoading: false,
     disableAnimation: true,
-    disableRipple: true
+    disableRipple: true,
   },
 };
 
@@ -102,5 +102,12 @@ export const WithCustomStyles: Story = {
     ...Primary.args,
     className:
       "bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg",
+  },
+};
+
+export const WithBymaTheme: Story = {
+  args: {
+    ...Primary.args,
+    theme: "byma",
   },
 };

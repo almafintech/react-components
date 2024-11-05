@@ -9,20 +9,26 @@ import {
 } from "@nextui-org/table";
 import styles from "./Table.module.scss";
 import { TableProps } from "./types";
+import { isByma } from "../utils";
 
 const Table = ({
   rows,
   columns,
   selectedRowKey,
   emptyContent,
+  theme,
+  className,
   ...rest
 }: TableProps) => {
   const { selectedRow, ...restStyles } = styles;
+
+  const isBymaTheme = isByma(theme);
 
   return (
     <NextUiTable
       aria-label="allaria-table"
       classNames={{ ...restStyles }}
+      className={`${isBymaTheme ? "byma" : ""} ${className ?? ""}`}
       {...rest}
     >
       <TableHeader columns={columns}>

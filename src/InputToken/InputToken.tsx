@@ -1,8 +1,10 @@
 /* eslint-disable unicorn/no-new-array */
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./InputToken.module.scss";
+import { WithTheme } from "..";
+import { isByma } from "../utils";
 
-interface InputTokenProps {
+interface InputTokenProps extends WithTheme {
   token?: string | null;
   setToken: (token: string) => void;
   charactersAmount: number;
@@ -16,7 +18,10 @@ const InputToken = ({
   charactersAmount,
   handleOnBlur,
   disabled,
+  theme,
 }: InputTokenProps) => {
+  const isBymaTheme = isByma(theme);
+
   const [inputValues, setInputValues] = useState(
     new Array(charactersAmount).fill("")
   );
@@ -106,7 +111,7 @@ const InputToken = ({
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={`${isBymaTheme ? "byma" : ""} ${styles.container}`}>
       {Array.from({ length: charactersAmount })
         .fill(0)
         .map((_, index) => (

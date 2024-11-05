@@ -1,6 +1,7 @@
 import { ChangeEvent, FocusEvent } from "react";
+import { WithTheme } from "..";
 
-export interface ControlledRadioProps {
+export interface ControlledRadioProps extends WithTheme {
   /**
    *  To style ControlledRadio
    */

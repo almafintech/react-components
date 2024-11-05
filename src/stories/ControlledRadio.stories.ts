@@ -29,6 +29,23 @@ export const Default: Story = {
 export const checked: Story = {
   args: {
     ...Default.args,
-    checked: true
+    checked: true,
+  },
+};
+
+export const withBymaChecked: Story = {
+  args: {
+    ...Default.args,
+    checked: true,
+    theme: "byma",
+  },
+};
+
+export const disabledWithBymaChecked: Story = {
+  args: {
+    ...Default.args,
+    checked: true,
+    theme: "byma",
+    disabled: true,
   },
 };

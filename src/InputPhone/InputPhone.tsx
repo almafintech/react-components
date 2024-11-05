@@ -3,10 +3,14 @@ import PhoneInput from "react-phone-input-2";
 import { InputPhoneProps } from "./types";
 
 import InfoIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-info.svg";
+import InfoIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-info-byma.svg";
+
 import ErrorIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
+import ErrorIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
 
 import "react-phone-input-2/lib/style.css";
 import styles from "./InputPhone.module.scss";
+import { isByma } from "../utils";
 
 const InputPhone = (props: InputPhoneProps) => {
   const {
@@ -23,8 +27,11 @@ const InputPhone = (props: InputPhoneProps) => {
     touched,
     autoFormat = false,
     name,
+    theme,
     ...rest
   } = props;
+
+  const isBymaTheme = isByma(theme);
 
   const {
     label,
@@ -48,7 +55,7 @@ const InputPhone = (props: InputPhoneProps) => {
     inputTouched && ((isValid === false && errorMessage) || isValid === true);
 
   return (
-    <div>
+    <div className={isBymaTheme ? "byma" : ""}>
       <label className={`${label} ${isFormField ? formField : ""}`}>
         Teléfono
       </label>
@@ -77,13 +84,13 @@ const InputPhone = (props: InputPhoneProps) => {
       )}
       {infoMessage && !(shouldValidate && isValid === false) && (
         <div className={helperWrapper}>
-          <img src={InfoIcon} className={icon} />
+          <img src={isBymaTheme ? InfoIconByma : InfoIcon} className={icon} />
           <span className={infoMessageStyle}>{infoMessage}</span>
         </div>
       )}
       {shouldValidate && isValid === false && (
         <div className={helperWrapper}>
-          <img src={ErrorIcon} className={icon} />
+          <img src={isBymaTheme ? ErrorIconByma : ErrorIcon} className={icon} />
           <span className={errorMessageStyle}>
             {errorMessage ?? "Valor inválido"}
           </span>

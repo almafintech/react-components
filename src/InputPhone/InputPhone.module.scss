@@ -115,3 +115,76 @@
 .containerInputClassName {
   z-index: 30;
 }
+
+:global(.byma) {
+  .inputPhoneNumber {
+    color: $byma-text-primary !important;
+    border-color: $byma-text-disabled !important;
+
+    &:focus,
+    &:focus + div {
+      border-color: $byma-primary-default !important;
+    }
+
+    &.success,
+    &.success + div {
+      background-color: $byma-white !important;
+      border-color: $byma-success-dark !important;
+    }
+
+    &.error,
+    &.error + div {
+      background-color: $byma-white !important;
+      border-color: $byma-error-dark !important;
+    }
+  }
+
+  .dropdownPhoneNumber {
+    border-color: $byma-white;
+
+    li {
+      color: $byma-text-primary;
+
+      &:hover {
+        background-color: $byma-white !important;
+      }
+
+      &[aria-selected="true"] {
+        color: $byma-primary-default !important;
+        background-color: $byma-white !important;
+      }
+    }
+  }
+
+  .buttonPhoneNumber {
+    background-color: $white !important ;
+    border-color: $byma-text-disabled !important;
+
+    > div > div > div {
+      border-top-color: $byma-primary-default !important;
+      border-bottom-color: $byma-primary-default !important;
+    }
+  }
+
+  .label {
+    color: $byma-text-primary;
+
+    &.formField {
+      color: $byma-text-primary !important;
+    }
+  }
+
+  .helperWrapper {
+    .description {
+      color: $byma-text-disabled;
+    }
+
+    .infoMessage {
+      color: $byma-info-dark;
+    }
+
+    .errorMessage {
+      color: $byma-error-dark;
+    }
+  }
+}

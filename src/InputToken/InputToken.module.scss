@@ -25,3 +25,15 @@
     outline: none !important;
   }
 }
+
+:global(.byma) {
+  .inputBox {
+    background: $byma-white;
+    border-color: $byma-text-disabled;
+
+    // on focus border color primary
+    &:focus {
+      border-color: $byma-primary-default !important;
+    }
+  }
+}

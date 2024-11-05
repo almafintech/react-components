@@ -45,3 +45,31 @@
     background-color: $white;
   }
 }
+
+:global(.byma) {
+  .dropdownItem {
+    border-color: $byma-background-tertiary !important;
+  }
+
+  .dropdownItem {
+    color: $byma-text-primary;
+
+    @include data-hover {
+      color: $byma-text-primary !important;
+      background-color: $byma-primary-hover !important;
+    }
+
+    @include data-pressed {
+      color: $byma-primary-default;
+    }
+
+    @include data-selected {
+      color: $byma-white !important;
+      background-color: $byma-primary-default !important;
+    }
+
+    &:not([data-hover="true"])[data-focus="true"] {
+      background-color: $byma-white;
+    }
+  }
+}

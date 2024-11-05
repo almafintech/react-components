@@ -3,6 +3,6 @@ import { TooltipProps as NextUiTooltipProps } from "@nextui-org/tooltip";
 
 export interface TooltipProps extends NextUiTooltipProps {
   children: ReactNode;
-  variant?: "blue" | "black" | "white";
+  variant?: "blue" | "black" | "white" | "byma";
   width?: string | number;
 }

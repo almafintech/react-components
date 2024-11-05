@@ -94,3 +94,10 @@ export const WithContent: Story = {
     ],
   },
 };
+
+export const DefaultWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    theme: "byma",
+  },
+};

@@ -1,8 +1,10 @@
 import { ButtonProps } from "@nextui-org/button";
 import { ReactElement } from "react";
+import { WithTheme } from "..";
 
 export interface RoundedButtonProps
-  extends Pick<ButtonProps, "isDisabled" | "onClick"> {
+  extends Pick<ButtonProps, "isDisabled" | "onClick">,
+    WithTheme {
   /**
    *  The icon of the RoundedButton
    */

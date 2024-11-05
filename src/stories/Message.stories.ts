@@ -35,3 +35,27 @@ export const successMessage: Story = {
     variant: "success",
   },
 };
+
+export const infoMessageWithBymaTheme: Story = {
+  args: {
+    message: "This is a info message",
+    variant: "info",
+    theme: "byma",
+  },
+};
+
+export const errorMessageWithBymaTheme: Story = {
+  args: {
+    message: "This is a error message",
+    variant: "error",
+    theme: "byma",
+  },
+};
+
+export const successMessageWithBymaTheme: Story = {
+  args: {
+    message: "This is a success message",
+    variant: "success",
+    theme: "byma",
+  },
+};

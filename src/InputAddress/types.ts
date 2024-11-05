@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { WithTheme } from "..";
 
 export interface FormattedAddress {
   street: string;
@@ -10,7 +11,7 @@ export interface FormattedAddress {
   municipality: string;
 }
 
-export interface InputAddressProps {
+export interface InputAddressProps extends WithTheme {
   name?: string;
   /* Long name country, ej: "Argentina" */
   country?: string;

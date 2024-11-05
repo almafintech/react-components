@@ -7,11 +7,14 @@ import { InputProps } from "./types";
 import HideIcon from "../../assets/images/ui/icons/ui-icon-hide-gray.svg";
 import ShowIcon from "../../assets/images/ui/icons/ui-icon-show-gray.svg";
 import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
+import InvalidIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
 import SearchIcon from "../../assets/images/ui/icons/ui-icon-search-gray-outline.svg";
 
 import styles from "./Input.module.scss";
 import { getValue, removeMask } from "./utils";
 import { LoadingCircle } from "../LoadingCircle";
+
+import { isByma } from "../utils";
 
 const Input = (props: InputProps) => {
   const {
@@ -33,7 +36,11 @@ const Input = (props: InputProps) => {
     customInfo,
     hasLabel = true,
     isLoading = false,
+    theme,
+    className,
   } = props;
+
+  const isBymaTheme = isByma(theme);
 
   const {
     base,
@@ -100,7 +107,7 @@ const Input = (props: InputProps) => {
 
   const getErrorMessage = () => (
     <div className={error}>
-      <img src={InvalidIcon} className={icon} />
+      <img src={isBymaTheme ? InvalidIconByma : InvalidIcon} className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );
@@ -150,6 +157,7 @@ const Input = (props: InputProps) => {
         setTouched(true);
         props.onBlur && props.onBlur(e);
       }}
+      className={`${isBymaTheme ? "byma" : ""} ${className ?? ""}`}
       classNames={{
         base: `${base} ${!hasLabel && noLabel}`,
         input: input,

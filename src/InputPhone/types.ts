@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 import { PhoneInputProps } from "react-phone-input-2";
+import { WithTheme } from "..";
 
-export interface InputPhoneProps extends PhoneInputProps {
+export interface InputPhoneProps extends PhoneInputProps, WithTheme {
   description?: string;
   infoMessage?: string;
   errorMessage?: ReactNode;

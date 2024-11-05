@@ -6,6 +6,7 @@ import {
 } from "@nextui-org/dropdown";
 import { DropdownProps, DropdownOption } from "./types";
 import styles from "./Dropdown.module.scss";
+import { isByma } from "../utils";
 
 const Dropdown = ({
   items,
@@ -14,14 +15,19 @@ const Dropdown = ({
   selectedKeys,
   children,
   disallowEmptySelection = false,
+  theme,
+  className,
   ...rest
 }: DropdownProps) => {
+  const isBymaTheme = isByma(theme);
+
   const { dropdownContent, dropdownMenuBase, dropdownMenuList, dropdownItem } =
     styles;
 
   return (
     <NextUiDropdown
       {...rest}
+      className={`${isBymaTheme ? "byma" : ""} ${className}`}
       classNames={{
         content: dropdownContent,
       }}

@@ -1,6 +1,8 @@
+import { WithTheme } from "..";
+
 export type DateRange = [Date | undefined, Date | undefined];
 
-export interface DatePickerProps {
+export interface DatePickerProps extends WithTheme {
   /**
    * The locale date format
    */

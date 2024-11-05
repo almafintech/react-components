@@ -65,3 +65,59 @@ export const withError: Story = {
     error: "This is an error message",
   },
 };
+
+export const DefaultWithBymaTheme: Story = {
+  args: {
+    onChange: fn(),
+    options: [
+      { label: "Option 1", value: "option1" },
+      { label: "Option 2", value: "option2" },
+      { label: "Option 3", value: "option3" },
+    ],
+    theme: "byma",
+  },
+};
+
+export const labelWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Select an option",
+    theme: "byma",
+  },
+};
+
+export const disabledWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Select an option",
+    disabled: true,
+    theme: "byma",
+  },
+};
+
+export const initialCheckedWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Select an option",
+    options: [
+      { label: "Option 1", value: "option1" },
+      { label: "Option 2", value: "option2", initialChecked: true },
+      { label: "Option 3", value: "option3" },
+    ],
+    theme: "byma",
+  },
+};
+
+export const withErrorWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Select an option",
+    options: [
+      { label: "Option 1", value: "option1" },
+      { label: "Option 2", value: "option2", initialChecked: true },
+      { label: "Option 3", value: "option3" },
+    ],
+    error: "This is an error message",
+    theme: "byma",
+  },
+};

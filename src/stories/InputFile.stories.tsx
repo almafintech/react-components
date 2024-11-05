@@ -113,3 +113,79 @@ export const isMobileWithCustomSuccessMessage: Story = {
     isMobile: true,
   },
 };
+
+export const WithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    theme: "byma",
+  },
+};
+
+export const WithInfoMessageWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    infoText: "Adjuntá la información necesaria",
+    label: "Frente",
+    theme: "byma",
+  },
+};
+
+export const WithInfoMessageCustomPositionWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    infoText: "Adjuntá la información necesaria",
+    label: "Frente",
+    infoTextPosition: "top",
+    theme: "byma",
+  },
+};
+
+export const WithValidTypesFilesWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    validTypes: ["image/jpg", "image/png"],
+    infoText: "Formato .jpg .png",
+    label: "Frente",
+    theme: "byma",
+  },
+};
+
+export const WithFileDataWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Frente",
+    fileData: {
+      id: 1,
+      name: "293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155 (2) (1) (1).png",
+    },
+    hideDownloadIcon: true,
+    theme: "byma",
+  },
+};
+
+export const WithMaxSizeWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    maxSize: 1,
+    infoText: "Peso máximo 1MB",
+    label: "Frente",
+    theme: "byma",
+  },
+};
+
+export const withoutDownloadIconWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    hideDownloadIcon: true,
+    theme: "byma",
+  },
+};
+
+export const isMobileWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Frente",
+    isMobile: true,
+    theme: "byma",
+  },
+};

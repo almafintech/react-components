@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import Calendar from "./ui/Calendar";
 import Select from "../InputSelect/InputSelect";
 import BackIcon from "../../assets/images/ui/icons/ui-icon-chevron-left.svg";
+import BackIconByma from "../../assets/images/ui/icons/ui-icon-chevron-left-byma.svg";
 import {
   getCurrentYear,
   getCurrentMonth,
@@ -13,6 +14,7 @@ import {
   isRangeFinal,
 } from "./helpers";
 import { DatePickerProps, DateRange } from "./types";
+import { isByma } from "../utils";
 
 /**
  *  Allow users to select a date or a range of dates
@@ -32,7 +34,10 @@ const DatePicker = (props: DatePickerProps) => {
     headerClassName,
     calendarClassName,
     footerClassName,
+    theme,
   } = props;
+
+  const isBymaTheme = isByma(theme);
 
   const {
     menu: menuStyle,
@@ -91,7 +96,7 @@ const DatePicker = (props: DatePickerProps) => {
         popoverContent: selectPopoverContent,
         value: selectValue,
       }}
-      className={`${select} ${years}`}
+      className={`${isBymaTheme ? "byma" : ""} ${select} ${years}`}
     />
   );
 
@@ -113,17 +118,19 @@ const DatePicker = (props: DatePickerProps) => {
         popoverContent: selectPopoverContent,
         value: selectValue,
       }}
-      className={`${select} ${months}`}
+      className={`${isBymaTheme ? "byma" : ""} ${select} ${months}`}
     />
   );
 
   return (
-    <div className={`${menuStyle} ${menuClassName}`}>
+    <div
+      className={`${isBymaTheme ? "byma" : ""} ${menuStyle} ${menuClassName}`}
+    >
       <div className={`${header} ${headerClassName}`}>
         <div className="flex gap-1 flex-grow">
           {onBack && calendarVariant !== "DATE" && (
             <div className={iconButton} onClick={() => onBack && onBack()}>
-              <img src={BackIcon} />
+              <img src={isBymaTheme ? BackIconByma : BackIcon} />
             </div>
           )}
           {["DAY", "DATE"].includes(calendarVariant) && monthPicker}
@@ -147,6 +154,7 @@ const DatePicker = (props: DatePickerProps) => {
         className={`${footerClassName} flex gap-3 flex-wrap w-full justify-evenly`}
       >
         <Button
+          theme={isBymaTheme ? "byma" : undefined}
           text="Aplicar"
           variant="primary"
           isDisabled={!isRangeFinal(range)}
@@ -155,6 +163,7 @@ const DatePicker = (props: DatePickerProps) => {
 
         {defaultCalendarVariant !== "DATE" && (
           <Button
+            theme={isBymaTheme ? "byma" : undefined}
             text="Borrar"
             variant="tertiary"
             onClick={() => {

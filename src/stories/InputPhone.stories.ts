@@ -82,3 +82,47 @@ export const withCustomStyles: Story = {
     buttonClass: "border-none",
   },
 };
+
+export const DefaultWithBymaTheme: Story = {
+  args: {
+    name: "phone",
+    placeholder: "1159682222",
+
+    touched: false,
+    description: "",
+    theme: "byma",
+  },
+};
+
+export const WithDescriptionWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    description: "Número de teléfono con código de área sin 0 ni 15",
+    theme: "byma",
+  },
+};
+
+export const WithInfoMessageWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    infoMessage: "Con código de área sin 0 ni 15.",
+    theme: "byma",
+  },
+};
+
+export const isValidWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    isValid: true,
+    touched: true,
+    theme: "byma",
+  },
+};
+
+export const isInvalidWithCustomErrorMessageWithBymaTheme: Story = {
+  args: {
+    ...isInvalid.args,
+    errorMessage: "Número de teléfono con código de área sin 0 ni 15",
+    theme: "byma",
+  },
+};

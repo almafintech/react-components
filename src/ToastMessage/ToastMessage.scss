@@ -43,3 +43,39 @@
     top: 0.8rem !important;
   }
 }
+
+.byma .Toastify__toast-body {
+  color: $byma-text-primary !important;
+}
+
+.byma .Toastify__toast--error .Toastify__progress-bar--error {
+  background-color: $byma-error-dark !important;
+}
+
+.byma .Toastify__toast--error svg {
+  fill: $byma-error-dark !important;
+}
+
+.byma .Toastify__toast--success .Toastify__progress-bar--success {
+  background-color: $byma-success-dark !important;
+}
+
+.byma .Toastify__toast--success svg {
+  fill: $byma-success-dark !important;
+}
+
+.byma .Toastify__toast--warning .Toastify__progress-bar--warning {
+  background-color: $byma-warning-dark !important;
+}
+
+.byma .Toastify__toast--warning svg {
+  fill: $byma-warning-dark !important;
+}
+
+.byma .Toastify__toast--info .Toastify__progress-bar--info {
+  background-color: $byma-info-dark !important;
+}
+
+.byma .Toastify__toast--info svg {
+  fill: $byma-info-dark !important;
+}

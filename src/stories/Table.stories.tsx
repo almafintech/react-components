@@ -131,3 +131,18 @@ export const WithBottomContent: Story = {
     bottomContentPlacement: "outside",
   },
 };
+
+export const DefaultWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    theme: "byma",
+  },
+};
+
+export const MultipleSelectionWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    selectionMode: "multiple",
+    theme: "byma",
+  },
+};

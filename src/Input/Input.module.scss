@@ -15,6 +15,10 @@
     .inputWrapper {
       border-color: $primary-normal-300 !important;
     }
+
+    :global(.byma).inputWrapper {
+      border-color: $byma-primary-default !important;
+    }
   }
 
   @include data-invalid {
@@ -26,6 +30,9 @@
     }
     .inputWrapper.touched {
       border-color: $e300 !important;
+    }
+    :global(.byma).inputWrapper.touched {
+      border-color: $byma-error-dark !important;
     }
     .label {
       color: $primary-dark-900 !important;
@@ -39,6 +46,11 @@
     .inputWrapper,
     .input {
       background-color: $secondary-light-50 !important;
+    }
+
+    :global(.byma).inputWrapper,
+    :global(.byma).input {
+      background-color: $byma-text-disabled !important;
     }
   }
 }
@@ -157,5 +169,90 @@
 
   .icon {
     margin-right: 0.5rem !important;
+  }
+}
+
+:global(.byma) {
+  &.base {
+    @include data-hover {
+      .inputWrapper {
+        border-color: $byma-text-disabled !important;
+      }
+    }
+
+    @include data-focus {
+      .inputWrapper {
+        border-color: $byma-primary-default !important;
+      }
+    }
+
+    @include data-invalid {
+      .input {
+        color: $byma-text-primary !important;
+      }
+      .inputWrapper.touched {
+        border-color: $byma-error-dark !important;
+      }
+      .label {
+        color: $byma-text-primary !important;
+
+        &.formField {
+          color: $byma-text-primary !important;
+        }
+      }
+    }
+
+    @include data-disabled {
+      .inputWrapper,
+      .input {
+        background-color: $byma-text-disabled !important;
+      }
+    }
+  }
+
+  .input {
+    &::placeholder {
+      color: $byma-text-disabled !important;
+    }
+  }
+
+  .inputWrapper {
+    border-color: $byma-text-disabled !important;
+    background-color: $byma-white !important;
+
+    &.touched.validated {
+      border-color: $byma-success-dark !important;
+    }
+  }
+
+  .innerWrapper {
+    background-color: $byma-white !important;
+  }
+
+  .label {
+    color: $byma-text-primary !important;
+
+    .info {
+      .balance {
+        color: $byma-text-disabled !important;
+
+        .number {
+          color: $byma-primary-default !important;
+        }
+      }
+    }
+
+    &.formField {
+      color: $byma-text-disabled !important;
+    }
+  }
+
+  .helperWrapper {
+    .description {
+      color: $byma-text-disabled !important;
+    }
+    .errorMessage {
+      color: $byma-error-dark !important;
+    }
   }
 }

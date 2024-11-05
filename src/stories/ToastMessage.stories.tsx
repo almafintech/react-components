@@ -57,3 +57,19 @@ export const Info: Story = {
 export const Warning: Story = {
   args: { messageId: "toastMessageWarning" },
 };
+
+export const SuccessWithBymaTheme: Story = {
+  args: { messageId: "toastMessageSuccess", theme: "byma" },
+};
+
+export const ErrorWithBymaTheme: Story = {
+  args: { messageId: "toastMessageError", theme: "byma" },
+};
+
+export const InfoWithBymaTheme: Story = {
+  args: { messageId: "toastMessageInfo", theme: "byma" },
+};
+
+export const WarningWithBymaTheme: Story = {
+  args: { messageId: "toastMessageWarning", theme: "byma" },
+};

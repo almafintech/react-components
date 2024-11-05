@@ -2,10 +2,11 @@ import { DateRange } from "../DatePicker/types";
 
 import { SelectProps } from "@nextui-org/react";
 import { Key, ReactNode } from "react";
+import { WithTheme } from "..";
 
 export type Values = string[] | string;
 
-export interface Item {
+export interface Item extends WithTheme {
   value: string;
   label: string;
 }
@@ -51,7 +52,7 @@ export interface NextUISelectProps
   errorMessage?: ReactNode;
 }
 
-export interface InputSelectProps extends NextUISelectProps {
+export interface InputSelectProps extends NextUISelectProps, WithTheme {
   locale?: string;
   onDatepickerDateChanged?: (range: DateRange) => void;
   initialDatePickerRange?: DateRange;

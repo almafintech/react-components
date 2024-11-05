@@ -136,3 +136,10 @@ export const onChange: Story = {
     onChange: eventsFromNames.onChange,
   },
 };
+
+export const WithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    theme: "byma",
+  },
+};

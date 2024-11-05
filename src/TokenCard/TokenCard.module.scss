@@ -187,6 +187,7 @@
   font-size: 0.875rem !important;
   color: $secondary-normal-300 !important;
 }
+
 .buttonsGroup {
   display: flex;
   justify-content: center;
@@ -204,5 +205,46 @@
     font-weight: 500;
     line-height: 1.25rem; /* 125% */
     text-decoration-line: underline;
+  }
+}
+
+//Change all the colors of all classes to byma colors
+:global(.byma) {
+  .errorMessage {
+    span {
+      color: $byma-error-dark;
+    }
+  }
+
+  .fadeOutWrapper {
+    background-color: $byma-white;
+  }
+
+  .loading {
+    .title {
+      color: $byma-text-primary;
+    }
+    span {
+      color: $byma-text-primary;
+    }
+  }
+
+  .headerModal {
+    h2 {
+      color: $byma-success-dark;
+    }
+    h3 {
+      color: $byma-text-primary;
+    }
+  }
+
+  .subtitleStyle {
+    color: $byma-text-disabled !important;
+  }
+
+  .countdownContainer {
+    > button {
+      color: $byma-text-disabled !important;
+    }
   }
 }

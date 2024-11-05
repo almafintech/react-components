@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { WithTheme } from "..";
 
 export type InputFileErrorsTypes =
   | "format_error"
@@ -11,7 +12,7 @@ export type FileData = {
   name: string;
 };
 
-export interface InputFileProps {
+export interface InputFileProps extends WithTheme {
   className?: string;
   error?: boolean;
   fileData?: FileData;

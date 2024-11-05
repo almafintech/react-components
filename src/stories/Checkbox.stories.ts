@@ -22,7 +22,7 @@ export const Default: Story = {
   args: {
     children: "Option",
     isDisabled: false,
-    size: "md"
+    size: "md",
   },
 };
 
@@ -44,5 +44,14 @@ export const AlwaysSelected: Story = {
   args: {
     ...Default.args,
     isSelected: true,
+  },
+};
+
+export const WithBymaTheme: Story = {
+  args: {
+    children: "Option",
+    isDisabled: false,
+    size: "md",
+    theme: "byma",
   },
 };

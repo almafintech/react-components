@@ -22,3 +22,19 @@
 .rectangular {
   width: 5.02604rem !important;
 }
+
+:global(.byma) {
+  &.base {
+    background-color: $byma-primary-default-light !important;
+
+    @include data-hover {
+      background-color: $byma-primary-hover !important;
+      opacity: 1 !important;
+    }
+
+    @include data-disabled {
+      background-color: $byma-text-disabled !important;
+      opacity: 1 !important;
+    }
+  }
+}

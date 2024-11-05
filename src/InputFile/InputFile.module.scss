@@ -151,3 +151,36 @@
   @extend .message;
   color: $secondary-normal-300;
 }
+
+:global(.byma) {
+  .inputFile {
+    border-color: $byma-primary-default;
+
+    .fileHeader {
+      span {
+        color: $byma-primary-default;
+      }
+    }
+
+    &.inputSuccess {
+      border-color: $byma-success-dark;
+    }
+  }
+
+  .mobile {
+    border-color: $byma-primary-default;
+    color: $byma-primary-default;
+  }
+
+  .infoTextStyle {
+    color: $byma-text-disabled;
+  }
+
+  .errorMessageStyle {
+    color: $byma-error-dark;
+  }
+
+  .successMessageStyle {
+    color: $byma-text-disabled;
+  }
+}

@@ -39,6 +39,24 @@
   background-color: $secondary-light-200 !important;
 }
 
+:global(.byma).primary {
+  @extend .button;
+  background-color: $byma-primary-default !important;
+  color: $white !important;
+
+  @include data-hover {
+    background-color: $byma-primary-hover !important;
+  }
+
+  @include data-pressed {
+    background-color: $byma-primary-active !important;
+  }
+}
+
+:global(.byma).primary:disabled {
+  background-color: $byma-text-disabled !important;
+}
+
 //Secondary variant
 .secondary {
   @extend .button;
@@ -61,6 +79,27 @@
   color: $secondary-light-200 !important;
 }
 
+:global(.byma).secondary {
+  @extend .button;
+  background-color: $white !important;
+  border: 1px solid $byma-primary-default !important;
+  color: $byma-primary-default !important;
+
+  @include data-hover {
+    background-color: $byma-primary-hover !important;
+  }
+
+  @include data-pressed {
+    background-color: $byma-primary-active !important;
+  }
+}
+
+:global(.byma).secondary:disabled {
+  background-color: $white !important;
+  border: 1px solid $byma-text-disabled !important;
+  color: $byma-text-disabled !important;
+}
+
 //Tertiary variant
 .tertiary {
   @extend .button;
@@ -81,4 +120,25 @@
 .tertiary:disabled {
   background-color: $white !important;
   color: $secondary-light-200 !important;
+}
+
+:global(.byma).tertiary {
+  @extend .button;
+  background-color: $white !important;
+  border: 0 !important;
+  color: $byma-primary-default !important;
+  text-decoration: underline !important;
+
+  @include data-hover {
+    background-color: $byma-primary-hover !important;
+  }
+
+  @include data-pressed {
+    background-color: $byma-primary-active !important;
+  }
+}
+
+:global(.byma).tertiary:disabled {
+  background-color: $white !important;
+  color: $byma-text-disabled !important;
 }

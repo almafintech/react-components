@@ -1,49 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins");
+@import url("https://fonts.googleapis.com/css2?family=Lato");
 @import "../src/styles/variables";
 
 * {
   font-family: "Poppins", sans-serif;
 }
 
-.flexContainer{
+.byma {
+  font-family: "Lato", sans-serif;
+}
+
+.flexContainer {
   display: flex !important;
   align-items: center;
   gap: 0.5rem;
 }
 
-.dot{
+.dot {
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 0.5rem;
 
-  &.green{
+  &.green {
     background-color: $s300;
   }
 
-  &.red{
+  &.red {
     background-color: $e300;
   }
 }
 
-.greenText{
+.greenText {
   color: $s300;
   margin: 0;
 }
 
-.redText{
+.redText {
   color: $e300;
   margin: 0;
 }
 
-.customAlert{
+.customAlert {
   background-color: $primary-dark-900 !important;
   color: $primary-light-50 !important;
 }
 
-.inputContainer{
+.inputContainer {
   width: 22rem;
 
-  &.top{
+  &.top {
     margin-bottom: 12rem;
   }
 }

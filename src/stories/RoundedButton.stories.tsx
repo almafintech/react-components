@@ -137,8 +137,63 @@ export const disabled: Story = {
   args: {
     icon: "email",
     buttonType: "squared",
-    isDisabled: true
+    isDisabled: true,
   },
 };
 
+export const DownloadWithBymaTheme: Story = {
+  args: {
+    icon: "download",
+    buttonType: "squared",
+    theme: "byma",
+  },
+};
 
+export const PlayWithBymaTheme: Story = {
+  args: {
+    icon: "pause",
+    buttonType: "squared",
+    theme: "byma",
+  },
+};
+
+export const NominalRateWithBymaTheme: Story = {
+  args: {
+    icon: "pause",
+    buttonType: "squared",
+    theme: "byma",
+  },
+};
+
+export const WithRectangularBackgroundWithBymaTheme: Story = {
+  args: {
+    icon: "download",
+    buttonType: "rectangular",
+    theme: "byma",
+  },
+};
+
+export const WithCircularBackgroundWithBymaTheme: Story = {
+  args: {
+    icon: "download",
+    buttonType: "rounded",
+    theme: "byma",
+  },
+};
+
+export const WithoutBackgroundWithBymaTheme: Story = {
+  args: {
+    icon: "download",
+    buttonType: "empty",
+    theme: "byma",
+  },
+};
+
+export const disabledWithBymaTheme: Story = {
+  args: {
+    icon: "email",
+    buttonType: "squared",
+    isDisabled: true,
+    theme: "byma",
+  },
+};

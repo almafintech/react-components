@@ -185,3 +185,87 @@
     flex-shrink: 0;
   }
 }
+
+:global(.byma) {
+  .selectTrigger {
+    &:hover {
+      background-color: $byma-primary-alternative !important;
+    }
+  }
+
+  .selectInnerWrapper {
+    color: $byma-primary-default !important;
+  }
+
+  .selectValue {
+    color: $byma-primary-default !important;
+  }
+
+  .day,
+  .month {
+    // Text
+    &.today {
+      color: $byma-primary-default;
+    }
+
+    &.padding {
+      color: $byma-text-disabled;
+    }
+
+    &.unselectable {
+      color: $secondary-light-100;
+    }
+
+    &.selected.final:not(.start):not(.end) {
+      color: $byma-primary-default;
+
+      // Make padding cells lighter even when selected
+      &.padding {
+        color: $byma-primary-active;
+      }
+    }
+
+    &.start,
+    &.end {
+      // Make padding cells lighter even when they're a selection start/end
+      &.padding {
+        font-weight: 400;
+        color: $primary-light-50;
+      }
+    }
+
+    // Background colors
+    &.selected:not(.start):not(.end) {
+      background-color: $byma-background-tertiary;
+    }
+
+    &.start,
+    &.end {
+      background-color: $byma-primary-active;
+    }
+
+    // NOTE If the cell hovered last is an end, we style it as if it were hovered,
+    // in case the user's mouse exited the calendar
+    &:hover:not(.unselectable),
+    &.lastHovered:not(.unselectable).end {
+      background-color: $byma-primary-hover;
+
+      &.selected {
+        background-color: $byma-primary-hover;
+      }
+
+      &.start,
+      &.end {
+        background-color: $byma-primary-hover;
+
+        &.final {
+          background-color: $byma-primary-hover;
+        }
+      }
+    }
+  }
+
+  .iconButton {
+    background-color: $byma-primary-alternative;
+  }
+}

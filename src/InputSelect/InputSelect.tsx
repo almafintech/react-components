@@ -22,9 +22,11 @@ import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-
 import ChevronIcon from "../../assets/images/ui/icons/ui-icon-chevron-dark-down.svg";
 import CalendarIcon from "../../assets/images/ui/icons/ui-icon-calendar.svg";
 import CloseIcon from "../../assets/images/ui/icons/ui-icon-close-blue.svg";
+import CloseIconWhite from "../../assets/images/ui/icons/ui-icon-close-white.svg";
 import DatePicker from "../DatePicker/DatePicker";
 import { DateRange } from "../DatePicker/types";
 import { InputSelectProps } from "./types";
+import { isByma } from "../utils";
 
 const InputSelect = ({
   placeholder,
@@ -50,6 +52,7 @@ const InputSelect = ({
   inputValue,
   showExternalBox,
   label: labelComponent,
+  theme,
   ...rest
 }: InputSelectProps) => {
   const {
@@ -87,6 +90,8 @@ const InputSelect = ({
     externalItem,
     ...restStyles
   } = styles;
+
+  const isBymaTheme = isByma(theme);
 
   // Useful booleans to check type
   const hasCheckbox = type.includes("checkbox");
@@ -211,6 +216,7 @@ const InputSelect = ({
     if (hasRadio) {
       return (
         <ControlledRadio
+          theme={isBymaTheme ? "byma" : undefined}
           label={label}
           value={value}
           name={label}
@@ -219,7 +225,11 @@ const InputSelect = ({
       );
     } else if (hasCheckbox) {
       return (
-        <Checkbox value={value} isSelected={valueIsSelected(value, values)}>
+        <Checkbox
+          theme={isBymaTheme ? "byma" : undefined}
+          value={value}
+          isSelected={valueIsSelected(value, values)}
+        >
           {label}
         </Checkbox>
       );
@@ -303,7 +313,10 @@ const InputSelect = ({
   }, [inputValue]);
 
   return (
-    <div id={`containerSelect-${componentId}`}>
+    <div
+      id={`containerSelect-${componentId}`}
+      className={isBymaTheme ? "byma" : ""}
+    >
       <label
         className={`${label} ${isInvalid || description ? labelFix : ""} ${
           isFormField && formField
@@ -524,7 +537,7 @@ const InputSelect = ({
                   <div className={externalItem} key={value}>
                     <span>{item?.label}</span>
                     <img
-                      src={CloseIcon}
+                      src={isBymaTheme ? CloseIconWhite : CloseIcon}
                       onClick={() => {
                         setValues(values.filter((val) => val !== value));
                         onChange(values.filter((val) => val !== value));

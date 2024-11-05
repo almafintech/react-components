@@ -25,3 +25,16 @@
     }
   }
 }
+
+:global(.byma) {
+  &.radioGroupContainer {
+    .radioGroupLabel {
+      color: $byma-text-primary;
+    }
+    .allOptionsDisabled {
+      .radioLabel {
+        color: $byma-text-disabled !important;
+      }
+    }
+  }
+}

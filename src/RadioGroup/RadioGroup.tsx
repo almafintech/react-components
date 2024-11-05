@@ -3,6 +3,7 @@ import { ControlledRadio } from "../ControlledRadio";
 import { RadioGroupProps } from "./types";
 import styles from "./RadioGroup.module.scss";
 import Message from "../Message/Message";
+import { isByma } from "../utils";
 
 const RadioGroup = ({
   options,
@@ -13,7 +14,10 @@ const RadioGroup = ({
   onBlur,
   name,
   value,
+  theme,
 }: RadioGroupProps) => {
+  const isBymaTheme = isByma(theme);
+
   const { radioGroupContainer, radioGroupLabel, optionsContainer } = styles;
   const [optionSelected, setOptionSelected] = useState<string>("");
 
@@ -40,7 +44,7 @@ const RadioGroup = ({
   };
 
   return (
-    <div className={radioGroupContainer}>
+    <div className={`${isBymaTheme ? "byma" : ""}  ${radioGroupContainer}`}>
       {/* LABEL */}
       {label && <label className={radioGroupLabel}>{label}</label>}
 
@@ -49,6 +53,7 @@ const RadioGroup = ({
         {options.map(
           ({ label, value, disabled: individualDisabled }, index) => (
             <ControlledRadio
+              theme={theme}
               key={index}
               checked={optionSelected === value}
               label={label}
@@ -63,7 +68,7 @@ const RadioGroup = ({
       </div>
 
       {/* SHOW ERROR MESSAGE */}
-      {error && <Message message={error} variant="error" />}
+      {error && <Message theme={theme} message={error} variant="error" />}
     </div>
   );
 };

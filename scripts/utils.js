@@ -7,6 +7,7 @@ const getComponentsFolders = (entry) => {
       name !== "index.ts" &&
       name !== "styles" &&
       name !== "stories" &&
+      name !== "utils" &&
       name !== "declaration.d.ts"
   );
 

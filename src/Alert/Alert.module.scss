@@ -40,3 +40,21 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+:global(.byma) {
+  .container {
+    color: $byma-text-primary;
+  }
+
+  .errorBackground {
+    background-color: $byma-background-tertiary;
+  }
+
+  .warnBackground {
+    background-color: $byma-background-tertiary;
+  }
+
+  .infoBackground {
+    background-color: $byma-background-tertiary;
+  }
+}

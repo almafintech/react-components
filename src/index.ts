@@ -25,3 +25,12 @@ export * from "./RadioGroup";
 export * from "./Message";
 export * from "./Switch";
 export * from "./Tabs";
+
+export type Theme = "byma";
+
+export interface WithTheme {
+  /**
+   * Apply theme colors to the component
+   */
+  theme?: Theme;
+}

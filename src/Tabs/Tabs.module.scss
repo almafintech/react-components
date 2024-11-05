@@ -5,33 +5,48 @@
   background: none !important;
 }
 
-
 .tabContent {
-  color: $primary-dark-900 !important; 
-
+  color: $primary-dark-900 !important;
 }
 
 .cursor {
   background-color: $primary-dark-600 !important;
-
 }
 
 .cursorDark {
   background-color: $secondary-normal-500 !important;
-
 }
 
 .tab {
-  @include data-selected  {
+  @include data-selected {
     .tabContent {
       color: $white !important;
     }
   }
 
   @include data-disabled {
-    opacity:  1 !important;
-
+    opacity: 1 !important;
   }
-
 }
 
+:global(.byma) {
+  .tabContent {
+    color: $byma-text-primary !important;
+  }
+
+  .cursor {
+    background-color: $byma-primary-active !important;
+  }
+
+  .cursorDark {
+    background-color: $byma-primary-active !important;
+  }
+
+  .tab {
+    @include data-selected {
+      .tabContent {
+        color: $byma-white !important;
+      }
+    }
+  }
+}

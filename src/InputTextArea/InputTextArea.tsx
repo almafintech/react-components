@@ -2,7 +2,9 @@ import styles from "./InputTextArea.module.scss";
 import { Textarea } from "@nextui-org/input";
 import { useState } from "react";
 import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
+import InvalidIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
 import { InputTextAreaProps } from "./types";
+import { isByma } from "../utils";
 
 const InputTextArea = (props: InputTextAreaProps) => {
   const {
@@ -27,7 +29,11 @@ const InputTextArea = (props: InputTextAreaProps) => {
     isFormField,
     onChange,
     onBlur,
+    theme,
+    className,
   } = props;
+
+  const isBymaTheme = isByma(theme);
 
   const [touched, setTouched] = useState(false);
   const [value, setValue] = useState(initialValue ?? "");
@@ -42,7 +48,7 @@ const InputTextArea = (props: InputTextAreaProps) => {
 
   const getErrorMessage = () => (
     <div className={error}>
-      <img src={InvalidIcon} className={icon} />
+      <img src={isBymaTheme ? InvalidIconByma : InvalidIcon} className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );
@@ -53,6 +59,7 @@ const InputTextArea = (props: InputTextAreaProps) => {
       variant="bordered"
       radius="sm"
       {...props}
+      className={`${isBymaTheme ? "byma" : ""} ${className ?? ""}`}
       classNames={{
         base: `${base}`,
         input: input,

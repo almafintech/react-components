@@ -16,7 +16,7 @@ const meta = {
   args: {
     onApply: fn(),
     onBack: fn(),
-    onDelete: fn()
+    onDelete: fn(),
   },
   tags: ["autodocs"],
   decorators: [
@@ -85,6 +85,13 @@ export const WithDefaultValue: Story = {
 export const WithCustomStyles: Story = {
   args: {
     ...Default.args,
-    calendarClassName: "bg-blue-50 rounded-2xl p-2"
+    calendarClassName: "bg-blue-50 rounded-2xl p-2",
+  },
+};
+
+export const WithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    theme: "byma",
   },
 };

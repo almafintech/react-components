@@ -8,6 +8,7 @@
   cursor: pointer;
   //   padding: 0.2rem 0;
   font-size: 0.875rem;
+
   &.labelDisabled {
     color: $secondary-light-200;
     cursor: default;
@@ -43,11 +44,21 @@
     box-shadow: inset 1em 1em $primary-normal-300;
   }
 
+  &:global(.byma)::before {
+    box-shadow: inset 1em 1em $byma-primary-default !important;
+  }
+
   &:checked {
     border: 0.15rem solid $primary-normal-300;
 
     &::before {
       transform: scale(0.9);
+    }
+  }
+
+  &:global(.byma) {
+    &:checked {
+      border: 0.15rem solid $byma-primary-default;
     }
   }
 }
@@ -61,6 +72,38 @@
         transform: scale(0.9);
         box-shadow: inset 1em 1em $secondary-light-200 !important;
       }
+    }
+  }
+}
+
+:global(.byma) {
+  &.radioLabel {
+    color: $byma-text-primary;
+
+    &.labelDisabled {
+      color: $byma-text-disabled;
+
+      .inputRadio {
+        &:checked {
+          border: 0.15rem solid $byma-text-disabled !important;
+
+          &::before {
+            box-shadow: inset 1em 1em $byma-text-disabled !important;
+          }
+        }
+      }
+    }
+  }
+
+  .inputRadio {
+    background-color: $byma-white;
+
+    &::before {
+      box-shadow: inset 1em 1em $byma-primary-default !important;
+    }
+
+    &:checked {
+      border: 0.15rem solid $byma-primary-default;
     }
   }
 }

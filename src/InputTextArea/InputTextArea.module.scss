@@ -131,3 +131,83 @@
     color: $e300 !important;
   }
 }
+
+:global(.byma) {
+  &.base {
+    @include data-hover {
+      .inputWrapper {
+        border-color: $byma-text-disabled !important;
+      }
+    }
+
+    @include data-focus {
+      .inputWrapper {
+        border-color: $byma-primary-default !important;
+      }
+    }
+
+    @include data-invalid {
+      .input {
+        color: $byma-text-primary !important;
+      }
+      .inputWrapper.touched {
+        border-color: $byma-error-dark !important;
+      }
+      .label {
+        color: $byma-text-primary !important;
+        &.formField {
+          color: $byma-text-primary !important;
+        }
+      }
+    }
+
+    @include data-disabled {
+      .inputWrapper,
+      .input {
+        background-color: $byma-text-disabled !important;
+      }
+    }
+  }
+
+  .input {
+    &::placeholder {
+      color: $byma-text-disabled !important;
+    }
+  }
+
+  .inputWrapper {
+    border-color: $byma-text-disabled !important;
+    background-color: $byma-white !important;
+
+    &.touched.validated {
+      border-color: $byma-success-dark !important;
+    }
+  }
+
+  .label {
+    color: $byma-text-primary !important;
+
+    .info {
+      .balance {
+        color: $byma-text-primary !important;
+
+        .number {
+          color: $byma-primary-default !important;
+        }
+      }
+    }
+
+    &.formField {
+      color: $byma-text-primary !important;
+    }
+  }
+
+  .helperWrapper {
+    .description {
+      color: $byma-text-disabled !important;
+    }
+    .errorMessage {
+      color: $byma-error-dark !important;
+    }
+  }
+}

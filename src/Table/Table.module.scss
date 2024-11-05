@@ -81,3 +81,49 @@
   background-color: $primary-light-50;
   border-radius: 0;
 }
+
+:global(.byma) {
+  .wrapper {
+    background-color: $byma-white;
+    border-color: $byma-background-tertiary;
+
+    label[data-selected="true"] {
+      span::after {
+        background-color: $byma-primary-default;
+      }
+
+      svg {
+        color: $byma-white;
+      }
+    }
+  }
+
+  .thead {
+    border-color: $byma-background-tertiary;
+
+    .th {
+      background-color: $byma-white;
+      color: $byma-text-primary;
+    }
+  }
+
+  .tbody {
+    .tr:not(:last-child) {
+      border-color: $byma-background-tertiary;
+    }
+
+    .tr[data-hover="true"] {
+      td::before {
+        background-color: $byma-background-tertiary !important;
+      }
+    }
+
+    .td[data-selected="true"]::before {
+      background-color: $byma-background-tertiary;
+    }
+  }
+
+  .selectedRow {
+    background-color: $byma-background-tertiary;
+  }
+}

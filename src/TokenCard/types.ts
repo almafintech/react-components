@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
+import { WithTheme } from "..";
 
-export interface TokenCardProps {
+export interface TokenCardProps extends WithTheme {
   title: string;
   subtitle?: string | undefined;
   children?: ReactNode;
@@ -27,7 +28,7 @@ export interface TokenCardProps {
   secondaryButtonText?: string;
 }
 
-export interface HeaderModalProps {
+export interface HeaderModalProps extends WithTheme {
   title: string;
   subtitle?: ReactNode | undefined;
   className?: string;

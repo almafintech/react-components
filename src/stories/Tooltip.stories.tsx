@@ -20,7 +20,7 @@ export const Default: Story = {
     children: <span>Hover me</span>,
     content: "Este es un mensaje",
     width: "14rem",
-    variant: "blue"
+    variant: "blue",
   },
 };
 
@@ -41,29 +41,36 @@ export const Black: Story = {
 export const WithCustomPlacement: Story = {
   args: {
     ...Default.args,
-    placement: "left"
+    placement: "left",
   },
 };
 
 export const WithCustomDelay: Story = {
   args: {
     ...Default.args,
-   delay: 5
+    delay: 5,
   },
 };
-
 
 export const WithCustomOffset: Story = {
   args: {
     ...Default.args,
-  offset: 12
+    offset: 12,
   },
 };
-
 
 export const Disabled: Story = {
   args: {
     ...Default.args,
-    isDisabled: true
+    isDisabled: true,
+  },
+};
+
+export const DefaultWithBymaVariant: Story = {
+  args: {
+    children: <span>Hover me</span>,
+    content: "Este es un mensaje",
+    width: "14rem",
+    variant: "byma",
   },
 };

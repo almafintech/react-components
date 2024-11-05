@@ -47,11 +47,10 @@ export const Default: Story = {
   },
 };
 
-
 export const isDisabled: Story = {
   args: {
     ...Default.args,
-    isDisabled: true
+    isDisabled: true,
   },
 };
 
@@ -62,4 +61,11 @@ export const MultipleSelection: Story = {
   },
 };
 
-
+export const WithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    children: <Button theme="byma" text="Trigger"></Button>,
+    selectionMode: "multiple",
+    theme: "byma",
+  },
+};

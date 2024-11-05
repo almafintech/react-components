@@ -151,7 +151,7 @@ export const Cuit: Story = {
     ...Default.args,
     label: "CUIT",
     type: "cuit",
-    initialValue: "20343434302"
+    initialValue: "20343434302",
   },
 };
 
@@ -160,7 +160,7 @@ export const Dni: Story = {
     ...Default.args,
     label: "DNI",
     type: "dni",
-    initialValue: "12345678"
+    initialValue: "12345678",
   },
 };
 
@@ -241,5 +241,57 @@ export const endContent: Story = {
     ...Default.args,
     label: "Email",
     endContent: "✉️",
+  },
+};
+
+export const withBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Nombre",
+    type: "text",
+    theme: "byma",
+  },
+};
+
+export const isDisabledWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    isDisabled: true,
+    theme: "byma",
+  },
+};
+
+export const isValidWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Cantidad",
+    initialValue: "0",
+    type: "number",
+    isInvalid: false,
+    touched: true,
+    theme: "byma",
+  },
+};
+
+export const isInvalidWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Cantidad",
+    initialValue: "0",
+    type: "number",
+    isInvalid: true,
+    touched: true,
+    theme: "byma",
+  },
+};
+
+export const BalanceWithInfoMessageWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Monto",
+    type: "money",
+    balance: 1212,
+    info: "BALANCE",
+    theme: "byma",
   },
 };

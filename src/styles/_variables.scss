@@ -86,3 +86,42 @@ $i200: #4497cb;
 $i300: #1e82c0;
 $i400: #155b86;
 $i500: #124f75;
+
+// BYMA + COLOR SYSTEM
+
+//PRIMARY COLORS
+$byma-primary-default: #009ea1;
+$byma-primary-active: #068a8c;
+$byma-primary-hover: #56ccce;
+$byma-primary-alternative: #e2e2e2;
+
+//BACKGROUND COLORS
+$byma-background-primary: #fdfdfd;
+$byma-background-secondary: #f8f8f8;
+$byma-background-tertiary: #f1f1f1;
+$byma-background-hover: #e1e0e0;
+
+//TEXT COLORS
+$byma-text-primary: #061533;
+$byma-text-hover: #152d5c;
+$byma-text-disabled: #7b808c;
+
+//STATE COLORS
+$byma-error-dark: #ff4d4f;
+$byma-error-light: #f49d9b;
+
+$byma-success-dark: #00c000;
+$byma-success-light: #a4eba4;
+
+$byma-warning-dark: #faad14;
+$byma-warning-light: #f6eea3;
+
+$byma-info-dark: #0183d9;
+$byma-info-light: #9cdcf7;
+
+$byma-white: #ffffff;
+
+//CUSTOM
+$byma-primary-default: #009ea1;
+$byma-primary-default-light: #e8f7f8;
+$byma-primary-default-dark: #007a7c;

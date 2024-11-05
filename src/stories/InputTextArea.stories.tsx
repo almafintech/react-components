@@ -93,3 +93,35 @@ export const withMaxLength: Story = {
     maxLength: 3,
   },
 };
+
+export const DefaultWithBymaTheme: Story = {
+  args: {
+    name: "textarea",
+    maxLength: 250,
+    disableAutosize: true,
+    label: "Mensaje",
+    theme: "byma",
+  },
+};
+
+export const isValidWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Mensaje",
+    initialValue: "Tu mensaje",
+    isInvalid: false,
+    touched: true,
+    theme: "byma",
+  },
+};
+
+export const isInvalidWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    label: "Mensaje",
+    initialValue: "",
+    isInvalid: true,
+    touched: true,
+    theme: "byma",
+  },
+};

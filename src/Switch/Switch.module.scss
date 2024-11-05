@@ -7,8 +7,6 @@ $thumb-size: 1.125rem;
 .base {
   display: inline-flex;
   flex-direction: row-reverse;
-  
-
 }
 
 .label {
@@ -45,5 +43,21 @@ $thumb-size: 1.125rem;
 
   .base:not([data-selected="true"]) & {
     background-color: $secondary-light-200 !important;
+  }
+}
+
+:global(.byma) {
+  .wrapper {
+    border-color: $byma-primary-default;
+    background-color: $byma-white !important;
+  }
+
+  .base[data-selected="true"] .wrapper {
+    background-color: $byma-primary-default !important;
+    border: 1px solid $byma-primary-default;
+  }
+
+  .thumb .base:not([data-selected="true"]) {
+    background-color: $byma-background-tertiary !important;
   }
 }

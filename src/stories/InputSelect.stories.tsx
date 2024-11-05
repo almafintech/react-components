@@ -229,3 +229,64 @@ export const withConfirmSelectionAndDefaultSelected: Story = {
     confirmSelection: true,
   },
 };
+
+export const WithBymaThemeDefault: Story = {
+  args: {
+    theme: "byma",
+    label: "Selecciona una opción",
+    placeholder: "Selecciona una opción",
+    isFormField: false,
+    touched: false,
+    type: "single",
+    items: [
+      { label: "Opción 1", value: "1" },
+      { label: "Opción 2", value: "2" },
+      { label: "Opción 3", value: "3" },
+      { label: "Opción 4", value: "4" },
+      { label: "Opción 5", value: "5" },
+      { label: "Opción 6", value: "6" },
+    ],
+  },
+};
+
+export const WithBymaThemeRadioSingleSelection: Story = {
+  args: {
+    ...Default.args,
+    type: "single-radio",
+    theme: "byma",
+  },
+};
+
+export const WithBymaThemeMultipleSelection: Story = {
+  args: {
+    ...Default.args,
+    type: "multiple",
+    theme: "byma",
+  },
+};
+
+export const WithBymaThemeMultipleSelectionExternalBox: Story = {
+  args: {
+    ...Default.args,
+    type: "multiple",
+    showExternalBox: true,
+    theme: "byma",
+  },
+};
+
+export const WithBymaThemeCheckboxMultipleSelection: Story = {
+  args: {
+    ...Default.args,
+    type: "multiple-checkbox",
+    theme: "byma",
+  },
+};
+
+export const isDisabledWithBymaTheme: Story = {
+  args: {
+    ...Default.args,
+    touched: true,
+    isDisabled: true,
+    theme: "byma",
+  },
+};

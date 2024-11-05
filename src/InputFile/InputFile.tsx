@@ -3,14 +3,27 @@ import { saveAs } from "file-saver";
 import { FileData, InputFileProps } from "./types";
 
 import UploadIcon from "../../assets/images/ui/icons/ui-icon-file_upload.svg";
+import UploadIconByma from "../../assets/images/ui/icons/ui-icon-file_upload-byma.svg";
+
 import ErrorIcon from "../../assets/images/ui/icons/ui-icon-error-exclamation-filled.svg";
+import ErrorIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
+
 import SuccessIcon from "../../assets/images/ui/icons/ui-icon-success-bg-dark.svg";
+import SuccessIconByma from "../../assets/images/ui/icons/ui-icon-success-bg-dark-byma.svg";
+
 import TrashIcon from "../../assets/images/ui/icons/ui-icon-trash.svg";
+import TrashIconByma from "../../assets/images/ui/icons/ui-icon-trash-byma.svg";
+
 import DownloadIcon from "../../assets/images/ui/icons/ui-icon-download.svg";
+import DownloadIconByma from "../../assets/images/ui/icons/ui-icon-download-byma.svg";
+
 import LoadingDots from "../LoadingDots/LoadingDots";
+
 import plusIcon from "../../assets/images/ui/icons/ui-icon-plus-circle.svg";
+import plusIconByma from "../../assets/images/ui/icons/ui-icon-plus-circle-byma.svg";
 
 import styles from "./InputFile.module.scss";
+import { isByma } from "../utils";
 
 const InputFile = ({
   name,
@@ -33,7 +46,10 @@ const InputFile = ({
   label,
   isMobile,
   successMessage,
+  theme,
 }: InputFileProps) => {
+  const isBymaTheme = isByma(theme);
+
   const {
     inputFile,
     fileContent,
@@ -157,7 +173,7 @@ const InputFile = ({
 
   return (
     <div
-      className={`${container} ${className ?? ""}`}
+      className={`${isBymaTheme ? "byma" : ""} ${container} ${className ?? ""}`}
       id={`inputFile-container-${name}`}
     >
       <input
@@ -178,7 +194,9 @@ const InputFile = ({
           {label && <div className={labelStyle}>{label}</div>}
           <div className={mobile}>
             <span>{file ? "Reemplazar imagen" : "Adjuntar imagen"}</span>
-            {!file && <img src={plusIcon} alt="adjuntar" />}
+            {!file && (
+              <img src={isBymaTheme ? plusIconByma : plusIcon} alt="adjuntar" />
+            )}
           </div>
           {infoText && (
             <div className={`${infoTextStyle} ${infoTextClassName}`}>
@@ -204,7 +222,7 @@ const InputFile = ({
                   className={inputFile}
                 >
                   <div className={fileHeader}>
-                    <img src={UploadIcon} />
+                    <img src={isBymaTheme ? UploadIconByma : UploadIcon} />
                     <label
                       id={`label-file-upload-${name}`}
                       htmlFor={`input-file-upload-${name}`}
@@ -230,7 +248,7 @@ const InputFile = ({
                   <div className={`${fileHeader} ${file && "w-4/5"}`}>
                     {isLoading ? (
                       <>
-                        <img src={UploadIcon} />
+                        <img src={isBymaTheme ? UploadIconByma : UploadIcon} />
                         <label
                           id={`label-file-upload-${name}`}
                           htmlFor={`input-file-upload-${name}`}
@@ -240,23 +258,28 @@ const InputFile = ({
                       </>
                     ) : (
                       <>
-                        <img src={SuccessIcon} />
+                        <img
+                          src={isBymaTheme ? SuccessIconByma : SuccessIcon}
+                        />
                         <p>{file?.name}</p>
                       </>
                     )}
                   </div>
                   <div className={fileOptions}>
                     {isLoading ? (
-                      <LoadingDots color="#acb3bf" />
+                      <LoadingDots theme={theme} color="#acb3bf" />
                     ) : (
                       <>
                         {!hideDownloadIcon && (
                           <img
-                            src={DownloadIcon}
+                            src={isBymaTheme ? DownloadIconByma : DownloadIcon}
                             onClick={handleFileDownload}
                           />
                         )}
-                        <img src={TrashIcon} onClick={handleFileRemove} />
+                        <img
+                          src={isBymaTheme ? TrashIconByma : TrashIcon}
+                          onClick={handleFileRemove}
+                        />
                       </>
                     )}
                   </div>
@@ -273,13 +296,13 @@ const InputFile = ({
       )}
       {isMobile && file && !fileError && (
         <div className={successMessageStyle}>
-          <img src={SuccessIcon} />
+          <img src={isBymaTheme ? SuccessIconByma : SuccessIcon} />
           <p>{successMessage ?? "Archivo cargado con éxito"}</p>
         </div>
       )}
       {fileError && (
         <div className={errorMessageStyle}>
-          <img src={ErrorIcon} />
+          <img src={isBymaTheme ? ErrorIconByma : ErrorIcon} />
           <span>{errorMessage}</span>
         </div>
       )}

@@ -24,3 +24,17 @@
     width: 14px;
   }
 }
+
+:global(.byma) {
+  &.messageContainer {
+    &.errorStyle {
+      color: $byma-error-dark;
+    }
+    &.successStyle {
+      color: $byma-success-dark;
+    }
+    &.infoStyle {
+      color: $byma-info-dark;
+    }
+  }
+}

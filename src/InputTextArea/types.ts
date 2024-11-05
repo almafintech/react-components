@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { TextAreaProps as NextUiTextAreaProps } from "@nextui-org/react";
+import { WithTheme } from "..";
 
 /*
  * Extension to `TextAreaProps`. See NextUI's `Textarea` documentation.
@@ -10,7 +11,7 @@ import { TextAreaProps as NextUiTextAreaProps } from "@nextui-org/react";
  * @prop {boolean} touched Whether input was touched or not. Set on `onChanged` calls.
  */
 
-export interface InputTextAreaProps extends NextUiTextAreaProps {
+export interface InputTextAreaProps extends NextUiTextAreaProps, WithTheme {
   errorMessage?: ReactNode;
   initialValue?: string;
   isFormField?: boolean;

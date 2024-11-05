@@ -3,12 +3,24 @@ import { ToastContainer, Slide, toast } from "react-toastify";
 import "./ToastMessage.scss";
 import "react-toastify/dist/ReactToastify.css";
 import { ShowToastOptions, ToastMessageProps } from "./types";
+import { isByma } from "../utils";
 
 export const ToastMessage = (props: ToastMessageProps) => {
-  const { messageId, width, showOverPage = true, style, ...rest } = props;
+  const {
+    messageId,
+    width,
+    showOverPage = true,
+    style,
+    theme,
+    className,
+    ...rest
+  } = props;
+
+  const isBymaTheme = isByma(theme);
 
   return (
     <ToastContainer
+      className={`${isBymaTheme ? "byma" : ""} ${className ?? ""}`}
       position="top-right"
       containerId={showOverPage ? `${messageId}-overPage` : messageId}
       transition={Slide}
