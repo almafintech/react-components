@@ -2,7 +2,6 @@ import { Tooltip as NextUiTooltip } from "@nextui-org/tooltip";
 import { TooltipProps } from "./types";
 
 import styles from "./Tooltip.module.scss";
-import { isByma } from "../utils";
 
 const Tooltip = (props: TooltipProps) => {
   const {
