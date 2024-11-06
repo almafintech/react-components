@@ -1,3 +1,19 @@
+# [1.5.0](https://github.com/almafintech/react-components/compare/v1.4.3...v1.5.0) (2024-11-06)
+
+
+### Bug Fixes
+
+* fix build ([10ad3a4](https://github.com/almafintech/react-components/commit/10ad3a45bdba5d90958142849014dcd08f57381e))
+* fix build ([c2ab8b8](https://github.com/almafintech/react-components/commit/c2ab8b86c15790f8195d2a39ff3c10b3d9febef8))
+* fix build ([dd220f8](https://github.com/almafintech/react-components/commit/dd220f82f6f07b3ba3f1cd3402c83e6fb14a4def))
+* fix yml ([aff7410](https://github.com/almafintech/react-components/commit/aff7410eb94066abe775b96e4b8f6eba2c7777ac))
+* **fix:** fix build ([02f53c1](https://github.com/almafintech/react-components/commit/02f53c18fd19b448af848a8344954d61d4f64fe6))
+
+
+### Features
+
+* **byma:** apply Byma theme to all components ([05fbb56](https://github.com/almafintech/react-components/commit/05fbb5660c03379916b8b521b35aa12414835293))
+
 ## [1.4.3](https://github.com/almafintech/react-components/compare/v1.4.2...v1.4.3) (2024-10-24)
 
 
