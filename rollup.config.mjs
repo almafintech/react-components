@@ -16,7 +16,7 @@ import json from "@rollup/plugin-json";
 import svgr from "@svgr/rollup";
 import dotenv from "dotenv";
 import tailwindConfig from "./tailwind.config.js";
-import pkg from "./package.json" assert { type: "json" };
+import pkg from "./package.json" with { type: "json" };
 import { getComponentsFolders } from "./scripts/utils.js";
 
 dotenv.config();
