@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/almafintech/react-components/compare/v1.5.0...v1.5.1) (2024-11-07)
+
+
+### Bug Fixes
+
+* **button.tsx:** fix Byma button styles ([ba535c9](https://github.com/almafintech/react-components/commit/ba535c92d782eca41be06daaa486af9c5d426136))
+
 # [1.5.0](https://github.com/almafintech/react-components/compare/v1.4.3...v1.5.0) (2024-11-06)
 
 
