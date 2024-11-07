@@ -81,7 +81,7 @@
 
 :global(.byma).secondary {
   @extend .button;
-  background-color: $white !important;
+  background-color: transparent !important;
   border: 1px solid $byma-primary-default !important;
   color: $byma-primary-default !important;
 
@@ -124,7 +124,7 @@
 
 :global(.byma).tertiary {
   @extend .button;
-  background-color: $white !important;
+  background-color: transparent !important;
   border: 0 !important;
   color: $byma-primary-default !important;
   text-decoration: underline !important;
