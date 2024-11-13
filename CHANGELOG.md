@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/almafintech/react-components/compare/v1.5.1...v1.5.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* **inputaddress:** fix input address onblur ([91e655b](https://github.com/almafintech/react-components/commit/91e655be2666ccbd84c648f1681a29731f4ffc2e))
+
 ## [1.5.1](https://github.com/almafintech/react-components/compare/v1.5.0...v1.5.1) (2024-11-07)
 
 
