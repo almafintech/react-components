@@ -369,33 +369,24 @@ const InputAddress = (props: InputAddressProps) => {
     }
   }, [autoSelectValue, refLoaded]);
 
-  const [inputBlurred, setInputBlurred] = useState(false);
-  const [divBlurred, setDivBlurred] = useState(false);
-
   const handleInputBlur = (
     e:
       | React.FocusEvent<HTMLInputElement, Element>
       | React.FocusEvent<Element, Element>
   ) => {
-    setInputBlurred(true);
-    if (divBlurred && onBlur) {
+    if (!onBlur) return;
+
+    if (predictions.length === 0) {
       onBlur(e);
+    } else {
+      setTimeout(() => {
+        onBlur(e);
+      }, 500);
     }
   };
 
   const handleDivBlur = (e: React.FocusEvent<HTMLDivElement>) => {
-    setDivBlurred(true);
-    if (inputBlurred && onBlur) {
-      onBlur(e);
-    }
-  };
-
-  const handleInputFocus = () => {
-    setInputBlurred(false);
-  };
-
-  const handleDivFocus = () => {
-    setDivBlurred(false);
+    onBlur && onBlur(e);
   };
 
   useEffect(() => {
@@ -428,7 +419,6 @@ const InputAddress = (props: InputAddressProps) => {
           if ((e.target as HTMLInputElement).value) {
             getPredictions();
           }
-          handleInputFocus();
         }}
         {...inputProps}
       />
@@ -473,11 +463,7 @@ const InputAddress = (props: InputAddressProps) => {
         autoCompleteValue.length > 2 &&
         !selectedValue &&
         statusOfLibrary === "SUCCESS" && (
-          <div
-            className={autoCompleteOptions}
-            onBlur={handleDivBlur}
-            onFocus={handleDivFocus}
-          >
+          <div className={autoCompleteOptions} onBlur={handleDivBlur}>
             <p>No encontramos resultados.</p>
           </div>
         )
