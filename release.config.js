@@ -8,8 +8,8 @@ const config = {
       {
         preset: "angular",
         releaseRules: [
-          { type: "style", release: "patch" },
-          { type: "refactor", release: "patch" },
+          { type: "style", release: "minor" },
+          { type: "refactor", release: "minor" },
         ],
       },
     ],
