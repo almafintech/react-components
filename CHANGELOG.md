@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/almafintech/react-components/compare/v1.6.0...v1.6.1) (2024-11-15)
+
+
+### Bug Fixes
+
+* fix config ([e7fc77b](https://github.com/almafintech/react-components/commit/e7fc77b72bdf0d19826df1acbff4b009465f5e25))
+
 # [1.6.0](https://github.com/almafintech/react-components/compare/v1.5.2...v1.6.0) (2024-11-15)
 
 
