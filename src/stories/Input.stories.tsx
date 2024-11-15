@@ -31,6 +31,7 @@ export const Default: Story = {
   args: {
     label: "Nombre",
     type: "text",
+    isDisabled: false,
   },
 };
 

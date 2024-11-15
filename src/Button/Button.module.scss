@@ -87,6 +87,7 @@
 
   @include data-hover {
     background-color: $byma-primary-hover !important;
+    color: $byma-white !important;
   }
 
   @include data-pressed {

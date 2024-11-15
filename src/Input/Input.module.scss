@@ -173,6 +173,10 @@
 }
 
 :global(.byma) {
+  &:global(.opacity-disabled) {
+    opacity: 1;
+  }
+
   &.base {
     @include data-hover {
       .inputWrapper {
@@ -206,6 +210,7 @@
       .inputWrapper,
       .input {
         background-color: $byma-text-disabled !important;
+        color: $byma-white;
       }
     }
   }
