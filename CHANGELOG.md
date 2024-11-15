@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/almafintech/react-components/compare/v1.5.2...v1.6.0) (2024-11-15)
+
+
+### Features
+
+* update commit analyzer to release on style and refactor too ([9a1e6a4](https://github.com/almafintech/react-components/commit/9a1e6a4b515fb0ef77bce647219848d1776501ce))
+
 ## [1.5.2](https://github.com/almafintech/react-components/compare/v1.5.1...v1.5.2) (2024-11-13)
 
 
