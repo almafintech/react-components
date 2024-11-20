@@ -320,7 +320,7 @@ const InputSelect = ({
       <label
         className={`${label} ${isInvalid || description ? labelFix : ""} ${
           isFormField && formField
-        }`}
+        } ${isDisabled ? "opacity-disabled" : ""}`}
       >
         {labelComponent}
       </label>
@@ -346,7 +346,7 @@ const InputSelect = ({
         }}
         data-id={componentId}
         items={isDatePickerOpen ? [] : items}
-        placeholder={!inputValue ? placeholder ?? " " : " "}
+        placeholder={!inputValue ? (placeholder ?? " ") : " "}
         className={`${className} ${
           isInvalid && selectTouched ? invalidSelect : ""
         } ${isInvalid === false && selectTouched && validSelect} ${
@@ -356,7 +356,7 @@ const InputSelect = ({
           base: `${base} ${classNames?.base}`,
           label: `${label} ${isInvalid || description ? labelFix : ""} ${
             isFormField && formField
-          }`,
+          } ${isDisabled ? disabledSelect : ""}`,
           mainWrapper: `${mainWrapper} ${classNames?.mainWrapper}`,
           trigger: `${trigger} ${classNames?.trigger}`,
           innerWrapper: `${innerWrapper} ${classNames?.innerWrapper}`,
