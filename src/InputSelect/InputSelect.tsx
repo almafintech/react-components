@@ -322,11 +322,12 @@ const InputSelect = ({
           isFormField && formField
         } ${isDisabled ? "opacity-disabled" : ""}`}
       >
-        {labelComponent}
+        <span>{labelComponent}</span>
       </label>
       <NextUiSelect
         {...rest}
         isDisabled={isDisabled}
+        disabled={isDisabled}
         onClick={handleInsideClick}
         onBlur={(e: React.FocusEvent) => {
           !isOpen && setSelectTouched(true);
