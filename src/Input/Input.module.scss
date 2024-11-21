@@ -46,6 +46,7 @@
     .inputWrapper,
     .input {
       background-color: $secondary-light-50 !important;
+      border: none !important;
     }
 
     :global(.byma).inputWrapper,

@@ -78,12 +78,15 @@ $confirm-actions-height: 100px;
 
 .label {
   color: $primary-dark-900 !important;
-  padding-bottom: 0.3rem;
+  margin-bottom: 7px;
   display: flex !important;
   width: 100% !important;
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   text-align: left;
+  span {
+    height: 20px;
+  }
 
   &.formField {
     color: $secondary-normal-300 !important;
