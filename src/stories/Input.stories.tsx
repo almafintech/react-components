@@ -56,11 +56,18 @@ export const withDescription: Story = {
   },
 };
 
-export const WithInfoMessage: Story = {
+export const WithInfoLabelMessage: Story = {
   args: {
     ...Default.args,
     info: "CUSTOM",
     customInfo: "Opcional",
+  },
+};
+
+export const WithInfoMessage: Story = {
+  args: {
+    ...Default.args,
+    infoMessage: "ACA",
   },
 };
 
