@@ -235,7 +235,7 @@ const Input = (props: InputProps) => {
         <InfoMessage
           message={infoMessage}
           isBymaTheme={isBymaTheme}
-          className={`${helperWrapper} flex gap-2`}
+          className={`${helperWrapper} flex gap-2 items-center`}
         />
       )}
     </>
