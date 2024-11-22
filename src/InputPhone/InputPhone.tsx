@@ -2,15 +2,13 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import { InputPhoneProps } from "./types";
 
-import InfoIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-info.svg";
-import InfoIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-info-byma.svg";
-
 import ErrorIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
 import ErrorIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
 
 import "react-phone-input-2/lib/style.css";
 import styles from "./InputPhone.module.scss";
 import { isByma } from "../utils";
+import InfoMessage from "../InfoMessage/InfoMessage";
 
 const InputPhone = (props: InputPhoneProps) => {
   const {
@@ -37,7 +35,6 @@ const InputPhone = (props: InputPhoneProps) => {
     label,
     helperWrapper,
     description: descriptionStyle,
-    infoMessage: infoMessageStyle,
     formField,
     inputPhoneNumber,
     dropdownPhoneNumber,
@@ -83,10 +80,11 @@ const InputPhone = (props: InputPhoneProps) => {
         </div>
       )}
       {infoMessage && !(shouldValidate && isValid === false) && (
-        <div className={helperWrapper}>
-          <img src={isBymaTheme ? InfoIconByma : InfoIcon} className={icon} />
-          <span className={infoMessageStyle}>{infoMessage}</span>
-        </div>
+        <InfoMessage
+          isBymaTheme={isBymaTheme}
+          message={infoMessage}
+          className={helperWrapper}
+        />
       )}
       {shouldValidate && isValid === false && (
         <div className={helperWrapper}>

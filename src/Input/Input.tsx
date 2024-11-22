@@ -15,11 +15,13 @@ import { getValue, removeMask } from "./utils";
 import { LoadingCircle } from "../LoadingCircle";
 
 import { isByma } from "../utils";
+import InfoMessage from "../InfoMessage/InfoMessage";
 
 const Input = (props: InputProps) => {
   const {
     initialValue,
     maxLength,
+    infoMessage,
     errorMessage,
     balance,
     balanceCurrency = "ARS",
@@ -135,98 +137,108 @@ const Input = (props: InputProps) => {
       </span>
     </span>
   );
-
   return (
-    <NextUiInput
-      labelPlacement="outside"
-      variant="bordered"
-      radius="sm"
-      disableAutosize
-      {...props}
-      onKeyDown={(e) => {
-        props.onKeyDown && props.onKeyDown(e);
-        if (type === "number" && ["ArrowUp", "ArrowDown"].includes(e.key))
-          e.preventDefault();
-      }}
-      onWheel={(e) => {
-        const target = e.target as HTMLInputElement;
-        target.blur();
-      }}
-      onChange={handleChange}
-      onBlur={(e) => {
-        setTouched(true);
-        props.onBlur && props.onBlur(e);
-      }}
-      className={`${isBymaTheme ? "byma" : ""} ${className ?? ""}`}
-      classNames={{
-        base: `${base} ${!hasLabel && noLabel}`,
-        input: input,
-        inputWrapper: `${inputWrapper}  ${isInvalid === false && validated} ${
-          (props.touched || touched) && touchedStyle
-        }`,
-        innerWrapper: innerWrapper,
-        label: `${labelStyle} ${isFormField && formField} ${
-          (props.touched || touched) && touchedStyle
-        }`,
-        helperWrapper: helperWrapper,
-        errorMessage: errorMessageStyle,
-        description: descriptionStyle,
-        ...props.classNames,
-      }}
-      type={
-        (props.type === "password" && isVisible) ||
-        props.type === "search" ||
-        props.type === "money" ||
-        props.type === "cuit" ||
-        props.type === "dni"
-          ? "text"
-          : props.type
-      }
-      errorMessage={
-        isInvalid && (props.touched || touched) && <>{getErrorMessage()}</>
-      }
-      description={!isInvalid && description}
-      // Mask the value to show
-      value={
-        ["money", "cuit", "dni"].includes(type) ? getValue(type, value) : value
-      }
-      startContent={
-        <span className={startContentStyle}>
-          {startContent}
-          {type === "search" && <img src={SearchIcon} className={icon} />}
-          {type === "money" &&
-            (props.value || value) &&
-            getCurrencySymbol("es-AR", currency)}
-        </span>
-      }
-      endContent={
-        <span className={endContentStyle}>
-          {isLoading ? (
-            <LoadingCircle width="20px" />
-          ) : (
-            <>
-              {endContent}
-              {type === "number" && isNumberPercentage && "%"}
-              {type === "password" && getEyeButton()}
-            </>
-          )}
-        </span>
-      }
-      label={
-        <>
-          <span>{label}</span>
-          <span className={infoStyle}>
-            {info === "BALANCE" && balance ? (
-              getBalanceLabel()
-            ) : info === "CUSTOM" && !!customInfo ? (
-              customInfo
+    <>
+      <NextUiInput
+        labelPlacement="outside"
+        variant="bordered"
+        radius="sm"
+        disableAutosize
+        {...props}
+        onKeyDown={(e) => {
+          props.onKeyDown && props.onKeyDown(e);
+          if (type === "number" && ["ArrowUp", "ArrowDown"].includes(e.key))
+            e.preventDefault();
+        }}
+        onWheel={(e) => {
+          const target = e.target as HTMLInputElement;
+          target.blur();
+        }}
+        onChange={handleChange}
+        onBlur={(e) => {
+          setTouched(true);
+          props.onBlur && props.onBlur(e);
+        }}
+        className={`${isBymaTheme ? "byma" : ""} ${className ?? ""}`}
+        classNames={{
+          base: `${base} ${!hasLabel && noLabel}`,
+          input: input,
+          inputWrapper: `${inputWrapper}  ${isInvalid === false && validated} ${
+            (props.touched || touched) && touchedStyle
+          }`,
+          innerWrapper: innerWrapper,
+          label: `${labelStyle} ${isFormField && formField} ${
+            (props.touched || touched) && touchedStyle
+          }`,
+          helperWrapper: helperWrapper,
+          errorMessage: errorMessageStyle,
+          description: descriptionStyle,
+          ...props.classNames,
+        }}
+        type={
+          (props.type === "password" && isVisible) ||
+          props.type === "search" ||
+          props.type === "money" ||
+          props.type === "cuit" ||
+          props.type === "dni"
+            ? "text"
+            : props.type
+        }
+        errorMessage={
+          isInvalid && (props.touched || touched) && <>{getErrorMessage()}</>
+        }
+        description={!isInvalid && description}
+        // Mask the value to show
+        value={
+          ["money", "cuit", "dni"].includes(type)
+            ? getValue(type, value)
+            : value
+        }
+        startContent={
+          <span className={startContentStyle}>
+            {startContent}
+            {type === "search" && <img src={SearchIcon} className={icon} />}
+            {type === "money" &&
+              (props.value || value) &&
+              getCurrencySymbol("es-AR", currency)}
+          </span>
+        }
+        endContent={
+          <span className={endContentStyle}>
+            {isLoading ? (
+              <LoadingCircle width="20px" />
             ) : (
-              <></>
+              <>
+                {endContent}
+                {type === "number" && isNumberPercentage && "%"}
+                {type === "password" && getEyeButton()}
+              </>
             )}
           </span>
-        </>
-      }
-    />
+        }
+        label={
+          <>
+            <span>{label}</span>
+            <span className={infoStyle}>
+              {info === "BALANCE" && balance ? (
+                getBalanceLabel()
+              ) : info === "CUSTOM" && !!customInfo ? (
+                customInfo
+              ) : (
+                <></>
+              )}
+            </span>
+          </>
+        }
+      />
+      {infoMessage && (
+        <InfoMessage
+          message={infoMessage}
+          isBymaTheme={isBymaTheme}
+          className={`${helperWrapper} flex gap-2`}
+        />
+      )}
+    </>
   );
 };
 

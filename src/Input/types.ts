@@ -36,6 +36,7 @@ export interface InputProps extends NextUiInputProps, WithTheme {
   currency?: string;
   customInfo?: ReactNode;
   errorMessage?: ReactNode;
+  infoMessage?: ReactNode;
   initialValue?: string;
   isFormField?: boolean;
   isNumberPercentage?: boolean;
