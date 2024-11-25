@@ -14,6 +14,7 @@ import { isByma } from "../utils";
 
 const InputPhone = (props: InputPhoneProps) => {
   const {
+    label = "Teléfono",
     description,
     infoMessage,
     errorMessage,
@@ -34,7 +35,7 @@ const InputPhone = (props: InputPhoneProps) => {
   const isBymaTheme = isByma(theme);
 
   const {
-    label,
+    label: labelStyle,
     helperWrapper,
     description: descriptionStyle,
     infoMessage: infoMessageStyle,
@@ -56,8 +57,8 @@ const InputPhone = (props: InputPhoneProps) => {
 
   return (
     <div className={isBymaTheme ? "byma" : ""}>
-      <label className={`${label} ${isFormField ? formField : ""}`}>
-        Teléfono
+      <label className={`${labelStyle} ${isFormField ? formField : ""}`}>
+        {label}
       </label>
       <PhoneInput
         {...rest}
