@@ -26,6 +26,7 @@ export interface TokenCardProps extends WithTheme {
   className?: string;
   primaryButtonText?: string;
   secondaryButtonText?: string;
+  resendText?: string
 }
 
 export interface HeaderModalProps extends WithTheme {
