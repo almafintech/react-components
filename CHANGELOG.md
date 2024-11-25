@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/almafintech/react-components/compare/v1.11.0...v1.11.1) (2024-11-25)
+
+
+### Bug Fixes
+
+* **release.config.js:** fix release rules ([28edafd](https://github.com/almafintech/react-components/commit/28edafd09d5d65c016a7d9df269b2ed589332abc))
+
 # [1.11.0](https://github.com/almafintech/react-components/compare/v1.10.0...v1.11.0) (2024-11-25)
 
 
