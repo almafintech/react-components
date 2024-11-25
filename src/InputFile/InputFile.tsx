@@ -47,6 +47,10 @@ const InputFile = ({
   isMobile,
   successMessage,
   theme,
+  formatErrorMessage = "Formato de archivo inválido.",
+  sizeErrorMessage = "El archivo adjunto excede el peso máximo permitido de",
+  replaceImageText = "Reemplazar imagen",
+  attachImageText = "Adjuntar imagen",
 }: InputFileProps) => {
   const isBymaTheme = isByma(theme);
 
@@ -102,10 +106,8 @@ const InputFile = ({
       setFileError(true);
       onFileRemove && onFileRemove();
       allowedTypes.size !== 0 && !allowedTypes.has(inputFile.type)
-        ? setErrorMessage("Formato de archivo inválido.")
-        : setErrorMessage(
-            `El archivo adjunto excede el peso máximo permitido de ${maxSize}MB.`
-          );
+        ? setErrorMessage(formatErrorMessage)
+        : setErrorMessage(`${sizeErrorMessage} ${maxSize}MB.`);
     }
   };
 
@@ -193,7 +195,7 @@ const InputFile = ({
         >
           {label && <div className={labelStyle}>{label}</div>}
           <div className={mobile}>
-            <span>{file ? "Reemplazar imagen" : "Adjuntar imagen"}</span>
+            <span>{file ? replaceImageText : attachImageText}</span>
             {!file && (
               <img src={isBymaTheme ? plusIconByma : plusIcon} alt="adjuntar" />
             )}
