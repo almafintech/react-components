@@ -67,6 +67,13 @@ export const isInvalidWithCustomErrorMessage: Story = {
   },
 };
 
+export const WithCustomLabel: Story = {
+  args: {
+    ...Default.args,
+    label: "Teléfono celular",
+  },
+};
+
 export const withCustomCountry: Story = {
   args: {
     ...Default.args,

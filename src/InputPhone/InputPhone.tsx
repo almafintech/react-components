@@ -12,6 +12,7 @@ import InfoMessage from "../InfoMessage/InfoMessage";
 
 const InputPhone = (props: InputPhoneProps) => {
   const {
+    label,
     description,
     infoMessage,
     errorMessage,
@@ -32,7 +33,7 @@ const InputPhone = (props: InputPhoneProps) => {
   const isBymaTheme = isByma(theme);
 
   const {
-    label,
+    label: labelStyle,
     helperWrapper,
     description: descriptionStyle,
     formField,
@@ -53,8 +54,8 @@ const InputPhone = (props: InputPhoneProps) => {
 
   return (
     <div className={isBymaTheme ? "byma" : ""}>
-      <label className={`${label} ${isFormField ? formField : ""}`}>
-        Teléfono
+      <label className={`${labelStyle} ${isFormField ? formField : ""}`}>
+        {label ?? "Teléfono"}
       </label>
       <PhoneInput
         {...rest}

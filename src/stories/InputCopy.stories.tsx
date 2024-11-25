@@ -30,10 +30,3 @@ export const Default: Story = {
     value: "https://www.google.com",
   },
 };
-
-export const Disabled: Story = {
-  args: {
-    value: "https://www.google.com",
-    disabled: true,
-  },
-};
