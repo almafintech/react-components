@@ -38,6 +38,7 @@ const TokenCard = forwardRef(
       primaryButtonText,
       secondaryButtonText,
       theme,
+      resendText = "Reenviar mail"
     }: TokenCardProps,
     ref
   ) => {
@@ -196,11 +197,9 @@ const TokenCard = forwardRef(
       seconds: number,
       completed: boolean
     ) => {
-      const text = "Reenviar mail";
-
       return completed
-        ? text
-        : `${text} ${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+        ? resendText
+        : `${resendText} ${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
     };
 
     useImperativeHandle(ref, () => ({
