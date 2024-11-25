@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/almafintech/react-components/compare/v1.10.0...v1.11.0) (2024-11-25)
+
+
+### Bug Fixes
+
+* **inputcopy:** delete disabled state story ([3cf3f38](https://github.com/almafintech/react-components/commit/3cf3f38ae7b0e4e72f61312046c08d89e34a2179))
+
+
+### Features
+
+* **inputphone:** add custom label ([182b742](https://github.com/almafintech/react-components/commit/182b742bbf4a0ecfe2bdb7c36fe4e3b77a174b7d))
+
 # [1.10.0](https://github.com/almafintech/react-components/compare/v1.9.0...v1.10.0) (2024-11-22)
 
 # [1.9.0](https://github.com/almafintech/react-components/compare/v1.8.0...v1.9.0) (2024-11-22)
