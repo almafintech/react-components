@@ -35,4 +35,8 @@ export interface InputFileProps extends WithTheme {
   text?: string | ReactNode;
   successMessage?: string;
   validTypes: string[];
+  formatErrorMessage?: string
+  sizeErrorMessage?: string
+  replaceImageText?: string
+  attachImageText?: string
 }
