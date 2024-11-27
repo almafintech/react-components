@@ -231,7 +231,7 @@ const Input = (props: InputProps) => {
           </>
         }
       />
-      {infoMessage && (
+      {infoMessage && !(isInvalid && (props.touched || touched)) && (
         <InfoMessage
           message={infoMessage}
           isBymaTheme={isBymaTheme}
