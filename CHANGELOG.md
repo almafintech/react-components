@@ -1,3 +1,10 @@
+## [1.11.4](https://github.com/almafintech/react-components/compare/v1.11.3...v1.11.4) (2024-11-27)
+
+
+### Bug Fixes
+
+* **input.tsx:** prioritize error over infoMessage ([7463753](https://github.com/almafintech/react-components/commit/74637535f29dd441e4c0bf51ab576d0395d5d80b))
+
 ## [1.11.3](https://github.com/almafintech/react-components/compare/v1.11.2...v1.11.3) (2024-11-25)
 
 ## [1.11.2](https://github.com/almafintech/react-components/compare/v1.11.1...v1.11.2) (2024-11-25)
