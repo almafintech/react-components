@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/almafintech/react-components/compare/v1.11.6...v1.12.0) (2024-12-02)
+
+
+### Features
+
+* inputPhone: autoformat and country code editable ([2611f37](https://github.com/almafintech/react-components/commit/2611f37861eec3893d0a825704881ab972a62265))
+
 ## [1.11.6](https://github.com/almafintech/react-components/compare/v1.11.5...v1.11.6) (2024-12-02)
 
 ## [1.11.5](https://github.com/almafintech/react-components/compare/v1.11.4...v1.11.5) (2024-12-02)
