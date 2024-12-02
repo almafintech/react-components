@@ -67,6 +67,20 @@ export const isInvalidWithCustomErrorMessage: Story = {
   },
 };
 
+export const WithAutoFormat: Story = {
+  args: {
+    ...Default.args,
+    autoFormat: true,
+  },
+};
+
+export const WithoutCountryCodeEditable: Story = {
+  args: {
+    ...Default.args,
+    countryCodeEditable: false,
+  },
+};
+
 export const WithCustomLabel: Story = {
   args: {
     ...Default.args,
