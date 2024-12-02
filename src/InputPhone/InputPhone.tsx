@@ -27,6 +27,7 @@ const InputPhone = (props: InputPhoneProps) => {
     autoFormat = false,
     name,
     theme,
+    countryCodeEditable,
     ...rest
   } = props;
 
@@ -74,6 +75,7 @@ const InputPhone = (props: InputPhoneProps) => {
           shouldValidate ? (isValid ? success : error) : ""
         } `}
         inputProps={{ name }}
+        countryCodeEditable={countryCodeEditable}
       />
       {description && (
         <div className={helperWrapper}>
