@@ -330,11 +330,6 @@ const InputSelect = ({
           !isOpen && setSelectTouched(true);
           onBlur && onBlur(e);
         }}
-        popoverProps={{
-          portalContainer:
-            document.getElementById(`containerSelect-${componentId}`) ||
-            undefined,
-        }} // This is to avoid the popover to be rendered in the root and not like a sibling
         disallowEmptySelection={isSingle && true}
         description={!isInvalid && description}
         errorMessage={isInvalid && selectTouched && <>{getErrorMessage()}</>}
