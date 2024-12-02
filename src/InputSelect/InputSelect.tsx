@@ -53,9 +53,11 @@ const InputSelect = ({
   showExternalBox,
   label: labelComponent,
   theme,
+  onClose,
   ...rest
 }: InputSelectProps) => {
   const {
+    containerSelect,
     invalidSelect,
     validSelect,
     iconWrapper,
@@ -315,20 +317,15 @@ const InputSelect = ({
   return (
     <div
       id={`containerSelect-${componentId}`}
-      className={isBymaTheme ? "byma" : ""}
+      className={isBymaTheme ? "byma" : containerSelect}
     >
-      <label
-        className={`${label} ${isInvalid || description ? labelFix : ""} ${
-          isFormField && formField
-        } ${isDisabled ? "opacity-disabled" : ""}`}
-      >
-        <span>{labelComponent}</span>
-      </label>
       <NextUiSelect
         {...rest}
         isDisabled={isDisabled}
         disabled={isDisabled}
         onClick={handleInsideClick}
+        labelPlacement="outside"
+        label={labelComponent}
         onBlur={(e: React.FocusEvent) => {
           !isOpen && setSelectTouched(true);
           onBlur && onBlur(e);
@@ -355,7 +352,7 @@ const InputSelect = ({
         }`}
         classNames={{
           base: `${base} ${classNames?.base}`,
-          label: `${label} ${isInvalid || description ? labelFix : ""} ${
+          label: `${label} ${(isInvalid && selectTouched) || description ? labelFix : ""} ${
             isFormField && formField
           } ${isDisabled ? disabledSelect : ""}`,
           mainWrapper: `${mainWrapper} ${classNames?.mainWrapper}`,
@@ -405,6 +402,7 @@ const InputSelect = ({
         renderValue={() =>
           getRenderValue(values, items, hasDatePicker, datePickerRange)
         }
+        onClose={() => onClose && onClose()}
       >
         {!isDatePickerOpen &&
           items.map((item: SelectItemType) => {
@@ -504,7 +502,6 @@ const InputSelect = ({
               </span>
             </SelectItem>
           ) as any)}
-
         {/* Show actual date picker if open, no other options will be shown when open */}
         {isDatePickerOpen &&
           ((
