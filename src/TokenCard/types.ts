@@ -27,6 +27,8 @@ export interface TokenCardProps extends WithTheme {
   primaryButtonText?: string;
   secondaryButtonText?: string;
   resendText?: string
+  incorrectTokenErrorMessage?: string;
+  lengthValidationErrorMessage?: string;
 }
 
 export interface HeaderModalProps extends WithTheme {

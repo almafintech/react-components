@@ -38,7 +38,9 @@ const TokenCard = forwardRef(
       primaryButtonText,
       secondaryButtonText,
       theme,
-      resendText = "Reenviar mail"
+      resendText = "Reenviar mail",
+      incorrectTokenErrorMessage = "El token es incorrecto.",
+      lengthValidationErrorMessage = "Deben ser 7 caracteres.",
     }: TokenCardProps,
     ref
   ) => {
@@ -85,7 +87,7 @@ const TokenCard = forwardRef(
       if (token.length < 7) {
         setStatus({
           error: true,
-          message: "Deben ser 7 caracteres.",
+          message: lengthValidationErrorMessage,
           loading: false,
         });
       }
@@ -97,7 +99,7 @@ const TokenCard = forwardRef(
       setStatus({
         ...status,
         error: !isValid || !isValidLength,
-        message: !isValid ? "El token es incorrecto." : "",
+        message: !isValid ? incorrectTokenErrorMessage : "",
       });
     };
 
