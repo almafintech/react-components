@@ -129,8 +129,21 @@ const InputSelect = ({
     "DAY" | "DATE" | "MONTH"
   >(isDateVariant ? "DATE" : "DAY");
 
+  const inputSelectRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     isOpenRef.current = isOpen;
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (popoverRef.current && inputSelectRef.current) {
+      // Get de with of the input select
+      const inputSelectWidth = inputSelectRef.current.offsetWidth;
+
+      // Set the with of the popover
+      popoverRef.current.style.width = `${inputSelectWidth}px`;
+    }
   }, [isOpen]);
 
   // Listener for closing the select
@@ -289,7 +302,6 @@ const InputSelect = ({
       );
       const targetDataSlot = target.getAttribute("data-slot") || "";
       const noCloseSlots = ["listbox", "heading", "base"];
-
       // If select is open
       if (selectOpen) {
         // Check if the click is outside the select
@@ -302,7 +314,7 @@ const InputSelect = ({
           if (confirmSelection) {
             setValues(defaultSelectedKeys || []);
           }
-          return setIsOpen((prev) => !prev);
+          setIsOpen((prev) => !prev);
         }
       }
     }
@@ -314,9 +326,30 @@ const InputSelect = ({
     }
   }, [inputValue]);
 
+  // Listener for scroll events and close the select when the user scrolls
+  useEffect(() => {
+    const handleScroll = (event: Event) => {
+      if (
+        inputSelectRef.current &&
+        popoverRef.current &&
+        !inputSelectRef.current.contains(event.target as Node) &&
+        !popoverRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, true);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll, true);
+    };
+  }, []);
+
   return (
     <div
       id={`containerSelect-${componentId}`}
+      ref={inputSelectRef}
       className={isBymaTheme ? "byma" : containerSelect}
     >
       <NextUiSelect
@@ -329,6 +362,9 @@ const InputSelect = ({
         onBlur={(e: React.FocusEvent) => {
           !isOpen && setSelectTouched(true);
           onBlur && onBlur(e);
+        }}
+        popoverProps={{
+          ref: popoverRef,
         }}
         disallowEmptySelection={isSingle && true}
         description={!isInvalid && description}
