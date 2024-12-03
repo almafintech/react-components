@@ -75,6 +75,7 @@ const DatePicker = (props: DatePickerProps) => {
   const yearPicker = (
     <Select
       aria-label="Year"
+      id="year-picker"
       items={Array.from(
         Array(max.getFullYear() + 1 - min.getFullYear()).keys()
       ).map((_, i) => {
@@ -103,6 +104,7 @@ const DatePicker = (props: DatePickerProps) => {
   const monthPicker = (
     <Select
       aria-label="Month"
+      id="month-picker"
       items={getLongMonthNames(locale).map((name, i) => {
         return { label: name, value: i.toString() };
       })}
