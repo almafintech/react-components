@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/almafintech/react-components/compare/v1.12.2...v1.13.0) (2024-12-09)
+
+
+### Features
+
+* **tabs:** implement underlined variant for Tabs ([33e25fd](https://github.com/almafintech/react-components/commit/33e25fde7a4356be0ff74fe1a1c1a2dcb304ff40))
+
 ## [1.12.2](https://github.com/almafintech/react-components/compare/v1.12.1...v1.12.2) (2024-12-03)
 
 ## [1.12.1](https://github.com/almafintech/react-components/compare/v1.12.0...v1.12.1) (2024-12-02)
