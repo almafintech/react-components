@@ -10,5 +10,5 @@ type TabOption = {
 
 export interface TabsProps extends NextTabsProps<TabOption>, WithTheme {
   handleChange?: (key: Key) => void;
-  colorVariant?: "light_blue" | "dark_blue";
+  colorVariant?: "light_blue" | "dark_blue" | "normal";
 }
