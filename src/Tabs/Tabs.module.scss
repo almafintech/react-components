@@ -9,6 +9,10 @@
   color: $primary-dark-900 !important;
 }
 
+.tabContentUnderlined {
+  color: $primary-normal-300 !important;
+}
+
 .cursor {
   background-color: $primary-dark-600 !important;
 }
@@ -17,15 +21,28 @@
   background-color: $secondary-normal-500 !important;
 }
 
+.cursorUnderlined {
+  background-color: $primary-normal-300 !important;
+}
+
 .tab {
   @include data-selected {
     .tabContent {
       color: $white !important;
     }
+    
+    .tabContentUnderlined {
+      color: $primary-normal-300 !important;
+      font-weight: 600;
+    }
   }
 
   @include data-disabled {
     opacity: 1 !important;
+
+    .tabContentUnderlined {
+      color: $secondary-normal-300 !important;
+    }
   }
 }
 

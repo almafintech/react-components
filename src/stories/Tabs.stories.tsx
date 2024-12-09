@@ -101,3 +101,11 @@ export const DefaultWithBymaTheme: Story = {
     theme: "byma",
   },
 };
+
+
+export const Underlined: Story = {
+  args: {
+    ...Default.args,
+    variant: "underlined",
+  },
+};

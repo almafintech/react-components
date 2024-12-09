@@ -7,9 +7,17 @@ const Tabs = ({
   colorVariant = "light_blue",
   handleChange,
   theme,
+  variant,
   ...rest
 }: TabsProps) => {
-  const { cursor, cursorDark, ...restStyles } = styles;
+  const {
+    cursor,
+    cursorDark,
+    cursorUnderlined,
+    tabContent,
+    tabContentUnderlined,
+    ...restStyles
+  } = styles;
 
   const isBymaTheme = isByma(theme);
 
@@ -18,10 +26,18 @@ const Tabs = ({
       {...rest}
       onSelectionChange={handleChange ? (key) => handleChange(key) : undefined}
       aria-label="Tabs"
+      variant={variant}
       className={`${isBymaTheme ? "byma" : ""}`}
       classNames={{
         ...restStyles,
-        cursor: colorVariant === "light_blue" ? cursor : cursorDark,
+        tabContent:
+          variant === "underlined" ? tabContentUnderlined : tabContent,
+        cursor:
+          variant === "underlined"
+            ? cursorUnderlined
+            : colorVariant === "light_blue"
+              ? cursor
+              : cursorDark,
       }}
     >
       {(item) => (
