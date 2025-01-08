@@ -137,6 +137,11 @@ const Input = (props: InputProps) => {
       </span>
     </span>
   );
+
+  useEffect(() => {
+    if (initialValue) setValue(initialValue);
+  }, [initialValue]);
+
   return (
     <>
       <NextUiInput
