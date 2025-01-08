@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/almafintech/react-components/compare/v1.13.0...v1.13.1) (2025-01-08)
+
+
+### Bug Fixes
+
+* **input:** update value if initialValue change ([a417af1](https://github.com/almafintech/react-components/commit/a417af1788b20c2b899ab65d0beae025726fdb22))
+
 # [1.13.0](https://github.com/almafintech/react-components/compare/v1.12.2...v1.13.0) (2024-12-09)
 
 
