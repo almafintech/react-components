@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { WithTheme } from "..";
 
 export type InputFileErrorsTypes =
