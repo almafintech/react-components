@@ -1,3 +1,15 @@
+# [1.14.0](https://github.com/almafintech/react-components/compare/v1.13.1...v1.14.0) (2025-01-13)
+
+
+### Bug Fixes
+
+* **inputfile:** fix build ([2d1de1b](https://github.com/almafintech/react-components/commit/2d1de1b700687485683accaadd1a12b1f4f143ff))
+
+
+### Features
+
+* **inputfile:** add optional, anchor and tooltip props ([2708a77](https://github.com/almafintech/react-components/commit/2708a77ca6b52608f11c65aa7bc3d2a4f1a615a0))
+
 ## [1.13.1](https://github.com/almafintech/react-components/compare/v1.13.0...v1.13.1) (2025-01-08)
 
 
