@@ -5,9 +5,23 @@
 }
 
 .label {
-  font-weight: 500;
+  display: flex;
+  flex-direction: row;
   margin-bottom: 0.5rem;
   font-size: 0.88875rem;
+  font-weight: 500;
+  justify-content: space-between;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .optionalText {
+    font-weight: 500;
+    color: $secondary-light-200;
+  }
 }
 
 .inputFile {

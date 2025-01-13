@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { WithTheme } from "..";
 
 export type InputFileErrorsTypes =
@@ -27,6 +27,9 @@ export interface InputFileProps extends WithTheme {
   name: string;
   label?: string | ReactNode;
   isMobile?: boolean;
+  isOptional?: boolean;
+  anchor?: ReactNode;
+  tooltip?: ReactNode;
   onFileDownload?: (file: FileData) => void;
   onFileRemove?: () => void;
   onFileUpload?: (file: File) => void;
