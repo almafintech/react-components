@@ -34,6 +34,14 @@ export const Default: Story = {
   },
 };
 
+export const isOptional: Story = {
+  args: {
+    ...Default.args,
+    label: "Frente",
+    isOptional: true,
+  },
+};
+
 export const WithInfoMessage: Story = {
   args: {
     ...Default.args,
@@ -96,6 +104,22 @@ export const withoutDownloadIcon: Story = {
     hideDownloadIcon: true,
   },
 };
+
+export const WithTooltip = {
+  args: {
+    ...Default.args,
+    label: "Frente",
+    tooltip: "Tooltip",
+  },
+}
+
+export const WithAnchor = {
+  args: {
+    ...Default.args,
+    label: "Frente",
+    anchor: <a href="https://www.google.com" target="_blank"><b>Click aquí</b></a>,
+  }
+}
 
 export const isMobile: Story = {
   args: {

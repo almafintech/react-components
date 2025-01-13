@@ -43,7 +43,6 @@ const InputFile = ({
   infoTextPosition = "bottom",
   infoTextClassName,
   hideDownloadIcon,
-  label,
   isMobile,
   successMessage,
   theme,
@@ -51,6 +50,7 @@ const InputFile = ({
   sizeErrorMessage = "El archivo adjunto excede el peso máximo permitido de",
   replaceImageText = "Reemplazar imagen",
   attachImageText = "Adjuntar imagen",
+  ...labelProps
 }: InputFileProps) => {
   const isBymaTheme = isByma(theme);
 
@@ -62,7 +62,6 @@ const InputFile = ({
     fileOptions,
     inputSuccess,
     container,
-    label: labelStyle,
     infoTextStyle,
     topPosition,
     bottomPosition,
@@ -193,7 +192,7 @@ const InputFile = ({
           style={{ width: "100%", height: "100%" }}
           className={`${infoTextPosition === "top" ? topPosition : bottomPosition}`}
         >
-          {label && <div className={labelStyle}>{label}</div>}
+          <InputFileLabel {...labelProps} />
           <div className={mobile}>
             <span>{file ? replaceImageText : attachImageText}</span>
             {!file && (
@@ -209,42 +208,40 @@ const InputFile = ({
       ) : (
         <>
           {!file || fileError ? (
-            <>
-              <label
-                htmlFor={`input-file-upload-${name}`}
-                style={{ width: "100%", height: "100%" }}
-                className={`${infoTextPosition === "top" ? topPosition : bottomPosition}`}
+            <label
+              htmlFor={`input-file-upload-${name}`}
+              style={{ width: "100%", height: "100%" }}
+              className={`${infoTextPosition === "top" ? topPosition : bottomPosition}`}
+            >
+              <InputFileLabel {...labelProps} />
+              <div
+                onDragEnter={handleDrag}
+                onDragOver={handleDrag}
+                onDragLeave={handleDrag}
+                onDrop={handleDropOrInputChange}
+                className={inputFile}
               >
-                {label && <div className={labelStyle}>{label}</div>}
-                <div
-                  onDragEnter={handleDrag}
-                  onDragOver={handleDrag}
-                  onDragLeave={handleDrag}
-                  onDrop={handleDropOrInputChange}
-                  className={inputFile}
-                >
-                  <div className={fileHeader}>
-                    <img src={isBymaTheme ? UploadIconByma : UploadIcon} />
-                    <label
-                      id={`label-file-upload-${name}`}
-                      htmlFor={`input-file-upload-${name}`}
-                    >
-                      {text}
-                    </label>
-                  </div>
+                <div className={fileHeader}>
+                  <img src={isBymaTheme ? UploadIconByma : UploadIcon} />
+                  <label
+                    id={`label-file-upload-${name}`}
+                    htmlFor={`input-file-upload-${name}`}
+                  >
+                    {text}
+                  </label>
                 </div>
-                {infoText && (
-                  <div className={`${infoTextStyle} ${infoTextClassName}`}>
-                    {infoText}
-                  </div>
-                )}
-              </label>
-            </>
+              </div>
+              {infoText && (
+                <div className={`${infoTextStyle} ${infoTextClassName}`}>
+                  {infoText}
+                </div>
+              )}
+            </label>
           ) : (
             <div
               className={`${infoTextPosition === "top" ? topPosition : bottomPosition}`}
             >
-              {label && <div className={labelStyle}>{label}</div>}
+              <InputFileLabel {...labelProps} />
               <div className={`${inputFile} ${!isLoading ? inputSuccess : ""}`}>
                 <div className={fileContent}>
                   <div className={`${fileHeader} ${file && "w-4/5"}`}>
@@ -308,6 +305,33 @@ const InputFile = ({
           <span>{errorMessage}</span>
         </div>
       )}
+    </div>
+  );
+};
+
+const InputFileLabel = ({
+  label,
+  isOptional,
+  tooltip,
+  anchor,
+}: {
+  label?: string | React.ReactNode;
+  isOptional?: boolean;
+  tooltip?: React.ReactNode;
+  anchor?: React.ReactNode;
+}) => {
+  if (!label) return null;
+
+  const { label: labelStyle, optionalText, container } = styles;
+
+  return (
+    <div className={labelStyle}>
+      <div className={container}>
+        <div>{label}</div>
+        {isOptional && <span className={optionalText}>- Opcional</span>}
+        <div>{tooltip}</div>
+      </div>
+      {anchor}
     </div>
   );
 };
