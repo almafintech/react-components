@@ -322,16 +322,20 @@ const InputFileLabel = ({
 }) => {
   if (!label) return null;
 
-  const { label: labelStyle, optionalText, container } = styles;
+  const {
+    label: labelStyle,
+    optionalText,
+    tooltipContainer,
+  } = styles;
 
   return (
     <div className={labelStyle}>
-      <div className={container}>
-        <div>{label}</div>
+      <div>
+        {label}
         {isOptional && <span className={optionalText}>- Opcional</span>}
-        <div>{tooltip}</div>
+        <span className={tooltipContainer}>{tooltip}</span>
       </div>
-      {anchor}
+      <div className="text-nowrap">{anchor}</div>
     </div>
   );
 };
