@@ -260,10 +260,14 @@ const InputSelect = ({
     </div>
   );
 
-  //Listen to the "select-open" event and close input when the componentId is different
+  // Listen to the "select-open" event and close input when the componentId is different
   useEffect(() => {
     const handleOtherSelectOpen = (event: any) => {
-      if (event.detail !== componentId) {
+      const [eventDetail, isDatePickerComponent] = event.detail.split(":");
+
+      const isDatePicker = isDatePickerComponent.toLowerCase() === "true";
+
+      if (eventDetail !== componentId && !isDatePicker) {
         setIsOpen(false);
       }
     };
@@ -282,8 +286,11 @@ const InputSelect = ({
 
     //Dispatch a event to store the "componentId"
     if (!isOpen) {
+      let isDatePickerComponent =
+        rest["aria-label"] === "Year" || rest["aria-label"] === "Month";
+
       const selectOpenEvent = new CustomEvent("select-open", {
-        detail: componentId,
+        detail: `${componentId}:${isDatePickerComponent}`,
       });
       window.dispatchEvent(selectOpenEvent);
     }
@@ -306,15 +313,16 @@ const InputSelect = ({
       if (selectOpen) {
         // Check if the click is outside the select
         if (
-          triggerElement &&
-          !triggerElement.contains(target) &&
-          !noCloseSlots.includes(targetDataSlot)
+          (triggerElement && triggerElement.contains(target)) ||
+          noCloseSlots.includes(targetDataSlot)
         ) {
-          // If confirmSelection set the values to the previous ones
-          if (confirmSelection) {
-            setValues(defaultSelectedKeys || []);
-          }
-          setIsOpen((prev) => !prev);
+          return; // Do nothing if it is a valid internal click
+        }
+
+        // Close the InputSelect in other cases
+        setIsOpen(false);
+        if (confirmSelection) {
+          setValues(defaultSelectedKeys || []);
         }
       }
     }
@@ -329,11 +337,20 @@ const InputSelect = ({
   // Listener for scroll events and close the select when the user scrolls
   useEffect(() => {
     const handleScroll = (event: Event) => {
+      const target = event.target as HTMLElement;
+      // Check if the scroll event is from the internal InputSelects
+      const isInternalScroll =
+        target.getAttribute("aria-label") === "Month" ||
+        target.getAttribute("aria-label") === "Year" ||
+        target.getAttribute("data-slot") === "popover" ||
+        target.getAttribute("data-slot") === "listboxWrapper";
+
       if (
         inputSelectRef.current &&
         popoverRef.current &&
         !inputSelectRef.current.contains(event.target as Node) &&
-        !popoverRef.current.contains(event.target as Node)
+        !popoverRef.current.contains(event.target as Node) &&
+        !isInternalScroll
       ) {
         setIsOpen(false);
       }
@@ -351,6 +368,7 @@ const InputSelect = ({
       id={`containerSelect-${componentId}`}
       ref={inputSelectRef}
       className={isBymaTheme ? "byma" : containerSelect}
+      aria-label={rest["aria-label"]}
     >
       <NextUiSelect
         {...rest}
