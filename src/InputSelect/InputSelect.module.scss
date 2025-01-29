@@ -97,6 +97,7 @@ $confirm-actions-height: 100px;
   min-width: 20rem;
   border: 1px solid $primary-light-100;
   box-shadow: none;
+  overflow: visible !important;
 }
 
 .validSelect {
@@ -193,6 +194,7 @@ $confirm-actions-height: 100px;
 
 .datePickerListboxWrapper {
   max-height: fit-content !important;
+  overflow-y: visible;
 }
 
 .itemDivider {
@@ -421,6 +423,7 @@ $confirm-actions-height: 100px;
 
   .popoverContent {
     border-color: $byma-primary-alternative;
+    overflow-y: visible !important;
   }
 
   .validSelect {
