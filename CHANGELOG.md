@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/almafintech/react-components/compare/v1.14.0...v1.14.1) (2025-01-29)
+
+
+### Bug Fixes
+
+* fix datepicker & select (select-open) ([21436a9](https://github.com/almafintech/react-components/commit/21436a9e46b87695f27658fcb57d2e1a7a587549))
+
 # [1.14.0](https://github.com/almafintech/react-components/compare/v1.13.1...v1.14.0) (2025-01-13)
 
 
