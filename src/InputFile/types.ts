@@ -12,6 +12,12 @@ export type FileData = {
   name: string;
 };
 
+export type FileWithDetails = {
+  file: File,
+  error?: boolean,
+  errorMessage?: string
+}
+
 export interface InputFileProps extends WithTheme {
   className?: string;
   error?: boolean;
@@ -28,6 +34,8 @@ export interface InputFileProps extends WithTheme {
   label?: string | ReactNode;
   isMobile?: boolean;
   isOptional?: boolean;
+  multiple?: boolean;
+  maxFiles?: number;
   anchor?: ReactNode;
   tooltip?: ReactNode;
   onFileDownload?: (file: FileData) => void;
