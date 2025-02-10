@@ -39,7 +39,7 @@ export interface InputFileProps extends WithTheme {
   anchor?: ReactNode;
   tooltip?: ReactNode;
   onFileDownload?: (file: FileData) => void;
-  onFileRemove?: () => void;
+  onFileRemove?: (file?: File) => void;
   onFileUpload?: (file: File) => void;
   selectedFile?: File | null;
   setError?: (error: InputFileErrorsTypes | null) => void;

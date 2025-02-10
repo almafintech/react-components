@@ -104,7 +104,7 @@ const InputFileMultiple = ({
           ...(prevFiles ? prevFiles : []),
           fileWithDetails,
         ]);
-        onFileRemove && onFileRemove();
+        onFileRemove && onFileRemove(file);
       }
     }
   };
