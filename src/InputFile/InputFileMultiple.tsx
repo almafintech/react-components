@@ -148,7 +148,7 @@ const InputFileMultiple = ({
               i === indexToReplace ? fileWithDetails : file
             ) as FileWithDetails[]
         );
-        onFileRemove && onFileRemove();
+        onFileRemove && onFileRemove(originalFile);
       }
     }
   };
@@ -157,7 +157,7 @@ const InputFileMultiple = ({
     setFiles((prevFiles) =>
       (prevFiles as FileWithDetails[]).filter((f) => f.file !== fileToRemove)
     );
-    onFileRemove && onFileRemove();
+    onFileRemove && onFileRemove(fileToRemove);
   }, []);
 
   return (
