@@ -41,15 +41,6 @@ export const isOptional: Story = {
     isOptional: true,
   },
 };
-export const multiple: Story = {
-  args: {
-    ...Default.args,
-    multiple: true,
-    text: "Arrastrá o seleccioná archivos de tu dispositivo",
-    maxSize: 1,
-    sizeErrorMessage: "El archivo excede el peso máximo de",
-  },
-};
 
 export const WithInfoMessage: Story = {
   args: {
@@ -148,5 +139,36 @@ export const isMobileWithCustomSuccessMessage: Story = {
     label: "Frente",
     successMessage: "Imagen subida con éxito",
     isMobile: true,
+  },
+};
+
+export const multiple: Story = {
+  args: {
+    ...Default.args,
+    multiple: true,
+    text: "Arrastrá o seleccioná archivos de tu dispositivo",
+    maxSize: 1,
+    sizeErrorMessage: "El archivo excede el peso máximo de",
+  },
+};
+
+export const multipleWithFileData: Story = {
+  args: {
+    ...Default.args,
+    multiple: true,
+    text: "Arrastrá o seleccioná archivos de tu dispositivo",
+    maxSize: 1,
+    sizeErrorMessage: "El archivo excede el peso máximo de",
+    fileData: [
+      {
+        id: 1,
+        name: "293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155 (2) (1) (1).png",
+      },
+      {
+        id: 2,
+        name: "hola.jpeg",
+      },
+    ],
+    hideDownloadIcon: true,
   },
 };

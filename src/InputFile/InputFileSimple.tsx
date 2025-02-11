@@ -65,7 +65,9 @@ const InputFileSimple = ({
   } = styles;
 
   // const [dragging, setDragging] = useState(false);
-  const [file, setFile] = useState<File | FileData | null>(fileData ?? null);
+  const [file, setFile] = useState<File | FileData | null>(
+    fileData && !Array.isArray(fileData) ? fileData : null
+  );
   const [fileError, setFileError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>();
   const hiddenInputRef = useRef<HTMLInputElement>(null);
@@ -149,7 +151,7 @@ const InputFileSimple = ({
   }, [initialValue]);
 
   useEffect(() => {
-    if (fileData) setFile(fileData);
+    if (fileData && !Array.isArray(fileData)) setFile(fileData);
   }, [fileData]);
 
   useEffect(() => {

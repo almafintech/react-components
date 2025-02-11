@@ -1,6 +1,6 @@
 import { DragEvent, useCallback, useEffect, useRef, useState } from "react";
 import saveAs from "file-saver";
-import { FileWithDetails, InputFileProps } from "./types";
+import { FileData, FileWithDetails, InputFileProps } from "./types";
 import InputFileDefault from "./InputFileDefault";
 
 import replaceIcon from "../../assets/images/ui/icons/repeat-icon.svg";
@@ -57,9 +57,13 @@ const InputFileMultiple = ({
     replaceContainer,
   } = styles;
 
-  const [files, setFiles] = useState<FileWithDetails[] | null>(null);
+  const [files, setFiles] = useState<FileWithDetails[] | FileData[] | null>(
+    null
+  );
   const hiddenInputRef = useRef<HTMLInputElement>(null);
   const hiddenInputReplaceRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const isFileData = files && files.length > 0 && "id" in files[0];
 
   const handleDropOrInputChange = (
     e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>
@@ -90,9 +94,15 @@ const InputFileMultiple = ({
   };
 
   const handleFileChange = (inputFiles: File[]) => {
+    if (isFileData) {
+      setFiles(null);
+    }
     for (const file of inputFiles) {
       if (isValidFile(file)) {
-        setFiles((prevFiles) => [...(prevFiles ? prevFiles : []), { file }]);
+        setFiles((prevFiles) => [
+          ...(prevFiles ? (prevFiles as FileWithDetails[]) : []),
+          { file },
+        ]);
         onFileUpload && !isLoading && onFileUpload(file);
       } else {
         const fileWithDetails = {
@@ -101,7 +111,7 @@ const InputFileMultiple = ({
           errorMessage: getErrorMessage(file),
         };
         setFiles((prevFiles = []) => [
-          ...(prevFiles ? prevFiles : []),
+          ...(prevFiles ? (prevFiles as FileWithDetails[]) : []),
           fileWithDetails,
         ]);
         onFileRemove && onFileRemove(file);
@@ -153,10 +163,17 @@ const InputFileMultiple = ({
     }
   };
 
-  const handleFileRemove = useCallback((fileToRemove: File) => {
-    setFiles((prevFiles) =>
-      (prevFiles as FileWithDetails[]).filter((f) => f.file !== fileToRemove)
-    );
+  const handleFileRemove = useCallback((fileToRemove: File | FileData) => {
+    if ("id" in fileToRemove) {
+      setFiles((prevFiles) =>
+        (prevFiles as FileData[]).filter((f) => f.id !== fileToRemove.id)
+      );
+    } else {
+      setFiles((prevFiles) =>
+        (prevFiles as FileWithDetails[]).filter((f) => f.file !== fileToRemove)
+      );
+    }
+
     onFileRemove && onFileRemove(fileToRemove);
   }, []);
 
@@ -167,6 +184,10 @@ const InputFileMultiple = ({
       setFiles(null);
     }
   }, [initialValue]);
+
+  useEffect(() => {
+    if (fileData && Array.isArray(fileData)) setFiles(fileData);
+  }, [fileData]);
 
   return (
     <div>
@@ -188,47 +209,69 @@ const InputFileMultiple = ({
         labelProps={{ ...labelProps }}
       />
       <div className="flex flex-col mt-4 px-6 gap-4">
-        {files?.map(({ file, error, errorMessage }, index) =>
-          error ? (
-            <div className={fileDetailsContainer}>
-              <div className={fileNameContainer}>
-                <img src={ErrorIcon} width={16} height={16} />
-                <div>
-                  <p>{file.name}</p>
-                  <span>{errorMessage}</span>
-                </div>
-              </div>
-              <div className={actionsContainer}>
-                <div className={replaceContainer}>
-                  <input
-                    ref={(el) => (hiddenInputReplaceRefs.current[index] = el)}
-                    className={hiddenInputFile}
-                    type="file"
-                    accept={validTypes?.join(",")}
-                    onChange={(e) => handleFileReplace(e, file)}
-                    id={`input-file-replace-${name}-${index}`}
-                  />
-                  <img src={replaceIcon} width={18} height={18} />
-                </div>
-                <img src={TrashIcon} onClick={() => handleFileRemove(file)} />
-              </div>
-            </div>
-          ) : (
+        {isFileData &&
+          (files as FileData[]).map((file) => (
             <div className={fileDetailsContainer}>
               <div className={fileNameContainer}>
                 <img src={SuccessIcon} width={16} height={16} />
                 <p>{file.name}</p>
               </div>
               <div className={actionsContainer}>
-                <img
-                  src={DownloadIcon}
-                  onClick={() => handleFileDownload(file)}
-                />
                 <img src={TrashIcon} onClick={() => handleFileRemove(file)} />
               </div>
             </div>
-          )
-        )}
+          ))}
+        {!isFileData &&
+          (files as FileWithDetails[])?.map(
+            ({ file, error, errorMessage }, index) =>
+              error ? (
+                <div className={fileDetailsContainer}>
+                  <div className={fileNameContainer}>
+                    <img src={ErrorIcon} width={16} height={16} />
+                    <div>
+                      <p>{file.name}</p>
+                      <span>{errorMessage}</span>
+                    </div>
+                  </div>
+                  <div className={actionsContainer}>
+                    <div className={replaceContainer}>
+                      <input
+                        ref={(el) =>
+                          (hiddenInputReplaceRefs.current[index] = el)
+                        }
+                        className={hiddenInputFile}
+                        type="file"
+                        accept={validTypes?.join(",")}
+                        onChange={(e) => handleFileReplace(e, file)}
+                        id={`input-file-replace-${name}-${index}`}
+                      />
+                      <img src={replaceIcon} width={18} height={18} />
+                    </div>
+                    <img
+                      src={TrashIcon}
+                      onClick={() => handleFileRemove(file)}
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className={fileDetailsContainer}>
+                  <div className={fileNameContainer}>
+                    <img src={SuccessIcon} width={16} height={16} />
+                    <p>{file.name}</p>
+                  </div>
+                  <div className={actionsContainer}>
+                    <img
+                      src={DownloadIcon}
+                      onClick={() => handleFileDownload(file)}
+                    />
+                    <img
+                      src={TrashIcon}
+                      onClick={() => handleFileRemove(file)}
+                    />
+                  </div>
+                </div>
+              )
+          )}
       </div>
     </div>
   );

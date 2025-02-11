@@ -21,7 +21,7 @@ export type FileWithDetails = {
 export interface InputFileProps extends WithTheme {
   className?: string;
   error?: boolean;
-  fileData?: FileData;
+  fileData?: FileData | FileData[];
   infoText?: string;
   infoTextPosition?: "bottom" | "top";
   infoTextClassName?: string;
@@ -39,7 +39,7 @@ export interface InputFileProps extends WithTheme {
   anchor?: ReactNode;
   tooltip?: ReactNode;
   onFileDownload?: (file: FileData) => void;
-  onFileRemove?: (file?: File) => void;
+  onFileRemove?: (file?: File | FileData) => void;
   onFileUpload?: (file: File) => void;
   selectedFile?: File | null;
   setError?: (error: InputFileErrorsTypes | null) => void;
