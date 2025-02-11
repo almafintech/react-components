@@ -141,7 +141,7 @@ const InputFileSimple = ({
   }, [selectedFile]);
 
   useEffect(() => {
-    if (initialValue) {
+    if (initialValue && initialValue instanceof File) {
       handleFileChange(initialValue);
     } else {
       setFile(null);

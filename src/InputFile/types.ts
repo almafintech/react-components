@@ -25,7 +25,7 @@ export interface InputFileProps extends WithTheme {
   infoText?: string;
   infoTextPosition?: "bottom" | "top";
   infoTextClassName?: string;
-  initialValue?: File | null;
+  initialValue?: File | null | File[];
   isLoading?: boolean;
   hideDownloadIcon?: boolean;
   /** maxSize in MB */

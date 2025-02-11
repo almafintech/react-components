@@ -1,4 +1,4 @@
-import { DragEvent, useCallback, useRef, useState } from "react";
+import { DragEvent, useCallback, useEffect, useRef, useState } from "react";
 import saveAs from "file-saver";
 import { FileWithDetails, InputFileProps } from "./types";
 import InputFileDefault from "./InputFileDefault";
@@ -159,6 +159,14 @@ const InputFileMultiple = ({
     );
     onFileRemove && onFileRemove(fileToRemove);
   }, []);
+
+  useEffect(() => {
+    if (initialValue && Array.isArray(initialValue)) {
+      handleFileChange(initialValue);
+    } else {
+      setFiles(null);
+    }
+  }, [initialValue]);
 
   return (
     <div>
