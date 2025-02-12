@@ -35,6 +35,7 @@ const InputFileMultiple = ({
   selectedFile,
   fileData,
   error,
+  maxFiles,
   isLoading,
   infoTextPosition = "bottom",
   infoTextClassName,
@@ -94,27 +95,35 @@ const InputFileMultiple = ({
   };
 
   const handleFileChange = (inputFiles: File[]) => {
+    const isAlreadyUploaded = (file: File) => {
+      return (files as FileWithDetails[])?.some((f) => f.file === file);
+    };
     if (isFileData) {
       setFiles(null);
     }
     for (const file of inputFiles) {
-      if (isValidFile(file)) {
-        setFiles((prevFiles) => [
-          ...(prevFiles ? (prevFiles as FileWithDetails[]) : []),
-          { file },
-        ]);
-        onFileUpload && !isLoading && onFileUpload(file);
-      } else {
-        const fileWithDetails = {
-          file,
-          error: true,
-          errorMessage: getErrorMessage(file),
-        };
-        setFiles((prevFiles = []) => [
-          ...(prevFiles ? (prevFiles as FileWithDetails[]) : []),
-          fileWithDetails,
-        ]);
-        onFileRemove && onFileRemove(file);
+      if (
+        !isAlreadyUploaded(file) &&
+        (!maxFiles || (files && files?.length <= maxFiles))
+      ) {
+        if (isValidFile(file)) {
+          setFiles((prevFiles) => [
+            ...(prevFiles ? (prevFiles as FileWithDetails[]) : []),
+            { file },
+          ]);
+          onFileUpload && !isLoading && onFileUpload(file);
+        } else {
+          const fileWithDetails = {
+            file,
+            error: true,
+            errorMessage: getErrorMessage(file),
+          };
+          setFiles((prevFiles = []) => [
+            ...(prevFiles ? (prevFiles as FileWithDetails[]) : []),
+            fileWithDetails,
+          ]);
+          onFileRemove && onFileRemove(file);
+        }
       }
     }
   };
