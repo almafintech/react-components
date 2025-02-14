@@ -322,16 +322,12 @@ const InputFileLabel = ({
 }) => {
   if (!label) return null;
 
-  const {
-    label: labelStyle,
-    optionalText,
-    tooltipContainer,
-  } = styles;
+  const { label: labelStyle, optionalText, tooltipContainer } = styles;
 
   return (
     <div className={labelStyle}>
       <div>
-        {label}
+        <span>{label}</span>
         {isOptional && <span className={optionalText}>- Opcional</span>}
         <span className={tooltipContainer}>{tooltip}</span>
       </div>
