@@ -1,3 +1,11 @@
+## [1.14.2](https://github.com/almafintech/react-components/compare/v1.14.1...v1.14.2) (2025-02-19)
+
+
+### Bug Fixes
+
+* **inputfile.module.css:** fix overflow in label ([7b3696a](https://github.com/almafintech/react-components/commit/7b3696acb5fdfe8972fbc1259535d96a6f213b6d))
+* **inputfile:** fix styles when tooltip is an img ([04b3e7c](https://github.com/almafintech/react-components/commit/04b3e7c34604c7d6abdbb7701706adb6955bc62f))
+
 ## [1.14.1](https://github.com/almafintech/react-components/compare/v1.14.0...v1.14.1) (2025-01-29)
 
 
