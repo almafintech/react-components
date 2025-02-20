@@ -89,7 +89,7 @@ const InputFileDefault = ({
   );
 };
 
-const InputFileLabel = ({
+export const InputFileLabel = ({
   label,
   isOptional,
   tooltip,
