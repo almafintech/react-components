@@ -175,35 +175,60 @@
   color: $secondary-normal-300;
 }
 
-:global(.byma) {
-  .inputFile {
-    border-color: $byma-primary-default;
+.fileDetailsContainer {
+  display: flex;
+  justify-content: space-between;
 
-    .fileHeader {
-      span {
-        color: $byma-primary-default;
-      }
+  .fileNameContainer {
+    width: 80%;
+    display: flex;
+    gap: 0.5rem;
+
+    div {
+      width: 90%;
     }
 
-    &.inputSuccess {
-      border-color: $byma-success-dark;
+    p {
+      font-size: 0.75rem;
+      color: $primary-dark-900;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    span {
+      font-size: 0.75rem;
+      color: $e300;
+    }
+  }
+}
+
+.actionsContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  .replaceContainer {
+    position: relative;
+
+    input[type="file"] {
+      cursor: pointer;
+      font-size: 0;
+    }
+
+    .hiddenInputFile {
+      position: absolute;
+      display: block;
+      opacity: 0;
+      width: 16px;
+      height: 16px;
+      top: 0;
+      left: 0;
+      cursor: pointer !important;
     }
   }
 
-  .mobile {
-    border-color: $byma-primary-default;
-    color: $byma-primary-default;
-  }
-
-  .infoTextStyle {
-    color: $byma-text-disabled;
-  }
-
-  .errorMessageStyle {
-    color: $byma-error-dark;
-  }
-
-  .successMessageStyle {
-    color: $byma-text-disabled;
+  img {
+    cursor: pointer;
   }
 }

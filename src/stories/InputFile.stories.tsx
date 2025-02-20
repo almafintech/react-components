@@ -111,15 +111,19 @@ export const WithTooltip = {
     label: "Frente",
     tooltip: "Tooltip",
   },
-}
+};
 
 export const WithAnchor = {
   args: {
     ...Default.args,
     label: "Frente",
-    anchor: <a href="https://www.google.com" target="_blank"><b>Click aquí</b></a>,
-  }
-}
+    anchor: (
+      <a href="https://www.google.com" target="_blank">
+        <b>Click aquí</b>
+      </a>
+    ),
+  },
+};
 
 export const isMobile: Story = {
   args: {
@@ -138,78 +142,33 @@ export const isMobileWithCustomSuccessMessage: Story = {
   },
 };
 
-export const WithBymaTheme: Story = {
+export const multiple: Story = {
   args: {
     ...Default.args,
-    theme: "byma",
-  },
-};
-
-export const WithInfoMessageWithBymaTheme: Story = {
-  args: {
-    ...Default.args,
-    infoText: "Adjuntá la información necesaria",
-    label: "Frente",
-    theme: "byma",
-  },
-};
-
-export const WithInfoMessageCustomPositionWithBymaTheme: Story = {
-  args: {
-    ...Default.args,
-    infoText: "Adjuntá la información necesaria",
-    label: "Frente",
-    infoTextPosition: "top",
-    theme: "byma",
-  },
-};
-
-export const WithValidTypesFilesWithBymaTheme: Story = {
-  args: {
-    ...Default.args,
-    validTypes: ["image/jpg", "image/png"],
-    infoText: "Formato .jpg .png",
-    label: "Frente",
-    theme: "byma",
-  },
-};
-
-export const WithFileDataWithBymaTheme: Story = {
-  args: {
-    ...Default.args,
-    label: "Frente",
-    fileData: {
-      id: 1,
-      name: "293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155 (2) (1) (1).png",
-    },
-    hideDownloadIcon: true,
-    theme: "byma",
-  },
-};
-
-export const WithMaxSizeWithBymaTheme: Story = {
-  args: {
-    ...Default.args,
+    multiple: true,
+    text: "Arrastrá o seleccioná archivos de tu dispositivo",
     maxSize: 1,
-    infoText: "Peso máximo 1MB",
-    label: "Frente",
-    theme: "byma",
+    sizeErrorMessage: "El archivo excede el peso máximo de",
   },
 };
 
-export const withoutDownloadIconWithBymaTheme: Story = {
+export const multipleWithFileData: Story = {
   args: {
     ...Default.args,
+    multiple: true,
+    text: "Arrastrá o seleccioná archivos de tu dispositivo",
+    maxSize: 1,
+    sizeErrorMessage: "El archivo excede el peso máximo de",
+    fileData: [
+      {
+        id: 1,
+        name: "293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155293714292-62793937-3c58-4d32-a2e1-a461c616c155 (2) (1) (1).png",
+      },
+      {
+        id: 2,
+        name: "hola.jpeg",
+      },
+    ],
     hideDownloadIcon: true,
-    theme: "byma",
-  },
-};
-
-export const isMobileWithBymaTheme: Story = {
-  args: {
-    ...Default.args,
-    label: "Frente",
-    isMobile: true,
-    theme: "byma",
   },
 };

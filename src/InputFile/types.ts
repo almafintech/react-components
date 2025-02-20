@@ -12,14 +12,20 @@ export type FileData = {
   name: string;
 };
 
+export type FileWithDetails = {
+  file: File,
+  error?: boolean,
+  errorMessage?: string
+}
+
 export interface InputFileProps extends WithTheme {
   className?: string;
   error?: boolean;
-  fileData?: FileData;
+  fileData?: FileData | FileData[];
   infoText?: string;
   infoTextPosition?: "bottom" | "top";
   infoTextClassName?: string;
-  initialValue?: File | null;
+  initialValue?: File | null | File[];
   isLoading?: boolean;
   hideDownloadIcon?: boolean;
   /** maxSize in MB */
@@ -28,10 +34,12 @@ export interface InputFileProps extends WithTheme {
   label?: string | ReactNode;
   isMobile?: boolean;
   isOptional?: boolean;
+  multiple?: boolean;
+  maxFiles?: number;
   anchor?: ReactNode;
   tooltip?: ReactNode;
   onFileDownload?: (file: FileData) => void;
-  onFileRemove?: () => void;
+  onFileRemove?: (file?: File | FileData) => void;
   onFileUpload?: (file: File) => void;
   selectedFile?: File | null;
   setError?: (error: InputFileErrorsTypes | null) => void;
