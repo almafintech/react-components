@@ -1,3 +1,20 @@
+# [1.15.0](https://github.com/almafintech/react-components/compare/v1.14.2...v1.15.0) (2025-02-20)
+
+
+### Bug Fixes
+
+* **inputfile:** add file param as optional on file remove function ([6c03dff](https://github.com/almafintech/react-components/commit/6c03dff36df562ff96c38f6d953c8f228861366e))
+* **inputfile:** check if file isn't already loaded and maxFiles isn´t surpassed ([c49eb93](https://github.com/almafintech/react-components/commit/c49eb9336b0ccfd69f0ec94173e324b57771672b))
+* **inputfile:** fix export inputFileLabel ([ba3fb03](https://github.com/almafintech/react-components/commit/ba3fb03d1fad869eae63a3d87780282a38973934))
+* **inputfile:** pass file to remove as param ([f1db940](https://github.com/almafintech/react-components/commit/f1db940431df5f062dd9b3afde9f88e19ef09ebd))
+
+
+### Features
+
+* **inputfile:** add initial value for inputFile multiple ([5527c30](https://github.com/almafintech/react-components/commit/5527c30fece31dc192f679827768653c5ae9c4d1))
+* **inputfile:** implement fileData ([e4fedf0](https://github.com/almafintech/react-components/commit/e4fedf005db9c25aa1bf92f802502258e34174fb))
+* **inputfile:** implement multiple inputFile ([0a7b8ec](https://github.com/almafintech/react-components/commit/0a7b8eca1730e33dcf2cda7fdda2e374437bb6d1))
+
 ## [1.14.2](https://github.com/almafintech/react-components/compare/v1.14.1...v1.14.2) (2025-02-19)
 
 
