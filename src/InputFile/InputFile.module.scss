@@ -10,17 +10,26 @@
   margin-bottom: 0.5rem;
   font-size: 0.88875rem;
   font-weight: 500;
+  gap: 1rem;
+  align-items: center;
   justify-content: space-between;
 
-  .container {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
+  .optionalText,
+  .tooltipContainer {
+    padding-left: 0.5rem;
   }
 
   .optionalText {
     font-weight: 500;
     color: $secondary-light-200;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .tooltipContainer {
+    img {
+      display: inline-block;
+    }
   }
 }
 
