@@ -172,3 +172,42 @@ export const multipleWithFileData: Story = {
     hideDownloadIcon: true,
   },
 };
+
+export const multipleWithInitialValue: Story = {
+  args: {
+    ...Default.args,
+    multiple: true,
+    text: "Arrastrá o seleccioná archivos de tu dispositivo",
+    maxSize: 1,
+    sizeErrorMessage: "El archivo excede el peso máximo de",
+    initialValue: [
+      {
+        lastModified: 1740150695686,
+        name: "AUTHORITIES_2.pdf",
+        size: 48595,
+        type: "",
+        webkitRelativePath: "",
+        arrayBuffer: function (): Promise<ArrayBuffer> {
+          throw new Error("Function not implemented.");
+        },
+        bytes: function (): Promise<Uint8Array> {
+          throw new Error("Function not implemented.");
+        },
+        slice: function (
+          start?: number,
+          end?: number,
+          contentType?: string
+        ): Blob {
+          throw new Error("Function not implemented.");
+        },
+        stream: function (): ReadableStream<Uint8Array> {
+          throw new Error("Function not implemented.");
+        },
+        text: function (): Promise<string> {
+          throw new Error("Function not implemented.");
+        },
+      },
+    ],
+    hideDownloadIcon: true,
+  },
+};
