@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/almafintech/react-components/compare/v1.15.0...v1.15.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* **inputaddress.tsx:** add popover for preventing address predictions clipping with ([1344358](https://github.com/almafintech/react-components/commit/1344358ab457cc9f8374ed3379b49be263345d21))
+
 # [1.15.0](https://github.com/almafintech/react-components/compare/v1.14.2...v1.15.0) (2025-02-20)
 
 
