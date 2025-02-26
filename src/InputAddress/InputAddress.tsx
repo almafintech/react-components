@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
 } from "react";
+import ReactDOM from "react-dom";
 import Input from "../Input/Input";
 import { InputProps } from "../Input/types";
 import { FormattedAddress, InputAddressProps } from "./types";
@@ -15,15 +16,6 @@ import LocationPinByma from "../../assets/images/ui/icons/ui-icon-location-pin-b
 import { isByma } from "../utils";
 
 const { autoCompleteOptions, active, autoComplete: autoCompleteStyle } = styles;
-
-// const replaceAccents = (text: string) => {
-//   return text
-//     .replaceAll(/[àáâãä]/gi, "a")
-//     .replaceAll(/[¨èéê]/gi, "e")
-//     .replaceAll(/[ìíîï]/gi, "i")
-//     .replaceAll(/[òóôõö]/gi, "o")
-//     .replaceAll(/[ùúûü]/gi, "u");
-// };
 
 const InputAddress = (props: InputAddressProps) => {
   const {
@@ -63,6 +55,7 @@ const InputAddress = (props: InputAddressProps) => {
     placeholder,
     touched,
   };
+
   const autoCompleteRef = useRef<google.maps.places.AutocompleteService>();
   const geocoderRef = useRef<google.maps.Geocoder>();
   const placesServicesRef = useRef<google.maps.places.PlacesService>();
@@ -72,6 +65,7 @@ const InputAddress = (props: InputAddressProps) => {
     libraries: ["places", "geocoding"],
   });
   const placesServicesContainerRef = useRef<HTMLDivElement>(null);
+
   const [autoCompleteValue, setAutoCompleteValue] = useState("");
   const [predictions, setPredictions] = useState<
     google.maps.places.AutocompletePrediction[]
@@ -86,6 +80,63 @@ const InputAddress = (props: InputAddressProps) => {
   const [autoSelectValue, setAutoSelectValue] = useState<string | undefined>(
     autoSelect
   );
+  const [statusOfLibrary, setStatusOfLibrary] = useState<
+    "SUCCESS" | "FAIL" | "LOADING"
+  >("LOADING");
+
+  // For popover positioning
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [popoverPosition, setPopoverPosition] = useState({
+    top: 0,
+    left: 0,
+    width: 0,
+  });
+  const [showPopover, setShowPopover] = useState(false);
+
+  // Open or close popover
+  // Determine if we should show the popover
+  useEffect(() => {
+    setShowPopover(
+      predictions.length > 0 ||
+        (isTyping &&
+          autoCompleteValue.length > 2 &&
+          !selectedValue &&
+          statusOfLibrary === "SUCCESS")
+    );
+  }, [
+    predictions,
+    isTyping,
+    autoCompleteValue,
+    selectedValue,
+    statusOfLibrary,
+  ]);
+
+  useEffect(() => {
+    const hidePopover = () => {
+      setShowPopover(false);
+    };
+
+    const updatePopoverPosition = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setPopoverPosition({
+          top: rect.bottom + window.scrollY,
+          left: rect.left + window.scrollX,
+          width: rect.width,
+        });
+      }
+    };
+
+    updatePopoverPosition();
+
+    window.addEventListener("resize", updatePopoverPosition);
+    window.addEventListener("scroll", hidePopover);
+
+    return () => {
+      window.removeEventListener("resize", updatePopoverPosition);
+      window.removeEventListener("scroll", hidePopover);
+    };
+  }, [autoCompleteValue, predictions, isTyping]);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> & {
@@ -143,7 +194,6 @@ const InputAddress = (props: InputAddressProps) => {
         setCurrentFocus((prev) => {
           return prev - 1 < 0 ? predictions.length - 1 : prev - 1;
         });
-
         break;
       }
       case "Enter": {
@@ -244,16 +294,7 @@ const InputAddress = (props: InputAddressProps) => {
         },
         (predictions, status) => {
           if (status === "OK" && predictions) {
-            setPredictions(
-              // predictions.filter((p) => {
-              //   const mainText = p.structured_formatting.main_text;
-              //   const includesInput = replaceAccents(mainText)
-              //     .toLowerCase()
-              //     .includes(replaceAccents(autoCompleteValue.toLowerCase()));
-              //   return includesInput;
-              // })
-              predictions
-            );
+            setPredictions(predictions);
 
             // If autoSelectValue is passed, select the first prediction
             if (autoSelectValue && predictions.length > 0) {
@@ -282,6 +323,7 @@ const InputAddress = (props: InputAddressProps) => {
       }
     );
   };
+
   const getCountryData = async () => {
     let countryData: google.maps.GeocoderAddressComponent | null = null;
 
@@ -298,9 +340,6 @@ const InputAddress = (props: InputAddressProps) => {
       setCountryCode(countryData.short_name);
     }
   };
-  const [statusOfLibrary, setStatusOfLibrary] = useState<
-    "SUCCESS" | "FAIL" | "LOADING"
-  >("LOADING");
 
   useEffect(() => {
     const init = async () => {
@@ -338,7 +377,9 @@ const InputAddress = (props: InputAddressProps) => {
   }, [autoCompleteValue]);
 
   useEffect(() => {
-    if (typeof value === "string") setAutoCompleteValue(value);
+    if (typeof value === "string") {
+      setAutoCompleteValue(value);
+    }
   }, [value]);
 
   useEffect(() => {
@@ -393,9 +434,66 @@ const InputAddress = (props: InputAddressProps) => {
     getStatus && getStatus(statusOfLibrary);
   }, [statusOfLibrary]);
 
+  // Create the popover with a portal to render the element outside the parent component and avoid being cut off by overflow hidden
+  const popover = showPopover
+    ? ReactDOM.createPortal(
+        <div
+          className={autoCompleteOptions}
+          data-cy="autoCompleteOptions"
+          style={{
+            position: "absolute",
+            top: popoverPosition.top,
+            left: popoverPosition.left,
+            width: popoverPosition.width,
+            zIndex: 9999,
+          }}
+          onBlur={handleDivBlur}
+        >
+          {predictions.length > 0 ? (
+            predictions.map((prediction, index) => {
+              const className = index === currentFocus ? active : "";
+              const mainText = prediction.structured_formatting.main_text;
+              const secondaryText =
+                prediction.structured_formatting.secondary_text;
+
+              return (
+                <p
+                  className={className}
+                  key={prediction.place_id}
+                  onClick={() => handleAutocompleteSelect(prediction)}
+                  onMouseOver={() => setCurrentFocus(index)}
+                >
+                  <img src={isBymaTheme ? LocationPinByma : LocationPin} />
+                  <span>
+                    {mainText
+                      .split(new RegExp(`(${autoCompleteValue})`, "gi"))
+                      .map((part, i) =>
+                        part.toLowerCase() ===
+                        autoCompleteValue.toLowerCase() ? (
+                          <b key={i}>{part}</b>
+                        ) : (
+                          part
+                        )
+                      )}
+                  </span>
+                  <span>{secondaryText}</span>
+                </p>
+              );
+            })
+          ) : (
+            <p>No encontramos resultados.</p>
+          )}
+        </div>,
+        document.body
+      )
+    : null;
+
   return (
     <div
-      className={`${isBymaTheme ? "byma" : ""} ${autoCompleteStyle} ${className ? className : ""}`}
+      ref={containerRef}
+      className={`${isBymaTheme ? "byma" : ""} ${autoCompleteStyle} ${
+        className ? className : ""
+      }`}
     >
       <div ref={placesServicesContainerRef}></div>
       <Input
@@ -422,52 +520,7 @@ const InputAddress = (props: InputAddressProps) => {
         }}
         {...inputProps}
       />
-      {predictions.length > 0 ? (
-        <div className={autoCompleteOptions} data-cy="autoCompleteOptions">
-          {predictions.map((prediction, index) => {
-            const className = index === currentFocus ? active : "";
-            const mainText = prediction.structured_formatting.main_text;
-            const secondaryText =
-              prediction.structured_formatting.secondary_text;
-
-            return (
-              <p
-                className={className}
-                key={prediction.place_id}
-                onClick={() => handleAutocompleteSelect(prediction)}
-                onMouseOver={() => setCurrentFocus(index)}
-              >
-                <img src={isBymaTheme ? LocationPinByma : LocationPin} />
-                <span>
-                  {
-                    // highlight text that matches the input
-                    mainText
-                      .split(new RegExp(`(${autoCompleteValue})`, "gi"))
-                      .map((part, i) =>
-                        part.toLowerCase() ===
-                        autoCompleteValue.toLowerCase() ? (
-                          <b key={i}>{part}</b>
-                        ) : (
-                          part
-                        )
-                      )
-                  }
-                </span>
-                <span>{secondaryText}</span>
-              </p>
-            );
-          })}
-        </div>
-      ) : (
-        isTyping &&
-        autoCompleteValue.length > 2 &&
-        !selectedValue &&
-        statusOfLibrary === "SUCCESS" && (
-          <div className={autoCompleteOptions} onBlur={handleDivBlur}>
-            <p>No encontramos resultados.</p>
-          </div>
-        )
-      )}
+      {popover}
     </div>
   );
 };
