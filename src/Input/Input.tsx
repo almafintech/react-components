@@ -40,6 +40,7 @@ const Input = (props: InputProps) => {
     isLoading = false,
     theme,
     className,
+    touched: isTouched,
   } = props;
 
   const isBymaTheme = isByma(theme);
@@ -69,6 +70,12 @@ const Input = (props: InputProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [value, setValue] = useState(initialValue || props.value || "");
   const [touched, setTouched] = useState(false);
+
+  useEffect(() => {
+    if (isTouched !== undefined) {
+      setTouched(isTouched);
+    }
+  }, [isTouched]);
 
   useEffect(() => {
     if (typeof props.value === "string") {
@@ -168,12 +175,12 @@ const Input = (props: InputProps) => {
         classNames={{
           base: `${base} ${!hasLabel && noLabel}`,
           input: input,
-          inputWrapper: `${inputWrapper}  ${isInvalid === false && validated} ${
-            (props.touched || touched) && touchedStyle
+          inputWrapper: `${inputWrapper} ${isInvalid === false && touched && validated} ${
+            touched && touchedStyle
           }`,
           innerWrapper: innerWrapper,
           label: `${labelStyle} ${isFormField && formField} ${
-            (props.touched || touched) && touchedStyle
+            touched && touchedStyle
           }`,
           helperWrapper: helperWrapper,
           errorMessage: errorMessageStyle,
@@ -189,9 +196,7 @@ const Input = (props: InputProps) => {
             ? "text"
             : props.type
         }
-        errorMessage={
-          isInvalid && (props.touched || touched) && <>{getErrorMessage()}</>
-        }
+        errorMessage={isInvalid && touched && <>{getErrorMessage()}</>}
         description={!isInvalid && description}
         // Mask the value to show
         value={
@@ -236,7 +241,7 @@ const Input = (props: InputProps) => {
           </>
         }
       />
-      {infoMessage && !(isInvalid && (props.touched || touched)) && (
+      {infoMessage && !(isInvalid && touched) && (
         <InfoMessage
           message={infoMessage}
           isBymaTheme={isBymaTheme}
