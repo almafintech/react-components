@@ -1,3 +1,15 @@
+# [1.16.0](https://github.com/almafintech/react-components/compare/v1.15.1...v1.16.0) (2025-03-06)
+
+
+### Bug Fixes
+
+* **fix:** fix build ([964d2b5](https://github.com/almafintech/react-components/commit/964d2b517821acf696860cfa99b0fa1f187164d1))
+
+
+### Features
+
+* **input.tsx:** manage better the touched state of the input ([052f270](https://github.com/almafintech/react-components/commit/052f270799b5b9a4665a673f3439c95104688b4e))
+
 ## [1.15.1](https://github.com/almafintech/react-components/compare/v1.15.0...v1.15.1) (2025-02-26)
 
 
