@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/almafintech/react-components/compare/v1.16.0...v1.17.0) (2025-03-11)
+
+
+### Features
+
+* **handle outside component touched state:** better handling of outside touched state ([856d8f8](https://github.com/almafintech/react-components/commit/856d8f84672f0c702cd8ba09aa7c428d5e868ea8))
+
 # [1.16.0](https://github.com/almafintech/react-components/compare/v1.15.1...v1.16.0) (2025-03-06)
 
 
