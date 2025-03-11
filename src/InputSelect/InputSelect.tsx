@@ -133,6 +133,12 @@ const InputSelect = ({
   const popoverRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (touched !== undefined) {
+      setSelectTouched(touched);
+    }
+  }, [touched]);
+
+  useEffect(() => {
     isOpenRef.current = isOpen;
   }, [isOpen]);
 
@@ -329,7 +335,7 @@ const InputSelect = ({
   };
 
   useEffect(() => {
-    if (inputValue) {
+    if (inputValue !== undefined) {
       setValues(inputValue);
     }
   }, [inputValue]);

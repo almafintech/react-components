@@ -42,6 +42,14 @@ const InputAddress = (props: InputAddressProps) => {
     theme,
   } = props;
 
+  const [addressTouched, setAddressTouched] = useState(touched || false);
+
+  useEffect(() => {
+    if (touched !== undefined) {
+      setAddressTouched(touched);
+    }
+  }, [touched]);
+
   const isBymaTheme = isByma(theme);
 
   const inputProps: InputProps = {
@@ -53,7 +61,7 @@ const InputAddress = (props: InputAddressProps) => {
     isInvalid,
     label,
     placeholder,
-    touched,
+    touched: addressTouched,
   };
 
   const autoCompleteRef = useRef<google.maps.places.AutocompleteService>();
