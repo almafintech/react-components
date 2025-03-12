@@ -369,6 +369,29 @@ const InputSelect = ({
     };
   }, []);
 
+  // On blur handler
+
+  const initialBlurState = {
+    triggered: false,
+    event: null,
+  };
+
+  const [blur, setBlur] = useState<{
+    triggered: boolean;
+    event: React.FocusEvent | null;
+  }>(initialBlurState);
+
+  // Check if the blur event was triggered and the select is closed
+  // If so, call the onBlur function and set touched to true
+  // Reset the blur state
+  useEffect(() => {
+    if (blur.triggered && blur.event && !isOpen) {
+      onBlur && onBlur(blur.event);
+      setSelectTouched(true);
+      setBlur(initialBlurState);
+    }
+  }, [isOpen]);
+
   return (
     <div
       id={`containerSelect-${componentId}`}
@@ -384,8 +407,11 @@ const InputSelect = ({
         labelPlacement="outside"
         label={labelComponent}
         onBlur={(e: React.FocusEvent) => {
-          !isOpen && setSelectTouched(true);
-          onBlur && onBlur(e);
+          // To avoid triggering onBlur when no option is selected
+          setBlur({
+            triggered: true,
+            event: e,
+          });
         }}
         popoverProps={{
           ref: popoverRef,
