@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/almafintech/react-components/compare/v1.17.0...v1.17.1) (2025-03-12)
+
+
+### Bug Fixes
+
+* **inputselect:** trigger onBlur event when dropdown is closed ([e162d96](https://github.com/almafintech/react-components/commit/e162d963cfc625b340ee9252b5efa77405d2ebf8))
+
 # [1.17.0](https://github.com/almafintech/react-components/compare/v1.16.0...v1.17.0) (2025-03-11)
 
 
