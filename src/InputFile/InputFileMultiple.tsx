@@ -96,15 +96,20 @@ const InputFileMultiple = ({
 
   const handleFileChange = (inputFiles: File[]) => {
     const isAlreadyUploaded = (file: File) => {
-      return (files as FileWithDetails[])?.some((f) => f.file === file);
+      if (!files) return false;
+      return (files as FileWithDetails[])?.some(
+        (f) => f.file.name === file.name
+      );
     };
+
     if (isFileData) {
       setFiles(null);
     }
+
     for (const file of inputFiles) {
       if (
         !isAlreadyUploaded(file) &&
-        (!maxFiles || (files && files?.length <= maxFiles))
+        (!maxFiles || !files || files?.length <= maxFiles)
       ) {
         if (isValidFile(file)) {
           setFiles((prevFiles) => [
@@ -234,7 +239,7 @@ const InputFileMultiple = ({
           (files as FileWithDetails[])?.map(
             ({ file, error, errorMessage }, index) =>
               error ? (
-                <div className={fileDetailsContainer}>
+                <div id={`file-${index}`} className={fileDetailsContainer}>
                   <div className={fileNameContainer}>
                     <img src={ErrorIcon} width={16} height={16} />
                     <div>
@@ -263,7 +268,7 @@ const InputFileMultiple = ({
                   </div>
                 </div>
               ) : (
-                <div className={fileDetailsContainer}>
+                <div id={`file-${index}`} className={fileDetailsContainer}>
                   <div className={fileNameContainer}>
                     <img src={SuccessIcon} width={16} height={16} />
                     <p>{file.name}</p>
