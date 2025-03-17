@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface InfoMessageProps {
-  isBymaTheme: boolean;
+  isBymaTheme?: boolean;
   message: ReactNode;
   className?: string;
 }

@@ -1,0 +1,140 @@
+@import "../styles/variables";
+@import "../styles/helpers.scss";
+
+/* FIXME: Autofill color only applies to .input */
+
+/* Set colors by data state */
+.base {
+  @include data-hover {
+    .inputWrapper {
+      border-color: $primary-light-100 !important;
+    }
+  }
+
+  @include data-focus {
+    .inputWrapper {
+      border-color: $primary-normal-300 !important;
+    }
+  }
+
+  @include data-invalid {
+    .input {
+      color: $primary-dark-900 !important;
+    }
+
+    .inputWrapper.touched {
+      border-color: $e300 !important;
+    }
+
+    .innerWrapper {
+      color: $e300 !important;
+    }
+
+    .label {
+      color: $primary-dark-900 !important;
+      &.formField {
+        color: $secondary-normal-300 !important;
+      }
+    }
+  }
+
+  @include data-disabled {
+    .inputWrapper,
+    .input {
+      background-color: $secondary-light-50 !important;
+      border: none !important;
+    }
+  }
+
+  .inputWrapper {
+    border: 1px solid $primary-light-100 !important;
+    border-radius: 0.5rem !important;
+    background-color: white !important;
+    box-shadow: none !important;
+
+    &.touched.validated {
+      border-color: $s300 !important;
+    }
+
+    &.focus {
+      border: 1px solid $primary-normal-300 !important;
+    }
+  }
+
+  .calendarIcon {
+    color: $secondary-light-200;
+  }
+
+  .label {
+    color: $primary-dark-900 !important;
+    display: flex !important;
+    width: 100% !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    text-align: left;
+
+    .info {
+      margin-left: auto !important;
+      text-transform: none !important;
+      font-weight: normal !important;
+    }
+
+    &.formField {
+      color: $secondary-normal-300 !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+      line-height: 1.3125rem !important; /* 175% */
+      text-transform: uppercase !important;
+    }
+  }
+
+  .input {
+    div {
+      color: $primary-dark-900 !important;
+
+      @include data-type("literal") {
+        color: $secondary-light-200 !important;
+      }
+
+      @include data-placeholder {
+        color: $secondary-light-200 !important;
+      }
+    }
+  }
+}
+
+.noLabel {
+  margin-top: 0 !important;
+}
+
+.helperWrapper {
+  padding: 0.5rem 0 0 0 !important;
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+
+  .description {
+    color: $secondary-normal-300 !important;
+  }
+  .errorMessage {
+    color: $e300 !important;
+  }
+  .infoMessage {
+    color: $i300;
+  }
+  img {
+    height: 14px;
+    width: 14px;
+  }
+}
+
+.error {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+
+  .icon {
+    width: 0.875rem !important;
+    min-width: 0.875rem !important;
+    height: 0.875rem;
+  }
+}
