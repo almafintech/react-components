@@ -1,3 +1,11 @@
+## [1.17.2](https://github.com/almafintech/react-components/compare/v1.17.1...v1.17.2) (2025-03-17)
+
+
+### Bug Fixes
+
+* **inputfilemultiple:** fix onUpload file ([637f7f2](https://github.com/almafintech/react-components/commit/637f7f2ed02548e74b865a7daf93d31df1d01c04))
+* **inputfilemultiple:** pass all props to inputFileDefault ([acb627d](https://github.com/almafintech/react-components/commit/acb627d36a1065d2abd07555c6fff6a2a42a107e))
+
 ## [1.17.1](https://github.com/almafintech/react-components/compare/v1.17.0...v1.17.1) (2025-03-12)
 
 
