@@ -217,10 +217,16 @@ const InputFileMultiple = ({
       <InputFileDefault
         name={name}
         text={text}
+        isMobile={isMobile}
         handleDrag={handleDrag}
         handleDropOrInputChange={handleDropOrInputChange}
-        infoTextPosition={infoTextPosition}
         labelProps={{ ...labelProps }}
+        infoText={infoText}
+        infoTextClassName={infoTextClassName}
+        infoTextPosition={infoTextPosition}
+        replaceImageText={replaceImageText}
+        attachImageText={attachImageText}
+        isFileUploaded={!!files}
       />
       <div className="flex flex-col mt-4 px-6 gap-4">
         {isFileData &&
