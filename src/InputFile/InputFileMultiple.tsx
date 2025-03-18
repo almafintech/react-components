@@ -103,8 +103,8 @@ const InputFileMultiple = ({
     }
     for (const file of inputFiles) {
       if (
-        !isAlreadyUploaded(file) &&
-        (!maxFiles || (files && files?.length <= maxFiles))
+        !files ||
+        (!isAlreadyUploaded(file) && (!maxFiles || files.length <= maxFiles))
       ) {
         if (isValidFile(file)) {
           setFiles((prevFiles) => [
@@ -188,9 +188,8 @@ const InputFileMultiple = ({
 
   useEffect(() => {
     if (initialValue && Array.isArray(initialValue)) {
+      setFiles([]);
       handleFileChange(initialValue);
-    } else {
-      setFiles(null);
     }
   }, [initialValue]);
 
