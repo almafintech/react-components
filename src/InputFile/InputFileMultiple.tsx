@@ -96,11 +96,16 @@ const InputFileMultiple = ({
 
   const handleFileChange = (inputFiles: File[]) => {
     const isAlreadyUploaded = (file: File) => {
-      return (files as FileWithDetails[])?.some((f) => f.file === file);
+      if (!files) return false;
+      return (files as FileWithDetails[])?.some(
+        (f) => f.file.name === file.name
+      );
     };
+
     if (isFileData) {
       setFiles(null);
     }
+
     for (const file of inputFiles) {
       if (
         !files ||
@@ -211,10 +216,16 @@ const InputFileMultiple = ({
       <InputFileDefault
         name={name}
         text={text}
+        isMobile={isMobile}
         handleDrag={handleDrag}
         handleDropOrInputChange={handleDropOrInputChange}
-        infoTextPosition={infoTextPosition}
         labelProps={{ ...labelProps }}
+        infoText={infoText}
+        infoTextClassName={infoTextClassName}
+        infoTextPosition={infoTextPosition}
+        replaceImageText={replaceImageText}
+        attachImageText={attachImageText}
+        isFileUploaded={!!files}
       />
       <div className="flex flex-col mt-4 px-6 gap-4">
         {isFileData &&
@@ -233,7 +244,7 @@ const InputFileMultiple = ({
           (files as FileWithDetails[])?.map(
             ({ file, error, errorMessage }, index) =>
               error ? (
-                <div className={fileDetailsContainer}>
+                <div id={`file-${index}`} className={fileDetailsContainer}>
                   <div className={fileNameContainer}>
                     <img src={ErrorIcon} width={16} height={16} />
                     <div>
@@ -262,7 +273,7 @@ const InputFileMultiple = ({
                   </div>
                 </div>
               ) : (
-                <div className={fileDetailsContainer}>
+                <div id={`file-${index}`} className={fileDetailsContainer}>
                   <div className={fileNameContainer}>
                     <img src={SuccessIcon} width={16} height={16} />
                     <p>{file.name}</p>

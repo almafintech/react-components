@@ -1,3 +1,24 @@
+# [1.18.0](https://github.com/almafintech/react-components/compare/v1.17.2...v1.18.0) (2025-03-17)
+
+
+### Bug Fixes
+
+* **package-lock.json:** update package ([118588f](https://github.com/almafintech/react-components/commit/118588fbbbf6716cc6050b935a9aa4f5060651ac))
+* **update package lock:** update package lock ([d9cf087](https://github.com/almafintech/react-components/commit/d9cf0876e41f4796aabe2f0179084451479062fb))
+
+
+### Features
+
+* **newdatepicker:** new date picker component ([cf6dcbb](https://github.com/almafintech/react-components/commit/cf6dcbbffbe82a57c53698f0e0ce5ecfb57135fe))
+
+## [1.17.2](https://github.com/almafintech/react-components/compare/v1.17.1...v1.17.2) (2025-03-17)
+
+
+### Bug Fixes
+
+* **inputfilemultiple:** fix onUpload file ([637f7f2](https://github.com/almafintech/react-components/commit/637f7f2ed02548e74b865a7daf93d31df1d01c04))
+* **inputfilemultiple:** pass all props to inputFileDefault ([acb627d](https://github.com/almafintech/react-components/commit/acb627d36a1065d2abd07555c6fff6a2a42a107e))
+
 ## [1.17.1](https://github.com/almafintech/react-components/compare/v1.17.0...v1.17.1) (2025-03-12)
 
 

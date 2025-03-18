@@ -63,3 +63,22 @@
     @content;
   }
 }
+
+@mixin data-placeholder {
+  &[data-placeholder="true"] {
+    @content;
+  }
+}
+
+// Data slot with custom name
+@mixin data-slot($name) {
+  &[data-slot="#{$name}"] {
+    @content;
+  }
+}
+
+@mixin data-type($type) {
+  &[data-type="#{$type}"] {
+    @content;
+  }
+}
