@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/almafintech/react-components/compare/v1.18.0...v1.18.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* clicking on mobile has no effect ([84cc982](https://github.com/almafintech/react-components/commit/84cc982ab5917b9c5b53e5514bb38aee485c2c95))
+
 # [1.18.0](https://github.com/almafintech/react-components/compare/v1.17.2...v1.18.0) (2025-03-17)
 
 
