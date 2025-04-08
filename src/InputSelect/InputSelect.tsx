@@ -246,13 +246,14 @@ const InputSelect = ({
       );
     } else if (hasCheckbox) {
       return (
-        <Checkbox
-          theme={isBymaTheme ? "byma" : undefined}
-          value={value}
-          isSelected={valueIsSelected(value, values)}
-        >
-          {label}
-        </Checkbox>
+        <>
+          <Checkbox
+            theme={isBymaTheme ? "byma" : undefined}
+            value={value}
+            isSelected={valueIsSelected(value, values)}
+          ></Checkbox>
+          <span>{label}</span>
+        </>
       );
     } else {
       return label;
