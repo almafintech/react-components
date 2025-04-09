@@ -1,3 +1,10 @@
+## [1.18.2](https://github.com/almafintech/react-components/compare/v1.18.1...v1.18.2) (2025-04-09)
+
+
+### Bug Fixes
+
+* **inputfile:** fix initial value files ([18a71a3](https://github.com/almafintech/react-components/commit/18a71a3bb2407e0d982e04d6edea52483a7f4cd7))
+
 ## [1.18.1](https://github.com/almafintech/react-components/compare/v1.18.0...v1.18.1) (2025-04-08)
 
 
