@@ -1,8 +1,8 @@
 import {
-  DropdownProps as NextUIDropdownProps,
+  DropdownProps as HeroUIDropdownProps,
   DropdownTriggerProps,
   DropdownMenuProps,
-} from "@nextui-org/dropdown";
+} from "@heroui/dropdown";
 import { WithTheme } from "..";
 
 export type DropdownOption = {
@@ -19,6 +19,6 @@ export type DropdownProps = Pick<
   | "selectedKeys"
   | "disallowEmptySelection"
 > &
-  Omit<NextUIDropdownProps, "children"> &
+  Omit<HeroUIDropdownProps, "children"> &
   DropdownTriggerProps &
   WithTheme;

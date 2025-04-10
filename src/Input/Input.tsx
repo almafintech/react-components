@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Input as NextUiInput } from "@nextui-org/react";
+import { Input as HeroUIInput } from "@heroui/react";
 import { InputProps } from "./types";
 
 import HideIcon from "../../assets/images/ui/icons/ui-icon-hide-gray.svg";
@@ -151,7 +151,7 @@ const Input = (props: InputProps) => {
 
   return (
     <>
-      <NextUiInput
+      <HeroUIInput
         labelPlacement="outside"
         variant="bordered"
         radius="sm"

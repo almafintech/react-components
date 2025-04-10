@@ -2,9 +2,9 @@ import { ReactNode } from "react";
 import {
   SortDescriptor,
   Selection,
-  TableProps as NextUiTableProps,
+  TableProps as HeroUITableProps,
   TableBodyProps,
-} from "@nextui-org/table";
+} from "@heroui/table";
 import { WithTheme } from "..";
 
 export interface Row {
@@ -19,7 +19,7 @@ export interface Column {
   align?: "start" | "center" | "end";
 }
 
-type Props = Omit<NextUiTableProps, "children"> &
+type Props = Omit<HeroUITableProps, "children"> &
   Omit<TableBodyProps<Row>, "children" | "classNames">;
 
 export interface TableProps extends Props, WithTheme {

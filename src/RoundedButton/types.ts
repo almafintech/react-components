@@ -1,4 +1,4 @@
-import { ButtonProps } from "@nextui-org/button";
+import { ButtonProps } from "@heroui/button";
 import { ReactElement } from "react";
 import { WithTheme } from "..";
 

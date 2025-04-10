@@ -1,4 +1,4 @@
-import { Checkbox as NextUICheckbox } from "@nextui-org/checkbox";
+import { Checkbox as HeroUICheckbox } from "@heroui/checkbox";
 import { CheckboxProps } from "./types";
 import { isByma } from "../utils";
 import styles from "./Checkbox.module.scss";
@@ -12,7 +12,7 @@ const Checkbox = ({ children, classNames, theme, ...rest }: CheckboxProps) => {
   const { checkboxWrapper, checkboxLabel } = styles;
 
   return (
-    <NextUICheckbox
+    <HeroUICheckbox
       disableAnimation
       classNames={{
         ...classNames,
@@ -22,7 +22,7 @@ const Checkbox = ({ children, classNames, theme, ...rest }: CheckboxProps) => {
       {...rest}
     >
       {children}
-    </NextUICheckbox>
+    </HeroUICheckbox>
   );
 };
 

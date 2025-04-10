@@ -1,4 +1,4 @@
-import { Tooltip as NextUiTooltip } from "@nextui-org/tooltip";
+import { Tooltip as HeroUITooltip } from "@heroui/tooltip";
 import { TooltipProps } from "./types";
 
 import styles from "./Tooltip.module.scss";
@@ -37,14 +37,14 @@ const Tooltip = (props: TooltipProps) => {
   };
 
   return (
-    <NextUiTooltip
+    <HeroUITooltip
       classNames={tooltipVariants[variant]}
       style={{ width }}
       showArrow
       {...props}
     >
       {children}
-    </NextUiTooltip>
+    </HeroUITooltip>
   );
 };
 

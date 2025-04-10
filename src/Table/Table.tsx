@@ -1,12 +1,12 @@
 import {
-  Table as NextUiTable,
+  Table as HeroUITable,
   TableHeader,
   TableBody,
   TableColumn,
   TableRow,
   TableCell,
   getKeyValue,
-} from "@nextui-org/table";
+} from "@heroui/table";
 import styles from "./Table.module.scss";
 import { TableProps } from "./types";
 import { isByma } from "../utils";
@@ -25,7 +25,7 @@ const Table = ({
   const isBymaTheme = isByma(theme);
 
   return (
-    <NextUiTable
+    <HeroUITable
       aria-label="allaria-table"
       classNames={{ ...restStyles }}
       className={`${isBymaTheme ? "byma" : ""} ${className ?? ""}`}
@@ -56,7 +56,7 @@ const Table = ({
           </TableRow>
         )}
       </TableBody>
-    </NextUiTable>
+    </HeroUITable>
   );
 };
 

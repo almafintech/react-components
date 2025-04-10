@@ -1,4 +1,4 @@
-import { CheckboxProps as NextUICheckboxProps } from "@nextui-org/checkbox";
+import { CheckboxProps as HeroUICheckboxProps } from "@heroui/checkbox";
 import { WithTheme } from "..";
 
-export type CheckboxProps = NextUICheckboxProps & WithTheme;
+export type CheckboxProps = HeroUICheckboxProps & WithTheme;

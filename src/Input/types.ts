@@ -1,9 +1,9 @@
-import { InputProps as NextUiInputProps } from "@nextui-org/react";
+import { InputProps as HeroUIInputProps } from "@heroui/react";
 import { ReactNode } from "react";
 import { WithTheme } from "..";
 
 /**
- * Extension to `InputProps`. See NextUI's `Input` documentation.
+ * Extension to `InputProps`. See HeroUI's `Input` documentation.
  * @prop {number} balance Number to show as remaining balance label on top-right edge.
  * @prop {string} [balanceCurrency="ARS"] Name of currency symbol which prefixes balance.
  * @prop {string} [currency="ARS"] Name of currency symbol which prefixes value when `type` is `money`.
@@ -30,7 +30,7 @@ export type InputType =
   | "cuit"
   | "dni";
 
-export interface InputProps extends NextUiInputProps, WithTheme {
+export interface InputProps extends HeroUIInputProps, WithTheme {
   balance?: number;
   balanceCurrency?: string;
   currency?: string;

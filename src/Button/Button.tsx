@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import styles from "./Button.module.scss";
-import { Button as NextUiButton } from "@nextui-org/button";
+import { Button as HeroUIButton } from "@heroui/button";
 import { LoadingDots } from "../LoadingDots";
 import { ButtonProps } from "./types";
 import { colors } from "../styles/variables";
@@ -43,9 +43,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     return (
-      <NextUiButton
+      <HeroUIButton
         {...rest}
-        ref={ref} // Forward the ref to the NextUiButton component
+        ref={ref} // Forward the ref to the HeroUIButton component
         aria-expanded="false"
         disableAnimation={disableAnimation}
         disableRipple={disableRipple}
@@ -59,7 +59,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ) : (
           text
         )}
-      </NextUiButton>
+      </HeroUIButton>
     );
   }
 );

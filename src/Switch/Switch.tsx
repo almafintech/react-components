@@ -1,6 +1,6 @@
 import { colors } from "../styles/variables";
 import { LoadingDots } from "../LoadingDots";
-import { Switch as NextUiSwitch } from "@nextui-org/switch";
+import { Switch as HeroUISwitch } from "@heroui/switch";
 import { SwitchProps } from "./types";
 import { isByma } from "../utils";
 
@@ -18,7 +18,7 @@ const Switch = ({ isLoading, theme, ...rest }: SwitchProps) => {
       {isLoading ? (
         <LoadingDots theme={theme} color={greyscale400} />
       ) : (
-        <NextUiSwitch
+        <HeroUISwitch
           {...rest}
           classNames={{
             base: base,

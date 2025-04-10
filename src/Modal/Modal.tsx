@@ -1,10 +1,10 @@
 import {
-  Modal as NextUiModal,
+  Modal as HeroUIModal,
   ModalContent,
   ModalHeader,
   ModalFooter,
   ModalBody,
-} from "@nextui-org/modal";
+} from "@heroui/modal";
 import styles from "./Modal.module.scss";
 import CloseIcon from "../../assets/images/ui/icons/ui-icon-close.svg";
 import { ToastMessage } from "../ToastMessage/ToastMessage";
@@ -20,7 +20,7 @@ const Modal = ({
 }: ModalProps) => {
   const { modalAlert, customFooter, ...restStyles } = styles;
   return (
-    <NextUiModal
+    <HeroUIModal
       classNames={{ ...restStyles }}
       closeButton={<img src={CloseIcon} />}
       scrollBehavior="inside"
@@ -43,7 +43,7 @@ const Modal = ({
           </ModalFooter>
         )}
       </ModalContent>
-    </NextUiModal>
+    </HeroUIModal>
   );
 };
 

@@ -1,6 +1,6 @@
 import { DateRange } from "../DatePicker/types";
 
-import { SelectProps } from "@nextui-org/react";
+import { SelectProps } from "@heroui/react";
 import { Key, ReactNode } from "react";
 import { WithTheme } from "..";
 
@@ -30,7 +30,7 @@ export type SelectType =
   | "single-radio-date-picker"
   | "single-radio-date-picker-day";
 
-export interface NextUISelectProps
+export interface HeroUISelectProps
   extends Omit<
     SelectProps<SelectItemType>,
     | "labelPlacement"
@@ -52,7 +52,7 @@ export interface NextUISelectProps
   errorMessage?: ReactNode;
 }
 
-export interface InputSelectProps extends NextUISelectProps, WithTheme {
+export interface InputSelectProps extends HeroUISelectProps, WithTheme {
   locale?: string;
   onDatepickerDateChanged?: (range: DateRange) => void;
   initialDatePickerRange?: DateRange;
