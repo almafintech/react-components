@@ -1,3 +1,10 @@
+## [1.18.4](https://github.com/almafintech/react-components/compare/v1.18.3...v1.18.4) (2025-04-10)
+
+
+### Bug Fixes
+
+* prevent warning "preventAssignment" when building ([f5ac7cc](https://github.com/almafintech/react-components/commit/f5ac7cc1796d9de8e827e89b9cc5b1249853270a))
+
 ## [1.18.3](https://github.com/almafintech/react-components/compare/v1.18.2...v1.18.3) (2025-04-10)
 
 
