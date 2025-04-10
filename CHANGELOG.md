@@ -1,3 +1,11 @@
+## [1.18.3](https://github.com/almafintech/react-components/compare/v1.18.2...v1.18.3) (2025-04-10)
+
+
+### Bug Fixes
+
+* fix workflow ([619dfcc](https://github.com/almafintech/react-components/commit/619dfcc616ffe0fc8c93679f055200b941a7ac0c))
+* remove tests ([759f6e8](https://github.com/almafintech/react-components/commit/759f6e85d8fec320cd493c4e9aa2ae731a3fd50a))
+
 ## [1.18.2](https://github.com/almafintech/react-components/compare/v1.18.1...v1.18.2) (2025-04-09)
 
 
