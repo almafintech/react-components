@@ -1,10 +1,10 @@
 "use client";
 
 import {
-  Select as HeroUISelect,
+  Select as NextUiSelect,
   SelectItem,
   SelectSection,
-} from "@heroui/select";
+} from "@nextui-org/select";
 import styles from "./InputSelect.module.scss";
 import { useState, useEffect, useRef, Key } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -400,7 +400,7 @@ const InputSelect = ({
       className={isBymaTheme ? "byma" : containerSelect}
       aria-label={rest["aria-label"]}
     >
-      <HeroUISelect
+      <NextUiSelect
         {...rest}
         isDisabled={isDisabled}
         disabled={isDisabled}
@@ -498,6 +498,7 @@ const InputSelect = ({
                     hasCheckbox || hasRadio ? checkOrRadio : ""
                   }`}
                   key={value}
+                  value={value}
                   aria-label={label}
                 >
                   <ItemContent value={value} label={label} />
@@ -527,6 +528,7 @@ const InputSelect = ({
                     <SelectItem
                       textValue={optionValue}
                       key={optionValue}
+                      value={optionValue}
                       aria-label={optionLabel}
                     >
                       <ItemContent value={optionValue} label={optionLabel} />
@@ -542,6 +544,7 @@ const InputSelect = ({
             <SelectItem
               textValue="actions"
               key="actions"
+              value="actions"
               className={confirmActions}
             >
               <div>
@@ -559,7 +562,7 @@ const InputSelect = ({
         {hasDatePicker &&
           !isDatePickerOpen &&
           ((
-            <SelectItem textValue="actions" key="pick-month">
+            <SelectItem textValue="actions" key="pick-month" value="pick-month">
               <span
                 onClick={() => openDatePicker("MONTH")}
                 className={datePickerOption}
@@ -572,7 +575,7 @@ const InputSelect = ({
         {hasDatePicker &&
           !isDatePickerOpen &&
           ((
-            <SelectItem textValue="actions" key="pick-day">
+            <SelectItem textValue="actions" key="pick-day" value="pick-day">
               <span
                 onClick={() => openDatePicker("DAY")}
                 className={datePickerOption}
@@ -587,6 +590,7 @@ const InputSelect = ({
             <SelectItem
               textValue="actions"
               key="date-picker"
+              value="date-picker"
               className={datePicker}
             >
               <DatePicker
@@ -602,7 +606,7 @@ const InputSelect = ({
               />
             </SelectItem>
           ) as any)}
-      </HeroUISelect>
+      </NextUiSelect>
       {isMultiple && showExternalBox && values && (
         <div className={externalBox}>
           {Array.isArray(values) &&

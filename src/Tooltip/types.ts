@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import { TooltipProps as HeroUITooltipProps } from "@heroui/tooltip";
+import { TooltipProps as NextUiTooltipProps } from "@nextui-org/tooltip";
 
-export interface TooltipProps extends HeroUITooltipProps {
+export interface TooltipProps extends NextUiTooltipProps {
   children: ReactNode;
   variant?: "blue" | "black" | "white" | "byma";
   width?: string | number;

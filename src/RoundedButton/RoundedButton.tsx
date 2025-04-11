@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@heroui/button";
+import { Button } from "@nextui-org/button";
 import { forwardRef } from "react";
 import styles from "./RoundedButton.module.scss";
 

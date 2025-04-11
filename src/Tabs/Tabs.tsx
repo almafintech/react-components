@@ -1,4 +1,4 @@
-import { Tabs as HeroUITabs, Tab } from "@heroui/tabs";
+import { Tabs as NextUiTabs, Tab } from "@nextui-org/tabs";
 import { TabsProps } from "./types";
 import styles from "./Tabs.module.scss";
 import { isByma } from "../utils";
@@ -22,7 +22,7 @@ const Tabs = ({
   const isBymaTheme = isByma(theme);
 
   return (
-    <HeroUITabs
+    <NextUiTabs
       {...rest}
       onSelectionChange={handleChange ? (key) => handleChange(key) : undefined}
       aria-label="Tabs"
@@ -45,7 +45,7 @@ const Tabs = ({
           {item.content}
         </Tab>
       )}
-    </HeroUITabs>
+    </NextUiTabs>
   );
 };
 

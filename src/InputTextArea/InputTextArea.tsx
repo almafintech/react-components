@@ -1,5 +1,5 @@
 import styles from "./InputTextArea.module.scss";
-import { Textarea } from "@heroui/input";
+import { Textarea } from "@nextui-org/input";
 import { useState } from "react";
 import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
 import InvalidIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";

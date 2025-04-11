@@ -1,5 +1,5 @@
 import { Key } from "react";
-import { TabsProps as NextTabsProps } from "@heroui/tabs";
+import { TabsProps as NextTabsProps } from "@nextui-org/tabs";
 import { WithTheme } from "..";
 
 type TabOption = {

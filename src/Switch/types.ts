@@ -1,6 +1,6 @@
-import { SwitchProps as HeroUISwitchProps } from "@heroui/switch";
+import { SwitchProps as NextUiSwitchProps } from "@nextui-org/switch";
 import { WithTheme } from "..";
 
-export interface SwitchProps extends HeroUISwitchProps, WithTheme {
+export interface SwitchProps extends NextUiSwitchProps, WithTheme {
   isLoading?: boolean;
 }

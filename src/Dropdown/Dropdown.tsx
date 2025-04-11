@@ -1,9 +1,9 @@
 import {
-  Dropdown as HeroUIDropdown,
+  Dropdown as NextUiDropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-} from "@heroui/dropdown";
+} from "@nextui-org/dropdown";
 import { DropdownProps, DropdownOption } from "./types";
 import styles from "./Dropdown.module.scss";
 import { isByma } from "../utils";
@@ -25,7 +25,7 @@ const Dropdown = ({
     styles;
 
   return (
-    <HeroUIDropdown
+    <NextUiDropdown
       {...rest}
       className={`${isBymaTheme ? "byma" : ""} ${className}`}
       classNames={{
@@ -56,7 +56,7 @@ const Dropdown = ({
       >
         {(item) => <DropdownItem key={item.key}>{item.label}</DropdownItem>}
       </DropdownMenu>
-    </HeroUIDropdown>
+    </NextUiDropdown>
   );
 };
 

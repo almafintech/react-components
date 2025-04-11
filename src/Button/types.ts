@@ -1,8 +1,8 @@
-import { ButtonProps as HeroUIButtonProps } from "@heroui/button";
+import { ButtonProps as NextUIButtonProps } from "@nextui-org/button";
 import { WithTheme } from "..";
 
 export interface ButtonProps
-  extends Omit<HeroUIButtonProps, "variant" | "color" | "size">,
+  extends Omit<NextUIButtonProps, "variant" | "color" | "size">,
     WithTheme {
   /**
    * The content to display in the button
