@@ -1,3 +1,15 @@
+## [1.18.5](https://github.com/almafintech/react-components/compare/v1.18.4...v1.18.5) (2025-04-11)
+
+
+### Bug Fixes
+
+* downgrade framer-motion for compatibility with nextui ([d435b9c](https://github.com/almafintech/react-components/commit/d435b9c6e473bc71b051c2ce2c9afe72635d657b))
+
+
+### Reverts
+
+* Revert "build: migrate NextUI to HeroUI" ([7c3fdb8](https://github.com/almafintech/react-components/commit/7c3fdb899faba766b09191e732cffa660eaec6e1))
+
 ## [1.18.4](https://github.com/almafintech/react-components/compare/v1.18.3...v1.18.4) (2025-04-10)
 
 
