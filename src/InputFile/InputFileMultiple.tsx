@@ -96,14 +96,23 @@ const InputFileMultiple = ({
 
   const handleFileChange = (inputFiles: File[]) => {
     const isAlreadyUploaded = (file: File) => {
-      if (!files) return false;
+      if (!files || files.length === 0) return false;
+
       return (files as FileWithDetails[])?.some(
-        (f) => f.file.name === file.name
+        (f) =>
+          f.file.name === file.name &&
+          f.file.size === file.size &&
+          f.file.lastModified === file.lastModified
       );
     };
 
     if (isFileData) {
       setFiles(null);
+    }
+
+    // Reset file input to ensure we can upload the same file again
+    if (hiddenInputRef.current) {
+      hiddenInputRef.current.value = "";
     }
 
     for (const file of inputFiles) {
@@ -202,6 +211,11 @@ const InputFileMultiple = ({
     if (fileData && Array.isArray(fileData)) setFiles(fileData);
   }, [fileData]);
 
+  // Generate a unique ID for each file based on its properties
+  const getUniqueFileId = (file: File) => {
+    return `${file.name}-${file.size}-${file.lastModified}`;
+  };
+
   return (
     <div>
       <input
@@ -230,7 +244,7 @@ const InputFileMultiple = ({
       <div className="flex flex-col mt-4 px-6 gap-4">
         {isFileData &&
           (files as FileData[]).map((file) => (
-            <div className={fileDetailsContainer}>
+            <div key={file.id} className={fileDetailsContainer}>
               <div className={fileNameContainer}>
                 <img src={SuccessIcon} width={16} height={16} />
                 <p>{file.name}</p>
@@ -241,55 +255,61 @@ const InputFileMultiple = ({
             </div>
           ))}
         {!isFileData &&
-          (files as FileWithDetails[])?.map(
-            ({ file, error, errorMessage }, index) =>
-              error ? (
-                <div id={`file-${index}`} className={fileDetailsContainer}>
-                  <div className={fileNameContainer}>
-                    <img src={ErrorIcon} width={16} height={16} />
-                    <div>
-                      <p>{file.name}</p>
-                      <span>{errorMessage}</span>
-                    </div>
-                  </div>
-                  <div className={actionsContainer}>
-                    <div className={replaceContainer}>
-                      <input
-                        ref={(el) =>
-                          (hiddenInputReplaceRefs.current[index] = el)
-                        }
-                        className={hiddenInputFile}
-                        type="file"
-                        accept={validTypes?.join(",")}
-                        onChange={(e) => handleFileReplace(e, file)}
-                        id={`input-file-replace-${name}-${index}`}
-                      />
-                      <img src={replaceIcon} width={18} height={18} />
-                    </div>
-                    <img
-                      src={TrashIcon}
-                      onClick={() => handleFileRemove(file)}
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div id={`file-${index}`} className={fileDetailsContainer}>
-                  <div className={fileNameContainer}>
-                    <img src={SuccessIcon} width={16} height={16} />
+          (files as FileWithDetails[])?.map(({ file, error, errorMessage }) =>
+            error ? (
+              <div
+                key={`error-${getUniqueFileId(file)}`}
+                id={`file-${getUniqueFileId(file)}`}
+                className={fileDetailsContainer}
+              >
+                <div className={fileNameContainer}>
+                  <img src={ErrorIcon} width={16} height={16} />
+                  <div>
                     <p>{file.name}</p>
-                  </div>
-                  <div className={actionsContainer}>
-                    <img
-                      src={DownloadIcon}
-                      onClick={() => handleFileDownload(file)}
-                    />
-                    <img
-                      src={TrashIcon}
-                      onClick={() => handleFileRemove(file)}
-                    />
+                    <span>{errorMessage}</span>
                   </div>
                 </div>
-              )
+                <div className={actionsContainer}>
+                  <div className={replaceContainer}>
+                    <input
+                      ref={(el) => {
+                        const index = (files as FileWithDetails[])?.findIndex(
+                          (f) => f.file === file
+                        );
+                        if (index !== -1) {
+                          hiddenInputReplaceRefs.current[index] = el;
+                        }
+                      }}
+                      className={hiddenInputFile}
+                      type="file"
+                      accept={validTypes?.join(",")}
+                      onChange={(e) => handleFileReplace(e, file)}
+                      id={`input-file-replace-${name}-${getUniqueFileId(file)}`}
+                    />
+                    <img src={replaceIcon} width={18} height={18} />
+                  </div>
+                  <img src={TrashIcon} onClick={() => handleFileRemove(file)} />
+                </div>
+              </div>
+            ) : (
+              <div
+                key={`file-${getUniqueFileId(file)}`}
+                id={`file-${getUniqueFileId(file)}`}
+                className={fileDetailsContainer}
+              >
+                <div className={fileNameContainer}>
+                  <img src={SuccessIcon} width={16} height={16} />
+                  <p>{file.name}</p>
+                </div>
+                <div className={actionsContainer}>
+                  <img
+                    src={DownloadIcon}
+                    onClick={() => handleFileDownload(file)}
+                  />
+                  <img src={TrashIcon} onClick={() => handleFileRemove(file)} />
+                </div>
+              </div>
+            )
           )}
       </div>
     </div>
