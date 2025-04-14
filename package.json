@@ -19,7 +19,10 @@
     "post:build": "node ./scripts/postBuild.js",
     "rollup": "rm -rf dist && rollup -c",
     "commit": "git-cz",
-    "postversion": "cp -f -r dist/package.json . && cat package.json"
+    "postversion": "cp -f -r dist/package.json . && cat package.json",
+    "reset": "rm -rf dist && rm -rf node_modules && rm package-lock.json",
+    "reset-install": "npm run reset && npm install",
+    "reset-install-build": "npm run reset-install && npm run build"
   },
   "author": "naguip",
   "license": "ISC",
