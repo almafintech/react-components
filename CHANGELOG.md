@@ -1,3 +1,10 @@
+## [1.18.6](https://github.com/almafintech/react-components/compare/v1.18.5...v1.18.6) (2025-04-14)
+
+
+### Bug Fixes
+
+* **inputfilemultiple.tsx:** input file key and file deletion and upload fixes ([1a5fd45](https://github.com/almafintech/react-components/commit/1a5fd45ec80d81184e1122cf1bfdef3eff858174))
+
 ## [1.18.5](https://github.com/almafintech/react-components/compare/v1.18.4...v1.18.5) (2025-04-11)
 
 
