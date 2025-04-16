@@ -20,9 +20,11 @@ interface InputFileSimpleProps
     | "multiple"
     | "formatErrorMessage"
     | "sizeErrorMessage"
+    | "initialValue"
   > {
   isValidFile: (file: File) => boolean;
   getErrorMessage: (file: File) => string;
+  value?: File | File[] | null;
 }
 
 const InputFileSimple = ({
@@ -32,7 +34,7 @@ const InputFileSimple = ({
   onFileDownload,
   onFileUpload,
   onFileRemove,
-  initialValue,
+  value,
   selectedFile,
   fileData,
   error,
@@ -143,12 +145,12 @@ const InputFileSimple = ({
   }, [selectedFile]);
 
   useEffect(() => {
-    if (initialValue && initialValue instanceof File) {
-      handleFileChange(initialValue);
+    if (value && value instanceof File) {
+      handleFileChange(value);
     } else {
       setFile(null);
     }
-  }, [initialValue]);
+  }, [value]);
 
   useEffect(() => {
     if (fileData && !Array.isArray(fileData)) setFile(fileData);

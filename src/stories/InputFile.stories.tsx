@@ -28,6 +28,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  // @ts-ignore
   args: {
     name: "Archivo",
     text: "Arrastrá o seleccioná un archivo de tu dispositivo",
@@ -180,7 +181,7 @@ export const multipleWithInitialValue: Story = {
     text: "Arrastrá o seleccioná archivos de tu dispositivo",
     maxSize: 1,
     sizeErrorMessage: "El archivo excede el peso máximo de",
-    initialValue: [
+    value: [
       new File(["Contenido de prueba"], "ejemplo.txt", {
         type: "text/plain",
         lastModified: new Date().getTime(),

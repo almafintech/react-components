@@ -13,10 +13,10 @@ export type FileData = {
 };
 
 export type FileWithDetails = {
-  file: File,
-  error?: boolean,
-  errorMessage?: string
-}
+  file: File;
+  error?: boolean;
+  errorMessage?: string;
+};
 
 export interface InputFileProps extends WithTheme {
   className?: string;
@@ -25,7 +25,7 @@ export interface InputFileProps extends WithTheme {
   infoText?: string;
   infoTextPosition?: "bottom" | "top";
   infoTextClassName?: string;
-  initialValue?: File | null | File[];
+  value?: File | null | File[];
   isLoading?: boolean;
   hideDownloadIcon?: boolean;
   /** maxSize in MB */
@@ -46,8 +46,8 @@ export interface InputFileProps extends WithTheme {
   text?: string | ReactNode;
   successMessage?: string;
   validTypes: string[];
-  formatErrorMessage?: string
-  sizeErrorMessage?: string
-  replaceImageText?: string
-  attachImageText?: string
+  formatErrorMessage?: string;
+  sizeErrorMessage?: string;
+  replaceImageText?: string;
+  attachImageText?: string;
 }

@@ -19,10 +19,11 @@ interface InputFileMultipleProps
     | "multiple"
     | "formatErrorMessage"
     | "sizeErrorMessage"
+    | "initialValue"
   > {
   isValidFile: (file: File) => boolean;
   getErrorMessage: (file: File) => string;
-  value?: File | File[] | null | undefined;
+  value?: File | File[] | null;
 }
 
 // Generate a unique ID for each file based on its properties
@@ -135,13 +136,13 @@ const InputFileMultiple = ({
 
           // Check if this file is already part of value
           const fileId = getUniqueFileId(file);
-          const isInInitialValue =
+          const isInControlledValue =
             value &&
             Array.isArray(value) &&
             value.some((f) => getUniqueFileId(f) === fileId);
 
           // Only execute onFileUpload if this is a new file not in value
-          if (!isInInitialValue && onFileUpload && !isLoading) {
+          if (!isInControlledValue && onFileUpload && !isLoading) {
             onFileUpload(file);
           }
         } else {
@@ -287,7 +288,7 @@ const InputFileMultiple = ({
       const errorFileIds = errorFiles.map((f) => getUniqueFileId(f.file));
 
       // Process valid files
-      const initialValueFilesWithDetails: FileWithDetails[] = validFiles.map(
+      const valueFilesWithDetails: FileWithDetails[] = validFiles.map(
         (file) => {
           if (isValidFile(file)) {
             return { file };
@@ -302,12 +303,12 @@ const InputFileMultiple = ({
       );
 
       // Keep value files that don't overlap with error files
-      const initialFilesToKeep = initialValueFilesWithDetails.filter(
+      const filesToKeep = valueFilesWithDetails.filter(
         (f) => !errorFileIds.includes(getUniqueFileId(f.file))
       );
 
       // Combine preserved error files + new value files
-      const newFiles = [...errorFiles, ...initialFilesToKeep];
+      const newFiles = [...errorFiles, ...filesToKeep];
 
       // Only update if the files actually changed
       const currentFileIds = currentFiles.map((f) => getUniqueFileId(f.file));
