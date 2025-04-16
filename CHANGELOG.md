@@ -1,3 +1,10 @@
+## [1.18.8](https://github.com/almafintech/react-components/compare/v1.18.7...v1.18.8) (2025-04-16)
+
+
+### Bug Fixes
+
+* **inputfile:** fix input file value props ([7390c9c](https://github.com/almafintech/react-components/commit/7390c9cd5fe46e04f8fdbb68016ad10c80b27c63))
+
 ## [1.18.7](https://github.com/almafintech/react-components/compare/v1.18.6...v1.18.7) (2025-04-16)
 
 
