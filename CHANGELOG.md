@@ -1,3 +1,15 @@
+## [1.18.7](https://github.com/almafintech/react-components/compare/v1.18.6...v1.18.7) (2025-04-16)
+
+
+### Code Refactoring
+
+* **inputfilemultiple:** improve file validation, deduplication, and error handling ([72ea9e4](https://github.com/almafintech/react-components/commit/72ea9e40cfc7dd013ec82498d583c5674bc02cd9))
+
+
+### BREAKING CHANGES
+
+* **inputfilemultiple:** Changed `initialValue` prop to `value`
+
 ## [1.18.6](https://github.com/almafintech/react-components/compare/v1.18.5...v1.18.6) (2025-04-14)
 
 
