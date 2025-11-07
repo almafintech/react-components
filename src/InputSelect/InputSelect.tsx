@@ -142,6 +142,23 @@ const InputSelect = ({
     isOpenRef.current = isOpen;
   }, [isOpen]);
 
+  // Adjust margin top of the select according to the label height
+  useEffect(() => {
+    const labelElement = inputSelectRef.current?.querySelector(
+      '[data-slot="label"]'
+    ) as HTMLElement;
+
+    if (inputSelectRef.current && labelElement && labelComponent) {
+      const labelHeight = labelElement.offsetHeight;
+      const padding = 4; // Between label and select
+      inputSelectRef.current.style.setProperty(
+        "margin-top",
+        `${labelHeight + padding}px`,
+        "important"
+      );
+    }
+  }, [labelComponent]);
+
   useEffect(() => {
     if (popoverRef.current && inputSelectRef.current) {
       // Get de with of the input select
