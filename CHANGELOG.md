@@ -1,3 +1,5 @@
+## [1.18.9](https://github.com/almafintech/react-components/compare/v1.18.8...v1.18.9) (2025-11-07)
+
 ## [1.18.8](https://github.com/almafintech/react-components/compare/v1.18.7...v1.18.8) (2025-04-16)
 
 
