@@ -102,7 +102,7 @@ const InputFileSimple = ({
     // }
   };
 
-  console.log("actual file", file, fileError);
+  console.log("render actual file", file, fileError);
 
   const handleFileChange = (inputFile: File) => {
     console.log("fileuploaded", inputFile);
