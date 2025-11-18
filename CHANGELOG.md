@@ -1,3 +1,11 @@
+# [1.19.0](https://github.com/almafintech/react-components/compare/v1.18.9...v1.19.0) (2025-11-18)
+
+
+### Features
+
+* **inputfilesimple:** add logs ([dd7f791](https://github.com/almafintech/react-components/commit/dd7f791fe806deec3d69e9b763c26f984b5d5b61))
+* **inputfilesimple:** add logs ([3d390b0](https://github.com/almafintech/react-components/commit/3d390b0fdb77f6623d989c316d1a4b89eda8e157))
+
 ## [1.18.9](https://github.com/almafintech/react-components/compare/v1.18.8...v1.18.9) (2025-11-07)
 
 ## [1.18.8](https://github.com/almafintech/react-components/compare/v1.18.7...v1.18.8) (2025-04-16)
