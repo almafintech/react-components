@@ -102,17 +102,24 @@ const InputFileSimple = ({
     // }
   };
 
+  console.log("render", file, fileError);
+
   const handleFileChange = (inputFile: File) => {
+    console.log("fileuploaded", inputFile);
     if (isValidFile(inputFile)) {
       setFileError(false);
       setFile(inputFile);
+      console.log("is valid");
       onFileUpload && !isLoading && onFileUpload(inputFile);
+      console.log("end upload");
     } else {
       setFile(inputFile);
       setFileError(true);
+      console.log("before remove");
       onFileRemove && onFileRemove();
       const errorMessage = getErrorMessage(inputFile);
       setErrorMessage(errorMessage);
+      console.log("errorMessage", errorMessage);
     }
   };
 
