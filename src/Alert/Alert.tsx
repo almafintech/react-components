@@ -38,6 +38,7 @@ const Alert = ({
     errorBackground,
     clickable,
     summary,
+    chevron,
   } = styles;
 
   const isBymaTheme = isByma(theme);
@@ -89,9 +90,9 @@ const Alert = ({
           <p className={`${!isDetailsOpen ? summary : ""} flex-1`}>{children}</p>
           <div>
             {isDetailsOpen ? (
-              <img src={isBymaTheme ? ChevronUpByma : ChevronUp} alt="" />
+              <img src={isBymaTheme ? ChevronUpByma : ChevronUp} alt="" className={chevron} />
             ) : (
-              <img src={isBymaTheme ? ChevronDownByma : ChevronDown} alt="" />
+              <img src={isBymaTheme ? ChevronDownByma : ChevronDown} alt="" className={chevron} />
             )}
           </div>
         </div>
