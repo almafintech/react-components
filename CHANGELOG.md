@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/almafintech/react-components/compare/v1.19.0...v1.19.1) (2026-01-26)
+
+
+### Bug Fixes
+
+* **Alert:** fix show chevron ([fcaf56d](https://github.com/almafintech/react-components/commit/fcaf56dc4117f9c5a7842393afb88b81d55b6d1c))
+
 # [1.19.0](https://github.com/almafintech/react-components/compare/v1.18.9...v1.19.0) (2025-11-18)
 
 
