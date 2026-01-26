@@ -40,8 +40,26 @@ export const Error: Story = {
 
 export const WithSummary: Story = {
   args: {
-    children:
-      "Como parte de nuestro compromiso con la transparencia y la seguridad, queremos informarte sobre algunas actualizaciones importantes y cambios en nuestra plataforma. Estamos emocionados de anunciar que hemos lanzado varias nuevas características basadas en tus comentarios. Estas mejoras están diseñadas para mejorar la usabilidad y optimizar tu experiencia. Te animamos a explorar estas adiciones y hacernos saber tus pensamientos.",
+    children: (
+      // "Agregá hasta 3 personas. Cada persona recibirá un mail para finalizar el proceso de apertura de la cuenta. Recordá: Cada mail que ingreses se vinculará permanentemente al cotitular correspondiente. Aconsejamos que sean correos personales y con acceso directo, ya que no podrán desvincularse."
+      <div className="flex flex-col">
+        <p>
+          <b>Agregá hasta 3 personas.</b>
+        </p>
+        <p>
+          Cada persona recibirá un mail para finalizar el proceso de apertura de
+          la cuenta.
+        </p>
+        <br />
+        <p>
+          <i>
+            Recordá: Cada mail que ingreses se vinculará permanentemente al
+            cotitular correspondiente. Aconsejamos que sean correos personales y
+            con acceso directo, ya que no podrán desvincularse.
+          </i>
+        </p>
+      </div>
+    ),
     variant: "INFO",
     hasSummary: true,
   },

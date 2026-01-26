@@ -85,8 +85,8 @@ const Alert = ({
     >
       {icon}
       {hasSummary ? (
-        <div className="flex w-full justify-between items-center gap-4">
-          <p className={`${!isDetailsOpen && summary}`}>{children}</p>
+        <div className="flex w-full justify-between items-start gap-4">
+          <p className={`${!isDetailsOpen ? summary : ""} flex-1`}>{children}</p>
           <div>
             {isDetailsOpen ? (
               <img src={isBymaTheme ? ChevronUpByma : ChevronUp} alt="" />

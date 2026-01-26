@@ -39,6 +39,23 @@
   -webkit-line-clamp: 2;
   text-overflow: ellipsis;
   overflow: hidden;
+  max-height: 3rem;
+
+  p,
+  span,
+  strong {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+img:last-child {
+  margin-top: 0.5rem;
+  width: 0.75rem;
+  height: 0.5rem;
 }
 
 :global(.byma) {
