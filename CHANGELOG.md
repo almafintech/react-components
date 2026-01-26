@@ -1,3 +1,10 @@
+## [1.19.2](https://github.com/almafintech/react-components/compare/v1.19.1...v1.19.2) (2026-01-26)
+
+
+### Bug Fixes
+
+* **Alert:** add chevron classname ([2dfb5a0](https://github.com/almafintech/react-components/commit/2dfb5a028992af301d8f0865442f20f00b297937))
+
 ## [1.19.1](https://github.com/almafintech/react-components/compare/v1.19.0...v1.19.1) (2026-01-26)
 
 
