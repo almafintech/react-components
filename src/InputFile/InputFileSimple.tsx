@@ -24,6 +24,7 @@ interface InputFileSimpleProps
   > {
   isValidFile: (file: File) => boolean;
   getErrorMessage: (file: File) => string;
+  onFileDropError?: () => void;
   value?: File | File[] | null;
 }
 
@@ -50,6 +51,7 @@ const InputFileSimple = ({
   attachImageText = "Adjuntar imagen",
   isValidFile,
   getErrorMessage,
+  onFileDropError,
   ...labelProps
 }: InputFileSimpleProps) => {
   const {
@@ -68,14 +70,14 @@ const InputFileSimple = ({
 
   // const [dragging, setDragging] = useState(false);
   const [file, setFile] = useState<File | FileData | null>(
-    fileData && !Array.isArray(fileData) ? fileData : null
+    fileData && !Array.isArray(fileData) ? fileData : null,
   );
   const [fileError, setFileError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>();
   const hiddenInputRef = useRef<HTMLInputElement>(null);
 
   const handleDropOrInputChange = (
-    e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>
+    e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>,
   ) => {
     e.preventDefault();
     // setDragging(false);
@@ -87,11 +89,16 @@ const InputFileSimple = ({
 
     if (droppedFile) {
       handleFileChange(droppedFile);
+    } else {
+      if (hiddenInputRef.current) {
+        hiddenInputRef.current.value = "";
+      }
+      onFileDropError?.();
     }
   };
 
   const handleDrag = (
-    e: DragEvent<HTMLDivElement> | DragEvent<HTMLFormElement>
+    e: DragEvent<HTMLDivElement> | DragEvent<HTMLFormElement>,
   ) => {
     e.preventDefault();
     e.stopPropagation();
