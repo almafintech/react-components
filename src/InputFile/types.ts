@@ -41,6 +41,7 @@ export interface InputFileProps extends WithTheme {
   onFileDownload?: (file: FileData) => void;
   onFileRemove?: (file?: File | FileData) => void;
   onFileUpload?: (file: File) => void;
+  onFileDropError?: () => void;
   selectedFile?: File | null;
   setError?: (error: InputFileErrorsTypes | null) => void;
   text?: string | ReactNode;
