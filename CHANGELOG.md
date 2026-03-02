@@ -1,3 +1,11 @@
+# [1.20.0](https://github.com/almafintech/react-components/compare/v1.19.2...v1.20.0) (2026-03-02)
+
+
+### Features
+
+* **InputFile:** add onFileDropError callback for handling file drop errors ([9eadac4](https://github.com/almafintech/react-components/commit/9eadac4c088a5f18c1339e7236b1b4fca88dc3d6))
+* **InputFile:** add onFileDropError prop to handle file drop errors ([d79de0e](https://github.com/almafintech/react-components/commit/d79de0e382a519c061015ecebc15ac2d35a532ba))
+
 ## [1.19.2](https://github.com/almafintech/react-components/compare/v1.19.1...v1.19.2) (2026-01-26)
 
 
