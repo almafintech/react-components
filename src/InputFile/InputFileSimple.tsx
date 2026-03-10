@@ -52,6 +52,7 @@ const InputFileSimple = ({
   isValidFile,
   getErrorMessage,
   onFileDropError,
+  errorMessage: externalErrorMessage,
   ...labelProps
 }: InputFileSimpleProps) => {
   const {
@@ -73,7 +74,7 @@ const InputFileSimple = ({
     fileData && !Array.isArray(fileData) ? fileData : null,
   );
   const [fileError, setFileError] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>();
+  const [fileErrorMessage, setFileErrorMessage] = useState<string | null>();
   const hiddenInputRef = useRef<HTMLInputElement>(null);
 
   const handleDropOrInputChange = (
@@ -118,8 +119,7 @@ const InputFileSimple = ({
       setFile(inputFile);
       setFileError(true);
       onFileRemove && onFileRemove();
-      const errorMessage = getErrorMessage(inputFile);
-      setErrorMessage(errorMessage);
+      setFileErrorMessage(getErrorMessage(inputFile));
     }
   };
 
@@ -169,6 +169,14 @@ const InputFileSimple = ({
       onFileRemove && onFileRemove();
     }
   }, [error]);
+
+  useEffect(() => {
+    if (externalErrorMessage) {
+      setFileError(true);
+      setFileErrorMessage(externalErrorMessage);
+      onFileRemove && onFileRemove();
+    }
+  }, [externalErrorMessage]);
 
   return (
     <div>
@@ -255,7 +263,7 @@ const InputFileSimple = ({
       {fileError && (
         <div className={errorMessageStyle}>
           <img src={ErrorIcon} />
-          <span>{errorMessage}</span>
+          <span>{fileErrorMessage}</span>
         </div>
       )}
     </div>
