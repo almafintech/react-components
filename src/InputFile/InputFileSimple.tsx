@@ -118,8 +118,7 @@ const InputFileSimple = ({
       setFile(inputFile);
       setFileError(true);
       onFileRemove && onFileRemove();
-      const errorMessage = getErrorMessage(inputFile);
-      setErrorMessage(errorMessage);
+      setErrorMessage(getErrorMessage(inputFile));
     }
   };
 

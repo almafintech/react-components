@@ -12,6 +12,7 @@ const InputFile = ({
   multiple,
   formatErrorMessage = "Formato de archivo inválido.",
   sizeErrorMessage = "El archivo adjunto excede el peso máximo permitido de",
+  customValidator,
   ...rest
 }: InputFileProps) => {
   const { container } = styles;
@@ -21,14 +22,16 @@ const InputFile = ({
 
   const isValidFile = (file: File) =>
     (!validTypes || allowedTypes.has(file.type)) &&
-    (!maxSize || file.size <= maxFileSize);
+    (!maxSize || file.size <= maxFileSize) &&
+    !customValidator?.(file);
 
   const getErrorMessage = (file: File) => {
     if (allowedTypes.size !== 0 && !allowedTypes.has(file.type)) {
       return formatErrorMessage;
-    } else {
-      return `${sizeErrorMessage} ${maxSize}MB.`;
     }
+    const customError = customValidator?.(file);
+    if (customError) return customError;
+    return `${sizeErrorMessage} ${maxSize}MB.`;
   };
 
   return (
