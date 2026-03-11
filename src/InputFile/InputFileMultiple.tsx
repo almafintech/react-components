@@ -55,7 +55,6 @@ const InputFileMultiple = ({
   attachImageText = "Adjuntar imagen",
   isValidFile,
   getErrorMessage,
-  errorMessage: externalErrorMessage,
   ...labelProps
 }: InputFileMultipleProps) => {
   const {
@@ -70,7 +69,6 @@ const InputFileMultiple = ({
     null
   );
   const hiddenInputRef = useRef<HTMLInputElement>(null);
-  const lastUploadedFileRef = useRef<File | null>(null);
   const hiddenInputReplaceRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const isFileData = files && files.length > 0 && "id" in files[0];
@@ -146,7 +144,6 @@ const InputFileMultiple = ({
           // Only execute onFileUpload if this is a new file not in value
           if (!isInControlledValue && onFileUpload && !isLoading) {
             onFileUpload(file);
-            lastUploadedFileRef.current = file;
           }
         } else {
           // Add error file
@@ -222,10 +219,7 @@ const InputFileMultiple = ({
             i === indexToReplace ? { file: newFile } : file
           ) as FileWithDetails[]
       );
-      if (onFileUpload && !isLoading) {
-        onFileUpload(newFile);
-        lastUploadedFileRef.current = newFile;
-      }
+      onFileUpload && !isLoading && onFileUpload(newFile);
     } else {
       const fileWithDetails = {
         file: newFile,
@@ -333,21 +327,6 @@ const InputFileMultiple = ({
   useEffect(() => {
     if (fileData && Array.isArray(fileData)) setFiles(fileData);
   }, [fileData]);
-
-  useEffect(() => {
-    if (externalErrorMessage && lastUploadedFileRef.current) {
-      const fileId = getUniqueFileId(lastUploadedFileRef.current);
-      setFiles(
-        (prevFiles) =>
-          (prevFiles as FileWithDetails[])?.map((f) =>
-            getUniqueFileId(f.file) === fileId
-              ? { ...f, error: true, errorMessage: externalErrorMessage }
-              : f
-          ) as FileWithDetails[]
-      );
-      lastUploadedFileRef.current = null;
-    }
-  }, [externalErrorMessage]);
 
   return (
     <div>

@@ -49,7 +49,7 @@ export interface InputFileProps extends WithTheme {
   validTypes: string[];
   formatErrorMessage?: string;
   sizeErrorMessage?: string;
-  errorMessage?: string;
+  customValidator?: (file: File) => string | null;
   replaceImageText?: string;
   attachImageText?: string;
 }
