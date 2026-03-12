@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/almafintech/react-components/compare/v1.20.0...v1.21.0) (2026-03-12)
+
+
+### Features
+
+* trigger release ([6242b9c](https://github.com/almafintech/react-components/commit/6242b9c4d4ed884dae1dbc3d61ac1f4d4b97521d))
+
 # [1.20.0](https://github.com/almafintech/react-components/compare/v1.19.2...v1.20.0) (2026-03-02)
 
 
