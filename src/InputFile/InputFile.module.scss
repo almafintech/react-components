@@ -27,7 +27,7 @@
   }
 
   .tooltipContainer {
-    img {
+    svg {
       display: inline-block;
     }
   }
@@ -52,8 +52,9 @@
       margin-left: auto;
       display: flex;
       column-gap: 1rem;
+      color: var(--primary-normal-300);
 
-      img {
+      svg {
         flex-shrink: 0;
         cursor: pointer;
         width: 1.25rem;
@@ -66,8 +67,9 @@
     display: flex;
     column-gap: 0.75rem;
     align-items: center;
+    color: var(--primary-normal-300);
 
-    img {
+    svg {
       flex-shrink: 0;
       width: 1rem;
       height: 1rem;
@@ -188,6 +190,10 @@
       width: 90%;
     }
 
+    svg {
+      width: 20px;
+    }
+
     p {
       font-size: 0.75rem;
       color: $primary-dark-900;
@@ -207,6 +213,7 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  color: var(--primary-normal-300);
 
   .replaceContainer {
     position: relative;
@@ -228,7 +235,7 @@
     }
   }
 
-  img {
+  svg {
     cursor: pointer;
   }
 }

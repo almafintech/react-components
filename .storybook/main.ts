@@ -33,6 +33,33 @@ const config: StorybookConfig = {
   },
   webpackFinal: async (config, { configType }) => {
     if (!config?.module?.rules) return config;
+
+    // Remove the default SVG file-loader rule so SVGR can handle .svg files
+    config.module.rules = config.module.rules.map((rule: any) => {
+      if (rule?.test?.toString().includes("svg")) {
+        return { ...rule, exclude: /\.svg$/ };
+      }
+      return rule;
+    });
+
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: "@svgr/webpack",
+          options: {
+            template: (variables: any, { tpl }: any) => tpl`
+              ${variables.imports};
+              ${variables.interfaces};
+              const ${variables.componentName} = (${variables.props}) => ${variables.jsx};
+              export { ${variables.componentName} as ReactComponent };
+              export default ${variables.componentName};
+            `,
+          },
+        },
+      ],
+    });
+
     config.module.rules.push({
       test: /\.scss$/,
       use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],

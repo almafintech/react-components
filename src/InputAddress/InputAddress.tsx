@@ -11,8 +11,8 @@ import { InputProps } from "../Input/types";
 import { FormattedAddress, InputAddressProps } from "./types";
 import styles from "./InputAddress.module.scss";
 import { Loader } from "@googlemaps/js-api-loader";
-import LocationPin from "../../assets/images/ui/icons/ui-icon-location-pin.svg";
-import LocationPinByma from "../../assets/images/ui/icons/ui-icon-location-pin-byma.svg";
+import { ReactComponent as LocationPin } from "../../assets/images/ui/icons/ui-icon-location-pin.svg";
+import { ReactComponent as LocationPinByma } from "../../assets/images/ui/icons/ui-icon-location-pin-byma.svg";
 import { isByma } from "../utils";
 
 const { autoCompleteOptions, active, autoComplete: autoCompleteStyle } = styles;
@@ -471,7 +471,7 @@ const InputAddress = (props: InputAddressProps) => {
                   onClick={() => handleAutocompleteSelect(prediction)}
                   onMouseOver={() => setCurrentFocus(index)}
                 >
-                  <img src={isBymaTheme ? LocationPinByma : LocationPin} />
+                  {isBymaTheme ? <LocationPinByma /> : <LocationPin />}
                   <span>
                     {mainText
                       .split(new RegExp(`(${autoCompleteValue})`, "gi"))

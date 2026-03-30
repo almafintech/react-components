@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { Input as NextUiInput } from "@nextui-org/react";
 import { InputProps } from "./types";
 
-import HideIcon from "../../assets/images/ui/icons/ui-icon-hide-gray.svg";
-import ShowIcon from "../../assets/images/ui/icons/ui-icon-show-gray.svg";
-import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
-import InvalidIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
-import SearchIcon from "../../assets/images/ui/icons/ui-icon-search-gray-outline.svg";
+import { ReactComponent as HideIcon } from "../../assets/images/ui/icons/ui-icon-hide-gray.svg";
+import { ReactComponent as ShowIcon } from "../../assets/images/ui/icons/ui-icon-show-gray.svg";
+import { ReactComponent as InvalidIcon } from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
+import { ReactComponent as InvalidIconByma } from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
+import { ReactComponent as SearchIcon } from "../../assets/images/ui/icons/ui-icon-search-gray-outline.svg";
 
 import styles from "./Input.module.scss";
 import { getValue, removeMask } from "./utils";
@@ -116,7 +116,7 @@ const Input = (props: InputProps) => {
 
   const getErrorMessage = () => (
     <div className={error}>
-      <img src={isBymaTheme ? InvalidIconByma : InvalidIcon} className={icon} />
+      {isBymaTheme ? <InvalidIconByma className={icon} /> : <InvalidIcon className={icon} />}
       {errorMessage ?? "Valor inválido"}
     </div>
   );
@@ -129,7 +129,7 @@ const Input = (props: InputProps) => {
         setIsVisible(!isVisible);
       }}
     >
-      {isVisible ? <img src={ShowIcon} /> : <img src={HideIcon} />}
+      {isVisible ? <ShowIcon /> : <HideIcon />}
     </button>
   );
 
@@ -207,7 +207,7 @@ const Input = (props: InputProps) => {
         startContent={
           <span className={startContentStyle}>
             {startContent}
-            {type === "search" && <img src={SearchIcon} className={icon} />}
+            {type === "search" && <SearchIcon className={icon} />}
             {type === "money" &&
               (props.value || value) &&
               getCurrencySymbol("es-AR", currency)}
