@@ -1,3 +1,20 @@
+# [1.22.0](https://github.com/almafintech/react-components/compare/v1.21.0...v1.22.0) (2026-03-30)
+
+
+### Bug Fixes
+
+* update loading button styles to use theme colors ([6b13467](https://github.com/almafintech/react-components/commit/6b134675914e77a2be6b62a941337af153e9635c))
+
+
+### Features
+
+* add in  ThemePreview with file component ([80bfdf3](https://github.com/almafintech/react-components/commit/80bfdf343b1970b1c0d2949926c87f42c21f8f5e))
+* add ThemeProvider component with theme customization support ([6c8b69f](https://github.com/almafintech/react-components/commit/6c8b69f47df121abbed5d617c2d75a80b23a29d2))
+* export ThemeProvider component from index ([7474e6a](https://github.com/almafintech/react-components/commit/7474e6a92b279e3f423ff86c36550810f8e4457c))
+* replace img for svg to adapt icons by theme ([fb5f5d5](https://github.com/almafintech/react-components/commit/fb5f5d53f4249d17afc3ebb1670be510ce9f177b))
+* update font-family to use CSS custom properties and add ThemeProvider stories ([dc30aa5](https://github.com/almafintech/react-components/commit/dc30aa5985ba5146e1c6bda721005f7f1d66d7e5))
+* update ReplaceIcon theme color ([6481af6](https://github.com/almafintech/react-components/commit/6481af6e752484c83bf3681d2701bdb8de2d1071))
+
 # [1.21.0](https://github.com/almafintech/react-components/compare/v1.20.0...v1.21.0) (2026-03-12)
 
 
