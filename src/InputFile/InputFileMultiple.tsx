@@ -400,8 +400,8 @@ const InputFileMultiple = ({
                       id={`input-file-replace-${name}-${getUniqueFileId(file)}`}
                     />
                     <ReplaceIcon
-                      width={18}
-                      height={18}
+                      width={20}
+                      height={20}
                       style={{
                         color: `var(--primary-normal-300, ${colors.primary300})`,
                       }}
