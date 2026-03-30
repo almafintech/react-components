@@ -2,8 +2,8 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import { InputPhoneProps } from "./types";
 
-import ErrorIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
-import ErrorIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
+import { ReactComponent as ErrorIcon } from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
+import { ReactComponent as ErrorIconByma } from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
 
 import "react-phone-input-2/lib/style.css";
 import styles from "./InputPhone.module.scss";
@@ -91,7 +91,7 @@ const InputPhone = (props: InputPhoneProps) => {
       )}
       {shouldValidate && isValid === false && (
         <div className={helperWrapper}>
-          <img src={isBymaTheme ? ErrorIconByma : ErrorIcon} className={icon} />
+          {isBymaTheme ? <ErrorIconByma className={icon} /> : <ErrorIcon className={icon} />}
           <span className={errorMessageStyle}>
             {errorMessage ?? "Valor inválido"}
           </span>

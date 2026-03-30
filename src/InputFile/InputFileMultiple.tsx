@@ -3,13 +3,14 @@ import saveAs from "file-saver";
 import { FileData, FileWithDetails, InputFileProps } from "./types";
 import InputFileDefault from "./InputFileDefault";
 
-import replaceIcon from "../../assets/images/ui/icons/repeat-icon.svg";
-import SuccessIcon from "../../assets/images/ui/icons/ui-icon-success-bg-dark.svg";
-import TrashIcon from "../../assets/images/ui/icons/ui-icon-trash.svg";
-import DownloadIcon from "../../assets/images/ui/icons/ui-icon-download.svg";
-import ErrorIcon from "../../assets/images/ui/icons/ui-icon-error-exclamation-filled.svg";
+import { ReactComponent as ReplaceIcon } from "../../assets/images/ui/icons/repeat-icon.svg";
+import { ReactComponent as SuccessIcon } from "../../assets/images/ui/icons/ui-icon-success-bg-dark.svg";
+import { ReactComponent as TrashIcon } from "../../assets/images/ui/icons/ui-icon-trash.svg";
+import { ReactComponent as DownloadIcon } from "../../assets/images/ui/icons/ui-icon-download.svg";
+import { ReactComponent as ErrorIcon } from "../../assets/images/ui/icons/ui-icon-error-exclamation-filled.svg";
 
 import styles from "./InputFile.module.scss";
+import { colors } from "../styles/variables";
 
 interface InputFileMultipleProps
   extends Omit<
@@ -66,7 +67,7 @@ const InputFileMultiple = ({
   } = styles;
 
   const [files, setFiles] = useState<FileWithDetails[] | FileData[] | null>(
-    null
+    null,
   );
   const hiddenInputRef = useRef<HTMLInputElement>(null);
   const hiddenInputReplaceRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -74,7 +75,7 @@ const InputFileMultiple = ({
   const isFileData = files && files.length > 0 && "id" in files[0];
 
   const handleDropOrInputChange = (
-    e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>
+    e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>,
   ) => {
     e.preventDefault();
     // setDragging(false);
@@ -90,7 +91,7 @@ const InputFileMultiple = ({
   };
 
   const handleDrag = (
-    e: DragEvent<HTMLDivElement> | DragEvent<HTMLFormElement>
+    e: DragEvent<HTMLDivElement> | DragEvent<HTMLFormElement>,
   ) => {
     e.preventDefault();
     e.stopPropagation();
@@ -109,7 +110,7 @@ const InputFileMultiple = ({
         (f) =>
           f.file.name === file.name &&
           f.file.size === file.size &&
-          f.file.lastModified === file.lastModified
+          f.file.lastModified === file.lastModified,
       );
     };
 
@@ -176,11 +177,11 @@ const InputFileMultiple = ({
 
   const handleFileReplace = (
     e: React.ChangeEvent<HTMLInputElement>,
-    originalFile: File
+    originalFile: File,
   ) => {
     const newFile = e.target.files && e.target.files[0];
     const indexToReplace = (files as FileWithDetails[]).findIndex(
-      (f) => getUniqueFileId(f.file) === getUniqueFileId(originalFile)
+      (f) => getUniqueFileId(f.file) === getUniqueFileId(originalFile),
     );
 
     // Early return if no file selected
@@ -190,14 +191,14 @@ const InputFileMultiple = ({
     const isDuplicate = (files as FileWithDetails[])?.some(
       (f, index) =>
         index !== indexToReplace &&
-        getUniqueFileId(f.file) === getUniqueFileId(newFile)
+        getUniqueFileId(f.file) === getUniqueFileId(newFile),
     );
 
     // Don't allow replacement with a duplicate file
     if (isDuplicate) {
       // Reset the replacement input so the same file can be selected again later if needed
       const index = (files as FileWithDetails[])?.findIndex(
-        (f) => getUniqueFileId(f.file) === getUniqueFileId(originalFile)
+        (f) => getUniqueFileId(f.file) === getUniqueFileId(originalFile),
       );
 
       // Reset the input value to allow re-uploading the same file
@@ -216,8 +217,8 @@ const InputFileMultiple = ({
       setFiles(
         (prevFiles) =>
           prevFiles?.map((file, i) =>
-            i === indexToReplace ? { file: newFile } : file
-          ) as FileWithDetails[]
+            i === indexToReplace ? { file: newFile } : file,
+          ) as FileWithDetails[],
       );
       onFileUpload && !isLoading && onFileUpload(newFile);
     } else {
@@ -229,8 +230,8 @@ const InputFileMultiple = ({
       setFiles(
         (prevFiles) =>
           prevFiles?.map((file, i) =>
-            i === indexToReplace ? fileWithDetails : file
-          ) as FileWithDetails[]
+            i === indexToReplace ? fileWithDetails : file,
+          ) as FileWithDetails[],
       );
       onFileRemove && onFileRemove(originalFile);
     }
@@ -239,7 +240,7 @@ const InputFileMultiple = ({
   const handleFileRemove = useCallback((fileToRemove: File | FileData) => {
     if ("id" in fileToRemove) {
       setFiles((prevFiles) =>
-        (prevFiles as FileData[]).filter((f) => f.id !== fileToRemove.id)
+        (prevFiles as FileData[]).filter((f) => f.id !== fileToRemove.id),
       );
     } else {
       setFiles((prevFiles) => {
@@ -272,7 +273,7 @@ const InputFileMultiple = ({
         if (!isValidFileObject) {
           console.warn(
             `InputFileMultiple: Item in value is not a File object:`,
-            item
+            item,
           );
         }
 
@@ -299,12 +300,12 @@ const InputFileMultiple = ({
               errorMessage: getErrorMessage(file),
             };
           }
-        }
+        },
       );
 
       // Keep value files that don't overlap with error files
       const filesToKeep = valueFilesWithDetails.filter(
-        (f) => !errorFileIds.includes(getUniqueFileId(f.file))
+        (f) => !errorFileIds.includes(getUniqueFileId(f.file)),
       );
 
       // Combine preserved error files + new value files
@@ -353,16 +354,16 @@ const InputFileMultiple = ({
         attachImageText={attachImageText}
         isFileUploaded={!!files}
       />
-      <div className="flex flex-col mt-4 px-6 gap-4">
+      <div className="flex flex-col mt-4 px-6 gap-4 w-100">
         {isFileData &&
           (files as FileData[]).map((file) => (
             <div key={file.id} className={fileDetailsContainer}>
               <div className={fileNameContainer}>
-                <img src={SuccessIcon} width={16} height={16} />
+                <SuccessIcon width={16} height={16} />
                 <p>{file.name}</p>
               </div>
               <div className={actionsContainer}>
-                <img src={TrashIcon} onClick={() => handleFileRemove(file)} />
+                <TrashIcon onClick={() => handleFileRemove(file)}  style={{"color": `var(--primary-normal-300, ${colors.primary300})`}} />
               </div>
             </div>
           ))}
@@ -375,7 +376,7 @@ const InputFileMultiple = ({
                 className={fileDetailsContainer}
               >
                 <div className={fileNameContainer}>
-                  <img src={ErrorIcon} width={16} height={16} />
+                  <ErrorIcon width={16} height={16} />
                   <div>
                     <p>{file.name}</p>
                     <span>{errorMessage}</span>
@@ -386,7 +387,7 @@ const InputFileMultiple = ({
                     <input
                       ref={(el) => {
                         const index = (files as FileWithDetails[])?.findIndex(
-                          (f) => f.file === file
+                          (f) => f.file === file,
                         );
                         if (index !== -1) {
                           hiddenInputReplaceRefs.current[index] = el;
@@ -398,9 +399,20 @@ const InputFileMultiple = ({
                       onChange={(e) => handleFileReplace(e, file)}
                       id={`input-file-replace-${name}-${getUniqueFileId(file)}`}
                     />
-                    <img src={replaceIcon} width={18} height={18} />
+                    <ReplaceIcon
+                      width={20}
+                      height={20}
+                      style={{
+                        color: `var(--primary-normal-300, ${colors.primary300})`,
+                      }}
+                    />
                   </div>
-                  <img src={TrashIcon} onClick={() => handleFileRemove(file)} />
+                  <TrashIcon
+                    onClick={() => handleFileRemove(file)}
+                    style={{
+                      color: `var(--primary-normal-300, ${colors.primary300})`,
+                    }}
+                  />
                 </div>
               </div>
             ) : (
@@ -410,18 +422,25 @@ const InputFileMultiple = ({
                 className={fileDetailsContainer}
               >
                 <div className={fileNameContainer}>
-                  <img src={SuccessIcon} width={16} height={16} />
+                  <SuccessIcon width={16} height={16} />
                   <p>{file.name}</p>
                 </div>
                 <div className={actionsContainer}>
-                  <img
-                    src={DownloadIcon}
+                  <DownloadIcon
                     onClick={() => handleFileDownload(file)}
+                    style={{
+                      color: `var(--primary-normal-300, ${colors.primary300})`,
+                    }}
                   />
-                  <img src={TrashIcon} onClick={() => handleFileRemove(file)} />
+                  <TrashIcon
+                    onClick={() => handleFileRemove(file)}
+                    style={{
+                      color: `var(--primary-normal-300, ${colors.primary300})`,
+                    }}
+                  />
                 </div>
               </div>
-            )
+            ),
           )}
       </div>
     </div>

@@ -1,8 +1,8 @@
 import styles from "./InputTextArea.module.scss";
 import { Textarea } from "@nextui-org/input";
 import { useState } from "react";
-import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
-import InvalidIconByma from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
+import { ReactComponent as InvalidIcon } from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
+import { ReactComponent as InvalidIconByma } from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled-byma.svg";
 import { InputTextAreaProps } from "./types";
 import { isByma } from "../utils";
 
@@ -48,7 +48,7 @@ const InputTextArea = (props: InputTextAreaProps) => {
 
   const getErrorMessage = () => (
     <div className={error}>
-      <img src={isBymaTheme ? InvalidIconByma : InvalidIcon} className={icon} />
+      {isBymaTheme ? <InvalidIconByma className={icon} /> : <InvalidIcon className={icon} />}
       {errorMessage ?? "Valor inválido"}
     </div>
   );

@@ -4,7 +4,7 @@ import { InfoMessage } from "../InfoMessage";
 import { fromDate, getLocalTimeZone } from "@internationalized/date";
 import { NewDatePickerProps } from "./types";
 
-import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
+import { ReactComponent as InvalidIcon } from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
 
 import styles from "./NewDatePicker.module.scss";
 
@@ -64,7 +64,7 @@ const NewDatePicker = (props: NewDatePickerProps) => {
 
   const getErrorMessage = () => (
     <div className={error}>
-      <img src={InvalidIcon} className={icon} />
+      <InvalidIcon className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );

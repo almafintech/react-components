@@ -4,8 +4,8 @@ import styles from "./DatePicker.module.scss";
 import Button from "../Button/Button";
 import Calendar from "./ui/Calendar";
 import Select from "../InputSelect/InputSelect";
-import BackIcon from "../../assets/images/ui/icons/ui-icon-chevron-left.svg";
-import BackIconByma from "../../assets/images/ui/icons/ui-icon-chevron-left-byma.svg";
+import { ReactComponent as BackIcon } from "../../assets/images/ui/icons/ui-icon-chevron-left.svg";
+import { ReactComponent as BackIconByma } from "../../assets/images/ui/icons/ui-icon-chevron-left-byma.svg";
 import {
   getCurrentYear,
   getCurrentMonth,
@@ -130,7 +130,7 @@ const DatePicker = (props: DatePickerProps) => {
         <div className="flex gap-1 flex-grow">
           {onBack && calendarVariant !== "DATE" && (
             <div className={iconButton} onClick={() => onBack && onBack()}>
-              <img src={isBymaTheme ? BackIconByma : BackIcon} />
+              {isBymaTheme ? <BackIconByma /> : <BackIcon />}
             </div>
           )}
           {["DAY", "DATE"].includes(calendarVariant) && monthPicker}

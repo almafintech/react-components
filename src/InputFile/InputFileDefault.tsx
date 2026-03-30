@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
-import UploadIcon from "../../assets/images/ui/icons/ui-icon-file_upload.svg";
-import plusIcon from "../../assets/images/ui/icons/ui-icon-plus-circle.svg";
+import { ReactComponent as UploadIcon } from "../../assets/images/ui/icons/ui-icon-file_upload.svg";
+import { ReactComponent as PlusIcon } from "../../assets/images/ui/icons/ui-icon-plus-circle.svg";
 
 import styles from "./InputFile.module.scss";
+import { colors } from "../styles/variables";
 
 interface InputFileDefaultProps {
   name: string;
@@ -16,7 +17,7 @@ interface InputFileDefaultProps {
   isFileUploaded?: boolean;
   handleDrag: (e: React.DragEvent<HTMLDivElement>) => void;
   handleDropOrInputChange: (
-    e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>
+    e: React.DragEvent<HTMLDivElement> | React.ChangeEvent<HTMLInputElement>,
   ) => void;
   labelProps: {
     label?: string | React.ReactNode;
@@ -59,7 +60,9 @@ const InputFileDefault = ({
       {isMobile ? (
         <div className={mobile}>
           <span>{isFileUploaded ? replaceImageText : attachImageText}</span>
-          <img src={plusIcon} alt="adjuntar" />
+          <PlusIcon
+            style={{ color: `var(--primary-normal-300, ${colors.primary300})` }}
+          />
         </div>
       ) : (
         <div
@@ -70,7 +73,11 @@ const InputFileDefault = ({
           className={inputFile}
         >
           <div className={fileHeader}>
-            <img src={UploadIcon} />
+            <UploadIcon
+              style={{
+                color: `var(--primary-normal-300, ${colors.primary300})`,
+              }}
+            />
             <label
               id={`label-file-upload-${name}`}
               htmlFor={`input-file-upload-${name}`}

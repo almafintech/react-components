@@ -4,13 +4,14 @@ import InputFileDefault, { InputFileLabel } from "./InputFileDefault";
 import { LoadingDots } from "../LoadingDots";
 import { FileData, InputFileProps } from "./types";
 
-import UploadIcon from "../../assets/images/ui/icons/ui-icon-file_upload.svg";
-import SuccessIcon from "../../assets/images/ui/icons/ui-icon-success-bg-dark.svg";
-import TrashIcon from "../../assets/images/ui/icons/ui-icon-trash.svg";
-import DownloadIcon from "../../assets/images/ui/icons/ui-icon-download.svg";
-import ErrorIcon from "../../assets/images/ui/icons/ui-icon-error-exclamation-filled.svg";
+import { ReactComponent as UploadIcon } from "../../assets/images/ui/icons/ui-icon-file_upload.svg";
+import { ReactComponent as SuccessIcon } from "../../assets/images/ui/icons/ui-icon-success-bg-dark.svg";
+import { ReactComponent as TrashIcon } from "../../assets/images/ui/icons/ui-icon-trash.svg";
+import { ReactComponent as DownloadIcon } from "../../assets/images/ui/icons/ui-icon-download.svg";
+import { ReactComponent as ErrorIcon } from "../../assets/images/ui/icons/ui-icon-error-exclamation-filled.svg";
 
 import styles from "./InputFile.module.scss";
+import { colors } from "../styles/variables";
 
 interface InputFileSimpleProps
   extends Omit<
@@ -205,7 +206,11 @@ const InputFileSimple = ({
               <div className={`${fileHeader} ${file && "w-4/5"}`}>
                 {isLoading ? (
                   <>
-                    <img src={UploadIcon} />
+                    <UploadIcon
+                      style={{
+                        color: `var(--primary-normal-300, ${colors.primary300})`,
+                      }}
+                    />
                     <label
                       id={`label-file-upload-${name}`}
                       htmlFor={`input-file-upload-${name}`}
@@ -215,7 +220,7 @@ const InputFileSimple = ({
                   </>
                 ) : (
                   <>
-                    <img src={SuccessIcon} />
+                    <SuccessIcon />
                     <p>{file.name}</p>
                   </>
                 )}
@@ -226,12 +231,19 @@ const InputFileSimple = ({
                 ) : (
                   <>
                     {!hideDownloadIcon && (
-                      <img
-                        src={DownloadIcon}
+                      <DownloadIcon
                         onClick={() => handleFileDownload()}
+                        style={{
+                          color: `var(--primary-normal-300, ${colors.primary300})`,
+                        }}
                       />
                     )}
-                    <img src={TrashIcon} onClick={() => handleFileRemove()} />
+                    <TrashIcon
+                      onClick={() => handleFileRemove()}
+                      style={{
+                        color: `var(--primary-normal-300, ${colors.primary300})`,
+                      }}
+                    />
                   </>
                 )}
               </div>
@@ -247,13 +259,13 @@ const InputFileSimple = ({
 
       {isMobile && file && !fileError && (
         <div className={successMessageStyle}>
-          <img src={SuccessIcon} />
+          <SuccessIcon />
           <p>{successMessage}</p>
         </div>
       )}
       {fileError && (
         <div className={errorMessageStyle}>
-          <img src={ErrorIcon} />
+          <ErrorIcon />
           <span>{errorMessage}</span>
         </div>
       )}

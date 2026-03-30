@@ -18,11 +18,11 @@ import {
 } from "./helpers";
 //Icons
 import Checkbox from "../Checkbox/Checkbox";
-import InvalidIcon from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
-import ChevronIcon from "../../assets/images/ui/icons/ui-icon-chevron-dark-down.svg";
-import CalendarIcon from "../../assets/images/ui/icons/ui-icon-calendar.svg";
-import CloseIcon from "../../assets/images/ui/icons/ui-icon-close-blue.svg";
-import CloseIconWhite from "../../assets/images/ui/icons/ui-icon-close-white.svg";
+import { ReactComponent as InvalidIcon } from "../../assets/images/ui/alert-icons/ui-alert-icon-error-exclamation-filled.svg";
+import { ReactComponent as ChevronIcon } from "../../assets/images/ui/icons/ui-icon-chevron-dark-down.svg";
+import { ReactComponent as CalendarIcon } from "../../assets/images/ui/icons/ui-icon-calendar.svg";
+import { ReactComponent as CloseIcon } from "../../assets/images/ui/icons/ui-icon-close-blue.svg";
+import { ReactComponent as CloseIconWhite } from "../../assets/images/ui/icons/ui-icon-close-white.svg";
 import DatePicker from "../DatePicker/DatePicker";
 import { DateRange } from "../DatePicker/types";
 import { InputSelectProps } from "./types";
@@ -279,7 +279,7 @@ const InputSelect = ({
 
   const getErrorMessage = () => (
     <div className={error}>
-      <img src={InvalidIcon} className={icon} />
+      <InvalidIcon className={icon} />
       {errorMessage ?? "Valor inválido"}
     </div>
   );
@@ -497,7 +497,7 @@ const InputSelect = ({
             onChange(isSingle ? keysArray[0] : keysArray);
           }
         }}
-        startContent={hasDatePicker && <img src={CalendarIcon} />}
+        startContent={hasDatePicker && <CalendarIcon />}
         renderValue={() =>
           getRenderValue(values, items, hasDatePicker, datePickerRange)
         }
@@ -584,7 +584,7 @@ const InputSelect = ({
                 onClick={() => openDatePicker("MONTH")}
                 className={datePickerOption}
               >
-                Mensual <img src={ChevronIcon} />
+                Mensual <ChevronIcon />
               </span>
             </SelectItem>
           ) as any)}
@@ -597,7 +597,7 @@ const InputSelect = ({
                 onClick={() => openDatePicker("DAY")}
                 className={datePickerOption}
               >
-                Otro período <img src={ChevronIcon} />
+                Otro período <ChevronIcon />
               </span>
             </SelectItem>
           ) as any)}
@@ -633,13 +633,21 @@ const InputSelect = ({
                 value !== "" && (
                   <div className={externalItem} key={value}>
                     <span>{item?.label}</span>
-                    <img
-                      src={isBymaTheme ? CloseIconWhite : CloseIcon}
-                      onClick={() => {
-                        setValues(values.filter((val) => val !== value));
-                        onChange(values.filter((val) => val !== value));
-                      }}
-                    />
+                    {isBymaTheme ? (
+                      <CloseIconWhite
+                        onClick={() => {
+                          setValues(values.filter((val) => val !== value));
+                          onChange(values.filter((val) => val !== value));
+                        }}
+                      />
+                    ) : (
+                      <CloseIcon
+                        onClick={() => {
+                          setValues(values.filter((val) => val !== value));
+                          onChange(values.filter((val) => val !== value));
+                        }}
+                      />
+                    )}
                   </div>
                 )
               );

@@ -5,26 +5,26 @@ import { forwardRef } from "react";
 import styles from "./RoundedButton.module.scss";
 
 //icons
-import DownloadIcon from "../../assets/images/ui/icons/ui-icon-download.svg";
-import DownloadIconByma from "../../assets/images/ui/icons/ui-icon-download-byma.svg";
-import ShareIcon from "../../assets/images/ui/icons/ui-icon-share.svg";
-import ShareIconByma from "../../assets/images/ui/icons/ui-icon-share-byma.svg";
-import WhatsappIcon from "../../assets/images/ui/icons/ui-icon-whatsapp.svg";
-import WhatsappIconByma from "../../assets/images/ui/icons/ui-icon-whatsapp-byma.svg";
-import WhatsappDisabledIcon from "../../assets/images/ui/icons/ui-icon-whatsapp-disabled.svg";
-import EmailIcon from "../../assets/images/ui/icons/ui-icon-email.svg";
-import EmailIconByma from "../../assets/images/ui/icons/ui-icon-email-byma.svg";
-import EmailDisabledIcon from "../../assets/images/ui/icons/ui-icon-email-disabled.svg";
-import PauseIcon from "../../assets/images/ui/icons/pause-icon.svg";
-import PauseIconByma from "../../assets/images/ui/icons/pause-icon-byma.svg";
-import PlayIcon from "../../assets/images/ui/icons/play-icon.svg";
-import PlayIconByma from "../../assets/images/ui/icons/play-icon-byma.svg";
-import TrashIcon from "../../assets/images/ui/icons/trash-icon.svg";
-import TrashIconByma from "../../assets/images/ui/icons/trash-icon-byma.svg";
-import EditIcon from "../../assets/images/ui/icons/edit-icon.svg";
-import EditIconByma from "../../assets/images/ui/icons/edit-icon-byma.svg";
-import NominalRateIcon from "../../assets/images/ui/icons/nominal-rate-icon.svg";
-import NominalRateIconByma from "../../assets/images/ui/icons/nominal-rate-icon-byma.svg";
+import { ReactComponent as DownloadIcon } from "../../assets/images/ui/icons/ui-icon-download.svg";
+import { ReactComponent as DownloadIconByma } from "../../assets/images/ui/icons/ui-icon-download-byma.svg";
+import { ReactComponent as ShareIcon } from "../../assets/images/ui/icons/ui-icon-share.svg";
+import { ReactComponent as ShareIconByma } from "../../assets/images/ui/icons/ui-icon-share-byma.svg";
+import { ReactComponent as WhatsappIcon } from "../../assets/images/ui/icons/ui-icon-whatsapp.svg";
+import { ReactComponent as WhatsappIconByma } from "../../assets/images/ui/icons/ui-icon-whatsapp-byma.svg";
+import { ReactComponent as WhatsappDisabledIcon } from "../../assets/images/ui/icons/ui-icon-whatsapp-disabled.svg";
+import { ReactComponent as EmailIcon } from "../../assets/images/ui/icons/ui-icon-email.svg";
+import { ReactComponent as EmailIconByma } from "../../assets/images/ui/icons/ui-icon-email-byma.svg";
+import { ReactComponent as EmailDisabledIcon } from "../../assets/images/ui/icons/ui-icon-email-disabled.svg";
+import { ReactComponent as PauseIcon } from "../../assets/images/ui/icons/pause-icon.svg";
+import { ReactComponent as PauseIconByma } from "../../assets/images/ui/icons/pause-icon-byma.svg";
+import { ReactComponent as PlayIcon } from "../../assets/images/ui/icons/play-icon.svg";
+import { ReactComponent as PlayIconByma } from "../../assets/images/ui/icons/play-icon-byma.svg";
+import { ReactComponent as TrashIcon } from "../../assets/images/ui/icons/trash-icon.svg";
+import { ReactComponent as TrashIconByma } from "../../assets/images/ui/icons/trash-icon-byma.svg";
+import { ReactComponent as EditIcon } from "../../assets/images/ui/icons/edit-icon.svg";
+import { ReactComponent as EditIconByma } from "../../assets/images/ui/icons/edit-icon-byma.svg";
+import { ReactComponent as NominalRateIcon } from "../../assets/images/ui/icons/nominal-rate-icon.svg";
+import { ReactComponent as NominalRateIconByma } from "../../assets/images/ui/icons/nominal-rate-icon-byma.svg";
 
 import { RoundedButtonProps } from "./types";
 import { isByma } from "../utils";
@@ -43,33 +43,35 @@ const RoundedButton = forwardRef<HTMLButtonElement, RoundedButtonProps>(
     const IconComponent = () => {
       switch (icon) {
         case "download":
-          return <img src={isBymaTheme ? DownloadIconByma : DownloadIcon} />;
+          return isBymaTheme ? <DownloadIconByma /> : <DownloadIcon />;
         case "share":
-          return <img src={isBymaTheme ? ShareIconByma : ShareIcon} />;
+          return isBymaTheme ? <ShareIconByma /> : <ShareIcon />;
         case "email":
           return isDisabled ? (
-            <img src={EmailDisabledIcon} />
+            <EmailDisabledIcon />
+          ) : isBymaTheme ? (
+            <EmailIconByma />
           ) : (
-            <img src={isBymaTheme ? EmailIconByma : EmailIcon} />
+            <EmailIcon />
           );
         case "whatsapp":
           return isDisabled ? (
-            <img src={WhatsappDisabledIcon} />
+            <WhatsappDisabledIcon />
+          ) : isBymaTheme ? (
+            <WhatsappIconByma />
           ) : (
-            <img src={isBymaTheme ? WhatsappIconByma : WhatsappIcon} />
+            <WhatsappIcon />
           );
         case "edit":
-          return <img src={isBymaTheme ? EditIconByma : EditIcon} />;
+          return isBymaTheme ? <EditIconByma /> : <EditIcon />;
         case "trash":
-          return <img src={isBymaTheme ? TrashIconByma : TrashIcon} />;
+          return isBymaTheme ? <TrashIconByma /> : <TrashIcon />;
         case "pause":
-          return <img src={isBymaTheme ? PauseIconByma : PauseIcon} />;
+          return isBymaTheme ? <PauseIconByma /> : <PauseIcon />;
         case "play":
-          return <img src={isBymaTheme ? PlayIconByma : PlayIcon} />;
+          return isBymaTheme ? <PlayIconByma /> : <PlayIcon />;
         case "nominal-rate":
-          return (
-            <img src={isBymaTheme ? NominalRateIconByma : NominalRateIcon} />
-          );
+          return isBymaTheme ? <NominalRateIconByma /> : <NominalRateIcon />;
         default:
           return icon;
       }

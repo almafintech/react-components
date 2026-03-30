@@ -2,20 +2,20 @@
 import { useState } from "react";
 import styles from "./Alert.module.scss";
 
-import InfoIcon from "../../assets/images/ui/icons/ui-icon-info.svg";
-import InfoIconByma from "../../assets/images/ui/icons/ui-icon-info-byma.svg";
+import { ReactComponent as InfoIcon } from "../../assets/images/ui/icons/ui-icon-info.svg";
+import { ReactComponent as InfoIconByma } from "../../assets/images/ui/icons/ui-icon-info-byma.svg";
 
-import ErrorIcon from "../../assets/images/ui/icons/ui-icon-error.svg";
-import ErrorIconByma from "../../assets/images/ui/icons/ui-icon-error-byma.svg";
+import { ReactComponent as ErrorIcon } from "../../assets/images/ui/icons/ui-icon-error.svg";
+import { ReactComponent as ErrorIconByma } from "../../assets/images/ui/icons/ui-icon-error-byma.svg";
 
-import WarnIcon from "../../assets/images/ui/icons/ui-icon-warn.svg";
-import WarnIconByma from "../../assets/images/ui/icons/ui-icon-warn-byma.svg";
+import { ReactComponent as WarnIcon } from "../../assets/images/ui/icons/ui-icon-warn.svg";
+import { ReactComponent as WarnIconByma } from "../../assets/images/ui/icons/ui-icon-warn-byma.svg";
 
-import ChevronDown from "../../assets/images/ui/icons/ui-icon-chevron-down.svg";
-import ChevronDownByma from "../../assets/images/ui/icons/ui-icon-chevron-down-byma.svg";
+import { ReactComponent as ChevronDown } from "../../assets/images/ui/icons/ui-icon-chevron-down.svg";
+import { ReactComponent as ChevronDownByma } from "../../assets/images/ui/icons/ui-icon-chevron-down-byma.svg";
 
-import ChevronUp from "../../assets/images/ui/icons/ui-icon-chevron-up.svg";
-import ChevronUpByma from "../../assets/images/ui/icons/ui-icon-chevron-up-byma.svg";
+import { ReactComponent as ChevronUp } from "../../assets/images/ui/icons/ui-icon-chevron-up.svg";
+import { ReactComponent as ChevronUpByma } from "../../assets/images/ui/icons/ui-icon-chevron-up-byma.svg";
 
 import { AlertProps } from "./types";
 import { isByma } from "../utils";
@@ -45,29 +45,26 @@ const Alert = ({
 
   const alertVariants = {
     INFO: {
-      icon: (
-        <img
-          src={isBymaTheme ? InfoIconByma : InfoIcon}
-          className={iconStyle}
-        />
+      icon: isBymaTheme ? (
+        <InfoIconByma className={iconStyle} />
+      ) : (
+        <InfoIcon className={iconStyle} />
       ),
       background: infoBackground,
     },
     WARN: {
-      icon: (
-        <img
-          src={isBymaTheme ? WarnIconByma : WarnIcon}
-          className={iconStyle}
-        />
+      icon: isBymaTheme ? (
+        <WarnIconByma className={iconStyle} />
+      ) : (
+        <WarnIcon className={iconStyle} />
       ),
       background: warnBackground,
     },
     ERROR: {
-      icon: (
-        <img
-          src={isBymaTheme ? ErrorIconByma : ErrorIcon}
-          className={iconStyle}
-        />
+      icon: isBymaTheme ? (
+        <ErrorIconByma className={iconStyle} />
+      ) : (
+        <ErrorIcon className={iconStyle} />
       ),
       background: errorBackground,
     },
@@ -90,9 +87,9 @@ const Alert = ({
           <p className={`${!isDetailsOpen ? summary : ""} flex-1`}>{children}</p>
           <div>
             {isDetailsOpen ? (
-              <img src={isBymaTheme ? ChevronUpByma : ChevronUp} alt="" className={chevron} />
+              isBymaTheme ? <ChevronUpByma className={chevron} /> : <ChevronUp className={chevron} />
             ) : (
-              <img src={isBymaTheme ? ChevronDownByma : ChevronDown} alt="" className={chevron} />
+              isBymaTheme ? <ChevronDownByma className={chevron} /> : <ChevronDown className={chevron} />
             )}
           </div>
         </div>

@@ -6,7 +6,7 @@ import {
   ModalBody,
 } from "@nextui-org/modal";
 import styles from "./Modal.module.scss";
-import CloseIcon from "../../assets/images/ui/icons/ui-icon-close.svg";
+import { ReactComponent as CloseIcon } from "../../assets/images/ui/icons/ui-icon-close.svg";
 import { ToastMessage } from "../ToastMessage/ToastMessage";
 import { ModalProps } from "./types";
 
@@ -22,7 +22,7 @@ const Modal = ({
   return (
     <NextUiModal
       classNames={{ ...restStyles }}
-      closeButton={<img src={CloseIcon} />}
+      closeButton={<CloseIcon />}
       scrollBehavior="inside"
       placement="center"
       {...rest}
