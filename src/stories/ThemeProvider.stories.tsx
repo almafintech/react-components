@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import ThemeProvider from "../ThemeProvider/ThemeProvider";
 import { colors } from "../styles/variables";
@@ -5,6 +6,7 @@ import Button from "../Button/Button";
 import Tabs from "../Tabs/Tabs";
 import Switch from "../Switch/Switch";
 import Checkbox from "../Checkbox/Checkbox";
+import InputFileMultiple from "../InputFile/InputFileMultiple";
 
 const meta = {
   title: "Components/ThemeProvider",
@@ -25,20 +27,46 @@ const tabItems = [
   { id: "3", label: "Tab 3" },
 ];
 
-const ThemePreview = () => (
-  <div
-    style={{ display: "flex", flexDirection: "column", gap: 16, padding: 16 }}
-  >
-    <div style={{ display: "flex", gap: 8 }}>
-      <Button text="Primary" variant="primary" />
-      <Button text="Secondary" variant="secondary" />
-      <Button text="Tertiary" variant="tertiary" />
+const ThemePreview = () => {
+  const [files, setFiles] = useState<File[]>([]);
+
+  const isValidFile = (file: File) =>
+    ["image/jpeg", "image/png", "application/pdf"].includes(file.type) &&
+    file.size <= 5 * 1024 * 1024;
+
+  const getErrorMessage = (file: File) => {
+    if (file.size > 5 * 1024 * 1024) return "El archivo excede el límite de 5MB";
+    return "Tipo de archivo no permitido. Solo JPG, PNG o PDF";
+  };
+
+  return (
+    <div
+      style={{ display: "flex", flexDirection: "column", gap: 16, padding: 16, width: 480 }}
+    >
+      <div style={{ display: "flex", gap: 8 }}>
+        <Button text="Primary" variant="primary" />
+        <Button text="Secondary" variant="secondary" />
+        <Button text="Tertiary" variant="tertiary" />
+      </div>
+      <Tabs items={tabItems} />
+      <Switch defaultSelected />
+      <Checkbox defaultSelected>Checkbox</Checkbox>
+      <InputFileMultiple
+        name="demo"
+        text="Arrastrá o seleccioná archivos de tu dispositivo"
+        infoText="Formato JPG, PNG o PDF · Máximo 5MB"
+        validTypes={["image/jpeg", "image/png", "application/pdf"]}
+        isValidFile={isValidFile}
+        getErrorMessage={getErrorMessage}
+        value={files}
+        onFileUpload={(file) => setFiles((prev) => [...prev, file as File])}
+        onFileRemove={(file) =>
+          setFiles((prev) => prev.filter((f) => f !== file))
+        }
+      />
     </div>
-    <Tabs items={tabItems} />
-    <Switch defaultSelected />
-    <Checkbox defaultSelected>Checkbox</Checkbox>
-  </div>
-);
+  );
+};
 
 export const Default: Story = {
   args: {
