@@ -38,8 +38,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantsLoadingStyles = {
       primary: white,
-      secondary: isBymaTheme ? bymaPrimaryDefault : primary300,
-      tertiary: isBymaTheme ? bymaPrimaryDefault : primary300,
+      secondary: isBymaTheme ? bymaPrimaryDefault : `var(--primary-normal-300, ${primary300})`,
+      tertiary: isBymaTheme ? bymaPrimaryDefault : `var(--primary-normal-300, ${primary300})`,
     };
 
     return (
