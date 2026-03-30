@@ -3,7 +3,7 @@
 @import "../src/styles/variables";
 
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family, "Poppins"), sans-serif;
 }
 
 .byma {
