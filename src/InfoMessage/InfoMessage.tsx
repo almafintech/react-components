@@ -8,7 +8,7 @@ const InfoMessage = ({ isBymaTheme, message, className }: InfoMessageProps) => {
   const { infoMessage } = styles;
   return (
     <div className={`${className ? className : ""}`}>
-      {isBymaTheme ? <InfoIconByma /> : <InfoIcon />}
+      {isBymaTheme ? <InfoIconByma /> : <InfoIcon width={16} />}
       <span className={infoMessage}>{message}</span>
     </div>
   );

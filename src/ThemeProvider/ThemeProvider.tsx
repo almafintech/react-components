@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { useEffect } from "react";
 import { ThemeProviderProps, Theme } from "./types";
 
 const parsedVariables: Record<string, string> = {
@@ -86,18 +86,27 @@ const parsedVariables: Record<string, string> = {
 };
 
 const ThemeProvider = ({ theme, children }: ThemeProviderProps) => {
-  const variables = Object.entries(theme).reduce<CSSProperties>(
-    (acc, [key, value]) => {
-      const cssVar = parsedVariables[key as keyof Theme];
-      if (cssVar && value) {
-        (acc as Record<string, string>)[cssVar] = value;
-      }
-      return acc;
-    },
-    {},
-  );
+  // Apply theme variables to the document root to make them available globally. Clean up on unmount or theme change.
+  useEffect(() => {
+    const root = document.documentElement;
+    const variablesApplied: string[] = [];
 
-  return <div style={variables}>{children}</div>;
+    Object.entries(theme).forEach(([key, value]) => {
+      const themeVar = parsedVariables[key as keyof Theme];
+      if (themeVar && value) {
+        root.style.setProperty(themeVar, value);
+        variablesApplied.push(themeVar);
+      }
+    });
+
+    return () => {
+      variablesApplied.forEach((themeVar) =>
+        root.style.removeProperty(themeVar),
+      );
+    };
+  }, [theme]);
+
+  return <>{children}</>;
 };
 
 export default ThemeProvider;

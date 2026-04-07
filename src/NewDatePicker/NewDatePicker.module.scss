@@ -124,6 +124,8 @@
   svg {
     height: 14px;
     width: 14px;
+    min-width: 14px;
+    flex-shrink: 0;
   }
 }
 
