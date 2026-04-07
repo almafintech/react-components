@@ -7,6 +7,9 @@ import Tabs from "../Tabs/Tabs";
 import Switch from "../Switch/Switch";
 import Checkbox from "../Checkbox/Checkbox";
 import InputFileMultiple from "../InputFile/InputFileMultiple";
+import InputFileSimple from "../InputFile/InputFileSimple";
+import Modal from "../Modal/Modal";
+import InputSelect from "../InputSelect/InputSelect";
 
 const meta = {
   title: "Components/ThemeProvider",
@@ -29,41 +32,115 @@ const tabItems = [
 
 const ThemePreview = () => {
   const [files, setFiles] = useState<File[]>([]);
+  const [simpleFile, setSimpleFile] = useState<File | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
 
   const isValidFile = (file: File) =>
     ["image/jpeg", "image/png", "application/pdf"].includes(file.type) &&
     file.size <= 5 * 1024 * 1024;
 
   const getErrorMessage = (file: File) => {
-    if (file.size > 5 * 1024 * 1024) return "El archivo excede el límite de 5MB";
+    if (file.size > 5 * 1024 * 1024)
+      return "El archivo excede el límite de 5MB";
     return "Tipo de archivo no permitido. Solo JPG, PNG o PDF";
   };
 
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", gap: 16, padding: 16, width: 480 }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 16,
+        padding: 16,
+        width: 480,
+      }}
     >
       <div style={{ display: "flex", gap: 8 }}>
-        <Button text="Primary" variant="primary" />
+        <Button
+          text="Primary"
+          variant="primary"
+          onPress={() => setIsModalOpen(true)}
+        />
         <Button text="Secondary" variant="secondary" />
         <Button text="Tertiary" variant="tertiary" />
       </div>
       <Tabs items={tabItems} />
       <Switch defaultSelected />
       <Checkbox defaultSelected>Checkbox</Checkbox>
-      <InputFileMultiple
-        name="demo"
-        text="Arrastrá o seleccioná archivos de tu dispositivo"
+      <InputSelect
+        label="Select"
+        placeholder="Seleccioná una opción"
+        type="multiple-checkbox"
+        items={[
+          { value: "1", label: "Opción 1" },
+          { value: "2", label: "Opción 2" },
+          { value: "3", label: "Opción 3" },
+          { value: "4", label: "Opción 4" },
+        ]}
+        showExternalBox
+        inputValue={selectedKeys}
+        onChange={(keys) => setSelectedKeys(keys as string[])}
+      />
+      <InputFileSimple
+        name="modal-simple"
+        text="Arrastrá o seleccioná un archivo de tu dispositivo"
         infoText="Formato JPG, PNG o PDF · Máximo 5MB"
         validTypes={["image/jpeg", "image/png", "application/pdf"]}
         isValidFile={isValidFile}
         getErrorMessage={getErrorMessage}
-        value={files}
-        onFileUpload={(file) => setFiles((prev) => [...prev, file as File])}
-        onFileRemove={(file) =>
-          setFiles((prev) => prev.filter((f) => f !== file))
-        }
+        value={simpleFile}
+        onFileUpload={(file) => setSimpleFile(file as File)}
+        onFileRemove={() => setSimpleFile(null)}
       />
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        header="Subir archivos"
+        footer={
+          <div style={{ display: "flex", gap: 8 }}>
+            <Button
+              text="Cancelar"
+              variant="secondary"
+              onPress={() => setIsModalOpen(false)}
+            />
+            <Button
+              text="Confirmar"
+              variant="primary"
+              onPress={() => setIsModalOpen(false)}
+            />
+          </div>
+        }
+      >
+        <p>
+          Seleccioná los archivos que querés subir. Solo se permiten archivos
+          JPG, PNG o PDF de hasta 5MB.
+        </p>
+        <InputFileSimple
+          name="modal-simple"
+          text="Arrastrá o seleccioná un archivo de tu dispositivo"
+          infoText="Formato JPG, PNG o PDF · Máximo 5MB"
+          validTypes={["image/jpeg", "image/png", "application/pdf"]}
+          isValidFile={isValidFile}
+          getErrorMessage={getErrorMessage}
+          value={simpleFile}
+          onFileUpload={(file) => setSimpleFile(file as File)}
+          onFileRemove={() => setSimpleFile(null)}
+        />
+        <InputFileMultiple
+          name="modal-demo"
+          text="Arrastrá o seleccioná archivos de tu dispositivo"
+          infoText="Formato JPG, PNG o PDF · Máximo 5MB"
+          validTypes={["image/jpeg", "image/png", "application/pdf"]}
+          isValidFile={isValidFile}
+          getErrorMessage={getErrorMessage}
+          value={files}
+          onFileUpload={(file) => setFiles((prev) => [...prev, file as File])}
+          onFileRemove={(file) =>
+            setFiles((prev) => prev.filter((f) => f !== file))
+          }
+        />
+      </Modal>
     </div>
   );
 };

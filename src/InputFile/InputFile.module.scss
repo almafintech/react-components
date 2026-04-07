@@ -27,7 +27,7 @@
   }
 
   .tooltipContainer {
-    svg {
+    img, svg {
       display: inline-block;
     }
   }
@@ -59,6 +59,7 @@
         cursor: pointer;
         width: 1.25rem;
         height: 1.25rem;
+        min-width: 1.25rem;
       }
     }
   }
@@ -67,12 +68,12 @@
     display: flex;
     column-gap: 0.75rem;
     align-items: center;
-    color: var(--primary-normal-300);
 
     svg {
       flex-shrink: 0;
       width: 1rem;
       height: 1rem;
+      min-width: 1rem;
     }
 
     label,
@@ -192,6 +193,8 @@
 
     svg {
       width: 20px;
+      min-width: 20px;
+      flex-shrink: 0;
     }
 
     p {
@@ -237,5 +240,6 @@
 
   svg {
     cursor: pointer;
+    flex-shrink: 0;
   }
 }

@@ -121,7 +121,7 @@ const InputSelect = ({
 
   // Last date range selected in the date picker
   const [datePickerRange, setDatePickerRange] = useState<DateRange | undefined>(
-    initialDatePickerRange
+    initialDatePickerRange,
   );
 
   // Date picker calendar variant shown intially when date picker was last opened
@@ -145,7 +145,7 @@ const InputSelect = ({
   // Adjust margin top of the select according to the label height
   useEffect(() => {
     const labelElement = inputSelectRef.current?.querySelector(
-      '[data-slot="label"]'
+      '[data-slot="label"]',
     ) as HTMLElement;
 
     if (inputSelectRef.current && labelElement && labelComponent) {
@@ -154,7 +154,7 @@ const InputSelect = ({
       inputSelectRef.current.style.setProperty(
         "margin-top",
         `${labelHeight + padding}px`,
-        "important"
+        "important",
       );
     }
   }, [labelComponent]);
@@ -209,7 +209,7 @@ const InputSelect = ({
         if (currentValues.includes(value)) {
           // If the current value is already selected, remove it and its children
           newSelectedValues = currentValues.filter(
-            (val) => !parentChildValues.includes(val)
+            (val) => !parentChildValues.includes(val),
           );
         } else {
           // If the current value is not selected, add it along with its children
@@ -329,7 +329,7 @@ const InputSelect = ({
 
     if (componentId && target) {
       const triggerElement = document.querySelector(
-        `[data-id="${componentId}"]`
+        `[data-id="${componentId}"]`,
       );
       const targetDataSlot = target.getAttribute("data-slot") || "";
       const noCloseSlots = ["listbox", "heading", "base"];
@@ -487,7 +487,7 @@ const InputSelect = ({
             setValues,
             setIsOpen,
             confirmSelection,
-            setDatePickerRange
+            setDatePickerRange,
           )
         }
         onSelectionChange={(keys: any) => {

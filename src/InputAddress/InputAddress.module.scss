@@ -26,9 +26,12 @@
 
     // Pin icon
     svg {
-      width: 1rem;
-      height: 1rem;
       margin-right: 0.5rem;
+      min-width: 1rem;
+      flex-shrink: 0;
+      path {
+        stroke: $primary-light-100;
+      }
     }
 
     // Main text
@@ -49,6 +52,9 @@
   .active {
     background: $primary-light-50;
     color: $primary-normal-300;
+    svg path {
+      stroke: $primary-normal-300;
+    }
   }
 }
 
