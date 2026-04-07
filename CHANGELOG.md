@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/almafintech/react-components/compare/v1.22.0...v1.23.0) (2026-04-07)
+
+
+### Features
+
+* fix icon width and apply theme in popups ([8911cf5](https://github.com/almafintech/react-components/commit/8911cf5c1fd5a24484298e4ecff3905f8bb7cc67))
+
 # [1.22.0](https://github.com/almafintech/react-components/compare/v1.21.0...v1.22.0) (2026-03-30)
 
 
