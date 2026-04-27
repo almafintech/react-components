@@ -34,6 +34,7 @@
   box-shadow: 8px 16px 30px 0px rgba(130, 159, 189, 0.2) !important;
   border-radius: 0.5rem !important;
   padding: 0.5rem !important;
+  z-index: 10;
 
   li:not([class="divider"]) {
     color: $primary-dark-900;
@@ -76,6 +77,8 @@
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  
+  z-index: 1;
 
   &.formField {
     color: $secondary-normal-300 !important;

@@ -6,7 +6,7 @@ import {
   SelectSection,
 } from "@nextui-org/select";
 import styles from "./InputSelect.module.scss";
-import { useState, useEffect, useRef, Key } from "react";
+import { useState, useEffect, useRef, useMemo, Key } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
 import ControlledRadio from "../ControlledRadio/ControlledRadio";
@@ -54,6 +54,7 @@ const InputSelect = ({
   label: labelComponent,
   theme,
   onClose,
+  searchable,
   ...rest
 }: InputSelectProps) => {
   const {
@@ -90,6 +91,8 @@ const InputSelect = ({
     disabledSelect,
     externalBox,
     externalItem,
+    searchItem,
+    searchInput,
     ...restStyles
   } = styles;
 
@@ -131,6 +134,40 @@ const InputSelect = ({
 
   const inputSelectRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Search query for the optional searchable variant
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredItems = useMemo(() => {
+    if (!searchable || !searchQuery.trim()) return items;
+    const query = searchQuery.toLowerCase().trim();
+    return items.reduce<SelectItemType[]>((acc, item) => {
+      if (item.options) {
+        const matched = item.options.filter((o) =>
+          o.label.toLowerCase().includes(query),
+        );
+        if (matched.length > 0) acc.push({ ...item, options: matched });
+      } else if (item.label.toLowerCase().includes(query)) {
+        acc.push(item);
+      }
+      return acc;
+    }, []);
+  }, [items, searchQuery, searchable]);
+
+  // Reset search when the select closes, and focus input when it opens
+  useEffect(() => {
+    if (!isOpen) {
+      setSearchQuery("");
+      return;
+    }
+    if (!searchable) return;
+    // Defer focus so NextUI's own focus management runs first
+    const id = window.setTimeout(() => {
+      searchInputRef.current?.focus();
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, [isOpen, searchable]);
 
   useEffect(() => {
     if (touched !== undefined) {
@@ -434,6 +471,28 @@ const InputSelect = ({
         popoverProps={{
           ref: popoverRef,
         }}
+        listboxProps={
+          searchable && !isDatePickerOpen
+            ? {
+                topContent: (
+                  <div className={searchItem}>
+                    <input
+                      ref={searchInputRef}
+                      type="text"
+                      placeholder="Buscar..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onClick={(e) => e.stopPropagation()}
+                      onMouseDown={(e) => e.stopPropagation()}
+                      onPointerDown={(e) => e.stopPropagation()}
+                      onKeyDown={(e) => e.stopPropagation()}
+                      className={searchInput}
+                    />
+                  </div>
+                ),
+              }
+            : undefined
+        }
         disallowEmptySelection={isSingle && true}
         description={!isInvalid && description}
         errorMessage={isInvalid && selectTouched && <>{getErrorMessage()}</>}
@@ -442,7 +501,7 @@ const InputSelect = ({
           isEnabled: confirmSelection ? false : true,
         }}
         data-id={componentId}
-        items={isDatePickerOpen ? [] : items}
+        items={isDatePickerOpen ? [] : filteredItems}
         placeholder={!inputValue ? (placeholder ?? " ") : " "}
         className={`${className} ${
           isInvalid && selectTouched ? invalidSelect : ""
@@ -504,7 +563,7 @@ const InputSelect = ({
         onClose={() => onClose && onClose()}
       >
         {!isDatePickerOpen &&
-          items.map((item: SelectItemType) => {
+          filteredItems.map((item: SelectItemType) => {
             const { value, label, options, downDivider } = item;
 
             if (!(options && hasCheckbox && isMultiple)) {
