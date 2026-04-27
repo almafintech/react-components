@@ -77,6 +77,8 @@
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  
+  z-index: 1;
 
   &.formField {
     color: $secondary-normal-300 !important;
