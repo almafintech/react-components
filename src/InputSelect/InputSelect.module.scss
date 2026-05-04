@@ -184,30 +184,6 @@ $confirm-actions-height: 100px;
   }
 }
 
-.searchItem {
-  padding: 0.25rem 0.25rem 0.5rem;
-  background-color: $white;
-}
-
-.searchInput {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid $primary-light-100;
-  background: $white;
-  color: $primary-dark-900;
-  font-size: 0.875rem;
-  outline: none;
-
-  &::placeholder {
-    color: $secondary-light-200;
-  }
-
-  &:focus {
-    border-color: $primary-normal-300;
-  }
-}
-
 .confirmActionsListbox {
   padding-bottom: $confirm-actions-height !important;
 }
@@ -564,24 +540,6 @@ $confirm-actions-height: 100px;
     .externalItem {
       background-color: $byma-primary-default;
       color: $byma-white;
-    }
-  }
-
-  .searchItem {
-    background-color: $byma-white;
-  }
-
-  .searchInput {
-    border-color: $byma-text-disabled;
-    background: $byma-white;
-    color: $byma-text-primary;
-
-    &::placeholder {
-      color: $byma-primary-alternative;
-    }
-
-    &:focus {
-      border-color: $byma-primary-default;
     }
   }
 }
