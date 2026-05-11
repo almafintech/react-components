@@ -60,5 +60,4 @@ export interface InputSelectProps extends NextUISelectProps, WithTheme {
   maxDatePickerDate?: Date;
   inputValue?: Values;
   showExternalBox?: boolean;
-  searchable?: boolean;
 }
