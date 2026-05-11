@@ -1,3 +1,16 @@
+# [1.24.0](https://github.com/almafintech/react-components/compare/v1.23.0...v1.24.0) (2026-05-11)
+
+
+### Bug Fixes
+
+* fix storybook run ([63616ca](https://github.com/almafintech/react-components/commit/63616ca83dbee8662128c300bacd025a5bea686f))
+* fixed label z-index of inputPhone & inputSelector ([7db0851](https://github.com/almafintech/react-components/commit/7db08518eb2991a0bf3ae9cddd99b179a6041598))
+
+
+### Features
+
+* modified inputPhone zindex + searchable filter in inputSelector ([28cc3e0](https://github.com/almafintech/react-components/commit/28cc3e079c84b059df7f07fc568e6f7864434833))
+
 # [1.23.0](https://github.com/almafintech/react-components/compare/v1.22.0...v1.23.0) (2026-04-07)
 
 
