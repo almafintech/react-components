@@ -3,7 +3,7 @@ import ControlledRadio from "../ControlledRadio/ControlledRadio";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/ControlledRadio",
+  title: "Data Entry/Controlled Radio",
   component: ControlledRadio,
   parameters: {
     layout: "centered",

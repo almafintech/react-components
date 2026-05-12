@@ -4,7 +4,7 @@ import InputFile from "../InputFile/InputFile";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/InputFile",
+  title: "Data Entry/Input File",
   component: InputFile,
   parameters: {
     layout: "centered",

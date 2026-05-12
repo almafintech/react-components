@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 import NewDatePicker from "../NewDatePicker/NewDatePicker";
 
 const meta = {
-  title: "Components/NewDatePicker",
+  title: "Data Entry/New Date Picker",
   component: NewDatePicker,
   parameters: {
     layout: "centered",

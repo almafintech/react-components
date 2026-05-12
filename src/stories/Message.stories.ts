@@ -3,7 +3,7 @@ import Message from "../Message/Message";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/Message",
+  title: "Feedback & Status/Message",
   component: Message,
   parameters: {
     layout: "centered",

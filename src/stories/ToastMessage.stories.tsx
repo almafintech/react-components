@@ -3,7 +3,7 @@ import { ToastMessage, showToastMessage } from "../ToastMessage/ToastMessage";
 import { Button } from "../Button";
 
 const meta = {
-  title: "Components/ToastMessage",
+  title: "Feedback & Status/Toast Message",
   component: ToastMessage,
   parameters: {
     layout: "centered",

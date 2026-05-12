@@ -4,7 +4,7 @@ import { fn } from "@storybook/test";
 import { actions } from "@storybook/addon-actions";
 
 const meta = {
-  title: "Components/InputAddress",
+  title: "Data Entry/Input Address",
   component: InputAddress,
   parameters: {
     layout: "centered",

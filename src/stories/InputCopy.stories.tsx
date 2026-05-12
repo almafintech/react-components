@@ -4,7 +4,7 @@ import InputCopy from "../InputCopy/InputCopy";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/InputCopy",
+  title: "Data Entry/Input Copy",
   component: InputCopy,
   parameters: {
     layout: "centered",
