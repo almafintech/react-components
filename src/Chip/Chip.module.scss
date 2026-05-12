@@ -1,0 +1,99 @@
+@import "../styles/_variables";
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: $primary-light-50;
+  cursor: pointer;
+  min-width: 1.5rem;
+  overflow: hidden;
+  transition: background-color 0.15s ease;
+
+  &:hover:not(.chipDisabled):not(.chipSelected) {
+    background-color: $primary-light-100;
+  }
+
+  &:active:not(.chipDisabled):not(.chipSelected) {
+    background-color: $primary-light-200;
+  }
+}
+
+.medium {
+  height: 1.75rem;
+  min-height: 1.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.large {
+  height: 2.25rem;
+  min-height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.chipSelected {
+  background-color: $primary-normal-300;
+
+  &:hover {
+    background-color: $primary-normal-300;
+  }
+
+  .chipLabel {
+    color: $white;
+  }
+
+  .closeButton {
+    color: $white;
+  }
+}
+
+.chipDisabled {
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: $primary-light-50;
+  }
+
+  .chipLabel {
+    color: $secondary-normal-300;
+  }
+
+  .closeButton {
+    color: $secondary-normal-300;
+    cursor: not-allowed;
+  }
+}
+
+.chipLabel {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: $primary-dark-900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: $primary-dark-900;
+  line-height: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
