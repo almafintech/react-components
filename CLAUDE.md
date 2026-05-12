@@ -30,6 +30,10 @@ Component library for Allaria React projects.
   - `utils.ts` — local helpers (when needed)
 - Styling: SCSS modules. CSS custom properties (`var(--token-name)`) for theme tokens.
 
+## Storybook conventions
+- Each component must have autodocs enabled (`tags: ['autodocs']` in the default export meta)
+- Every prop must have at least one dedicated story demonstrating it
+
 ## Radix UI usage
 - Install primitives individually: `@radix-ui/react-<primitive>`
 - Radix provides unstyled, accessible behavior — apply project styles on top
