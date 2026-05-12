@@ -78,7 +78,7 @@ export const Vertical = {
 export const invertOrder = {
   args: {
     ...Default.args,
-    invertOrder: false,
+    invertOrder: true,
     container: true,
   },
 };
@@ -87,7 +87,6 @@ export const Mobile = {
   args: {
     ...Default.args,
     container: true,
-    invertOrder: false,
   },
   parameters: {
     viewport: {
