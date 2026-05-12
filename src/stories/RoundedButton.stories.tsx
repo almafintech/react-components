@@ -4,7 +4,7 @@ import FileUpload from "../../assets/images/ui/icons/ui-icon-file-plus.svg";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/RoundedButton",
+  title: "Actions/Rounded Button",
   component: RoundedButton,
   parameters: {
     layout: "centered",

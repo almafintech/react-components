@@ -12,7 +12,7 @@ import Modal from "../Modal/Modal";
 import InputSelect from "../InputSelect/InputSelect";
 
 const meta = {
-  title: "Components/ThemeProvider",
+  title: "Utilities/Theme Provider",
   component: ThemeProvider,
   parameters: {
     layout: "centered",

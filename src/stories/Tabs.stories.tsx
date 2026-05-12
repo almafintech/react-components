@@ -4,7 +4,7 @@ import { fn } from "@storybook/test";
 import Tabs from "../Tabs/Tabs";
 
 const meta = {
-  title: "Components/Tabs",
+  title: "Navigation/Tabs",
   component: Tabs,
   parameters: {
     layout: "centered",
