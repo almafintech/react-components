@@ -7,7 +7,7 @@
   gap: 0.5rem;
   border-radius: 0.5rem;
   background-color: $primary-light-50;
-  cursor: pointer;
+  cursor: default;
   min-width: 1.5rem;
   overflow: hidden;
   transition: background-color 0.15s ease;
@@ -50,7 +50,7 @@
 }
 
 .chipDisabled {
-  cursor: not-allowed;
+  cursor: default;
 
   &:hover {
     background-color: $primary-light-50;
@@ -62,12 +62,11 @@
 
   .closeButton {
     color: $secondary-normal-300;
-    cursor: not-allowed;
+    cursor: default;
   }
 }
 
 .chipLabel {
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.25rem;
@@ -94,6 +93,6 @@
   line-height: 0;
 
   &:disabled {
-    cursor: not-allowed;
+    cursor: default;
   }
 }

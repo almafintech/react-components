@@ -1,28 +1,10 @@
 import type { MouseEvent } from "react";
 import styles from "./Chip.module.scss";
 import { ChipProps } from "./types";
-
-const CloseIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <path
-      d="M12 4L4 12M4 4L12 12"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
-  </svg>
-);
+import { ReactComponent as CloseIcon } from "@icons/close-dark-small.svg";
 
 const Chip = ({
   label,
-  removable = false,
   size = "medium",
   disabled = false,
   selected = false,
@@ -45,8 +27,11 @@ const Chip = ({
     onRemove?.();
   };
 
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <div
+      onClick={!disabled ? (isMobile && onRemove ? onRemove : onClick) : undefined}
       className={[
         chip,
         size === "large" ? large : medium,
@@ -56,14 +41,10 @@ const Chip = ({
       ]
         .filter(Boolean)
         .join(" ")}
-      onClick={!disabled ? onClick : undefined}
-      role={onClick ? "button" : undefined}
-      tabIndex={onClick && !disabled ? 0 : undefined}
       aria-disabled={disabled || undefined}
-      aria-pressed={onClick ? selected : undefined}
     >
       <span className={chipLabel}>{label}</span>
-      {removable && (
+      {onRemove && (
         <button
           type="button"
           className={closeButton}
