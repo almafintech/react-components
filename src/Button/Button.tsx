@@ -1,14 +1,11 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import styles from "./Button.module.scss";
-import { Button as NextUiButton } from "@nextui-org/button";
 import { LoadingDots } from "../LoadingDots";
 import { ButtonProps } from "./types";
 import { colors } from "../styles/variables";
-import { isByma } from "../utils";
+import { ReactComponent as Chevron } from "@arrows/chevron-white-down.svg";
 
-/**
- * Allow users to perform an action with a single click
- */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -16,52 +13,111 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       isLoading,
       className,
       variant = "primary",
-      size = "desktop",
-      disableRipple = true,
-      disableAnimation = true,
-      theme,
+      size = "medium",
+      isDisabled,
+      menu,
+      leadingIcon,
+      trailingIcon,
       ...rest
     },
-    ref
+    ref,
   ) => {
-    const isBymaTheme = isByma(theme);
+    const [open, setOpen] = useState(false);
 
-    const { primary, secondary, tertiary, loadingButton, mobileButton } =
-      styles;
-    const { white, primary300, bymaPrimaryDefault } = colors;
-
-    const variantsStyles = {
+    const {
+      contentContainer,
       primary,
       secondary,
       tertiary,
+      loadingButton,
+      smallButton,
+      largeButton,
+      menuButton,
+      dropdownContent,
+      dropdownItem,
+    } = styles;
+    const { white, primary300 } = colors;
+
+    const variantStyles = { primary, secondary, tertiary };
+
+    const loadingColors = {
+      primary: white,
+      secondary: `var(--primary-normal-300, ${primary300})`,
+      tertiary: `var(--primary-normal-300, ${primary300})`,
     };
 
-    const variantsLoadingStyles = {
-      primary: white,
-      secondary: isBymaTheme ? bymaPrimaryDefault : `var(--primary-normal-300, ${primary300})`,
-      tertiary: isBymaTheme ? bymaPrimaryDefault : `var(--primary-normal-300, ${primary300})`,
-    };
+    const buttonStyles = [
+      variantStyles[variant],
+      isLoading ? loadingButton : "",
+      size === "small" ? smallButton : "",
+      size === "large" ? largeButton : "",
+      menu ? menuButton : "",
+      className ?? "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    const content = isLoading ? (
+      <LoadingDots color={loadingColors[variant]} />
+    ) : (
+      <div className={contentContainer}>
+        {leadingIcon}
+        <p>{text}</p>
+        {trailingIcon}
+        {menu && !trailingIcon && <Chevron />}
+      </div>
+    );
+
+    if (menu?.length) {
+      return (
+        <DropdownMenu.Root open={open} onOpenChange={setOpen}>
+          <DropdownMenu.Trigger asChild>
+            <button
+              {...rest}
+              ref={ref}
+              disabled={isDisabled || isLoading}
+              aria-busy={isLoading}
+              className={buttonStyles}
+            >
+              {content}
+            </button>
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Portal>
+            <DropdownMenu.Content
+              className={dropdownContent}
+              sideOffset={4}
+              align="start"
+            >
+              {menu.map((item, i) => (
+                <DropdownMenu.Item
+                  key={i}
+                  className={dropdownItem}
+                  onSelect={item.onClick}
+                >
+                  {item.label}
+                </DropdownMenu.Item>
+              ))}
+            </DropdownMenu.Content>
+          </DropdownMenu.Portal>
+        </DropdownMenu.Root>
+      );
+    }
 
     return (
-      <NextUiButton
+      <button
         {...rest}
-        ref={ref} // Forward the ref to the NextUiButton component
-        aria-expanded="false"
-        disableAnimation={disableAnimation}
-        disableRipple={disableRipple}
-        className={`${isBymaTheme ? "byma" : ""} ${variantsStyles[variant]} 
-        ${isLoading ? loadingButton : ""} 
-        ${size === "mobile" ? mobileButton : ""} 
-        ${className || ""}`}
+        ref={ref}
+        disabled={isDisabled || isLoading}
+        aria-busy={isLoading}
+        aria-haspopup={menu ? "menu" : undefined}
+        className={buttonStyles}
       >
-        {isLoading ? (
-          <LoadingDots color={variantsLoadingStyles[variant]} />
-        ) : (
-          text
-        )}
-      </NextUiButton>
+        {content}
+      </button>
     );
-  }
+  },
 );
+
+Button.displayName = "Button";
 
 export default Button;

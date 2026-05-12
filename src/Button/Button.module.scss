@@ -1,145 +1,170 @@
 @import "../styles/variables";
-@import "../styles/helpers.scss";
 
+@mixin largeButton {
+  height: 3rem;
+  padding: 0 1.5rem;
+  min-width: 6rem;
+}
+
+// Base — Medium size (desktop)
 .button {
-  border-radius: 0.5rem !important;
-  font-size: 1rem !important;
-  font-weight: 500 !important;
-  height: 2.375rem !important;
-  min-width: 7.5rem !important;
-  padding: 0 1.5rem !important;
-  opacity: 1 !important;
-  z-index: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.375rem;
+  padding: 0.8rem 1.5rem;
+  height: 2.5rem;
+  min-width: 6.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.smallButton {
+  height: 2.25rem;
+  padding: 0 0.75rem;
+  gap: 0.5rem;
+  min-width: 5rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
 }
 
 .loadingButton {
-  pointer-events: none !important;
+  pointer-events: none;
 }
 
-.mobileButton {
-  height: 3rem !important;
+.menuButton {
+  gap: 0.5rem;
 }
 
-//Primary variant
+.largeButton {
+  @include largeButton;
+}
+
+// Primary variant
 .primary {
   @extend .button;
-  background-color: $primary-normal-300 !important;
-  color: $white !important;
+  background-color: $primary-normal-300;
+  color: $white;
 
-  @include data-hover {
-    background-color: $primary-normal-400 !important;
+  &:hover:not(:disabled) {
+    background-color: $primary-normal-400;
   }
 
-  @include data-pressed {
-    background-color: $primary-normal-500 !important;
-  }
-}
-
-.primary:disabled {
-  background-color: $secondary-light-200 !important;
-}
-
-:global(.byma).primary {
-  @extend .button;
-  background-color: $byma-primary-default !important;
-  color: $white !important;
-
-  @include data-hover {
-    background-color: $byma-primary-hover !important;
+  &:active:not(:disabled) {
+    background-color: $primary-normal-500;
   }
 
-  @include data-pressed {
-    background-color: $byma-primary-active !important;
+  &:disabled {
+    background-color: $secondary-normal-300;
   }
 }
 
-:global(.byma).primary:disabled {
-  background-color: $byma-text-disabled !important;
-}
-
-//Secondary variant
+// Secondary variant
 .secondary {
   @extend .button;
-  background-color: $white !important;
-  border: 1px solid $primary-normal-300 !important;
-  color: $primary-normal-300 !important;
+  border: 1px solid $primary-normal-300;
+  color: $primary-normal-300;
 
-  @include data-hover {
-    background-color: $primary-light-50 !important;
+  &:hover:not(:disabled) {
+    background-color: $primary-light-50;
   }
 
-  @include data-pressed {
-    background-color: $primary-light-100 !important;
-  }
-}
-
-.secondary:disabled {
-  background-color: $white !important;
-  border: 1px solid $secondary-light-200 !important;
-  color: $secondary-light-200 !important;
-}
-
-:global(.byma).secondary {
-  @extend .button;
-  background-color: transparent !important;
-  border: 1px solid $byma-primary-default !important;
-  color: $byma-primary-default !important;
-
-  @include data-hover {
-    background-color: $byma-primary-hover !important;
-    color: $byma-white !important;
+  &:active:not(:disabled) {
+    background-color: $primary-light-100;
   }
 
-  @include data-pressed {
-    background-color: $byma-primary-active !important;
+  &:disabled {
+    border-color: $secondary-normal-300;
+    color: $secondary-normal-300;
   }
 }
 
-:global(.byma).secondary:disabled {
-  background-color: $white !important;
-  border: 1px solid $byma-text-disabled !important;
-  color: $byma-text-disabled !important;
-}
-
-//Tertiary variant
+// Tertiary variant
 .tertiary {
   @extend .button;
-  background-color: $white !important;
-  border: 0 !important;
-  color: $primary-normal-300 !important;
-  text-decoration: underline !important;
+  color: $primary-normal-300;
 
-  @include data-hover {
-    background-color: $primary-light-50 !important;
+  &:hover:not(:disabled) {
+    color: $primary-dark-700;
+    text-decoration: underline;
   }
 
-  @include data-pressed {
-    background-color: $primary-light-100 !important;
-  }
-}
-
-.tertiary:disabled {
-  background-color: $white !important;
-  color: $secondary-light-200 !important;
-}
-
-:global(.byma).tertiary {
-  @extend .button;
-  background-color: transparent !important;
-  border: 0 !important;
-  color: $byma-primary-default !important;
-  text-decoration: underline !important;
-
-  @include data-hover {
-    background-color: $byma-primary-hover !important;
+  &:active:not(:disabled) {
+    text-decoration: underline;
+    color: $primary-normal-300;
   }
 
-  @include data-pressed {
-    background-color: $byma-primary-active !important;
+  &:disabled {
+    color: $secondary-normal-300;
   }
 }
 
-:global(.byma).tertiary:disabled {
-  background-color: $white !important;
-  color: $byma-text-disabled !important;
+// Open state — button darkens when dropdown is visible
+.primary[data-state="open"] {
+  background-color: $primary-normal-500;
+}
+
+.secondary[data-state="open"] {
+  background-color: $primary-light-100;
+}
+
+.tertiary[data-state="open"] {
+  background-color: $secondary-light-100;
+}
+
+// Dropdown panel
+.dropdownContent {
+  background-color: $white;
+  border: 1px solid $primary-light-100;
+  border-radius: 0.5rem;
+  box-shadow: 1px 8px 20px 0px rgba(0, 56, 129, 0.08);
+  padding: 0.5rem;
+  max-height: 17rem;
+  overflow-y: auto;
+  min-width: 9.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 50;
+}
+
+.dropdownItem {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  color: $secondary-dark-700;
+  padding: 0.5rem 0.75rem;
+  min-height: 2.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+
+  &[data-highlighted] {
+    background-color: $secondary-light-50;
+  }
+}
+
+@media #{$mobile} {
+  .button {
+    @include largeButton;
+    width: 100%;
+  }
 }

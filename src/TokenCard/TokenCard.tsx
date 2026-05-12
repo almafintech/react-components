@@ -330,22 +330,20 @@ const TokenCard = forwardRef(
           >
             {primaryButtonText && (
               <Button
-                theme={theme}
                 variant="primary"
                 type="button"
                 text={primaryButtonText}
-                disabled={status.error || status.loading}
+                isDisabled={status.error || status.loading}
                 onClick={authorizeToken}
                 className="w-100"
               />
             )}
             {secondaryButtonText && (
               <Button
-                theme={theme}
                 variant="secondary"
                 type="button"
                 text={secondaryButtonText}
-                disabled={status.loading}
+                isDisabled={status.loading}
                 onClick={onCancel}
                 className="w-100"
               />
@@ -358,7 +356,6 @@ const TokenCard = forwardRef(
                   return (
                     <div style={styleForError} className={countdownContainer}>
                       <Button
-                        theme={theme}
                         variant="tertiary"
                         type="button"
                         text={getTertiaryButtonText(
@@ -366,7 +363,7 @@ const TokenCard = forwardRef(
                           seconds,
                           completed
                         )}
-                        disabled={!completed || status.loading}
+                        isDisabled={!completed || status.loading}
                         onClick={handleResend}
                         className={`px-0 ${
                           !completed || status.loading
