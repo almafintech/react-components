@@ -66,6 +66,13 @@ const config: StorybookConfig = {
       include: path?.resolve(__dirname, "../"),
     });
 
+    config.resolve = config.resolve ?? {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@arrows": path.resolve(__dirname, "../assets/icons/arrows"),
+      "@icons": path.resolve(__dirname, "../assets/icons"),
+    };
+
     return config;
   },
   env: (config: Record<string, string> | undefined, options: any) => ({
