@@ -2,6 +2,7 @@ import "./styles/global.scss";
 
 export * from "./Alert";
 export * from "./Button";
+export * from "./Chip";
 export * from "./Checkbox";
 export * from "./ControlledRadio";
 export * from "./DatePicker";
