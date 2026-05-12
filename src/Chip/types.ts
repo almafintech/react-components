@@ -1,7 +1,7 @@
 export interface ChipProps {
   /** Text content of the chip */
   label: string;
-  /** Called when the remove button is clicked */
+  /** Called when the remove button is clicked or when the chip is clicked in mobile */
   onRemove?: () => void;
   /** Called when the chip body is clicked */
   onClick?: () => void;
