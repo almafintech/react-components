@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Alert from "../Alert/Alert";
 
 const meta = {
-  title: "Feedback & Status/Alert",
+  title: "Feedback & Status/Alert (Message Box)",
   component: Alert,
   parameters: {
     layout: "centered",
