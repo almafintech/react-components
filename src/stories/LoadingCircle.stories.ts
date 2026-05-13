@@ -7,6 +7,15 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    color: {
+      control: "color",
+    },
+    small: {
+      control: "boolean",
+    },
+  },
+  tags: ["autodocs"],
 } satisfies Meta<typeof LoadingCircle>;
 
 export default meta;
@@ -15,6 +24,19 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    color: "#8690a1",
+    small: false,
+  },
+};
+
+export const Small: Story = {
+  args: {
+    small: true,
+  },
+};
+
+export const CustomColor: Story = {
+  args: {
+    small: false,
+    color: "#10b981",
   },
 };

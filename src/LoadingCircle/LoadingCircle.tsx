@@ -1,14 +1,16 @@
 import styles from "./LoadingCircle.module.scss";
 import { LoadingCircleProps } from "./types";
 
-const LoadingCircle = ({ width, color }: LoadingCircleProps) => {
-  const circleStyle = { height: width, width, backgroundColor: color };
-  const isSmall = parseInt(width || "0", 10) <= 20;
+const LoadingCircle = ({ color, small }: LoadingCircleProps) => {
+  const style = color
+    ? ({ "--loader-color": color } as React.CSSProperties)
+    : undefined;
+
   return (
     <div
-      className={`${styles.loader} ${isSmall ? styles.small : ""}`}
-      style={circleStyle}
-    ></div>
+      className={`${styles.loader} ${small ? styles.small : ""}`}
+      style={style}
+    />
   );
 };
 
