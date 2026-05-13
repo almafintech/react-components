@@ -1,6 +1,4 @@
-import { WithTheme } from "..";
-
-export interface MessageProps extends WithTheme {
+export interface MessageProps {
   message: string;
   className?: string;
   variant: "error" | "success" | "info";
