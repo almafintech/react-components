@@ -26,6 +26,7 @@ export * from "./Message";
 export * from "./Switch";
 export * from "./Tabs";
 export * from "./ThemeProvider";
+export * from "./EmptyState";
 
 export type Theme = "byma";
 
