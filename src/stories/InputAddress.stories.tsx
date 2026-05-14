@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import InputAddress from "../InputAddress/InputAddress";
-import { fn } from "@storybook/test";
-import { actions } from "@storybook/addon-actions";
+import { fn } from "storybook/test";
+import { actions } from "storybook/actions";
 
 const meta = {
   title: "Data Entry/Input Address",

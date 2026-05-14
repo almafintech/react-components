@@ -46,7 +46,7 @@ const commonPlugins = [
     extract: "index.css",
     autoModules: true,
     extensions: [".scss"],
-    use: ["sass"],
+    use: { sass: { silenceDeprecations: ["legacy-js-api"] } },
     minimize: true,
     sourceMap: true,
   }), // Compile CSS files

@@ -5,7 +5,7 @@ import {
   getCurrentMonth,
   getCurrentDay,
 } from "../DatePicker/helpers";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 const meta = {
   title: "Data Entry/Date Picker",

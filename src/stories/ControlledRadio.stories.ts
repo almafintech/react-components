@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ControlledRadio from "../ControlledRadio/ControlledRadio";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 const meta = {
   title: "Data Entry/Controlled Radio",
