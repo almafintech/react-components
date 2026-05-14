@@ -6,6 +6,9 @@ const meta = {
   component: Feedback,
   parameters: {
     layout: "centered",
+    viewport: {
+      defaultViewport: "reset",
+    }
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Feedback>;
@@ -65,8 +68,10 @@ export const Error: Story = {
 };
 
 export const Mobile: Story = {
-  globals: {
-    viewport: "mobile1",
+  parameters: {
+    viewport: {
+      defaultViewport: "mobile1",
+    },
   },
   args: {
     type: "Info",
