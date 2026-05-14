@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import RadioGroup from "../RadioGroup/RadioGroup";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 const meta = {
   title: "Data Entry/Radio Group",

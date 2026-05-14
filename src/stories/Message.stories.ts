@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Message from "../Message/Message";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 const meta = {
   title: "Feedback & Status/Message",

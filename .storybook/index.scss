@@ -1,6 +1,6 @@
+@use "../src/styles/variables" as *;
 @import url("https://fonts.googleapis.com/css2?family=Poppins");
 @import url("https://fonts.googleapis.com/css2?family=Lato");
-@import "../src/styles/variables";
 
 * {
   font-family: var(--font-family, "Poppins"), sans-serif;

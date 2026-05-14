@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import RoundedButton from "../RoundedButton/RoundedButton";
 import FileUpload from "../../assets/images/ui/icons/ui-icon-file-plus.svg";
-import { fn } from "@storybook/test";
+import { fn } from "storybook/test";
 
 const meta = {
   title: "Actions/Rounded Button",

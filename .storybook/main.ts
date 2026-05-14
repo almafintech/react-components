@@ -1,15 +1,65 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
+    "@storybook/addon-docs",
     "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
-    "@storybook/addon-styling-webpack",
+    {
+      name: "@storybook/addon-styling-webpack",
+      options: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: [
+              "style-loader",
+              {
+                loader: "css-loader",
+                options: {
+                  modules: {
+                    auto: true,
+                    localIdentName: "[name]__[local]--[hash:base64:5]",
+                  },
+                },
+              },
+            ],
+          },
+          {
+            test: /\.module\.scss$/,
+            use: [
+              "style-loader",
+              {
+                loader: "css-loader",
+                options: { importLoaders: 1 },
+              },
+              {
+                // Gets options from `postcss.config.js` in your project root
+                loader: "postcss-loader",
+                options: { implementation: import.meta.resolve("postcss") },
+              },
+            ],
+          },
+          {
+            test: /\.s[ac]ss$/i,
+            use: [
+              "style-loader",
+              "css-loader",
+              {
+                loader: "sass-loader",
+                options: { implementation: import.meta.resolve("sass") },
+              },
+            ],
+          },
+        ],
+      },
+    },
   ],
   framework: {
     name: "@storybook/react-webpack5",
@@ -28,9 +78,6 @@ const config: StorybookConfig = {
       },
     },
   }),
-  docs: {
-    autodocs: "tag",
-  },
   webpackFinal: async (config, { configType }) => {
     if (!config?.module?.rules) return config;
 
@@ -58,12 +105,6 @@ const config: StorybookConfig = {
           },
         },
       ],
-    });
-
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
-      include: path?.resolve(__dirname, "../"),
     });
 
     config.resolve = config.resolve ?? {};
