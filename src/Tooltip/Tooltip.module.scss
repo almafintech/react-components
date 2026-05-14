@@ -1,60 +1,92 @@
 @import "../styles/variables";
 
+.trigger {
+  cursor: pointer;
+}
+
+.triggerDisabled {
+  cursor: default;
+}
+
 .content {
-  font-size: 0.75rem !important;
-  font-weight: 400 !important;
-  border-radius: 5px !important;
+  font-weight: 500;
+  border-radius: 5px;
+  max-width: 250px;
+  text-align: center;
+  user-select: none;
+  will-change: transform, opacity;
+  animation-duration: 0.15s;
+  animation-timing-function: ease-out;
+
+  &[data-state="delayed-open"][data-side="top"] { animation-name: slideUpAndFade; }
+  &[data-state="delayed-open"][data-side="right"] { animation-name: slideRightAndFade; }
+  &[data-state="delayed-open"][data-side="bottom"] { animation-name: slideDownAndFade; }
+  &[data-state="delayed-open"][data-side="left"] { animation-name: slideLeftAndFade; }
 }
 
-//BLUE VARIANT
-.contentBlueVariant {
-  @extend .content;
-  background-color: #1d82c0 !important;
+// SIZES
+.medium {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.small {
+  font-size: 0.625rem;
+  line-height: 1rem;
+  padding: 0.25rem;
+}
+
+// Hides the flat top edge of the Radix arrow polygon via stroke-dasharray.
+// Radix viewBox "0 0 30 10", points "0,0 30,0 15,10":
+// top edge = 30, each diagonal = √325 ≈ 18.028.
+@mixin arrow-polygon($color) {
+  & :global(polygon) {
+    stroke: $color;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    stroke-dasharray: 36.056 40;
+    stroke-dashoffset: 45;
+  }
+}
+
+.dark {
+  background-color: $secondary-normal-500;
   color: $white;
 }
-
-.baseBlueVariant::before {
-  background-color: #1d82c0 !important;
+.darkArrow {
+  fill: $secondary-normal-500;
+  @include arrow-polygon($secondary-normal-500);
 }
 
-// BLACK VARIANT
-.contentBlackVariant {
-  @extend .content;
-  background-color: $secondary-normal-500 !important;
-  color: $white;
-}
-
-.baseBlackVariant::before {
-  background-color: $secondary-normal-500 !important;
-}
-
-// WHITE VARIANT
-.contentWhiteVariant {
-  @extend .content;
-  background-color: $white !important;
+.light {
+  background-color: $white;
   color: $primary-dark-900;
   border: 1px solid $primary-dark-900;
   box-shadow: none;
 }
-
-.baseWhiteVariant::before {
-  border-right: 1px solid $primary-dark-900 !important;
-  border-bottom: 1px solid $primary-dark-900 !important;
-  box-shadow: none !important;
-  width: 12px !important;
-  height: 12px !important;
-  bottom: -6px !important;
-  z-index: 1 !important;
+.lightArrow {
+  fill: $white;
+  @include arrow-polygon($primary-dark-900);
 }
 
-// BYMA VARIANT
-
-.contentBymaVariant {
-  @extend .content;
-  background-color: $byma-primary-default !important;
-  color: $byma-white;
+// ANIMATIONS
+@keyframes slideUpAndFade {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.baseBymaVariant::before {
-  background-color: $byma-primary-default !important;
+@keyframes slideDownAndFade {
+  from { opacity: 0; transform: translateY(-2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRightAndFade {
+  from { opacity: 0; transform: translateX(-2px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideLeftAndFade {
+  from { opacity: 0; transform: translateX(2px); }
+  to   { opacity: 1; transform: translateX(0); }
 }

@@ -28,7 +28,7 @@ Component library for Allaria React projects.
   - `types.ts` — prop types/interfaces
   - `index.ts` — re-export
   - `utils.ts` — local helpers (when needed)
-- Styling: SCSS modules. CSS custom properties (`var(--token-name)`) for theme tokens.
+- Styling: SCSS modules. CSS custom properties (`var(--token-name)`) for theme tokens. Use `rem` units.
 
 ## Storybook conventions
 - Each component must have autodocs enabled (`tags: ['autodocs']` in the default export meta)
