@@ -1,23 +1,5 @@
 import { ReactNode } from "react";
-
-export interface HeaderUserDropdownItem {
-  /**
-   * Unique key for the item
-   */
-  key: string;
-  /**
-   * Label shown for the item
-   */
-  label: string;
-  /**
-   * Optional leading icon
-   */
-  icon?: ReactNode;
-  /**
-   * Click handler
-   */
-  onClick: () => void;
-}
+import { DropdownProps } from "../Dropdown";
 
 export interface HeaderProps {
   /**
@@ -25,29 +7,25 @@ export interface HeaderProps {
    */
   logo?: ReactNode;
   /**
-   * Full name of the logged-in user (e.g., "Nombre Apellido")
+   * First name of the logged-in user (e.g., "Nombre"). The first letter is
+   * used as the first character of the avatar initials.
    */
-  userName: string;
+  name: string;
   /**
-   * Initials shown inside the avatar (e.g., "NA")
+   * Last name of the logged-in user (e.g., "Apellido"). The first letter is
+   * used as the second character of the avatar initials.
    */
-  userInitials: string;
+  lastName: string;
   /**
-   * Show the tag next to the user info
+   * Free-form content rendered between the logo and the user info — e.g. a
+   * status tag, a notifications bell, or any custom node.
    */
-  hasTag?: boolean;
+  children?: ReactNode;
   /**
-   * Tag label (only used when hasTag is true)
+   * Dropdown configuration for the user menu. When omitted, the user info is
+   * rendered as a static block without a trigger.
    */
-  tagLabel?: string;
-  /**
-   * Show the user dropdown trigger (avatar + name + chevron)
-   */
-  showDropdown?: boolean;
-  /**
-   * Items shown in the user dropdown menu
-   */
-  dropdownItems?: HeaderUserDropdownItem[];
+  dropdown?: DropdownProps;
   /**
    * Custom container class
    */

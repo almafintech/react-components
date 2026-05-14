@@ -33,6 +33,7 @@ Component library for Allaria React projects.
 ## Storybook conventions
 - Each component must have autodocs enabled (`tags: ['autodocs']` in the default export meta)
 - Every prop must have at least one dedicated story demonstrating it
+- Every component must have its styles destructured
 
 ## Radix UI usage
 - Use **primitives only** (`@radix-ui/react-<primitive>`). Do **not** install or import `@radix-ui/themes` — we ship our own styles via SCSS modules.

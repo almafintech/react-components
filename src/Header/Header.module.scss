@@ -22,19 +22,6 @@
   align-items: center;
 }
 
-.tag {
-  display: inline-flex;
-  align-items: center;
-  height: 1.75rem;
-  padding: 0 0.625rem;
-  background-color: $greyscale-200;
-  color: $greyscale-500;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
 .divider {
   width: 1px;
   height: 1.75rem;
