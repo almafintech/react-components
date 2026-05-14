@@ -8,62 +8,70 @@ const meta = {
     layout: "centered",
     viewport: {
       defaultViewport: "reset",
-    }
+    },
   },
   tags: ["autodocs"],
+  args: {
+    isOpen: true,
+  },
 } satisfies Meta<typeof Feedback>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Info: Story = {
+export const Default: Story = {
   args: {
-    type: "Info",
     title: "Título",
     description: "Descripción de máximo 3 líneas, en lo posible.",
-    hasDescription: true,
-    primaryAction: "Acción principal",
+    primary: { text: "Acción principal" },
   },
 };
 
 export const Success: Story = {
   args: {
-    type: "Success",
+    type: "SUCCESS",
     title: "Operación exitosa",
     description: "Tu operación se realizó correctamente.",
-    hasDescription: true,
-    primaryAction: "Acción principal",
+    primary: { text: "Acción principal" },
   },
 };
 
 export const Warning: Story = {
   args: {
-    type: "Warning",
+    type: "WARNING",
     title: "Advertencia",
     description: "Revisá la información antes de continuar.",
-    hasDescription: true,
-    primaryAction: "Acción principal",
+    primary: { text: "Acción principal" },
   },
 };
 
 export const Pending: Story = {
   args: {
-    type: "Pending",
+    type: "PENDING",
     title: "En proceso",
     description: "Tu solicitud está siendo procesada.",
-    hasDescription: true,
-    primaryAction: "Acción principal",
+    primary: { text: "Acción principal" },
   },
 };
 
 export const Error: Story = {
   args: {
-    type: "Error",
+    type: "ERROR",
     title: "Algo salió mal",
     description: "No pudimos completar la operación. Intentá nuevamente.",
-    hasDescription: true,
-    primaryAction: "Acción principal",
+    primary: { text: "Acción principal" },
+  },
+};
+
+export const NoButtonsContainer: Story = {
+  args: {
+    type: "INFO",
+    title: "Título",
+    description: "Descripción de máximo 3 líneas, en lo posible.",
+    primary: { text: "Acción principal" },
+    secondary: { text: "Acción secundaria" },
+    showButtonsContainer: false,
   },
 };
 
@@ -74,57 +82,37 @@ export const Mobile: Story = {
     },
   },
   args: {
-    type: "Info",
+    type: "INFO",
     title: "Título",
     description: "Descripción de máximo 3 líneas, en lo posible.",
-    hasDescription: true,
-    primaryAction: "Acción principal",
+    primary: { text: "Acción principal" },
   },
 };
 
 export const WithSecondaryAction: Story = {
   args: {
-    type: "Info",
+    type: "INFO",
     title: "Título",
     description: "Descripción de máximo 3 líneas, en lo posible.",
-    hasDescription: true,
-    primaryAction: "Acción principal",
-    secondaryAction: "Acción secundaria",
+    primary: { text: "Acción principal" },
+    secondary: { text: "Acción secundaria" },
+  },
+};
+
+export const WithChildren: Story = {
+  args: {
+    type: "INFO",
+    title: "Título",
+    description: "Descripción de máximo 3 líneas, en lo posible.",
+    primary: { text: "Acción principal" },
+    children: <p style={{ margin: 0, fontSize: 14, color: "#666" }}>Contenido adicional debajo de la descripción.</p>,
   },
 };
 
 export const WithoutDescription: Story = {
   args: {
-    type: "Success",
+    type: "SUCCESS",
     title: "Operación exitosa",
-    hasDescription: false,
-    primaryAction: "Acción principal",
-  },
-};
-
-export const WithNestedContent: Story = {
-  args: {
-    type: "Info",
-    title: "Título",
-    description: "Descripción de máximo 3 líneas, en lo posible.",
-    hasDescription: true,
-    hasNestedContent: true,
-    children: (
-      <div
-        style={{
-          background: "#f0f0f0",
-          borderRadius: "0.5rem",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: "0.875rem",
-          color: "#8c8c8c",
-        }}
-      >
-        Contenido anidado
-      </div>
-    ),
-    primaryAction: "Acción principal",
+    primary: { text: "Acción principal" },
   },
 };

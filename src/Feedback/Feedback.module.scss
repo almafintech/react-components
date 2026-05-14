@@ -1,5 +1,10 @@
 @import "../styles/variables";
 
+.modal {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -7,8 +12,6 @@
   overflow: hidden;
   position: relative;
   background-color: $white;
-  max-width: 32.5rem;
-  min-width: 32.5rem;
   border-radius: 0.5rem;
 }
 
@@ -44,7 +47,6 @@
 }
 
 .title {
-  font-family: "Poppins", sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.75rem;
@@ -54,7 +56,6 @@
 }
 
 .description {
-  font-family: "Poppins", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.375rem;
@@ -63,85 +64,9 @@
   margin: 0;
 }
 
-.nestedContent {
-  position: relative;
-  flex-shrink: 0;
-  width: 100%;
-  height: 3.875rem;
-}
-
-.buttonGroup {
-  background-color: $white;
-  border-top: 0.0625rem solid $primary-light-100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  max-height: 4.5rem;
-  min-height: 4.5rem;
-  padding: 1rem 1.5rem;
-  width: 100%;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.buttonGroupInner {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.primaryButton {
-  background-color: $primary-normal-300;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  height: 2.5rem;
-  max-height: 2.5rem;
-  min-height: 2.5rem;
-  min-width: 6.5rem;
-  padding: 0 1rem;
-  position: relative;
-  flex-shrink: 0;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.375rem;
-  color: $white;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.secondaryButton {
-  border-radius: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  height: 2.5rem;
-  max-height: 2.5rem;
-  min-height: 2.5rem;
-  min-width: 6.5rem;
-  padding: 0 1rem;
-  position: relative;
-  flex-shrink: 0;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.375rem;
-  text-align: center;
-  white-space: nowrap;
-}
-
 @media #{$mobile} {
   .wrapper {
-    background-color: #fafafa;
+    background-color: #f7f7f7;
     max-width: 100%;
     min-width: unset;
     width: 100%;
@@ -150,41 +75,5 @@
 
   .content {
     padding: 0 1rem;
-  }
-
-  .buttonGroup {
-    flex-direction: column;
-    max-height: none;
-    min-height: unset;
-    gap: 0.5rem;
-    padding: 1rem;
-  }
-
-  .buttonGroupInner {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-  }
-
-  .primaryButton {
-    height: 3rem;
-    max-height: 3rem;
-    min-height: 3rem;
-    min-width: 6rem;
-    padding: 0 1.5rem;
-    width: 100%;
-  }
-
-  .secondaryButton {
-    height: 3rem;
-    max-height: 3rem;
-    min-height: 3rem;
-    min-width: 6rem;
-    padding: 0 1.5rem;
-    width: 100%;
-  }
-
-  .nestedContent {
-    height: 5.25rem;
   }
 }
