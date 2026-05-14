@@ -9,6 +9,9 @@ const meta = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    viewport: {
+      defaultViewport: "reset",
+    },
   },
 } satisfies Meta<typeof EmptyState>;
 
@@ -21,14 +24,8 @@ export const Default: Story = {
     image: <EmptyState1 />,
     title: "Título",
     description: "Descripción de máximo 2 líneas",
-    primaryAction: { label: "Acción principal" },
-  },
-};
-
-export const WithSecondaryAction: Story = {
-  args: {
-    ...Default.args,
-    secondaryAction: { label: "Acción secundaria" },
+    primaryAction: { text: "Acción principal" },
+    secondaryAction: { text: "Acción secundaria" },
   },
 };
 
@@ -39,23 +36,44 @@ export const WithoutDescription: Story = {
   },
 };
 
-export const WithoutActions: Story = {
+export const WithoutImage: Story = {
   args: {
-    title: "Título",
-    description: "Descripción de máximo 2 líneas",
+    ...Default.args,
+    image: undefined,
   },
 };
 
 export const SectionType: Story = {
   args: {
     ...Default.args,
+    primaryAction: { text: "Acción principal" },
     type: "section",
   },
 };
 
-export const NoImage: Story = {
+export const SectionTypeWithSecondaryAction: Story = {
   args: {
     ...Default.args,
-    image: undefined,
+    type: "section",
+    primaryAction: { text: "Acción principal" },
+    secondaryAction: { text: "Acción secundaria" },
+  },
+};
+
+export const Mobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: "mobile1",
+    },
+  },
+  args: {
+    ...Default.args,
+  },
+};
+
+export const Custom: Story = {
+  args: {
+    ...Default.args,
+    className: "custom-empty-state",
   },
 };
