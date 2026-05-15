@@ -6,7 +6,6 @@ import { ReactComponent as InfoIcon } from "../../assets/images/ui/icons/ui-icon
 import { ReactComponent as ErrorIcon } from "../../assets/images/ui/icons/ui-icon-error.svg";
 import { ReactComponent as WarnIcon } from "../../assets/images/ui/icons/ui-icon-warn.svg";
 import { ReactComponent as ChevronDown } from "../../assets/images/ui/icons/ui-icon-chevron-down.svg";
-import { ReactComponent as ChevronUp } from "../../assets/images/ui/icons/ui-icon-chevron-up.svg";
 
 import { AlertProps } from "./types";
 
@@ -24,6 +23,7 @@ const Alert = ({
 }: AlertProps) => {
   const {
     container,
+    iconWrapper,
     iconStyle,
     infoBackground,
     warnBackground,
@@ -31,6 +31,7 @@ const Alert = ({
     clickable,
     summary,
     chevron,
+    chevronOpen,
     linkText,
     dataContainer,
     titleText,
@@ -40,28 +41,25 @@ const Alert = ({
   const alertVariants = {
     INFO: {
       icon: (
-        <InfoIcon
-          className={iconStyle}
-          style={title ? { top: "0.25rem" } : {}}
-        />
+        <div className={iconWrapper}>
+          <InfoIcon className={iconStyle} />
+        </div>
       ),
       background: infoBackground,
     },
     WARN: {
       icon: (
-        <WarnIcon
-          className={iconStyle}
-          style={title ? { top: "0.25rem" } : {}}
-        />
+        <div className={iconWrapper}>
+          <WarnIcon className={iconStyle} />
+        </div>
       ),
       background: warnBackground,
     },
     ERROR: {
       icon: (
-        <ErrorIcon
-          className={iconStyle}
-          style={title ? { top: "0.25rem" } : {}}
-        />
+        <div className={iconWrapper}>
+          <ErrorIcon className={iconStyle} />
+        </div>
       ),
       background: errorBackground,
     },
@@ -84,12 +82,12 @@ const Alert = ({
               {children}
             </p>
             <div className="flex items-center gap-1">
-              <p className={linkText}>{isDetailsOpen ? "Ver menos" : "Ver más"}</p>
-              {isDetailsOpen ? (
-                <ChevronUp className={chevron} />
-              ) : (
-                <ChevronDown className={chevron} />
-              )}
+              <p className={linkText}>
+                {isDetailsOpen ? "Ver menos" : "Ver más"}
+              </p>
+              <ChevronDown
+                className={`${chevron} ${isDetailsOpen ? chevronOpen : ""}`}
+              />
             </div>
           </div>
         ) : (
