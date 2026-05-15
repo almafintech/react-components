@@ -64,7 +64,7 @@ const Summary = ({ items, total, className }: SummaryProps) => {
   return (
     <div className={`${container} ${className ?? ""}`}>
       {items.map((item, index) => (
-        <SummaryRow key={index} {...item} />
+        <SummaryRow key={index} {...item} isTotal={items.length === 1 && !total} />
       ))}
       {total && (
         <>
