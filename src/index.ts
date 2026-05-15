@@ -16,6 +16,7 @@ export * from "./LoadingDots";
 export * from "./LoadingCircle";
 export * from "./Modal";
 export * from "./RoundedButton";
+export * from "./Sidebar";
 export * from "./Skeleton";
 export * from "./Table";
 export * from "./ToastMessage";
