@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import LoadingDots from "../LoadingDots/LoadingDots";
 
 const meta = {
-  title: "Components/LoadingDots",
+  title: "Feedback & Status/Loading Dots",
   component: LoadingDots,
   parameters: {
     layout: "centered",

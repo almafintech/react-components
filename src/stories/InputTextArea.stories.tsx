@@ -4,7 +4,7 @@ import InputTextArea from "../InputTextArea/InputTextArea";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/InputTextArea",
+  title: "Data Entry/Input Text Area",
   component: InputTextArea,
   parameters: {
     layout: "centered",

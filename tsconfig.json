@@ -44,5 +44,9 @@
     "**/*.svg",
     "src/stories"
   ],
-  "include": ["src/**/*", "src/styles", "src/stories"]
+  "include": ["src/**/*", "src/styles", "src/stories"],
+  "paths": {
+    "@arrows/*": ["./assets/icons/arrows/*"],
+    "@icons/*": ["./assets/icons/*"]
+  }
 }

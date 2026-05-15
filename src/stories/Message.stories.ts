@@ -3,7 +3,7 @@ import Message from "../Message/Message";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/Message",
+  title: "Feedback & Status/Message",
   component: Message,
   parameters: {
     layout: "centered",
@@ -33,29 +33,5 @@ export const successMessage: Story = {
   args: {
     message: "This is a success message",
     variant: "success",
-  },
-};
-
-export const infoMessageWithBymaTheme: Story = {
-  args: {
-    message: "This is a info message",
-    variant: "info",
-    theme: "byma",
-  },
-};
-
-export const errorMessageWithBymaTheme: Story = {
-  args: {
-    message: "This is a error message",
-    variant: "error",
-    theme: "byma",
-  },
-};
-
-export const successMessageWithBymaTheme: Story = {
-  args: {
-    message: "This is a success message",
-    variant: "success",
-    theme: "byma",
   },
 };

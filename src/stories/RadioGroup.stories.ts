@@ -3,7 +3,7 @@ import RadioGroup from "../RadioGroup/RadioGroup";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/RadioGroup",
+  title: "Data Entry/Radio Group",
   component: RadioGroup,
   parameters: {
     layout: "centered",

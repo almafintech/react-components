@@ -124,3 +124,6 @@ $byma-white: var(--byma-white, #ffffff);
 //CUSTOM
 $byma-primary-default-light: var(--byma-primary-default-light, #e8f7f8);
 $byma-primary-default-dark: var(--byma-primary-default-dark, #007a7c);
+
+$mobile: "screen and (max-width: 768px)";
+$tablet: "screen and (max-width: 1024px)";

@@ -9,7 +9,7 @@ import {
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/InputSelect",
+  title: "Data Entry/Input Select",
   component: InputSelect,
   parameters: {
     layout: "centered",

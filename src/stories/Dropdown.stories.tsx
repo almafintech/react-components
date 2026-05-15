@@ -4,7 +4,7 @@ import { Button } from "../Button";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Components/Dropdown",
+  title: "Navigation/Dropdown",
   component: Dropdown,
   parameters: {
     layout: "centered",
