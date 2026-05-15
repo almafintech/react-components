@@ -5,6 +5,7 @@ export * from "./Button";
 export * from "./ButtonGroup";
 export * from "./Checkbox";
 export * from "./ControlledRadio";
+export * from "./Data";
 export * from "./DatePicker";
 export * from "./Dropdown";
 export * from "./Header";
