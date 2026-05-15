@@ -25,6 +25,7 @@ export * from "./Tooltip";
 export * from "./InputTextArea";
 export * from "./RadioGroup";
 export * from "./Message";
+export * from "./Summary";
 export * from "./Switch";
 export * from "./Tabs";
 export * from "./ThemeProvider";
