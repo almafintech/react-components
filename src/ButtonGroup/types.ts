@@ -3,11 +3,11 @@ import { ButtonProps } from "../Button/types";
 
 export interface ButtonGroupProps {
   /** Props for an optional primary (main) action button. */
-  primary?: ButtonProps;
+  primary?: Omit<ButtonProps, "variant">;
   /** Props for an optional the secondary action button. */
-  secondary?: ButtonProps;
+  secondary?: Omit<ButtonProps, "variant">;
   /** Props for an optional tertiary action button */
-  tertiary?: ButtonProps;
+  tertiary?: Omit<ButtonProps, "variant">;
   /** Wraps the group in a styled container. */
   container?: boolean;
   /** Additional actions rendered inside a dropdown or overflow menu. */
