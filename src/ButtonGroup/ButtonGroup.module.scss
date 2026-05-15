@@ -1,0 +1,75 @@
+@import "../styles/variables.scss";
+
+@mixin layout-vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@mixin invert-order {
+  flex-direction: row-reverse;
+
+  &.layoutVertical {
+    flex-direction: column-reverse;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  width: 100%;
+}
+
+.visibleContainer {
+  position: relative;
+  background-color: $white;
+  border-top: 1px solid $primary-light-100;
+}
+
+.elevation {
+  box-shadow: 0px 0px 20px 0px rgba(0, 56, 129, 0.08);
+}
+
+.mainButtonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.alignLeft {
+  justify-content: flex-start;
+}
+.alignCenter {
+  justify-content: center;
+}
+.alignRight {
+  justify-content: flex-end;
+}
+
+.layoutVertical {
+  @include layout-vertical;
+}
+
+.moreOptionsContainer {
+  flex: 1;
+  min-width: 0;
+}
+
+.moreOptionsEnd {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.invertOrder {
+  @include invert-order;
+}
+
+@media #{$mobile} {
+  .mainButtonsContainer {
+    gap: 0.5rem;
+    @include invert-order;
+    flex-direction: column-reverse;
+  }
+}

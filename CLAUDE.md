@@ -30,6 +30,13 @@ Component library for Allaria React projects.
   - `utils.ts` — local helpers (when needed)
 - Styling: SCSS modules. CSS custom properties (`var(--token-name)`) for theme tokens.
 
+## Storybook conventions
+- Each component must have autodocs enabled (`tags: ['autodocs']` in the default export meta)
+- Every prop must have at least one dedicated story demonstrating it
+- Every component must have its styles destructured
+
 ## Radix UI usage
-- Install primitives individually: `@radix-ui/react-<primitive>`
-- Radix provides unstyled, accessible behavior — apply project styles on top
+- Use **primitives only** (`@radix-ui/react-<primitive>`). Do **not** install or import `@radix-ui/themes` — we ship our own styles via SCSS modules.
+- Install primitives individually as needed (e.g. `@radix-ui/react-dropdown-menu`, `@radix-ui/react-dialog`).
+- Radix primitives provide unstyled, accessible behavior — apply project styles on top.
+- **Do not use NextUI / HeroUI.** These libraries are being removed — existing components that still depend on them will be migrated to Radix incrementally. Never reach for `@nextui-org/*` or `@heroui/*` in new code, even if the package is still in `package.json`.

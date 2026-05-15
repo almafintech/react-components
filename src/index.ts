@@ -2,10 +2,12 @@ import "./styles/global.scss";
 
 export * from "./Alert";
 export * from "./Button";
+export * from "./ButtonGroup";
 export * from "./Checkbox";
 export * from "./ControlledRadio";
 export * from "./DatePicker";
 export * from "./Dropdown";
+export * from "./Header";
 export * from "./Input";
 export * from "./InputFile";
 export * from "./InputPhone";

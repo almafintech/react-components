@@ -1,5 +1,8 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -65,6 +68,13 @@ const config: StorybookConfig = {
       use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       include: path?.resolve(__dirname, "../"),
     });
+
+    config.resolve = config.resolve ?? {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@arrows": path.resolve(__dirname, "../assets/icons/arrows"),
+      "@icons": path.resolve(__dirname, "../assets/icons"),
+    };
 
     return config;
   },
