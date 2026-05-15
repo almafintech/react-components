@@ -154,7 +154,6 @@ const DatePicker = (props: DatePickerProps) => {
         className={`${footerClassName} flex gap-3 flex-wrap w-full justify-evenly`}
       >
         <Button
-          theme={isBymaTheme ? "byma" : undefined}
           text="Aplicar"
           variant="primary"
           isDisabled={!isRangeFinal(range)}
@@ -163,7 +162,6 @@ const DatePicker = (props: DatePickerProps) => {
 
         {defaultCalendarVariant !== "DATE" && (
           <Button
-            theme={isBymaTheme ? "byma" : undefined}
             text="Borrar"
             variant="tertiary"
             onClick={() => {
