@@ -8,7 +8,7 @@ export interface SummaryItem {
   /**
    * Value displayed on the right side of the row
    */
-  value: number | string;
+  value: number | string | ReactNode;
   /**
    * Optional node rendered at the end of the label (e.g. an info icon with a tooltip)
    */
