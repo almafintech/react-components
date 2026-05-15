@@ -301,7 +301,6 @@ const TokenCard = forwardRef(
           )}
           {children && (
             <Alert
-              theme={theme}
               className={childrenAlert}
               children={children}
               variant="INFO"

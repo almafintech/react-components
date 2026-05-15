@@ -3,35 +3,27 @@ import { useState } from "react";
 import styles from "./Alert.module.scss";
 
 import { ReactComponent as InfoIcon } from "../../assets/images/ui/icons/ui-icon-info.svg";
-import { ReactComponent as InfoIconByma } from "../../assets/images/ui/icons/ui-icon-info-byma.svg";
-
 import { ReactComponent as ErrorIcon } from "../../assets/images/ui/icons/ui-icon-error.svg";
-import { ReactComponent as ErrorIconByma } from "../../assets/images/ui/icons/ui-icon-error-byma.svg";
-
 import { ReactComponent as WarnIcon } from "../../assets/images/ui/icons/ui-icon-warn.svg";
-import { ReactComponent as WarnIconByma } from "../../assets/images/ui/icons/ui-icon-warn-byma.svg";
-
 import { ReactComponent as ChevronDown } from "../../assets/images/ui/icons/ui-icon-chevron-down.svg";
-import { ReactComponent as ChevronDownByma } from "../../assets/images/ui/icons/ui-icon-chevron-down-byma.svg";
-
-import { ReactComponent as ChevronUp } from "../../assets/images/ui/icons/ui-icon-chevron-up.svg";
-import { ReactComponent as ChevronUpByma } from "../../assets/images/ui/icons/ui-icon-chevron-up-byma.svg";
 
 import { AlertProps } from "./types";
-import { isByma } from "../utils";
 
 /**
  * Display brief messages for the user without interruptions
  */
 const Alert = ({
+  title,
   children,
-  variant,
+  variant = "INFO",
   className,
   hasSummary,
-  theme,
+  link,
+  description,
 }: AlertProps) => {
   const {
     container,
+    iconWrapper,
     iconStyle,
     infoBackground,
     warnBackground,
@@ -39,32 +31,35 @@ const Alert = ({
     clickable,
     summary,
     chevron,
+    chevronOpen,
+    linkText,
+    dataContainer,
+    titleText,
+    descriptionText,
   } = styles;
-
-  const isBymaTheme = isByma(theme);
 
   const alertVariants = {
     INFO: {
-      icon: isBymaTheme ? (
-        <InfoIconByma className={iconStyle} />
-      ) : (
-        <InfoIcon className={iconStyle} />
+      icon: (
+        <div className={iconWrapper}>
+          <InfoIcon className={iconStyle} />
+        </div>
       ),
       background: infoBackground,
     },
     WARN: {
-      icon: isBymaTheme ? (
-        <WarnIconByma className={iconStyle} />
-      ) : (
-        <WarnIcon className={iconStyle} />
+      icon: (
+        <div className={iconWrapper}>
+          <WarnIcon className={iconStyle} />
+        </div>
       ),
       background: warnBackground,
     },
     ERROR: {
-      icon: isBymaTheme ? (
-        <ErrorIconByma className={iconStyle} />
-      ) : (
-        <ErrorIcon className={iconStyle} />
+      icon: (
+        <div className={iconWrapper}>
+          <ErrorIcon className={iconStyle} />
+        </div>
       ),
       background: errorBackground,
     },
@@ -74,28 +69,55 @@ const Alert = ({
 
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
+  if (children)
+    return (
+      <div
+        className={`${container} ${background} ${hasSummary && clickable} ${className ?? ""}`}
+        onClick={() => setIsDetailsOpen(!isDetailsOpen)}
+      >
+        {icon}
+        {hasSummary ? (
+          <div>
+            <p className={`${!isDetailsOpen ? summary : ""} flex-1`}>
+              {children}
+            </p>
+            <div className="flex items-center gap-1">
+              <p className={linkText}>
+                {isDetailsOpen ? "Ver menos" : "Ver más"}
+              </p>
+              <ChevronDown
+                className={`${chevron} ${isDetailsOpen ? chevronOpen : ""}`}
+              />
+            </div>
+          </div>
+        ) : (
+          <p>{children}</p>
+        )}
+      </div>
+    );
+
   return (
     <div
-      className={`${isBymaTheme ? "byma" : ""} ${container} ${background} ${hasSummary && clickable} ${
-        className ?? ""
-      }`}
+      className={`${container} ${background} ${hasSummary && clickable} ${className ?? ""}`}
       onClick={() => setIsDetailsOpen(!isDetailsOpen)}
     >
-      {icon}
-      {hasSummary ? (
-        <div className="flex w-full justify-between items-start gap-4">
-          <p className={`${!isDetailsOpen ? summary : ""} flex-1`}>{children}</p>
-          <div>
-            {isDetailsOpen ? (
-              isBymaTheme ? <ChevronUpByma className={chevron} /> : <ChevronUp className={chevron} />
-            ) : (
-              isBymaTheme ? <ChevronDownByma className={chevron} /> : <ChevronDown className={chevron} />
-            )}
-          </div>
+      <div className="flex gap-4">
+        {icon}
+        <div className={dataContainer}>
+          {title && <p className={titleText}>{title}</p>}
+          {description && <p className={descriptionText}>{description}</p>}
+          {link && (
+            <a
+              className={linkText}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.text}
+            </a>
+          )}
         </div>
-      ) : (
-        <p>{children}</p>
-      )}
+      </div>
     </div>
   );
 };

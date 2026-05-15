@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Alert from "../Alert/Alert";
 
 const meta = {
-  title: "Feedback & Status/Alert",
+  title: "Feedback & Status/Alert (Message Box)",
   component: Alert,
   parameters: {
     layout: "centered",
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Info: Story = {
   args: {
-    children: "Este es un mensaje de información",
+    description: "Este es un mensaje de información",
     variant: "INFO",
     hasSummary: false,
   },
@@ -24,7 +24,7 @@ export const Info: Story = {
 
 export const Warn: Story = {
   args: {
-    children: "Este es un mensaje de advertencia",
+    description: "Este es un mensaje de advertencia",
     variant: "WARN",
     hasSummary: false,
   },
@@ -32,13 +32,33 @@ export const Warn: Story = {
 
 export const Error: Story = {
   args: {
-    children: "Este es un mensaje de error",
+    description: "Este es un mensaje de error",
     variant: "ERROR",
     hasSummary: false,
   },
 };
 
-export const WithSummary: Story = {
+export const Title: Story = {
+  args: {
+    variant: "INFO",
+    hasSummary: false,
+    title: "Agregá hasta 3 personas",
+    description: 
+      "Cada persona recibirá un mail para finalizar el proceso de apertura",
+  },
+};
+
+export const Link: Story = {
+  args: {
+    ...Title.args,
+    link: {
+      text: "Conocé más sobre el proceso",
+      url: "https://youtube.com/watch?v=dQw4w9WgXcQ&themeRefresh=1",
+    },
+  },
+};
+
+export const Summary: Story = {
   args: {
     children: (
       // "Agregá hasta 3 personas. Cada persona recibirá un mail para finalizar el proceso de apertura de la cuenta. Recordá: Cada mail que ingreses se vinculará permanentemente al cotitular correspondiente. Aconsejamos que sean correos personales y con acceso directo, ya que no podrán desvincularse."
@@ -65,7 +85,7 @@ export const WithSummary: Story = {
   },
 };
 
-export const WithCustomStyles: Story = {
+export const Custom: Story = {
   args: {
     children: "Este es un mensaje especial",
     variant: "INFO",
