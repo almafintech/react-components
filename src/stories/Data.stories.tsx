@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { ReactComponent as CopyIcon } from "../../assets/images/ui/icons/ui-icon-copy.svg";
+import { ReactComponent as InfoIcon } from "../../assets/images/ui/icons/ui-icon-info.svg";
 import { Data } from "../Data";
 
 const meta = {
@@ -44,7 +46,43 @@ export const Stacked: Story = {
   },
 };
 
-export const StackedFull: Story = {
+export const StackedWithLeadingIcon: Story = {
+  args: {
+    variant: "stacked",
+    label: "Estado",
+    value: "Acreditado",
+    leadingIcon: { icon: <InfoIcon width={8} height={8} /> },
+  },
+};
+
+export const StackedWithTrailingIcon: Story = {
+  args: {
+    variant: "stacked",
+    label: "CBU",
+    value: "Numero de cuenta",
+    secondaryValue: "Banco Nación",
+    trailingIcon: {
+      icon: <CopyIcon />,
+      onClick: () => {},
+    },
+  },
+};
+
+export const StackedWithBothIcons: Story = {
+  args: {
+    variant: "stacked",
+    label: "Estado",
+    value: "Acreditado",
+    leadingIcon: { icon: <InfoIcon width={8} height={8} /> },
+    trailingIcon: {
+      icon: <CopyIcon />,
+      onClick: () => {},
+    },
+    secondaryValue: "Segundo nivel de información",
+  },
+};
+
+export const StackedWithAction: Story = {
   args: {
     variant: "stacked",
     label: "Label",
