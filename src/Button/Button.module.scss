@@ -21,10 +21,15 @@
   min-width: 6.5rem;
   cursor: pointer;
   white-space: nowrap;
+  outline: none;
   transition:
     background-color 0.15s ease,
     color 0.15s ease,
     border-color 0.15s ease;
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 .contentContainer {
@@ -49,6 +54,15 @@
 
 .menuButton {
   gap: 0.5rem;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+
+  &.chevronOpen {
+    transform: rotate(180deg);
+  }
 }
 
 .largeButton {
@@ -97,6 +111,9 @@
 // Tertiary variant
 .tertiary {
   @extend .button;
+  min-width: 0;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
   color: $primary-normal-300;
 
   &:hover:not(:disabled) {

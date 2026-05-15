@@ -7,6 +7,9 @@ const meta = {
   component: Button,
   parameters: {
     layout: "centered",
+    viewport: {
+      defaultViewport: "reset",
+    },
   },
   args: {
     onClick: fn(),
@@ -124,5 +127,17 @@ export const Custom: Story = {
     ...Primary.args,
     className:
       "bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg",
+  },
+};
+
+export const Mobile: Story = {
+  args: {
+    ...Primary.args,
+  },
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "mobile1",
+    },
   },
 };

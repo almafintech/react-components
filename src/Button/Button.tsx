@@ -4,7 +4,7 @@ import styles from "./Button.module.scss";
 import { LoadingDots } from "../LoadingDots";
 import { ButtonProps } from "./types";
 import { colors } from "../styles/variables";
-import { ReactComponent as Chevron } from "@arrows/chevron-white-down.svg";
+import { ReactComponent as Chevron } from "@arrows/chevron-down.svg";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -35,6 +35,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       menuButton,
       dropdownContent,
       dropdownItem,
+      chevron: chevronClass,
+      chevronOpen,
     } = styles;
     const { white, primary300 } = colors;
 
@@ -64,18 +66,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {leadingIcon}
         <p>{text}</p>
         {trailingIcon}
-        {menu && !trailingIcon && <Chevron />}
+        {menu && !trailingIcon && <Chevron className={`${chevronClass}${open ? ` ${chevronOpen}` : ""}`} />}
       </div>
     );
 
     if (menu?.length) {
       return (
-        <DropdownMenu.Root open={open} onOpenChange={setOpen}>
+        <DropdownMenu.Root open={open} onOpenChange={(next) => { if (!isDisabled) setOpen(next); }}>
           <DropdownMenu.Trigger asChild>
             <button
               {...rest}
               ref={ref}
-              disabled={isDisabled || isLoading}
+              disabled={isDisabled}
               aria-busy={isLoading}
               className={buttonStyles}
             >
@@ -107,7 +109,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         {...rest}
         ref={ref}
-        disabled={isDisabled || isLoading}
+        disabled={isDisabled}
         aria-busy={isLoading}
         aria-haspopup={menu ? "menu" : undefined}
         className={buttonStyles}
