@@ -18,6 +18,10 @@ export interface SummaryItem {
    * shown next to the label and the row becomes a toggle.
    */
   subItems?: SummaryItem[];
+  /**
+   * Additional CSS class applied to the row element
+   */
+  className?: string;
 }
 
 export interface SummaryProps {

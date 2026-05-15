@@ -8,6 +8,7 @@ const SummaryRow = ({
   value,
   labelEndContent,
   subItems,
+  className,
   isTotal = false,
   isSubItem = false,
 }: SummaryItem & { isTotal?: boolean; isSubItem?: boolean }) => {
@@ -24,12 +25,13 @@ const SummaryRow = ({
     chevron,
     value: valueClass,
     totalValue,
+    subItemValue,
   } = styles;
 
   return (
     <>
       <div
-        className={`${row} ${hasSubItems ? expandable : ""} ${isSubItem ? subItemClass : ""}`}
+        className={`${row} ${hasSubItems ? expandable : ""} ${isSubItem ? subItemClass : ""} ${className ?? ""}`}
         onClick={hasSubItems ? () => setIsOpen((prev) => !prev) : undefined}
         role={hasSubItems ? "button" : undefined}
         aria-expanded={hasSubItems ? isOpen : undefined}
@@ -43,7 +45,7 @@ const SummaryRow = ({
             />
           )}
         </div>
-        <span className={`${valueClass} ${isTotal ? totalValue : ""}`}>
+        <span className={`${valueClass} ${isTotal ? totalValue : ""} ${isSubItem ? subItemValue : ""}`}>
           {value}
         </span>
       </div>
