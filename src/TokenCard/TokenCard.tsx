@@ -236,12 +236,7 @@ const TokenCard = forwardRef(
           )}
         </div>
         <ToastMessage
-          theme={theme}
           messageId="tokenModal"
-          limit={1}
-          closeButton={false}
-          closeOnClick={false}
-          draggable={false}
           className={toastMessage}
         />
 

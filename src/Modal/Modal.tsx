@@ -30,7 +30,6 @@ const Modal = ({
       <ModalContent style={width ? { minWidth: width } : {}}>
         <ToastMessage
           messageId="modalAlert"
-          position="top-center"
           className={modalAlert}
         />
         {header && <ModalHeader>{header}</ModalHeader>}

@@ -105,10 +105,10 @@
     "@internationalized/date": "3.7.0",
     "@lottiefiles/react-lottie-player": "3.5.4",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-toast": "^1.2.15",
     "file-saver": "2.0.5",
     "react-countdown-now": "2.1.2",
     "react-phone-input-2": "2.15.1",
-    "react-toastify": "10.0.5",
     "uuid": "9.0.1"
   },
   "publishConfig": {
