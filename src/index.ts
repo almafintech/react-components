@@ -15,6 +15,7 @@ export * from "./InputSelect";
 export * from "./LoadingDots";
 export * from "./LoadingCircle";
 export * from "./Modal";
+export * from "./Navbar";
 export * from "./RoundedButton";
 export * from "./Skeleton";
 export * from "./Table";
