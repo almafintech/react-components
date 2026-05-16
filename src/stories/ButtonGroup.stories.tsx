@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta } from "@storybook/react";
 import { ButtonGroup } from "../ButtonGroup";
 import { Button } from "../Button";
@@ -90,9 +91,18 @@ export const Mobile = {
   },
   parameters: {
     viewport: {
+      layout: "fullscreen",
       defaultViewport: "mobile1",
     },
   },
+  render: (args: React.ComponentProps<typeof ButtonGroup>) => (
+    <>
+      <style>{`.sb-show-main.sb-main-centered #storybook-root { padding: 0; }`}</style>
+      <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "flex-end", width: "100vw" }}>
+        <ButtonGroup {...args} />
+      </div>
+    </>
+  ),
 };
 
 export const CustomContainer = {
