@@ -20,7 +20,7 @@ const meta = {
       style={{
         width: 600,
         height: 200,
-        border: "1px solid aliceblue",
+        backgroundColor: "ghostwhite",
         borderRadius: 16,
         display: "flex",
         alignItems: "center",

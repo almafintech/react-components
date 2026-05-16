@@ -19,6 +19,22 @@ const meta = {
     items: DEFAULT_ITEMS,
     total: { label: "Total estimado", value: "$54.670,00" },
   },
+  render: (args) => (
+    <div
+      style={{
+        width: 800,
+        minHeight: 300,
+        backgroundColor: "ghostwhite",
+        borderRadius: 16,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "40px 150px",
+      }}
+    >
+      <Summary {...args} />
+    </div>
+  ),
   tags: ["autodocs"],
 } satisfies Meta<typeof Summary>;
 
