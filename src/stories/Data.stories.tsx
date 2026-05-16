@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as CopyIcon } from "../../assets/images/ui/icons/ui-icon-copy.svg";
 import { ReactComponent as InfoIcon } from "../../assets/images/ui/icons/ui-icon-info.svg";
 import { Data } from "../Data";
+import { Tag } from "../Tag";
 
 const meta = {
   title: "Data Display/Data",
@@ -14,6 +15,22 @@ const meta = {
     value: "$54.670,00",
   },
   tags: ["autodocs"],
+  render: (args) => (
+    <div
+      style={{
+        width: 600,
+        height: 200,
+        border: "1px solid aliceblue",
+        borderRadius: 16,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 100,
+      }}
+    >
+      <Data {...args} />
+    </div>
+  ),
 } satisfies Meta<typeof Data>;
 
 export default meta;
@@ -82,6 +99,15 @@ export const StackedWithBothIcons: Story = {
   },
 };
 
+export const StackedWithEndContent: Story = {
+  args: {
+    variant: "stacked",
+    label: "Estado",
+    value: "Acreditado",
+    endContent: <Tag label="Activo" variant="success" />,
+  },
+};
+
 export const StackedWithAction: Story = {
   args: {
     variant: "stacked",
@@ -91,6 +117,6 @@ export const StackedWithAction: Story = {
     action: {
       text: "Acción",
       onClick: () => alert("Acción ejecutada"),
-    }
+    },
   },
 };

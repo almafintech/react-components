@@ -38,9 +38,9 @@ export interface DataProps {
    */
   trailingIcon?: DataIcon;
   /**
-   * (stacked only) Tag element rendered at the far right of the first line
+   * (stacked only) Content rendered at the far right of the first line (e.g. a Tag)
    */
-  tag?: ReactNode;
+  endContent?: ReactNode;
   /**
    * (stacked only) Secondary line of text shown below the primary value
    */

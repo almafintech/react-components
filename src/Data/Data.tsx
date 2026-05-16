@@ -10,7 +10,7 @@ const DataStacked = ({
   value,
   leadingIcon,
   trailingIcon,
-  tag,
+  endContent,
   secondaryValue,
   action,
   className,
@@ -55,12 +55,12 @@ const DataStacked = ({
             </span>
           )}
         </div>
-        {tag}
+        {endContent}
       </div>
       {secondaryValue && (
         <span className={stackedSecondaryValue}>{secondaryValue}</span>
       )}
-      {action && <Button variant="tertiary" {...action} />}
+      {action && <Button variant="tertiary" className="!w-fit !px-0" {...action} />}
     </div>
   );
 };
@@ -92,7 +92,7 @@ const DataInline = ({
   } = styles;
 
   return (
-    <>
+    <div className="flex flex-col gap-2 w-full">
       <div
         className={`${row} ${hasSubItems ? expandable : ""} ${_isSubItem ? subItemClass : ""} ${className ?? ""}`}
         onClick={hasSubItems ? () => setIsOpen((prev) => !prev) : undefined}
@@ -119,7 +119,7 @@ const DataInline = ({
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
