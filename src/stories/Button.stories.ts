@@ -7,6 +7,9 @@ const meta = {
   component: Button,
   parameters: {
     layout: "centered",
+    viewport: {
+      defaultViewport: "reset",
+    },
   },
   args: {
     onClick: fn(),
@@ -19,7 +22,7 @@ const meta = {
       },
     },
     size: {
-      options: ["desktop", "mobile"],
+      options: ["small", "medium", "large"],
       control: {
         type: "select",
       },
@@ -30,10 +33,7 @@ const meta = {
     isLoading: {
       control: "boolean",
     },
-    disableAnimation: {
-      control: "boolean",
-    },
-    disableRipple: {
+    menu: {
       control: "boolean",
     },
   },
@@ -48,11 +48,7 @@ export const Primary: Story = {
   args: {
     variant: "primary",
     text: "Click",
-    size: "desktop",
-    isDisabled: false,
-    isLoading: false,
-    disableAnimation: true,
-    disableRipple: true,
+    size: "medium",
   },
 };
 
@@ -70,34 +66,63 @@ export const Tertiary: Story = {
   },
 };
 
-export const Desktop: Story = {
+export const Menu: Story = {
   args: {
     ...Primary.args,
+    menu: [{ label: "Opción 1" }, { label: "Opción 2" }, { label: "Opción 3" }],
   },
 };
 
-export const Mobile: Story = {
+export const LeadingIcon: Story = {
   args: {
     ...Primary.args,
-    size: "mobile",
+    leadingIcon: "🚀",
   },
 };
 
-export const IsLoading: Story = {
+export const TrailingIcon: Story = {
+  args: {
+    ...Primary.args,
+    trailingIcon: "➡️",
+  },
+};
+
+export const Small: Story = {
+  args: {
+    ...Primary.args,
+    size: "small",
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    ...Primary.args,
+    size: "medium",
+  },
+};
+
+export const Large: Story = {
+  args: {
+    ...Primary.args,
+    size: "large",
+  },
+};
+
+export const loading: Story = {
   args: {
     ...Primary.args,
     isLoading: true,
   },
 };
 
-export const IsDisabled: Story = {
+export const disabled: Story = {
   args: {
     ...Primary.args,
     isDisabled: true,
   },
 };
 
-export const WithCustomStyles: Story = {
+export const Custom: Story = {
   args: {
     ...Primary.args,
     className:
@@ -105,9 +130,14 @@ export const WithCustomStyles: Story = {
   },
 };
 
-export const WithBymaTheme: Story = {
+export const Mobile: Story = {
   args: {
     ...Primary.args,
-    theme: "byma",
+  },
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "mobile1",
+    },
   },
 };
