@@ -28,6 +28,7 @@ export * from "./RadioGroup";
 export * from "./Message";
 export * from "./Switch";
 export * from "./Tabs";
+export * from "./Tag";
 export * from "./ThemeProvider";
 
 export type Theme = "byma";
