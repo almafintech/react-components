@@ -5,6 +5,7 @@ export * from "./Button";
 export * from "./ButtonGroup";
 export * from "./Checkbox";
 export * from "./ControlledRadio";
+export * from "./Data";
 export * from "./DatePicker";
 export * from "./Dropdown";
 export * from "./Header";
@@ -25,8 +26,10 @@ export * from "./Tooltip";
 export * from "./InputTextArea";
 export * from "./RadioGroup";
 export * from "./Message";
+export * from "./Summary";
 export * from "./Switch";
 export * from "./Tabs";
+export * from "./Tag";
 export * from "./ThemeProvider";
 
 export type Theme = "byma";
